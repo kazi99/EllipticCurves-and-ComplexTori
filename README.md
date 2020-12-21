@@ -1,1 +1,1 @@
-# EllipticCurves-and-ComplexTori
+# Eliptične krivulje in kompleksni torusi
