@@ -6,22 +6,22 @@
 % \documentclass[isrm2]{fmfdelo}
 
 % naslednje ukaze ustrezno napolnite
-\avtor{Ime Priimek}
+\avtor{Izak Jenko}
 
-\naslov{Naslov dela}
-\title{Angleški prevod slovenskega naslova dela}
+\naslov{Kompleksni torusi in eliptične krivulje}
+\title{Complex tori and elliptic curves}
 
 % navedite ime mentorja s polnim nazivom: doc.~dr.~Ime Priimek,
 % izr.~prof.~dr.~Ime Priimek, prof.~dr.~Ime Priimek
 % uporabite le tisti ukaz/ukaze, ki je/so za vas ustrezni
-\mentor{}
+\mentor{izr.~prof.~dr.~Sašo Strle}
 % \mentorica{}
 % \somentor{}
 % \somentorica{}
 % \mentorja{}{}
 % \mentorici{}{}
 
-\letnica{} % leto diplome
+\letnica{2021} % leto diplome
 
 %  V povzetku na kratko opišite vsebinske rezultate dela. Sem ne sodi razlaga organizacije dela --
 %  v katerem poglavju/razdelku je kaj, pač pa le opis vsebine.
@@ -40,6 +40,7 @@
 
 % aktivirajte pakete, ki jih potrebujete
 % \usepackage{tikz}
+\usepackage{bm}
 
 % za številske množice uporabite naslednje simbole
 \newcommand{\R}{\mathbb R}
@@ -56,26 +57,139 @@
 
 \begin{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%% 1. UVOD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Uvod}
 
-\section{Algebraične krivulje}
-\subsection{Afine algebraične krivulje}
+Matematike pogosto zanimajo rešitve različnih enačb. Obstoj rešitev, kakšne lastnosti imajo in
+kako se obnašajo pod raznimi transformacijami. Osrednja tema moje naloge bo preučiti in ustvariti
+geometrijsko predstavo množice ničel kompleksnega polinoma tretje stopnje posebne oblike. 
+To množico ničel si lahko predstavljamo kot realno ploskev in ji pravimo eliptična krivulja.   
+Zgodovinsko je eliptična krivulja množica ničel enačbe
+$$ y^2 = x^3 + ax + b. $$
+V tem delu pa se bomo ukvarjali z nekoliko prilagojeno -- projektivno -- obliko te enačbe. Množicam ničel
+polinomov več spremenljivk pravimo \emph{algebraične krivulje} in z njimi bomo začeli v poglavju \ref{algebraicne krivulje}. 
+\par 
+Pri iskanju rešitev
+polinomskih enačb, se razmeroma hitro porodi vprašanje, iz katerega ambientnega prosotra 
+sploh sprejmemo veljavne rešitve. Spomnimo se fundametalnega izreka algebre, ki pravi, da ima
+vsak nekonstanten polinom s kompleksnimi koeficienti ničlo v polju kompleksnih števil, med tem
+ko brez težav poiščemo realne polinome, ki realnih ničel nimajo. Podobno situacijo imamo tukaj. 
+Eliptične krivulje se namreč da študirati nad mnogo različnimi polji. Nad končnimi polji igrajo
+eliptične kriulje pomembno vlogo v kriprografiji, nad racionalnimi števili v algebraični teoriji
+števil, mi pa jih bomo v tem delu gledali nad poljem kompleksnih števil. 
+\par
+V primeru obravnave nad poljem kompleksnih števil eliptične
+krivulje naravno pridobijo dodatno kompleksno stukturo in na ta način postanejo t.i.\ \emph{Riemannove ploskve}. Ta struktura nam omogoča analizo holomorfnih funkcij na prostorih, ki niso nujno domene v kompleksni ravnini in jo
+bomo bolj podrobno preiskali v poglavju \ref{riemannove ploskve}. V nadaljevanju bomo videli, da tudi torus premore strukturo Riemannove ploskve in ga bomo skupaj s to strukturo imenovali kompleksni torus. Izkaže se, da je kompleksni
+torus najbolj smiselna domena dvojno periodičnih oz. eliptičnih funkcij. Lastnosti in obnašanje eliptičnih funkcij si bomo ogledali v poglavju \ref{elipticne funkcije}, klučno vlogo pa bo igrala prav posebna Weierstrassova eliptična funkcija $\wp$. Ta nam bo nazadnje v poglavju \ref{poglavje izomorfizem} omogočila konstrukcijo preslikave, ki bo pokazala, da sta kompleksni torus in eliptična krivulja v nekem smislu enaka matematična objekta.
+
+Vredno je še opomniti, da eliptične krivulje in področja v katerih se uporabljajo 
+nimajo več vsebinsko praktično nič opravka z elipsami. 
+Izkazalo se je, da so inverzi funkcij s katermi računamo dolžine lokov elips, dvojno periodični oz. eliptični,
+če jih gledamo kot funkcije kompleksne spremenljivk. Te dvojno periodične funkcije pa so tesno povezane z enačbo,
+ki ji zadoščajo eliptične krivulje in se bomo k njim vrnili v poglavju \ref{elipticne funkcije}.
+
+%%%%%%%%%%%%%%%%%%%%%% 2. ALGEBRAIČNE KRIVULJE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Algebraične krivulje} \label{algebraicne krivulje}
+Algebraične krivulje so množice ničel polinomov nad različnimi polji. V tem poglavju bomo začeli 
+z afinimi
+algebraičnimi krivuljami, ki jih v nadaljevanju sicer ne bomo direktno potrebovali, bodo pa igrale pomembno
+vlogo pri razumevanju projektivnih algebraičnih krivulj, ki jih bomo vpeljali takoj za tem. 
+Zaradi namenov tega dela, algebraičnih krivulj ne bomo obravnavali nad povsem splošnimi polji, pač pa se
+bomo omejili na polje kompleksnih števil, ki ga bomo označevali s $\C$. V smislu enodimenzionalnega kompleksnega prostora, bomo množici kompleksnih števil pravili tudi kompleksna premica.
+
+%%%%% Afine algebraične krivulje %%%%%
+
+\subsection{Afine algebraične krivulje} 
+Naj $\C[x_1, \dots x_n]$ označuje kolobar polinomov $n$ spremenljivk s
+kompleksnimi koeficienti. Množica ničel poljubnega polinoma $f \in \C[x_1, \dots x_n]$ je
+$$ V(f) = \{p \in \C^n \mid f(p) = 0 \} \subseteq \C^n.$$
+
+\begin{definicija}
+Množica $C \subseteq \C^2$ je \emph{afina algebraična krivulja}, če obstaja tak polinom $f \in \C[x,y]$ stopnje vsaj $1$, da je
+\begin{equation*}
+    C = V(f).
+\end{equation*}
+\end{definicija}
+
+Afine algebraične krivulje si lahko predstavljamo, kot nekaj podobnega ploskvam v prostoru $\R^4$, če naredimo identifikacijo $\C \equiv \R^2$. Dve kompleksni spremenljivki polinoma lahko zamenjamo s štirimi realnimi, prav tako pa tedaj tudi polinomska enačba $f(x,y) = 0$ razpade na dve realni. To sta
+\begin{equation*}
+    \Re f(x_1 + ix_2, y_1 + iy_2) = 0 \quad \text{in} \quad \Im f(x_1 + ix_2, y_1 + iy_2) = 0,
+\end{equation*}
+kjer so $x_1, x_2, y_1, y_2 \in \R$ realne spremenljivke.
+Pogoji, ki jim zadoščajo točke na afini algebraični krivulji $C \subseteq \R^4$, so zelo podobni tistim, ki definirajo gladke pod\-mnogoterosti z glavno razliko, da gradienti teh definicijskih funkcij niso nujno (realno) linearno neodvisni. To bi bilo na $C$ razvidno kot samopresečišča ali osti, ki pa jih podmnogoterosti seveda nimajo. 
+\par
+V ta namen bi radi definirali singularne točke na afini algebraični krivulji $C = V(f)$ kot rešitve sistema enačb $\nabla f(x_0, y_0) = 0$, $f(x_0, y_0) = 0$. Toda ta definicija zaenkrat ni dobra, saj polinom $f \in \C[x,y]$ ni enolično določen s krivuljo $C$. Zato najprej uvedemo pojem minimalnega polinoma krivulje $C$.
+
+% V definiciji, bi radi uporabili polinom $f \in \C[x,y]$, katerega množica ničel je krivulja $C$, toda ta poliom s krivuljo ni enolično določen zato najprej uvedimo pojem minimalnega polinoma krivulje $C$.
+\begin{primer}
+   demonstracija zakaj je pomembno uvesti minimalni polinom.
+\end{primer}
+
+\begin{definicija}
+Naj bo $C$ afina algebraična krivulja. \emph{Minimalni polinom} krivulje $C$ je polinom $f \in C[x,y]$ najmanjše stopnje, za katerega velja $V(f) = C$.
+\end{definicija}
+
+S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in regularne točke na njej.
+
+\begin{definicija}
+    Naj bo $C$ afina algebraična krivulja in $f \in \C[x,y]$ njen minimalni polinom. Točka $(x_0, y_0) \in C$ je \emph{regularna}, če velja
+    $$\frac{\partial f}{\partial x}(x_0, y_0) \neq 0 \quad \text{ ali } \quad \frac{\partial f}{\partial y}(x_0, y_0) \neq 0,$$ 
+    in \emph{singularna} sicer.
+\end{definicija}
+
+To nam omogoči formulirati prvo opazko.
+
+\begin{trditev}
+Vsaka afina algebraična krivulja $C \subseteq \C^2$ brez singularnih točk je z identifikacijo $\C^2 \equiv \R^4$ gladka $2$-podmnogoterost oz. ploskev.
+\end{trditev}
+
+\begin{dokaz}
+    pozneje.
+\end{dokaz}
+
+Ta trditev pove katere od afinih algebraičnih krivulj ne le lokalno v okolici regularnih točk izgledajo kot ploskve, temveč tudi so zares ploskve. 
+\par
+Na tem mestu se pojavi manjša nejasnost, zakaj afine algebraične krivulje poimenovati ravno \emph{krivulje}. V kontekstu realnih podmnogoterosti se sprva to poimenovanje res zdi malce neusklajeno, toda v okviru kompleksnih dimenzij ta terminologija postane smiselna. Če v definiciji podmnogoterosti namreč samo zamenjamo polje realnih števil s $\C$ se povedano bistveno ne spremeni. Še vedno ohranimo dejstvo, da število "linearno neodvisnih" enačb ustreza kodimenziji podmnogoterosti in analogno tudi dimenzija podmnogoterosti ustreza razliki (kompleksne) dimenzije ambientnega prostora in kodimenzije. V tem smislu so potem ti objekti, ki jih realno vidimo kot ploskve, zares tudi kompleksne $1$-podmnogoterosti oziroma krivulje.
+
+% \begin{opomba}
+% Poimenovati te objekte ravno krivulje, se morda v tem kontekstu na prvi pogled zdi malce neusklajeno z našo predstavo iz realnih evlidskih prostorov. Toda, ker jih obravnavamo v smislu kompleksnih dimenzij 
+% \end{opomba}
+ 
+%%%%% Projektivne algebraične krivulje %%%%%
+
 \subsection{Projektivne algebraične krivulje}
+
+V tem razdelku bomo algebraične krivulje krivulje obravnavali še v projektivnem smislu. Definirali bomo kompleksno projektivno ravnino in krivulje na njej. Vpeljavo projektivne ravnine opravičujemo z mnogimi lepimi lastnostmi v povezavi s presečišči krivulj v njej, pa tudi z raznimi bolj topološkimi razlogi, kot so na primer kompaktnost algebraičnih krivulj.
+
+Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti. Glavna ideja za konstrukcijo 
+\begin{definicija}
+\emph{Kompleksen projektiven prostor} dimenzije $n$, je 
+\begin{equation*}
+    P^n(\C) = (\C^{n+1} \setminus \{\bm0 \}) / \langle v \sim \lambda v; \lambda \in \C^{\times} \rangle
+    %/ \langle v \sym \lambda v; \lambda \in \C^{\times}
+\end{equation*}
+\end{definicija}
+
+
+
 \subsection{Nesingularne kubike}
 \break
 
-\section{Eliptične funkcije}
+\section{Eliptične funkcije} \label{elipticne funkcije}
 \subsection{Lastnosti eliptičnih funkcij}
 \subsection{Weierstrassova funkcija $\wp$}
 \break
 
-\section{Riemannove ploskve}
+\section{Riemannove ploskve} \label{riemannove ploskve}
 \subsection{Definicija in lastnosti}
 \subsection{Kompleksna struktura na eliptični krivulji}
 \subsection{Kompleksna struktura na torusu}
 \break
 
-\section{Izomorfizem \texorpdfstring{$\C/\Lambda \to E(\C)$}{} in njegove posledice}
+\section{Izomorfizem \texorpdfstring{$\C/\Lambda \to E(\C)$}{} in njegove posledice} \label{poglavje izomorfizem}
 \break
 
 \section*{Slovar strokovnih izrazov}
