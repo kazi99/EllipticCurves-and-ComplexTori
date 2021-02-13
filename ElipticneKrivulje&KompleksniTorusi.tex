@@ -51,9 +51,32 @@
 \newcommand{\CM}{\mathbb C ^\times}
 \newcommand{\PC}{P^2(\mathbb C)}
 \newcommand{\Q}{\mathbb Q}
+\newcommand{\RS}{\widehat{\C}}
+\newcommand{\Cxyz}{\C[x,y,z]}
+
+\newcommand{\pcoor}[1]{%
+  \begingroup\lccode`~=`: \lowercase{\endgroup
+  \edef~}{\mathbin{\mathchar\the\mathcode`:}\nobreak}%
+  [% opening symbol
+  \begingroup
+  \mathcode`:=\string"8000
+  #1%
+  \endgroup
+  ]% closing symbol
+}
+
+\newcommand{\pdv}[2][]{\frac{\partial#1}{\partial#2}}
+
+\newcommand{\kom}[1]{
+    \textcolor{RoyalBlue}{//#1}
+}
+
 
 % matematične operatorje deklarirajte kot take, da jih bo Latex pravilno stavil
 % \DeclareMathOperator{\conv}{conv}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Aut}{Aut}
 
 % vstavite svoje definicije ...
 %  \newcommand{}{}
@@ -78,7 +101,7 @@ polinomov več spremenljivk pravimo \emph{algebraične krivulje} in z njimi bomo
 \par 
 Pri iskanju rešitev
 polinomskih enačb, se razmeroma hitro porodi vprašanje, iz katerega ambientnega prosotra 
-sploh sprejmemo veljavne rešitve. Spomnimo se fundametalnega izreka algebre, ki pravi, da ima
+sploh sprejemamo veljavne rešitve. Spomnimo se fundametalnega izreka algebre, ki pravi, da ima
 vsak nekonstanten polinom s kompleksnimi koeficienti ničlo v polju kompleksnih števil, med tem
 ko brez težav poiščemo realne polinome, ki realnih ničel nimajo. Podobno situacijo imamo tukaj. 
 Eliptične krivulje se namreč da študirati nad mnogo različnimi polji. Nad končnimi polji igrajo
@@ -93,7 +116,7 @@ torus najbolj smiselna domena dvojno periodičnih oz. eliptičnih funkcij. Lastn
 Vredno je še opomniti, da eliptične krivulje in področja v katerih se uporabljajo 
 nimajo več vsebinsko praktično nič opravka z elipsami. 
 Izkazalo se je, da so inverzi funkcij s katermi računamo dolžine lokov elips, dvojno periodični oz. eliptični,
-če jih gledamo kot funkcije kompleksne spremenljivk. Te dvojno periodične funkcije pa so tesno povezane z enačbo,
+če jih gledamo kot funkcije kompleksne spremenljivke. Te dvojno periodične funkcije pa so tesno povezane z enačbo,
 ki ji zadoščajo eliptične krivulje in se bomo k njim vrnili v poglavju \ref{elipticne funkcije}.
 
 %%%%%%%%%%%%%%%%%%%%%% 2. ALGEBRAIČNE KRIVULJE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -131,25 +154,29 @@ V ta namen bi radi definirali singularne točke na afini algebraični krivulji $
 
 % V definiciji, bi radi uporabili polinom $f \in \C[x,y]$, katerega množica ničel je krivulja $C$, toda ta poliom s krivuljo ni enolično določen zato najprej uvedimo pojem minimalnega polinoma krivulje $C$.
 \begin{primer*}
-   demonstracija zakaj je pomembno uvesti minimalni polinom.
+   //demonstracija zakaj je pomembno uvesti minimalni polinom.
 \end{primer*}
 
 \begin{definicija}
     Naj bo $C$ afina algebraična krivulja. \emph{Minimalni polinom} krivulje $C$ je polinom $f \in C[x,y]$ najmanjše stopnje, za katerega velja $V(f) = C$.
 \end{definicija}
 
+\begin{opomba}
+    Če je $f$ minimalni polinom krivulje $C$, je to tudi $\alpha f$ za $\alpha in \CM$, saj je $V(f) = V(\alpha f)$. Minimalni polinomi afine algebraične krivulje se tako lahko razlikujejo za neničelno skalarno konstanto.
+\end{opomba}
+
 S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in regularne točke na njej.
 
 \begin{definicija}
     Naj bo $C$ afina algebraična krivulja in $f \in \C[x,y]$ njen minimalni polinom. Točka $(x_0, y_0) \in C$ je \emph{regularna}, če velja
     $$\frac{\partial f}{\partial x}(x_0, y_0) \neq 0 \quad \text{ ali } \quad \frac{\partial f}{\partial y}(x_0, y_0) \neq 0,$$ 
-    in \emph{singularna} sicer.
+    in \emph{singularna} sicer. Pravimo, da je afina algebraična krivulja \emph{singularna}, če vsebuje kakšno singularno točko, in je \emph{nesingularna} sicer.
 \end{definicija}
 
 To nam omogoči formulirati prvo opazko.
 
 \begin{trditev}
-    Vsaka afina algebraična krivulja $C \subseteq \C^2$ brez singularnih točk je z identifikacijo $\C^2 \equiv \R^4$ gladka $2$-podmnogoterost oz. ploskev.
+    Vsaka nesingularna afina algebraična krivulja $C \subseteq \C^2$ je z identifikacijo $\C^2 \equiv \R^4$ gladka $2$-podmnogoterost oz. ploskev.
 \end{trditev}
 
 \begin{dokaz}
@@ -158,7 +185,7 @@ To nam omogoči formulirati prvo opazko.
 
 Ta trditev pove katere od afinih algebraičnih krivulj ne le lokalno v okolici regularnih točk izgledajo kot ploskve, temveč tudi so zares ploskve. 
 \par
-Na tem mestu se pojavi manjša nejasnost, zakaj afine algebraične krivulje poimenovati ravno \emph{krivulje}. V kontekstu realnih podmnogoterosti se sprva to poimenovanje res zdi malce neusklajeno, toda v okviru kompleksnih dimenzij ta terminologija postane smiselna. Če v definiciji podmnogoterosti namreč samo zamenjamo polje realnih števil s $\C$ se povedano bistveno ne spremeni. Še vedno ohranimo dejstvo, da število "linearno neodvisnih" enačb ustreza kodimenziji podmnogoterosti in analogno tudi dimenzija podmnogoterosti ustreza razliki (kompleksne) dimenzije ambientnega prostora in kodimenzije. V tem smislu so potem ti objekti, ki jih realno vidimo kot ploskve, zares tudi kompleksne $1$-podmnogoterosti oziroma krivulje.
+Na tem mestu se pojavi manjša nejasnost, zakaj afine algebraične krivulje poimenovati ravno \emph{krivulje}. V kontekstu realnih podmnogoterosti se sprva to poimenovanje res zdi malce neusklajeno, toda v okviru kompleksnih dimenzij ta terminologija postane smiselna. Če v definiciji podmnogoterosti namreč zgolj zamenjamo polje realnih števil s $\C$ se povedano, bistveno ne spremeni. Še vedno ohranimo dejstvo, da število "linearno neodvisnih" enačb ustreza kodimenziji podmnogoterosti in analogno tudi dimenzija podmnogoterosti ustreza razliki (kompleksne) dimenzije ambientnega prostora in kodimenzije. V tem smislu so potem ti objekti, ki jih realno vidimo kot ploskve, zares tudi kompleksne $1$-podmnogoterosti oziroma krivulje.
 
 % \begin{opomba}
 % Poimenovati te objekte ravno krivulje, se morda v tem kontekstu na prvi pogled zdi malce neusklajeno z našo predstavo iz realnih evlidskih prostorov. Toda, ker jih obravnavamo v smislu kompleksnih dimenzij 
@@ -177,18 +204,18 @@ Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti. Glav
         P^n(\C) = (\C^{n+1} \setminus \{\bm0 \}) / \langle v \sim \lambda v; \lambda \in \C^{\times} \rangle.
     \end{equation*}
     Pri tem $\C^{\times}$ označuje multiplikativno grupo kompleksnih števil oz. $\C \setminus \{0 \}$. 
-    \textcolor{RoyalBlue}{//mogoče dam to rajši samo v slovar.}
-    Pri tem bomo $\PC$ kot projektiven prostor dimenzije $2$ imenovali \emph{kompleksna projektivna ravnina}. Pridevnik kompleksna bomo v nadaljevanju pogosto izpustili.
+    \kom{mogoče dam to rajši samo v slovar.}
+    Pri tem bomo $\PC$ -- kot projektiven prostor dimenzije $2$ -- imenovali \emph{kompleksna projektivna ravnina}. Pridevnik kompleksna bomo v nadaljevanju pogosto izpustili.
 \end{definicija}
 
 \begin{primer*}
     Kompleksen projektiven prostor dimenzije $1$ smo že srečali. To je \emph{Riemannova sfera} $\widehat{\C} = P^1(\C)$. Včasih jo bomo poimenovali tudi (kompleksna) projektivna premica.
 \end{primer*}
 
-Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prosotora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s t.i.\ homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{\bm0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim \in P^n(\C)$ kar v homogenih koordinatah zapišemo z
-    $$[x]_\sim = [x_0 : \dots : x_n]$$
+Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov v $\C^n$. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prosotora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s t.i.\ homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{\bm0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim \in P^n(\C)$ kar v homogenih koordinatah zapišemo z
+    $$[x]_\sim = \pcoor{x_0 : \dots : x_n}$$
 in zanje velja
-    $$[x_0: \dots: x_n] = [\lambda x_0: \dots: \lambda x_n]$$
+    $$[x_0: \dots: x_n] = \pcoor{\lambda x_0: \dots: \lambda x_n}$$
 za poljuben $\lambda \in \CM$.
 
 \begin{komentar}
@@ -200,18 +227,82 @@ za poljuben $\lambda \in \CM$.
     \cite[Zgled 3.43. (2)]{MrcunTop}.
 \end{komentar}
 
-Za definicijo projektivnih algebraičnih krivulj potrebujemo  polinome, ki so usklajeni s homogenostjo koordinat na $\PC$. To so t.i.\ \emph{homogeni polinomi}. Polinom $f \in \C[x,y,z]$ stopnje $d = \deg f$ je homogen, če so vsi njegovi monomi stopnje $d$ oz. ekvivalentno, če za vsak $\lambda \in \CM$ in vsak $(x,y,z) \in \C^3$ velja
-    $$ f(\lambda x, \lambda y, \lambda z) = \lambda^d f(x,y,z). $$
-Od tod opazimo tudi, da so homogeni polinomi dobro definirani kot funkcije na projektivni ravnini, saj je njihova vrednost zares odvisna od projektivne točke -- celotnega ekvivalečnega razreda in ne le od izbranega predstavnika.
+Za definicijo projektivnih algebraičnih krivulj potrebujemo  polinome, ki so usklajeni s homogenostjo koordinat na $\PC$. To so t.i.\ \emph{homogeni polinomi}. Polinom $F \in \C[x,y,z]$ stopnje $d = \deg F$ je homogen, če so vsi njegovi monomi stopnje $d$ oz. ekvivalentno, če za vsak $\lambda \in \CM$ in vsak $(x,y,z) \in \C^3$ velja
+    $$ F(\lambda x, \lambda y, \lambda z) = \lambda^d F(x,y,z). $$
+Od tod opazimo tudi, da so homogeni polinomi dobro definirani kot funkcije na projektivni ravnini, saj je njihova vrednost zares odvisna od projektivne točke -- celotnega ekvivalečnega razreda in ne le zgolj od izbranega predstavnika.
 
 Zdaj lahko definiramo projektivne algebraične krivulje. Definicija se pričakovano ne bo drastično razlikovala od definicije afinih algebraičnih krivulj.
 
 \begin{definicija}
-    Množica $C \subseteq \PC$ je \emph{projektivna algebraična krivulja}, če obstaja tak nekonstanten homogen polinom $f \in \C[x,y,z]$, da je
-        $$ C = V(f). $$
+    Množica $C \subseteq \PC$ je \emph{projektivna algebraična krivulja}, če obstaja tak nekonstanten homogen polinom $F \in \C[x,y,z]$, da je
+        $$ C = V(F). $$
 \end{definicija}
 
-Podobno kot v afinem primeru, želimo tudi tukaj govoriti o singularnih točkah na projektivnih krivuljah. Naj bo od tod dalje $f \in \C[x,y,z]$ homogeni polinom najnižje stopnje, da velja $V(f) = C$. 
+Podobno kot v afinem primeru, želimo tudi tukaj govoriti o singularnih točkah na projektivnih krivuljah. Naj bo od tod dalje $F \in \C[x,y,z]$ homogeni polinom najnižje stopnje, da velja $V(F) = C$.
+
+\begin{definicija}
+    Naj bo $C = V(F) \subseteq \PC$ projektivna algebraična krivulja. Točka $\pcoor{x_0:y_0:z_0} \in C$ je \emph{singularna}, če velja
+    $$ \pdv[F]{x}(x_0, y_0, z_0) = \pdv[F]{y}(x_0, y_0, z_0) = \pdv[F]{z}(x_0, y_0, z_0) = 0$$
+    in je \emph{regularna} sicer. Projektivna algebraična krivulja je \emph{singularna}, če vsebuje kakšno singularno točko, in je \emph{nesingularna} sicer.
+\end{definicija}
+
+Najprej se prepičamo, da so vsi parcialni odvodi homogenega polinoma spet homogeni polinomi. Res, odvod poljubnega monoma po kateri koli spremenljivki, je bodisi $0$ ali pa spet monom ene stopnje nižje. To nam zagotovi, da je definicija dobra.
+
+Vidimo torej, da so singularne točke ravno rešitve sistema $F = \pdv[F]{x}= \pdv[F]{y} = \pdv[F]{z} = 0$.
+Izkaže se, da je ena enačba tukaj odveč. To pove nasledja trditev imenovana \emph{Eulerjeva identiteta}.
+
+\begin{trditev}[Eulerjeva identiteta]
+    Naj bo $F \in \Cxyz$ homogen polinom stopnje $n$. Tedaj velja
+    $$ \pdv[F]{x}(x,y,z)x + \pdv[F]{y}(x,y,z)y + \pdv[F]{z}(x,y,z)z = nF(x,y,z). $$
+\end{trditev}
+
+\begin{dokaz}
+    Ker je polinom $F$ homogen, vemo, da velja 
+    $$ F(\lambda x, \lambda y, \lambda z) = \lambda^n F(x,y,z).$$
+    Če to enakost odvajamo po $\lambda$, dobimo
+    $$ \pdv[F]{x}(\lambda x,\lambda y,\lambda z)x + 
+    \pdv[F]{y}(\lambda x,\lambda y,\lambda z) y + 
+    \pdv[F]{z}(\lambda x,\lambda y,\lambda z) z = n\lambda^{n-1}F(x,y,z).$$
+    Nazadnje vstavimo $\lambda = 1$ in trditev sledi.
+\end{dokaz}
+
+Sedaj bi radi razvili način kako malce bolj ''generalno'' ločiti projektivne krivulje. Razlikovanje vseh krivulj želimo reducirati zgolj na različne geometrijske karakteristike in nekaj parametrov. 
+Projektivne krivulje bomo tako razlikovali do \emph{projektivne ekvivalence} natančno. 
+To nam bo v nadaljevanju omogočilo omejitev obravnave nesingularnih kubik na takšne, ki so podane s preprostejšimi polinomskimi enačbami.
+V ta namen najprej poglejmo, kaj so projektivne transformacije, ki nam bodo pomagale pri tem.
+
+\begin{definicija}
+    Naj bo $A \in \GL(3, \C)$ obrnljiva kompleksna $3 \times 3$ matrika. \emph{Projektivna transformacija} ali \emph{projektivnost} je preslikava
+        $$\Phi : \PC \to \PC,$$
+        $$\pcoor{x:y:z} \mapsto \pcoor{a_{11}x + a_{12}y + a_{13}z: a_{21}x + a_{22}y + a_{23}z: a_{31}x + a_{32}y + a_{33}z}.$$
+\end{definicija}
+
+\begin{opomba}
+    \begin{enumerate}
+        \item Analogno se lahko definira projektivne transformacije tudi na več razsežnih projektivnih prostorih. 
+        \item
+        S preslikavami te oblike na projektivni premici oz. Riemannovi sferi, smo se že srečali. Te so natanko \emph{Möbiusove} ali \emph{lomljene linearne preslikave}, ki tvorijo grupo automorfizmov Riemannove sfere.
+        $$\Aut(\RS) = \left\{ z \mapsto \frac{az + b}{cz +d} \mid a,b,c,d \in \C \text{ in }  ad - bc \neq 0 \right\}.$$
+        Preslikavo $z \mapsto \tfrac{az + b}{cx +d}$ lahko namreč identificiramo s preslikavo $\pcoor{x:y} \mapsto \pcoor{ax + by: cx + dy}$, kjer ima vlogo točke $\infty \in \RS$ projektivna točka $\pcoor{0:1}$.  
+    \end{enumerate}
+\end{opomba}
+
+Projektivne transformacije tvorijo grupo za kompozitum, ki jo označujemo z $\operatorname{PGL(3, \C)}$, posebaj je $\Aut(\RS) \cong \operatorname{PGL(2,\C)}$. Več o tem lahko bralec najde v \cite[Poglavje 11]{Gibson}.
+\kom{to lahko dokažem tudi kot trditev.}
+
+\begin{definicija}
+    Homogena polinoma $F,G \in \Cxyz$ sta \emph{projektivno ekvivalentna}, če obstajata taka projektivna transformacija $\Phi$ in $\lambda \in \CM$, da velja
+    $$ G = \lambda (F \circ \Phi). $$
+    Pravimo, da sta tedaj tudi krivulji $V(F)$ in $V(G)$ \emph{projektivno ekvivalentni}.
+\end{definicija}
+\kom{pri tej definiciji je mogoče malce nedoslednosti v zapisu $F \circ \Phi$...}
+
+Projektivno ekvivalenco dveh krivulj lahko interpretiramo možnost pretvorbe njunih minimalnih polinomov z uvedbo novih koordinat.
+
+\begin{primer*}
+    // demonstriram projektivno ekvivalenco
+\end{primer*}
+
 
 
 %%%%% Nesingularne kubike %%%%%%
@@ -225,7 +316,7 @@ Podobno kot v afinem primeru, želimo tudi tukaj govoriti o singularnih točkah 
 \break
 
 \section{Riemannove ploskve} \label{riemannove ploskve}
-\subsection{Definicija in lastnosti}
+\subsection{Definicije in lastnosti}
 \subsection{Kompleksna struktura na eliptični krivulji}
 \subsection{Kompleksna struktura na torusu}
 \break
@@ -251,6 +342,9 @@ Podobno kot v afinem primeru, želimo tudi tukaj govoriti o singularnih točkah 
 
     \bibitem{Stevenhagen}
         P.~Stevenhagen, \emph{Complex elliptic curves}, verzija 1.~10.~2013, [ogled 9.~2.~2021], dostopno na \url{http://www.julianlyczak.nl/teaching/EC2015-files/ec.pdf}.
+
+    \bibitem{Gibson}
+        C.~G.~Gibson, \emph{Elementary geometry of algebraic curves: An undergraduate introduction}, Cambridge University Press, Cambridge, 1998.
     
 \end{thebibliography}
 
