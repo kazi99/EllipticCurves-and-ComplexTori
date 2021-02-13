@@ -41,12 +41,15 @@
 % aktivirajte pakete, ki jih potrebujete
 % \usepackage{tikz}
 \usepackage{bm}
+\usepackage[dvipsnames]{xcolor}
 
-% za številske množice uporabite naslednje simbole
+
 \newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\C}{\mathbb C}
+\newcommand{\CM}{\mathbb C ^\times}
+\newcommand{\PC}{P^2(\mathbb C)}
 \newcommand{\Q}{\mathbb Q}
 
 % matematične operatorje deklarirajte kot take, da jih bo Latex pravilno stavil
@@ -54,6 +57,9 @@
 
 % vstavite svoje definicije ...
 %  \newcommand{}{}
+
+\theoremstyle{definition}
+\newenvironment{komentar}[1][Komentar]{\begin{proof}[#1]\let\qed\relax}{\end{proof}}
 
 \begin{document}
 
@@ -108,10 +114,10 @@ kompleksnimi koeficienti. Množica ničel poljubnega polinoma $f \in \C[x_1, \do
 $$ V(f) = \{p \in \C^n \mid f(p) = 0 \} \subseteq \C^n.$$
 
 \begin{definicija}
-Množica $C \subseteq \C^2$ je \emph{afina algebraična krivulja}, če obstaja tak polinom $f \in \C[x,y]$ stopnje vsaj $1$, da je
-\begin{equation*}
-    C = V(f).
-\end{equation*}
+    Množica $C \subseteq \C^2$ je \emph{afina algebraična krivulja}, če obstaja tak polinom $f \in \C[x,y]$ stopnje vsaj $1$, da je
+    \begin{equation*}
+        C = V(f).
+    \end{equation*}
 \end{definicija}
 
 Afine algebraične krivulje si lahko predstavljamo, kot nekaj podobnega ploskvam v prostoru $\R^4$, če naredimo identifikacijo $\C \equiv \R^2$. Dve kompleksni spremenljivki polinoma lahko zamenjamo s štirimi realnimi, prav tako pa tedaj tudi polinomska enačba $f(x,y) = 0$ razpade na dve realni. To sta
@@ -124,12 +130,12 @@ Pogoji, ki jim zadoščajo točke na afini algebraični krivulji $C \subseteq \R
 V ta namen bi radi definirali singularne točke na afini algebraični krivulji $C = V(f)$ kot rešitve sistema enačb $\nabla f(x_0, y_0) = 0$, $f(x_0, y_0) = 0$. Toda ta definicija zaenkrat ni dobra, saj polinom $f \in \C[x,y]$ ni enolično določen s krivuljo $C$. Zato najprej uvedemo pojem minimalnega polinoma krivulje $C$.
 
 % V definiciji, bi radi uporabili polinom $f \in \C[x,y]$, katerega množica ničel je krivulja $C$, toda ta poliom s krivuljo ni enolično določen zato najprej uvedimo pojem minimalnega polinoma krivulje $C$.
-\begin{primer}
+\begin{primer*}
    demonstracija zakaj je pomembno uvesti minimalni polinom.
-\end{primer}
+\end{primer*}
 
 \begin{definicija}
-Naj bo $C$ afina algebraična krivulja. \emph{Minimalni polinom} krivulje $C$ je polinom $f \in C[x,y]$ najmanjše stopnje, za katerega velja $V(f) = C$.
+    Naj bo $C$ afina algebraična krivulja. \emph{Minimalni polinom} krivulje $C$ je polinom $f \in C[x,y]$ najmanjše stopnje, za katerega velja $V(f) = C$.
 \end{definicija}
 
 S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in regularne točke na njej.
@@ -143,7 +149,7 @@ S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in r
 To nam omogoči formulirati prvo opazko.
 
 \begin{trditev}
-Vsaka afina algebraična krivulja $C \subseteq \C^2$ brez singularnih točk je z identifikacijo $\C^2 \equiv \R^4$ gladka $2$-podmnogoterost oz. ploskev.
+    Vsaka afina algebraična krivulja $C \subseteq \C^2$ brez singularnih točk je z identifikacijo $\C^2 \equiv \R^4$ gladka $2$-podmnogoterost oz. ploskev.
 \end{trditev}
 
 \begin{dokaz}
@@ -162,18 +168,53 @@ Na tem mestu se pojavi manjša nejasnost, zakaj afine algebraične krivulje poim
 
 \subsection{Projektivne algebraične krivulje}
 
-V tem razdelku bomo algebraične krivulje krivulje obravnavali še v projektivnem smislu. Definirali bomo kompleksno projektivno ravnino in krivulje na njej. Vpeljavo projektivne ravnine opravičujemo z mnogimi lepimi lastnostmi v povezavi s presečišči krivulj v njej, pa tudi z raznimi bolj topološkimi razlogi, kot so na primer kompaktnost algebraičnih krivulj.
+V tem razdelku bomo algebraične krivulje obravnavali še v projektivnem smislu. Definirali bomo kompleksno projektivno ravnino in krivulje na njej. Vpeljavo projektivne ravnine opravičujemo z mnogimi lepimi lastnostmi v povezavi s presečišči krivulj v njej, pa tudi z raznimi bolj topološkimi razlogi, kot so na primer kompaktnost algebraičnih krivulj.
 
 Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti. Glavna ideja za konstrukcijo 
 \begin{definicija}
-\emph{Kompleksen projektiven prostor} dimenzije $n$, je 
-\begin{equation*}
-    P^n(\C) = (\C^{n+1} \setminus \{\bm0 \}) / \langle v \sim \lambda v; \lambda \in \C^{\times} \rangle
-    %/ \langle v \sym \lambda v; \lambda \in \C^{\times}
-\end{equation*}
+    \emph{Kompleksen projektiven prostor} dimenzije $n$, je 
+    \begin{equation*}
+        P^n(\C) = (\C^{n+1} \setminus \{\bm0 \}) / \langle v \sim \lambda v; \lambda \in \C^{\times} \rangle.
+    \end{equation*}
+    Pri tem $\C^{\times}$ označuje multiplikativno grupo kompleksnih števil oz. $\C \setminus \{0 \}$. 
+    \textcolor{RoyalBlue}{//mogoče dam to rajši samo v slovar.}
+    Pri tem bomo $\PC$ kot projektiven prostor dimenzije $2$ imenovali \emph{kompleksna projektivna ravnina}. Pridevnik kompleksna bomo v nadaljevanju pogosto izpustili.
 \end{definicija}
 
+\begin{primer*}
+    Kompleksen projektiven prostor dimenzije $1$ smo že srečali. To je \emph{Riemannova sfera} $\widehat{\C} = P^1(\C)$. Včasih jo bomo poimenovali tudi (kompleksna) projektivna premica.
+\end{primer*}
 
+Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prosotora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s t.i.\ homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{\bm0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim \in P^n(\C)$ kar v homogenih koordinatah zapišemo z
+    $$[x]_\sim = [x_0 : \dots : x_n]$$
+in zanje velja
+    $$[x_0: \dots: x_n] = [\lambda x_0: \dots: \lambda x_n]$$
+za poljuben $\lambda \in \CM$.
+
+\begin{komentar}
+    Projektivne prostore lahko ekvivalentno definiramo tudi kot prostore orbit (desnega) delovanja krožnice $S^1 \subseteq \C$ s skalarnim množenjem na kompleksni enotski sferi 
+        $$S(\C^{n+1}) = \{v \in \C^{n+1} \mid \left\lVert v\right\rVert = 1\}.$$
+    Tedaj je
+        $$P^n(\C) = S(\C^{n+1})/S^1.$$
+    Ker je kompleksna enotska sfera $S(\C^{n+1})$ kompakten $2$-števen Hausdorffov prostor, je zaradi delovanja kompaktne krožnice $S^1$, tudi projektiven prostor $P^n(\C)$ kompakten $2$-števen in Hausdorffov. Podrobnosti o tem lahko bralec najde v 
+    \cite[Zgled 3.43. (2)]{MrcunTop}.
+\end{komentar}
+
+Za definicijo projektivnih algebraičnih krivulj potrebujemo  polinome, ki so usklajeni s homogenostjo koordinat na $\PC$. To so t.i.\ \emph{homogeni polinomi}. Polinom $f \in \C[x,y,z]$ stopnje $d = \deg f$ je homogen, če so vsi njegovi monomi stopnje $d$ oz. ekvivalentno, če za vsak $\lambda \in \CM$ in vsak $(x,y,z) \in \C^3$ velja
+    $$ f(\lambda x, \lambda y, \lambda z) = \lambda^d f(x,y,z). $$
+Od tod opazimo tudi, da so homogeni polinomi dobro definirani kot funkcije na projektivni ravnini, saj je njihova vrednost zares odvisna od projektivne točke -- celotnega ekvivalečnega razreda in ne le od izbranega predstavnika.
+
+Zdaj lahko definiramo projektivne algebraične krivulje. Definicija se pričakovano ne bo drastično razlikovala od definicije afinih algebraičnih krivulj.
+
+\begin{definicija}
+    Množica $C \subseteq \PC$ je \emph{projektivna algebraična krivulja}, če obstaja tak nekonstanten homogen polinom $f \in \C[x,y,z]$, da je
+        $$ C = V(f). $$
+\end{definicija}
+
+Podobno kot v afinem primeru, želimo tudi tukaj govoriti o singularnih točkah na projektivnih krivuljah. Naj bo od tod dalje $f \in \C[x,y,z]$ homogeni polinom najnižje stopnje, da velja $V(f) = C$. 
+
+
+%%%%% Nesingularne kubike %%%%%%
 
 \subsection{Nesingularne kubike}
 \break
@@ -190,6 +231,8 @@ Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti. Glav
 \break
 
 \section{Izomorfizem \texorpdfstring{$\C/\Lambda \to E(\C)$}{} in njegove posledice} \label{poglavje izomorfizem}
+
+
 \break
 
 \section*{Slovar strokovnih izrazov}
@@ -200,9 +243,15 @@ Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti. Glav
 % seznam uporabljene literature
 \begin{thebibliography}{99}
 
-%\bibitem{}
+    \bibitem{MrcunTop}
+        J.~Mrčun, \emph{Topologija}, Izbrana poglavja iz matematike in računalništva \textbf{44}, DMFA--založništvo, Ljubljana, 2008.
 
+    \bibitem{LangEllCurves}
+        S.~Lang, \emph{Elliptic functions}, Graduate Texts in Mathematics \textbf{112}, Springer-Verlag, New York, 1973.
+
+    \bibitem{Stevenhagen}
+        P.~Stevenhagen, \emph{Complex elliptic curves}, verzija 1.~10.~2013, [ogled 9.~2.~2021], dostopno na \url{http://www.julianlyczak.nl/teaching/EC2015-files/ec.pdf}.
+    
 \end{thebibliography}
 
 \end{document}
-
