@@ -273,8 +273,9 @@ V ta namen najprej poglejmo, kaj so projektivne transformacije, ki nam bodo poma
 
 \begin{definicija}
     Naj bo $A \in \GL(3, \C)$ obrnljiva kompleksna $3 \times 3$ matrika. \emph{Projektivna transformacija} ali \emph{projektivnost} je preslikava
-        $$\Phi : \PC \to \PC,$$
+        $$\Phi : \PC \to \PC$$
         $$\pcoor{x:y:z} \mapsto \pcoor{a_{11}x + a_{12}y + a_{13}z: a_{21}x + a_{22}y + a_{23}z: a_{31}x + a_{32}y + a_{33}z}.$$
+    Projektivnosti $\Phi$ asociiramo še linearno preslikavo $\mathcal{A}_{\Phi} : \C^3 \to \C^3$, ki predstavlja množenje z matirko $A$.
 \end{definicija}
 
 \begin{opomba}
@@ -283,26 +284,54 @@ V ta namen najprej poglejmo, kaj so projektivne transformacije, ki nam bodo poma
         \item
         S preslikavami te oblike na projektivni premici oz. Riemannovi sferi, smo se že srečali. Te so natanko \emph{Möbiusove} ali \emph{lomljene linearne preslikave}, ki tvorijo grupo automorfizmov Riemannove sfere.
         $$\Aut(\RS) = \left\{ z \mapsto \frac{az + b}{cz +d} \mid a,b,c,d \in \C \text{ in }  ad - bc \neq 0 \right\}.$$
-        Preslikavo $z \mapsto \tfrac{az + b}{cx +d}$ lahko namreč identificiramo s preslikavo $\pcoor{x:y} \mapsto \pcoor{ax + by: cx + dy}$, kjer ima vlogo točke $\infty \in \RS$ projektivna točka $\pcoor{0:1}$.  
+        Preslikavo $z \mapsto \tfrac{az + b}{cx +d}$ lahko namreč identificiramo s preslikavo $\pcoor{x:y} \mapsto \pcoor{ax + by: cx + dy}$, kjer ima vlogo točke $\infty \in \RS$ projektivna točka $\pcoor{0:1}$. 
+        \item
+        Če definiramo kvocientno projekcijo $\pi : \C^3 \setminus \{\bm0\} \to \PC$, ki točki $(x,y,z)$ priredi projektivno točko $\pcoor{x:y:z}$, potem velja 
+        $$\pi \circ \mathcal{A}_\Phi = \Phi \circ \pi.$$
     \end{enumerate}
 \end{opomba}
 
-Projektivne transformacije tvorijo grupo za kompozitum, ki jo označujemo z $\operatorname{PGL(3, \C)}$, posebaj je $\Aut(\RS) \cong \operatorname{PGL(2,\C)}$. Več o tem lahko bralec najde v \cite[Poglavje 11]{Gibson}.
-\kom{to lahko dokažem tudi kot trditev.}
+Projektivne transformacije tvorijo grupo za kompozitum, ki jo označujemo z $\operatorname{PGL(3, \C)} = \GL(3,\C)/\CM$, posebaj je $\Aut(\RS) \cong \operatorname{PGL(2,\C)}$. Več o tem lahko bralec najde v \cite[Poglavje 11]{Gibson}.
+\kom{mogoče bi bilo fino tudi to dokazati kot trditev.}
 
 \begin{definicija}
     Homogena polinoma $F,G \in \Cxyz$ sta \emph{projektivno ekvivalentna}, če obstajata taka projektivna transformacija $\Phi$ in $\lambda \in \CM$, da velja
-    $$ G = \lambda (F \circ \Phi). $$
-    Pravimo, da sta tedaj tudi krivulji $V(F)$ in $V(G)$ \emph{projektivno ekvivalentni}.
+    $$ G = \lambda (F \circ \mathcal{A}_\Phi). $$
+    Če sta $F$ in $G$ minimalna polinoma projektivnih krivulj $C = V(F)$ in $C' = V(G)$, pravimo, da sta krivulji $C$ in $C'$ \emph{projektivno ekvivalentni}, kadar sta njuna minimalna polinoma projektivno ekvivalentna.
 \end{definicija}
-\kom{pri tej definiciji je mogoče malce nedoslednosti v zapisu $F \circ \Phi$...}
+% \kom{pri tej definiciji je mogoče malce nedoslednosti v zapisu $F \circ \Phi$...}
 
-Projektivno ekvivalenco dveh krivulj lahko interpretiramo možnost pretvorbe njunih minimalnih polinomov z uvedbo novih koordinat.
+Projektivno ekvivalenco dveh krivulj lahko interpretiramo kot prehajanje med njunima minimalnima polinomoma z uvedbo novih spremenljivk.
 
 \begin{primer*}
     // demonstriram projektivno ekvivalenco
 \end{primer*}
 
+\begin{trditev}
+    Projektivna ekvivalenca je ekvivalenčna relacija na množici vseh projektivnih algebraičnih krivulj.
+\end{trditev}
+
+\begin{dokaz}
+    Naj bodo 
+\end{dokaz}
+
+Posebaj bo za nas pomembno, da je projektivna ekvivalenca ekvivalenčna relacija na množici nesingularnih kubik, kot bomo videli v nadaljevanju. 
+
+\begin{trditev}
+    Naj bosta $C, C' \subseteq \PC$ projektivno ekvivalentni krivulji. Tedaj je $C$ singularna natanko tedaj ko je $C'$ singularna. 
+\end{trditev}
+
+\begin{dokaz}
+    Če sta $F$ in $G$ minimalna polinoma krivulj $C$ oz.\ $C'$, zaradi projektivne ekvivalence obstajata projektivnost $\Phi$ in $\lambda \in \CM$, da je
+    $$ G = \lambda (F \circ \mathcal{A}_\Phi). $$
+    Če je $C$ nesingularna, je $\nabla F \neq 0$, torej je
+    $$ \nabla G(x,y,z) = \lambda \nabla F(\mathcal{A}_\Phi (x,y,z)) A \neq 0, $$
+    kjer je obrnljiva matrika $A$ konstantna Jakobijeva matrika linearne preslikave $\mathcal{A}_\Phi$.
+    
+    Obrat sledi popolnoma analogno.
+\end{dokaz}
+
+Z drugimi besedami ta trditev pove, da projektivna ekvivalenca ohranja singularnost -- nesingularnost krivulj. Izkaže se, da ohranja tudi mnoge druge pomembne geometrijske karakteristike, kot so tangente, prevoji, presečne večkratnosti, redi točk ipd., toda v tem delu o njih ne bomo podrobneje govorili. O tem lahko bralec več izve v \cite{Gibson}.
 
 
 %%%%% Nesingularne kubike %%%%%%
