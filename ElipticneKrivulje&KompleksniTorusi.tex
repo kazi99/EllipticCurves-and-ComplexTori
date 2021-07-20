@@ -42,7 +42,19 @@
 % \usepackage{tikz}
 \usepackage{bm}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{array}
+% \usepackage{physics}
 
+%%%
+
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture,baseline=(#1.base)]
+  \node (#1) {\strut};}
+
+%%%  
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -67,6 +79,8 @@
 
 \newcommand{\pdv}[2][]{\frac{\partial#1}{\partial#2}}
 
+\newcommand{\inv}{^{-1}}
+
 \newcommand{\kom}[1]{
     \textcolor{RoyalBlue}{//#1}
 }
@@ -77,6 +91,8 @@
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\rang}{rang}
+\DeclareMathOperator{\id}{id}
 
 % vstavite svoje definicije ...
 %  \newcommand{}{}
@@ -95,12 +111,14 @@ kako se obnašajo pod raznimi transformacijami. Osrednja tema moje naloge bo pre
 geometrijsko predstavo množice ničel kompleksnega polinoma tretje stopnje posebne oblike. 
 To množico ničel si lahko predstavljamo kot realno ploskev in ji pravimo eliptična krivulja.   
 Zgodovinsko je eliptična krivulja množica ničel enačbe
-$$ y^2 = x^3 + ax + b. $$
+\[
+    y^2 = x^3 + ax + b. 
+\]
 V tem delu pa se bomo ukvarjali z nekoliko prilagojeno -- projektivno -- obliko te enačbe. Množicam ničel
 polinomov več spremenljivk pravimo \emph{algebraične krivulje} in z njimi bomo začeli v poglavju \ref{algebraicne krivulje}. 
 \par 
 Pri iskanju rešitev
-polinomskih enačb, se razmeroma hitro porodi vprašanje, iz katerega ambientnega prosotra 
+polinomskih enačb se razmeroma hitro porodi vprašanje, iz katerega ambientnega prostora 
 sploh sprejemamo veljavne rešitve. Spomnimo se fundametalnega izreka algebre, ki pravi, da ima
 vsak nekonstanten polinom s kompleksnimi koeficienti ničlo v polju kompleksnih števil, med tem
 ko brez težav poiščemo realne polinome, ki realnih ničel nimajo. Podobno situacijo imamo tukaj. 
@@ -109,13 +127,13 @@ eliptične kriulje pomembno vlogo v kriprografiji, nad racionalnimi števili v a
 števil, mi pa jih bomo v tem delu gledali nad poljem kompleksnih števil. 
 \par
 V primeru obravnave nad poljem kompleksnih števil eliptične
-krivulje naravno pridobijo dodatno kompleksno stukturo in na ta način postanejo t.i.\ \emph{Riemannove ploskve}. Ta struktura nam omogoča analizo holomorfnih funkcij na prostorih, ki niso nujno domene v kompleksni ravnini in jo
+krivulje naravno pridobijo dodatno kompleksno stukturo in na ta način postanejo t.~i.\ \emph{Riemannove ploskve}. Ta struktura nam omogoča analizo holomorfnih funkcij na prostorih, ki niso nujno domene v kompleksni ravnini in jo
 bomo bolj podrobno preiskali v poglavju \ref{riemannove ploskve}. V nadaljevanju bomo videli, da tudi torus premore strukturo Riemannove ploskve in ga bomo skupaj s to strukturo imenovali kompleksni torus. Izkaže se, da je kompleksni
 torus najbolj smiselna domena dvojno periodičnih oz. eliptičnih funkcij. Lastnosti in obnašanje eliptičnih funkcij si bomo ogledali v poglavju \ref{elipticne funkcije}, klučno vlogo pa bo igrala prav posebna Weierstrassova eliptična funkcija $\wp$. Ta nam bo nazadnje v poglavju \ref{poglavje izomorfizem} omogočila konstrukcijo preslikave, ki bo pokazala, da sta kompleksni torus in eliptična krivulja v nekem smislu enaka matematična objekta.
 
-Vredno je še opomniti, da eliptične krivulje in področja v katerih se uporabljajo 
+Vredno je še opomniti, da eliptične krivulje in področja, v katerih se uporabljajo,
 nimajo več vsebinsko praktično nič opravka z elipsami. 
-Izkazalo se je, da so inverzi funkcij s katermi računamo dolžine lokov elips, dvojno periodični oz. eliptični,
+Izkazalo se je, da so inverzi funkcij, s katermi računamo dolžine lokov elips, dvojno periodični oz. eliptični,
 če jih gledamo kot funkcije kompleksne spremenljivke. Te dvojno periodične funkcije pa so tesno povezane z enačbo,
 ki ji zadoščajo eliptične krivulje in se bomo k njim vrnili v poglavju \ref{elipticne funkcije}.
 
@@ -127,65 +145,143 @@ z afinimi
 algebraičnimi krivuljami, ki jih v nadaljevanju sicer ne bomo direktno potrebovali, bodo pa igrale pomembno
 vlogo pri razumevanju projektivnih algebraičnih krivulj, ki jih bomo vpeljali takoj za tem. 
 Zaradi namenov tega dela, algebraičnih krivulj ne bomo obravnavali nad povsem splošnimi polji, pač pa se
-bomo omejili na polje kompleksnih števil, ki ga bomo označevali s $\C$. V smislu enodimenzionalnega kompleksnega prostora, bomo množici kompleksnih števil pravili tudi kompleksna premica.
+bomo omejili na polje kompleksnih števil, ki ga bomo označevali s $\C$. V smislu enodimenzionalnega kompleksnega prostora bomo množici kompleksnih števil pravili tudi kompleksna premica.
 
 %%%%% Afine algebraične krivulje %%%%%
 
 \subsection{Afine algebraične krivulje} 
-Naj $\C[x_1, \dots x_n]$ označuje kolobar polinomov $n$ spremenljivk s
-kompleksnimi koeficienti. Množica ničel poljubnega polinoma $f \in \C[x_1, \dots x_n]$ je
-$$ V(f) = \{p \in \C^n \mid f(p) = 0 \} \subseteq \C^n.$$
+Naj $\C[x_1, \dots, x_n]$ označuje kolobar polinomov $n$ spremenljivk s
+kompleksnimi koeficienti. Množica ničel poljubnega polinoma $f \in \C[x_1, \dots, x_n]$ je
+\[
+    V(f) = \{p \in \C^n \mid f(p) = 0 \} \subseteq \C^n.
+\] 
 
 \begin{definicija}
     Množica $C \subseteq \C^2$ je \emph{afina algebraična krivulja}, če obstaja tak polinom $f \in \C[x,y]$ stopnje vsaj $1$, da je
-    \begin{equation*}
+    \[
         C = V(f).
-    \end{equation*}
+    \]
 \end{definicija}
 
 Afine algebraične krivulje si lahko predstavljamo, kot nekaj podobnega ploskvam v prostoru $\R^4$, če naredimo identifikacijo $\C \equiv \R^2$. Dve kompleksni spremenljivki polinoma lahko zamenjamo s štirimi realnimi, prav tako pa tedaj tudi polinomska enačba $f(x,y) = 0$ razpade na dve realni. To sta
-\begin{equation*}
+\[
     \Re f(x_1 + ix_2, y_1 + iy_2) = 0 \quad \text{in} \quad \Im f(x_1 + ix_2, y_1 + iy_2) = 0,
-\end{equation*}
+\]
 kjer so $x_1, x_2, y_1, y_2 \in \R$ realne spremenljivke.
 Pogoji, ki jim zadoščajo točke na afini algebraični krivulji $C \subseteq \R^4$, so zelo podobni tistim, ki definirajo gladke pod\-mnogoterosti z glavno razliko, da gradienti teh definicijskih funkcij niso nujno (realno) linearno neodvisni. To bi bilo na $C$ razvidno kot samopresečišča ali osti, ki pa jih podmnogoterosti seveda nimajo. 
 \par
-V ta namen bi radi definirali singularne točke na afini algebraični krivulji $C = V(f)$ kot rešitve sistema enačb $\nabla f(x_0, y_0) = 0$, $f(x_0, y_0) = 0$. Toda ta definicija zaenkrat ni dobra, saj polinom $f \in \C[x,y]$ ni enolično določen s krivuljo $C$. Zato najprej uvedemo pojem minimalnega polinoma krivulje $C$.
-
-% V definiciji, bi radi uporabili polinom $f \in \C[x,y]$, katerega množica ničel je krivulja $C$, toda ta poliom s krivuljo ni enolično določen zato najprej uvedimo pojem minimalnega polinoma krivulje $C$.
-\begin{primer*}
-   //demonstracija zakaj je pomembno uvesti minimalni polinom.
-\end{primer*}
+V ta namen bi radi definirali singularne točke na afini algebraični krivulji $C = V(f)$ kot rešitve sistema enačb 
+\[ 
+    f_x(x_0, y_0) = 0, \quad f_y(x_0, y_0) = 0, \quad f(x_0, y_0) = 0.
+\]
+Toda ta definicija zaenkrat ni dobra, saj polinom $f \in \C[x,y]$ ni enolično določen s krivuljo $C$. 
+Zato uvedemo pojem minimalnega polinoma krivulje $C$.
 
 \begin{definicija}
     Naj bo $C$ afina algebraična krivulja. \emph{Minimalni polinom} krivulje $C$ je polinom $f \in C[x,y]$ najmanjše stopnje, za katerega velja $V(f) = C$.
 \end{definicija}
+% V definiciji, bi radi uporabili polinom $f \in \C[x,y]$, katerega množica ničel je krivulja $C$, toda ta poliom s krivuljo ni enolično določen zato najprej uvedimo pojem minimalnega polinoma krivulje $C$.
 
 \begin{opomba}
-    Če je $f$ minimalni polinom krivulje $C$, je to tudi $\alpha f$ za $\alpha in \CM$, saj je $V(f) = V(\alpha f)$. Minimalni polinomi afine algebraične krivulje se tako lahko razlikujejo za neničelno skalarno konstanto.
+    Če je $f$ minimalni polinom krivulje $C$, je to tudi $\alpha f$ za $\alpha \in \CM$, saj je $V(f) = V(\alpha f)$. Minimalni polinomi afine algebraične krivulje se tako lahko razlikujejo za neničelno konstanto.
 \end{opomba}
 
 S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in regularne točke na njej.
 
 \begin{definicija}
+    \label{reg sing tocke}
     Naj bo $C$ afina algebraična krivulja in $f \in \C[x,y]$ njen minimalni polinom. Točka $(x_0, y_0) \in C$ je \emph{regularna}, če velja
-    $$\frac{\partial f}{\partial x}(x_0, y_0) \neq 0 \quad \text{ ali } \quad \frac{\partial f}{\partial y}(x_0, y_0) \neq 0,$$ 
+    \[
+        \frac{\partial f}{\partial x}(x_0, y_0) \neq 0 \quad \text{ ali } \quad \frac{\partial f}{\partial y}(x_0, y_0) \neq 0,
+    \] 
     in \emph{singularna} sicer. Pravimo, da je afina algebraična krivulja \emph{singularna}, če vsebuje kakšno singularno točko, in je \emph{nesingularna} sicer.
 \end{definicija}
 
-To nam omogoči formulirati prvo opazko.
+\begin{primer*}
+    Naj bo $f(x,y) = x^2 + y^2 - 1$ in $g(x,y) = (x^2 + y^2 - 1)^2$. Jasno je $V(f) = V(g)$, kar pomeni, da $f$ in $g$ določata isto algebraično krivuljo -- kompleksno enotsko sfero $S(\C^2)$. Toda sistem 
+    \begin{equation}
+        \label{sistem f}
+        f_x(x,y) = 2x = 0, \quad f_y(x,y) = 2y = 0, \quad f(x,y) = 0
+    \end{equation}
+    nima nobene rešitve, sistem
+    \begin{align}
+        \label{sistem g}
+        g_x(x,y) = 4x(x^2 + y^2 - 1) &= 0, \nonumber \\ 
+        g_y(x,y) = 4y(x^2 + y^2 - 1) &= 0, \\
+        g(x,y) &= 0 \nonumber
+    \end{align}
+    pa jih ima veliko. Namreč vsaka rešitev enačbe $f(x,y) = x^2 + y^2 - 1 = 0$ reši sistem \ref{sistem g} od koder bi lahko napačno sklepali, da je vsaka točka krivulje $S(\C^2)$ singularna, saj $g$ ni minimalni polinom krivulje. Minimalni polinom opazovane krivulje je $f$ in iz sistema \ref{sistem f} vidimo, da je nesingularna.
+    
+\end{primer*}
+
+Definicija \ref{reg sing tocke} nam omogoči formulirati prvo opazko.
 
 \begin{trditev}
     Vsaka nesingularna afina algebraična krivulja $C \subseteq \C^2$ je z identifikacijo $\C^2 \equiv \R^4$ gladka $2$-podmnogoterost oz. ploskev.
 \end{trditev}
 
 \begin{dokaz}
-    pozneje.
+    Najprej se spomnimo definicije podmnogoterosti. Neprazna podmnožica $X \subseteq \R^{n+k}$ je \emph{$n$-podmnogoterost} razreda gladkosti $\mathcal{C}^r$, za $r \in \{0,1,\dots, \infty, \omega\}$, če za vsako točko $x_0 \in X$ obstaja okolica $U \subseteq \R^{n+k}$ točke $x_0$ in t.~i.\ definicijska funkcija $F: U \subseteq \R^{n+k} \to \R^k$ razreda $\mathcal{C}^r$ na $U$, da velja
+    \begin{enumerate}
+        \item $X \cap U = F^{-1}(\{0\}) = \{x \in U | F(x) = 0\}$ in
+        \item Jacobijeva matrika definicijske funkcije $F$ ima poln rang povsod na $X \cap U$ -- t.~j.\  $\rang JF(x) = k$ za vsak $x \in X \cap U$.
+    \end{enumerate}
+    Številu $n$ pravimo \emph{dimenzija} podmnogoterosti $X$, številu $k$ pa \emph{kodimenzija}.
+    \\
+    \par
+    Sedaj poglejmo, da je pri nesingularnih afinih krivuljah tej definiciji zadoščeno. Definicijsko funkcijo imamo tokrat podano kar globalno na celotnem $\R^4$. Njeno vlogo igra minimalni polinom $f \in \C[x,y]$, ki podaja krivuljo $C = V(f)$. Polinom $f$ namesto kot funkcijo dveh kompleksnih spremenljivk interpretiramo kot funkcijo štirih realnih spremenljivk, njeno kodomeno, ki je $\C$, pa identificiramo z $\R^2$, tako da ločimo realni in imaginarni del funkcije $f(x_1 + ix_2, y_1 + iy_2) = u(x_1,x_2,y_1,y_2) + iv(x_1,x_2,y_1,y_2)$. Naj bo torej $g: \R^4 \to \R^2$ podana s predpisom
+    \[
+        g(x_1,x_2,y_1,y_2) = (u(x_1,x_2,y_1,y_2), v(x_1,x_2,y_1,y_2)).
+    \]
+    Jacobijeva matrika te preslikave je
+    \[
+    Jg = 
+    \begin{pmatrix}
+        u_{x_1} & u_{x_2} & u_{y_1} & u_{y_2} \\
+        v_{x_1} & v_{x_2} & v_{y_1} & v_{y_2}
+    \end{pmatrix}
+    =
+    \left (
+        \begin{array}{rrrr}
+            u_{x_1} & -v_{x_1} & u_{y_1} & -v_{y_1} \\
+            \tikzmark{lower1} v_{x_1} & u_{x_1}\tikzmark{lower2} & \tikzmark{lower3} v_{y_1} & u_{y_1} \tikzmark{lower4}\\
+        \end{array}
+    \right ),
+    \]
+        
+    \begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=5pt}]
+        \draw[decorate,thick] (lower2.south) -- (lower1.south)
+        node [midway,below=5pt] {$\pdv[f]{x}$};
+        \draw[decorate,thick] (lower4.south) -- (lower3.south)
+        node [midway,below=5pt] {$\pdv[f]{y}$};
+    \end{tikzpicture}
+    \\  
+    \\ 
+    % $$
+    % Jg = 
+    % \begin{pmatrix}
+    %     u_{x_1} & u_{x_2} & u_{y_1} & u_{y_2} \\
+    %     v_{x_1} & v_{x_2} & v_{y_1} & v_{y_2}
+    % \end{pmatrix}
+    % =
+    % \begin{pmatrix}
+    %     u_{x_1} & -v_{x_1} & u_{y_1} & -v_{y_1} \\
+    %     v_{x_1} & u_{x_1} & v_{y_1} & u_{y_1}
+    % \end{pmatrix},
+    % $$
+
+    kjer smo v drugi enakosti po $2 \times 2$ blokih upoštevali Caucy-Riemannov sistem enačb, saj imamo opravka s polinomi, ki so kot funkcije holomorfni v obeh svojih kompleksnih spremenljivkah. Izračun
+    \[
+        \pdv[f]{x} = \frac{1}{2} \left( \pdv[f]{x_1} - i\pdv[f]{x_2}\right) = \frac{1}{2} \left( u_{x_1} + i v_{x_1} - i u_{x_2} + v_{x_2}\right) = u_{x_1} + iv_{x_1}
+    \]
+    (analogno dobimo za odvod po $y$) in predpostavka o nesingularnosti krivulje nam zagotovita, da je v vsaki točki na $C$ vsaj eden od $u_{x_1}$, $v_{x_1}$, $u_{x_2}$, $v_{x_2}$ neničelni. To pa že zadošča za polnost ranga Jacobijeve matrike $Jg$ v dani točki, saj sta leva in desna $2 \times 2$ bloka alternativna predstavitev kompleksnih števil kot matrična algebra znotraj realnih $2 \times2$ matrik $M_2(\R)$.  
+
 \end{dokaz}
 
-Ta trditev pove katere od afinih algebraičnih krivulj ne le lokalno v okolici regularnih točk izgledajo kot ploskve, temveč tudi so zares ploskve. 
+Ta trditev pove, katere od afinih algebraičnih krivulj ne le lokalno v okolici regularnih točk izgledajo kot ploskve, temveč tudi so zares ploskve. 
+\\
 \par
-Na tem mestu se pojavi manjša nejasnost, zakaj afine algebraične krivulje poimenovati ravno \emph{krivulje}. V kontekstu realnih podmnogoterosti se sprva to poimenovanje res zdi malce neusklajeno, toda v okviru kompleksnih dimenzij ta terminologija postane smiselna. Če v definiciji podmnogoterosti namreč zgolj zamenjamo polje realnih števil s $\C$ se povedano, bistveno ne spremeni. Še vedno ohranimo dejstvo, da število "linearno neodvisnih" enačb ustreza kodimenziji podmnogoterosti in analogno tudi dimenzija podmnogoterosti ustreza razliki (kompleksne) dimenzije ambientnega prostora in kodimenzije. V tem smislu so potem ti objekti, ki jih realno vidimo kot ploskve, zares tudi kompleksne $1$-podmnogoterosti oziroma krivulje.
+Na tem mestu se pojavi manjša nejasnost, zakaj afine algebraične krivulje poimenovati ravno \emph{krivulje}. V kontekstu realnih podmnogoterosti se sprva to poimenovanje res zdi malce neusklajeno, toda v okviru kompleksnih dimenzij ta terminologija postane smiselna. Če v definiciji podmnogoterosti namreč zgolj zamenjamo polje realnih števil s $\C$, se povedano bistveno ne spremeni. Še vedno ohranimo dejstvo, da število ``linearno neodvisnih'' enačb ustreza kodimenziji podmnogoterosti in analogno tudi dimenzija podmnogoterosti ustreza razliki (kompleksne) dimenzije ambientnega prostora in kodimenzije. V tem smislu so potem ti objekti, ki jih realno vidimo kot ploskve, zares tudi kompleksne $1$-podmnogoterosti oziroma krivulje.
 
 % \begin{opomba}
 % Poimenovati te objekte ravno krivulje, se morda v tem kontekstu na prvi pogled zdi malce neusklajeno z našo predstavo iz realnih evlidskih prostorov. Toda, ker jih obravnavamo v smislu kompleksnih dimenzij 
@@ -197,52 +293,67 @@ Na tem mestu se pojavi manjša nejasnost, zakaj afine algebraične krivulje poim
 
 V tem razdelku bomo algebraične krivulje obravnavali še v projektivnem smislu. Definirali bomo kompleksno projektivno ravnino in krivulje na njej. Vpeljavo projektivne ravnine opravičujemo z mnogimi lepimi lastnostmi v povezavi s presečišči krivulj v njej, pa tudi z raznimi bolj topološkimi razlogi, kot so na primer kompaktnost algebraičnih krivulj.
 
-Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti. Glavna ideja za konstrukcijo 
+Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti. 
+% Glavna ideja za konstrukcijo 
 \begin{definicija}
-    \emph{Kompleksen projektiven prostor} dimenzije $n$, je 
-    \begin{equation*}
-        P^n(\C) = (\C^{n+1} \setminus \{\bm0 \}) / \langle v \sim \lambda v; \lambda \in \C^{\times} \rangle.
-    \end{equation*}
-    Pri tem $\C^{\times}$ označuje multiplikativno grupo kompleksnih števil oz. $\C \setminus \{0 \}$. 
-    \kom{mogoče dam to rajši samo v slovar.}
+    \emph{Kompleksen projektivni prostor} dimenzije $n$ je 
+    \[
+        P^n(\C) = (\C^{n+1} \setminus \{0 \}) / \langle v \sim \lambda v; \lambda \in \C^{\times} \rangle.
+    \]
+    Tukaj $\C^{\times}$ označuje multiplikativno grupo kompleksnih števil oz. $\C \setminus \{0 \}$. 
+    % daj to v seznam oznak
     Pri tem bomo $\PC$ -- kot projektiven prostor dimenzije $2$ -- imenovali \emph{kompleksna projektivna ravnina}. Pridevnik kompleksna bomo v nadaljevanju pogosto izpustili.
 \end{definicija}
 
 \begin{primer*}
-    Kompleksen projektiven prostor dimenzije $1$ smo že srečali. To je \emph{Riemannova sfera} $\widehat{\C} = P^1(\C)$. Včasih jo bomo poimenovali tudi (kompleksna) projektivna premica.
+    Kompleksen projektiven prostor dimenzije $1$ smo že srečali. To je \emph{Riemannova sfera} $\widehat{\C} = P^1(\C)$. Včasih jo bomo poimenovali tudi (kompleksna) projektivna premica. Riemannova sfera ima sicer še nekoliko več strukture, ki smo jo zaenkrat pri projektivnih prostorih izpustili, a se bomo k temu vrnili v poglavju o Riemannovih ploskvah \ref{riemannove ploskve}.
 \end{primer*}
 
-Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov v $\C^n$. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prosotora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s t.i.\ homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{\bm0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim \in P^n(\C)$ kar v homogenih koordinatah zapišemo z
-    $$[x]_\sim = \pcoor{x_0 : \dots : x_n}$$
+Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov v $\C^{n+1}$. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prostora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s t.i.\ homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{\bm0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim \in P^n(\C)$ kar v homogenih koordinatah zapišemo z
+    \[
+        [x]_\sim = \pcoor{x_0 : \ldots : x_n}
+    \]
 in zanje velja
-    $$[x_0: \dots: x_n] = \pcoor{\lambda x_0: \dots: \lambda x_n}$$
+    \[
+        [x_0: \ldots: x_n] = \pcoor{\lambda x_0: \ldots: \lambda x_n}
+    \]
 za poljuben $\lambda \in \CM$.
 
 \begin{komentar}
     Projektivne prostore lahko ekvivalentno definiramo tudi kot prostore orbit (desnega) delovanja krožnice $S^1 \subseteq \C$ s skalarnim množenjem na kompleksni enotski sferi 
-        $$S(\C^{n+1}) = \{v \in \C^{n+1} \mid \left\lVert v\right\rVert = 1\}.$$
+    \[
+        S(\C^{n+1}) = \{v \in \C^{n+1} \mid \left\lVert v\right\rVert = 1\}.
+    \]
     Tedaj je
-        $$P^n(\C) = S(\C^{n+1})/S^1.$$
+    \[
+        P^n(\C) = S(\C^{n+1})/S^1.
+    \]
     Ker je kompleksna enotska sfera $S(\C^{n+1})$ kompakten $2$-števen Hausdorffov prostor, je zaradi delovanja kompaktne krožnice $S^1$, tudi projektiven prostor $P^n(\C)$ kompakten $2$-števen in Hausdorffov. Podrobnosti o tem lahko bralec najde v 
     \cite[Zgled 3.43. (2)]{MrcunTop}.
 \end{komentar}
 
-Za definicijo projektivnih algebraičnih krivulj potrebujemo  polinome, ki so usklajeni s homogenostjo koordinat na $\PC$. To so t.i.\ \emph{homogeni polinomi}. Polinom $F \in \C[x,y,z]$ stopnje $d = \deg F$ je homogen, če so vsi njegovi monomi stopnje $d$ oz. ekvivalentno, če za vsak $\lambda \in \CM$ in vsak $(x,y,z) \in \C^3$ velja
-    $$ F(\lambda x, \lambda y, \lambda z) = \lambda^d F(x,y,z). $$
+Za definicijo projektivnih algebraičnih krivulj potrebujemo  polinome, ki so usklajeni s homogenostjo koordinat na $\PC$. To so t.~i.\ \emph{homogeni polinomi}. Polinom $F \in \C[x,y,z]$ stopnje $d = \deg F$ je \emph{homogen}, če so vsi njegovi monomi stopnje $d$ oz. ekvivalentno, če za vsak $\lambda \in \CM$ in vsak $(x,y,z) \in \C^3$ velja
+\[
+    F(\lambda x, \lambda y, \lambda z) = \lambda^d F(x,y,z). 
+\]
 Od tod opazimo tudi, da so homogeni polinomi dobro definirani kot funkcije na projektivni ravnini, saj je njihova vrednost zares odvisna od projektivne točke -- celotnega ekvivalečnega razreda in ne le zgolj od izbranega predstavnika.
 
 Zdaj lahko definiramo projektivne algebraične krivulje. Definicija se pričakovano ne bo drastično razlikovala od definicije afinih algebraičnih krivulj.
 
 \begin{definicija}
     Množica $C \subseteq \PC$ je \emph{projektivna algebraična krivulja}, če obstaja tak nekonstanten homogen polinom $F \in \C[x,y,z]$, da je
-        $$ C = V(F). $$
+    \[
+        C = V(F). 
+    \]
 \end{definicija}
 
 Podobno kot v afinem primeru, želimo tudi tukaj govoriti o singularnih točkah na projektivnih krivuljah. Naj bo od tod dalje $F \in \C[x,y,z]$ homogeni polinom najnižje stopnje, da velja $V(F) = C$.
 
 \begin{definicija}
     Naj bo $C = V(F) \subseteq \PC$ projektivna algebraična krivulja. Točka $\pcoor{x_0:y_0:z_0} \in C$ je \emph{singularna}, če velja
-    $$ \pdv[F]{x}(x_0, y_0, z_0) = \pdv[F]{y}(x_0, y_0, z_0) = \pdv[F]{z}(x_0, y_0, z_0) = 0$$
+    \[
+        \pdv[F]{x}(x_0, y_0, z_0) = \pdv[F]{y}(x_0, y_0, z_0) = \pdv[F]{z}(x_0, y_0, z_0) = 0
+    \]
     in je \emph{regularna} sicer. Projektivna algebraična krivulja je \emph{singularna}, če vsebuje kakšno singularno točko, in je \emph{nesingularna} sicer.
 \end{definicija}
 
@@ -253,11 +364,13 @@ Izkaže se, da je ena enačba tukaj odveč. To pove nasledja trditev imenovana \
 
 \begin{trditev}[Eulerjeva identiteta]
     Naj bo $F \in \Cxyz$ homogen polinom stopnje $n$. Tedaj velja
-    $$ \pdv[F]{x}(x,y,z)x + \pdv[F]{y}(x,y,z)y + \pdv[F]{z}(x,y,z)z = nF(x,y,z). $$
+    \[
+        \pdv[F]{x}(x,y,z)x + \pdv[F]{y}(x,y,z)y + \pdv[F]{z}(x,y,z)z = nF(x,y,z). 
+    \]
 \end{trditev}
 
 \begin{dokaz}
-    Ker je polinom $F$ homogen, vemo, da velja 
+    Ker je polinom $F$ homogen, velja 
     $$ F(\lambda x, \lambda y, \lambda z) = \lambda^n F(x,y,z).$$
     Če to enakost odvajamo po $\lambda$, dobimo
     $$ \pdv[F]{x}(\lambda x,\lambda y,\lambda z)x + 
@@ -266,38 +379,38 @@ Izkaže se, da je ena enačba tukaj odveč. To pove nasledja trditev imenovana \
     Nazadnje vstavimo $\lambda = 1$ in trditev sledi.
 \end{dokaz}
 
-Sedaj bi radi razvili način kako malce bolj ''generalno'' ločiti projektivne krivulje. Razlikovanje vseh krivulj želimo reducirati zgolj na različne geometrijske karakteristike in nekaj parametrov. 
+Sedaj bi radi razvili način, kako malce bolj ``generalno'' ločiti projektivne krivulje. Razlikovanje vseh krivulj želimo reducirati zgolj na različne geometrijske karakteristike in nekaj parametrov. 
 Projektivne krivulje bomo tako razlikovali do \emph{projektivne ekvivalence} natančno. 
 To nam bo v nadaljevanju omogočilo omejitev obravnave nesingularnih kubik na takšne, ki so podane s preprostejšimi polinomskimi enačbami.
 V ta namen najprej poglejmo, kaj so projektivne transformacije, ki nam bodo pomagale pri tem.
 
 \begin{definicija}
-    Naj bo $A \in \GL(3, \C)$ obrnljiva kompleksna $3 \times 3$ matrika. \emph{Projektivna transformacija} ali \emph{projektivnost} je preslikava
+    Naj bo $(a_{ij}) = A \in \GL(3, \C)$ obrnljiva kompleksna $3 \times 3$ matrika. \emph{Projektivna transformacija} ali \emph{projektivnost} je preslikava
         $$\Phi : \PC \to \PC$$
         $$\pcoor{x:y:z} \mapsto \pcoor{a_{11}x + a_{12}y + a_{13}z: a_{21}x + a_{22}y + a_{23}z: a_{31}x + a_{32}y + a_{33}z}.$$
-    Projektivnosti $\Phi$ asociiramo še linearno preslikavo $\mathcal{A}_{\Phi} : \C^3 \to \C^3$, ki predstavlja množenje z matirko $A$.
+    Projektivnosti $\Phi$ je pravzaprav določena z linearno preslikavo $\mathcal{A}_{\Phi} : \C^3 \to \C^3$, ki predstavlja množenje z matirko $A$.
 \end{definicija}
 
 \begin{opomba}
     \begin{enumerate}
-        \item Analogno se lahko definira projektivne transformacije tudi na več razsežnih projektivnih prostorih. 
+        \item Analogno lahko definiramo projektivne transformacije tudi na več razsežnih projektivnih prostorih. 
         \item
         S preslikavami te oblike na projektivni premici oz. Riemannovi sferi, smo se že srečali. Te so natanko \emph{Möbiusove} ali \emph{lomljene linearne preslikave}, ki tvorijo grupo automorfizmov Riemannove sfere.
-        $$\Aut(\RS) = \left\{ z \mapsto \frac{az + b}{cz +d} \mid a,b,c,d \in \C \text{ in }  ad - bc \neq 0 \right\}.$$
+        $$\Aut(\RS) = \left\{ z \mapsto \frac{az + b}{cz +d} \middle\vert a,b,c,d \in \C \text{ in }  ad - bc \neq 0 \right\}.$$
         Preslikavo $z \mapsto \tfrac{az + b}{cx +d}$ lahko namreč identificiramo s preslikavo $\pcoor{x:y} \mapsto \pcoor{ax + by: cx + dy}$, kjer ima vlogo točke $\infty \in \RS$ projektivna točka $\pcoor{0:1}$. 
         \item
-        Če definiramo kvocientno projekcijo $\pi : \C^3 \setminus \{\bm0\} \to \PC$, ki točki $(x,y,z)$ priredi projektivno točko $\pcoor{x:y:z}$, potem velja 
+        Če definiramo kvocientno projekcijo $\pi : \C^3 \setminus \{0\} \to \PC$, ki točki $(x,y,z)$ priredi projektivno točko $\pcoor{x:y:z}$, potem velja 
         $$\pi \circ \mathcal{A}_\Phi = \Phi \circ \pi.$$
     \end{enumerate}
 \end{opomba}
 
-Projektivne transformacije tvorijo grupo za kompozitum, ki jo označujemo z $\operatorname{PGL(3, \C)} = \GL(3,\C)/\CM$, posebaj je $\Aut(\RS) \cong \operatorname{PGL(2,\C)}$. Več o tem lahko bralec najde v \cite[Poglavje 11]{Gibson}.
+Projektivne transformacije tvorijo grupo za kompozitum, ki jo označujemo s $\operatorname{PGL(3, \C)} = \GL(3,\C)/\CM$, posebej je $\Aut(\RS) \cong \operatorname{PGL(2,\C)}$. Več o tem lahko bralec najde v \cite[poglavje 11]{Gibson}.
 \kom{mogoče bi bilo fino tudi to dokazati kot trditev.}
 
 \begin{definicija}
     Homogena polinoma $F,G \in \Cxyz$ sta \emph{projektivno ekvivalentna}, če obstajata taka projektivna transformacija $\Phi$ in $\lambda \in \CM$, da velja
     $$ G = \lambda (F \circ \mathcal{A}_\Phi). $$
-    Če sta $F$ in $G$ minimalna polinoma projektivnih krivulj $C = V(F)$ in $C' = V(G)$, pravimo, da sta krivulji $C$ in $C'$ \emph{projektivno ekvivalentni}, kadar sta njuna minimalna polinoma projektivno ekvivalentna.
+    Če sta $F$ in $G$ minimalna polinoma projektivnih krivulj $C = V(F)$ in $C' = V(G)$, pravimo, da sta krivulji $C$ in $C'$ \emph{projektivno ekvivalentni}, kadar sta njuna minimalna polinoma projektivno ekvivalentna, tedaj označimo $C \cong C'$. 
 \end{definicija}
 % \kom{pri tej definiciji je mogoče malce nedoslednosti v zapisu $F \circ \Phi$...}
 
@@ -312,32 +425,78 @@ Projektivno ekvivalenco dveh krivulj lahko interpretiramo kot prehajanje med nju
 \end{trditev}
 
 \begin{dokaz}
-    Naj bodo 
+    Naj bodo $C, C', C'' \subseteq \PC$ projektivne algebraične krivulje in $F, G, H \in \Cxyz$ njihovi minimalni polinomi. 
+    \par Relacija je refleksivna. Za projektivnost vzamemo $\Phi = \id_{\PC}$ in konstanto $\lambda = 1$. 
+    \par Denimo, da velja $C \cong C'$, torej je $G = \lambda (F \circ \mathcal{A}_\Phi)$ za neko projektivnost $\Phi \in \operatorname{PGL(3, \C)}$ in $\lambda \in \CM$. Tedaj velja $F = \frac{1}{\lambda} (G \circ \mathcal{A}_\Phi\inv)$. Ker je $\mathcal{A}_\Phi\inv = \mathcal{A}_{\Phi\inv}$, velja tudi $C' \cong C$ zato je relacija simetrična. 
+    \par Denimo, da sta projektivno ekvivalentni $C$ in $C'$ ter $C'$ in $C''$. Tedaj imamo $G = \lambda (F \circ \mathcal{A}_\Phi)$ in $H = \mu (G \circ \mathcal{A}_\Psi)$. Od tod vidimo, da je $H = \mu\lambda(G \circ \mathcal{A}_\Phi \circ \mathcal{A}_\Psi)$. Tako iz $\mathcal{A}_\Phi \circ \mathcal{A}_\Psi = \mathcal{A}_{\Phi \circ \Psi}$ sledi $C \cong C''$, torej je projektivna ekvivalenca tudi tranzitivna. 
 \end{dokaz}
 
-Posebaj bo za nas pomembno, da je projektivna ekvivalenca ekvivalenčna relacija na množici nesingularnih kubik, kot bomo videli v nadaljevanju. 
+Posebej bo za nas pomembno, da je projektivna ekvivalenca ekvivalenčna relacija na množici nesingularnih kubik, kot bomo videli v nadaljevanju. 
 
 \begin{trditev}
-    Naj bosta $C, C' \subseteq \PC$ projektivno ekvivalentni krivulji. Tedaj je $C$ singularna natanko tedaj ko je $C'$ singularna. 
+    Naj bosta $C, C' \subseteq \PC$ projektivno ekvivalentni krivulji. Tedaj je $C$ singularna natanko tedaj, ko je $C'$ singularna. 
 \end{trditev}
 
 \begin{dokaz}
     Če sta $F$ in $G$ minimalna polinoma krivulj $C$ oz.\ $C'$, zaradi projektivne ekvivalence obstajata projektivnost $\Phi$ in $\lambda \in \CM$, da je
-    $$ G = \lambda (F \circ \mathcal{A}_\Phi). $$
-    Če je $C$ nesingularna, je $\nabla F \neq 0$, torej je
-    $$ \nabla G(x,y,z) = \lambda \nabla F(\mathcal{A}_\Phi (x,y,z)) A \neq 0, $$
-    kjer je obrnljiva matrika $A$ konstantna Jakobijeva matrika linearne preslikave $\mathcal{A}_\Phi$.
-    
-    Obrat sledi popolnoma analogno.
+    \begin{equation}
+        \label{proj ekviv poly}
+        G = \lambda (F \circ \mathcal{A}_\Phi).
+    \end{equation}
+    Če je $C$ nesingularna, je $(F_x, F_y, F_z) \neq 0$ povsod na $\C^3$, torej z odvajanjem zveze \ref{proj ekviv poly} v točki $(x,y,z)$ in upoštevanjem Leibnitzovega pravila za odvajanje produkta dobimo
+    \[
+        (G_x, G_y, G_z)_{(x,y,z)} = \lambda (F_x, F_y, F_z)_{\mathcal{A}_\Phi (x,y,z)} \cdot A,
+    \]
+    produkt vrstice in matrike $A$, ki je konstantna Jacobijeva matrika linearne preslikave $\mathcal{A}_\Phi$. Vrstica $(F_x, F_y, F_z)_{\mathcal{A}_\Phi (x,y,z)}$ je po predpostavki neničelna, matrika $A$ pa obrnljiva, zato je njun produkt spet neničelna vrstica, torej je $(G_x, G_y, G_z)_{(x,y,z)} \neq 0$. 
 \end{dokaz}
 
-Z drugimi besedami ta trditev pove, da projektivna ekvivalenca ohranja singularnost -- nesingularnost krivulj. Izkaže se, da ohranja tudi mnoge druge pomembne geometrijske karakteristike, kot so tangente, prevoji, presečne večkratnosti, redi točk ipd., toda v tem delu o njih ne bomo podrobneje govorili. O tem lahko bralec več izve v \cite{Gibson}.
+Z drugimi besedami ta trditev pove, da projektivna ekvivalenca ohranja singularnost oziroma nesingularnost krivulj. Izkaže se, da ohranja tudi mnoge druge pomembne geometrijske karakteristike, kot so tangente, prevoji, presečne večkratnosti, redi točk ipd., toda v tem delu o njih ne bomo podrobneje govorili. O tem lahko bralec več izve v \cite{Gibson}.
 
 
 %%%%% Nesingularne kubike %%%%%%
 
 \subsection{Nesingularne kubike}
+Začnimo z definicijo projektivne kubike. 
+
+\begin{definicija}
+    \emph{Projektivna kubika} je projektivna algebraična krivulja v $\PC$, katere minimalni polinom je tretje stopnje. 
+    V splošnem je podana z enačbo
+    \[
+        C: \quad ax^3 + by^3 + cz^3 + dx^2y + exy^2 + fx^2z + gy^2z + hxyz + ixz^2 + jyz^2 = 0
+    \]
+\end{definicija}
+
+Pri predmetu Algebraične krivulje smo spoznali, da obstaja popolna klasifikacija projektivnih kubik, do projektivne ekvivalence natančno. Najprej jih delimo na nesingularne in singularne, te pa dalje na nerazcepne in razcepne. Podrobneje se v to klasifikacijo ne bomo spuščali, bralec pa si lahko več o tem pogleda v \cite[poglavje 15]{Gibson}.
+Za nas bodo posebej zanimive nesingularne projektivne kubike, saj bomo te lahko preko projektivnosti zapisali v lepšo obliko, ki jo bo lažje analizirati. Tej obliki pravimo \emph{Weierstrassova normalna forma} in v njej se enačba kubike glasi 
+\[
+    y^2z = 4x^3 + \alpha xz^2 + \beta z^3. 
+\]
+Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta $\alpha, \beta \in \C$ mora veljati posebna zveza, kar pove nasledja trditev.
+
+\begin{trditev}
+    Projektivna kubika $C \subseteq \PC$ podana v Weierstrassovi normalni formi
+    \[
+        C: \quad y^2z = 4x^3 + \alpha xz^2 + \beta z^3. 
+    \]
+    je nesingularna natanko tedaj, ko velja $\alpha^3 - 27\beta^2 \neq 0$. Takrat projektivni kubiki pripišemo število
+    \[
+        1728\frac{\alpha^3}{\alpha^3 - 27\beta^2},   
+    \]
+    ki mu pravimo \emph{$j$-invarianta} nesingularne kubike. 
+
+\end{trditev}
+
+\begin{dokaz}
+    računamo...
+\end{dokaz}
+
+\begin{opomba}
+    Vrednosti $\alpha^3 - 27\beta^2$ pravimo \emph{diskriminanta} Weierstrassove kubike in jo običajno označimo z $\Delta$. Ta vpeljava je usklajena z diskriminanto kubičnega polinoma oblike $4$
+\end{opomba}
+
 \break
+
+
 
 \section{Eliptične funkcije} \label{elipticne funkcije}
 \subsection{Lastnosti eliptičnih funkcij}
