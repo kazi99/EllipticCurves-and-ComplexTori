@@ -210,7 +210,7 @@ S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in r
         g_y(x,y) = 4y(x^2 + y^2 - 1) &= 0, \\
         g(x,y) &= 0 \nonumber
     \end{align}
-    pa jih ima veliko. Namreč vsaka rešitev enačbe $f(x,y) = x^2 + y^2 - 1 = 0$ reši sistem \ref{sistem g} od koder bi lahko napačno sklepali, da je vsaka točka krivulje $S(\C^2)$ singularna, saj $g$ ni minimalni polinom krivulje. Minimalni polinom opazovane krivulje je $f$ in iz sistema \ref{sistem f} vidimo, da je nesingularna.
+    pa jih ima veliko. Namreč vsaka rešitev enačbe $f(x,y) = x^2 + y^2 - 1 = 0$ reši sistem \ref{sistem g} od koder bi lahko napačno sklepali, da je vsaka točka krivulje $S(\C^2)$ singularna. Minimalni polinom opazovane krivulje je $f$ in iz sistema \ref{sistem f} vidimo, da singularnih točk nimamo, torej je krivulja nesingularna. 
     
 \end{primer*}
 
@@ -224,7 +224,7 @@ Definicija \ref{reg sing tocke} nam omogoči formulirati prvo opazko.
     Najprej se spomnimo definicije podmnogoterosti. Neprazna podmnožica $X \subseteq \R^{n+k}$ je \emph{$n$-podmnogoterost} razreda gladkosti $\mathcal{C}^r$, za $r \in \{0,1,\dots, \infty, \omega\}$, če za vsako točko $x_0 \in X$ obstaja okolica $U \subseteq \R^{n+k}$ točke $x_0$ in t.~i.\ definicijska funkcija $F: U \subseteq \R^{n+k} \to \R^k$ razreda $\mathcal{C}^r$ na $U$, da velja
     \begin{enumerate}
         \item $X \cap U = F^{-1}(\{0\}) = \{x \in U | F(x) = 0\}$ in
-        \item Jacobijeva matrika definicijske funkcije $F$ ima poln rang povsod na $X \cap U$ -- t.~j.\  $\rang JF(x) = k$ za vsak $x \in X \cap U$.
+        \item Jacobijeva matrika definicijske funkcije $F$ ima poln rang povsod na $X \cap U$, t.~j.\  $\rang JF(x) = k$ za vsak $x \in X \cap U$.
     \end{enumerate}
     Številu $n$ pravimo \emph{dimenzija} podmnogoterosti $X$, številu $k$ pa \emph{kodimenzija}.
     \\
@@ -466,33 +466,63 @@ Začnimo z definicijo projektivne kubike.
     \]
 \end{definicija}
 
-Pri predmetu Algebraične krivulje smo spoznali, da obstaja popolna klasifikacija projektivnih kubik, do projektivne ekvivalence natančno. Najprej jih delimo na nesingularne in singularne, te pa dalje na nerazcepne in razcepne. Podrobneje se v to klasifikacijo ne bomo spuščali, bralec pa si lahko več o tem pogleda v \cite[poglavje 15]{Gibson}.
-Za nas bodo posebej zanimive nesingularne projektivne kubike, saj bomo te lahko preko projektivnosti zapisali v lepšo obliko, ki jo bo lažje analizirati. Tej obliki pravimo \emph{Weierstrassova normalna forma} in v njej se enačba kubike glasi 
+Pri predmetu Algebraične krivulje smo spoznali popolno klasifikacijo projektivnih kubik do projektivne ekvivalence natančno. Najprej jih delimo na nesingularne in singularne, te pa dalje na nerazcepne in razcepne. Podrobneje se v to klasifikacijo ne bomo spuščali, bralec pa si lahko več o tem prebere v \cite[poglavje 15]{Gibson}.
+Za nas bodo posebej zanimive nesingularne projektivne kubike, saj bomo te lahko preko projektivnosti zapisali v lepšo obliko, ki jo bo lažje analizirati. Tej klasični obliki pravimo \emph{Weierstrassova normalna forma} in v njej se enačba kubike glasi 
 \[
-    y^2z = 4x^3 + \alpha xz^2 + \beta z^3. 
+    y^2z = x^3 + \alpha xz^2 + \beta z^3. 
 \]
 Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta $\alpha, \beta \in \C$ mora veljati posebna zveza, kar pove nasledja trditev.
 
 \begin{trditev}
     Projektivna kubika $C \subseteq \PC$ podana v Weierstrassovi normalni formi
     \[
-        C: \quad y^2z = 4x^3 + \alpha xz^2 + \beta z^3. 
+        C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3. 
     \]
-    je nesingularna natanko tedaj, ko velja $\alpha^3 - 27\beta^2 \neq 0$. Takrat projektivni kubiki pripišemo število
-    \[
-        1728\frac{\alpha^3}{\alpha^3 - 27\beta^2},   
-    \]
-    ki mu pravimo \emph{$j$-invarianta} nesingularne kubike. 
+    je nesingularna natanko tedaj, ko velja $4\alpha^3 + 27\beta^2 \neq 0$. 
+    % Takrat projektivni kubiki pripišemo število
+    % \[
+    %     1728\frac{\alpha^3}{\alpha^3 - 27\beta^2},   
+    % \]
+    % ki mu pravimo \emph{$j$-invarianta} nesingularne kubike. 
 
 \end{trditev}
+
+\begin{opomba}
+    Vrednosti $4\alpha^3 + 27\beta^2$ (včasih tudi njeni nasprotni vrednosti) pravimo \emph{diskriminanta} Weierstrassove kubike in jo običajno označimo z $\Delta$. Ta vpeljava je usklajena z diskriminanto kubičnega polinoma $f(x) = x^3 + \alpha x + \beta$, ki pove ali ima $f$ kakšno večkratno ničlo. To se zgodi natanko takrat, ko je njegova diskriminanta enaka $0$. 
+\end{opomba}
 
 \begin{dokaz}
     računamo...
 \end{dokaz}
 
+Naslednja rezultat, ki ga bomo samo navedli brez dokaza, saj zanj potrebujemo pojme, katerih v nadaljevanju ne bomo obravnavali, zagotavlja, da se brez škode za splošnost -- pri obravnavi nesingularnih kubik -- omejimo samo na tiste v Weierstrassovi normalni formi. 
+
+\begin{trditev}
+    Vsaka nesingularna projektivna kubika je projektivno ekvivalentna neki nesingularni Weierstrassovi kubiki podani z enačbo
+    \[
+        C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3,
+    \]
+    kjer je ob tem vrednost  
+\end{trditev}
+
+
+\begin{definicija}
+    Nesingularna projektivna kubika $E(\C)$ ali samo $E$ podana z enačbo v Weierstrassovi obliki
+    \[
+      E: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3,
+    \]
+    skupaj s t.~i.\ \emph{izhodiščem} $O \in E$ na njej se imenuje \emph{eliptična krivulja} nad poljem $\C$. 
+\end{definicija}
+
 \begin{opomba}
-    Vrednosti $\alpha^3 - 27\beta^2$ pravimo \emph{diskriminanta} Weierstrassove kubike in jo običajno označimo z $\Delta$. Ta vpeljava je usklajena z diskriminanto kubičnega polinoma oblike $4$
+    \begin{enumerate}
+        \item 
+        Zaradi kompletnosti smo v definicijo eliptične krivulje vklučili še izbiro izhodišča, ki igra vlogo identitete, ko eliptično krivuljo opremimo z grupno strukturo. Za lažje računanje se za izhodišče izbere enega od devetih prevojev, ki je najpogosteje kar točka v neskončnosti $\pcoor{0:1:0}$.  
+        \item 
+        Morda nepotrebno smo tukaj poudarjali, da je naša eliptična krivulja definirana nad poljem kompleksnih števil. V splošnem se elitične krivulje obravnava nad poljubnim poljem, kjer pride do izraza njegova karakterisika, ali je algebraično zaprto ipd. V našem primeru nad $\C$ takšnih skrbi ne bomo imeli. 
+    \end{enumerate}
 \end{opomba}
+
 
 \break
 
