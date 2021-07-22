@@ -65,6 +65,8 @@
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\RS}{\widehat{\C}}
 \newcommand{\Cxyz}{\C[x,y,z]}
+\newcommand{\linphi}{\mathcal{A}_\Phi}
+\newcommand{\oio}{\pcoor{0: 1 : 0}}
 
 \newcommand{\pcoor}[1]{%
   \begingroup\lccode`~=`: \lowercase{\endgroup
@@ -336,7 +338,7 @@ Za definicijo projektivnih algebraičnih krivulj potrebujemo  polinome, ki so us
 \[
     F(\lambda x, \lambda y, \lambda z) = \lambda^d F(x,y,z). 
 \]
-Od tod opazimo tudi, da so homogeni polinomi dobro definirani kot funkcije na projektivni ravnini, saj je njihova vrednost zares odvisna od projektivne točke -- celotnega ekvivalečnega razreda in ne le zgolj od izbranega predstavnika.
+Od tod opazimo tudi, da je zaradi tega pogoj $F(x,y,z) = 0$ neodvisen od izbire homogenih koorinat točke $\pcoor{x : y : z}$, ki so zgolj neničelni skalarni večkratniki nekega predstavnika tega ekvivalenčnega razreda.  
 
 Zdaj lahko definiramo projektivne algebraične krivulje. Definicija se pričakovano ne bo drastično razlikovala od definicije afinih algebraičnih krivulj.
 
@@ -389,6 +391,11 @@ V ta namen najprej poglejmo, kaj so projektivne transformacije, ki nam bodo poma
         $$\Phi : \PC \to \PC$$
         $$\pcoor{x:y:z} \mapsto \pcoor{a_{11}x + a_{12}y + a_{13}z: a_{21}x + a_{22}y + a_{23}z: a_{31}x + a_{32}y + a_{33}z}.$$
     Projektivnosti $\Phi$ je pravzaprav določena z linearno preslikavo $\mathcal{A}_{\Phi} : \C^3 \to \C^3$, ki predstavlja množenje z matirko $A$.
+
+    Nekoliko manj formalno projektivnost podamo tudi kot uvedbo novih spremenljivk 
+    \[
+        x = a_{11}x' + a_{12}y' + a_{13}z', \quad y = a_{21}x' + a_{22}y' + a_{23}z', \quad z = a_{31}x' + a_{32}y' + a_{33}z'.  
+    \]
 \end{definicija}
 
 \begin{opomba}
@@ -466,19 +473,20 @@ Začnimo z definicijo projektivne kubike.
     \]
 \end{definicija}
 
-Pri predmetu Algebraične krivulje smo spoznali popolno klasifikacijo projektivnih kubik do projektivne ekvivalence natančno. Najprej jih delimo na nesingularne in singularne, te pa dalje na nerazcepne in razcepne. Podrobneje se v to klasifikacijo ne bomo spuščali, bralec pa si lahko več o tem prebere v \cite[poglavje 15]{Gibson}.
+Pri izbirnem predmetu Algebraične krivulje smo spoznali popolno klasifikacijo projektivnih kubik do projektivne ekvivalence natančno. Najprej jih delimo na nesingularne in singularne, te pa dalje na nerazcepne in razcepne. Podrobneje se v to klasifikacijo ne bomo spuščali, bralec pa si lahko več o tem prebere v \cite[poglavje 15]{Gibson}.
 Za nas bodo posebej zanimive nesingularne projektivne kubike, saj bomo te lahko preko projektivnosti zapisali v lepšo obliko, ki jo bo lažje analizirati. Tej klasični obliki pravimo \emph{Weierstrassova normalna forma} in v njej se enačba kubike glasi 
-\[
+\begin{equation}
+    \label{klasicna wnf}
     y^2z = x^3 + \alpha xz^2 + \beta z^3. 
-\]
+\end{equation}
 Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta $\alpha, \beta \in \C$ mora veljati posebna zveza, kar pove nasledja trditev.
 
 \begin{trditev}
     Projektivna kubika $C \subseteq \PC$ podana v Weierstrassovi normalni formi
     \[
-        C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3. 
+        C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3
     \]
-    je nesingularna natanko tedaj, ko velja $4\alpha^3 + 27\beta^2 \neq 0$. 
+    je nesingularna natanko tedaj, ko velja $4\alpha^3 + 27\beta^2 \neq 0$. Tedaj to krivuljo imenujmo \emph{Weierstrassova kubika}. 
     % Takrat projektivni kubiki pripišemo število
     % \[
     %     1728\frac{\alpha^3}{\alpha^3 - 27\beta^2},   
@@ -489,21 +497,105 @@ Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta
 
 \begin{opomba}
     Vrednosti $4\alpha^3 + 27\beta^2$ (včasih tudi njeni nasprotni vrednosti) pravimo \emph{diskriminanta} Weierstrassove kubike in jo običajno označimo z $\Delta$. Ta vpeljava je usklajena z diskriminanto kubičnega polinoma $f(x) = x^3 + \alpha x + \beta$, ki pove ali ima $f$ kakšno večkratno ničlo. To se zgodi natanko takrat, ko je njegova diskriminanta enaka $0$. 
+    
+    V literaturi se diskriminanta Weierstrassove kubike vpelje kot
+    \[
+        \Delta = -16(4\alpha^3 + 27\beta^2),
+    \]
+    zaradi razlogov, ki bodo jasni pozneje. To konvencijo bomo privzeli tudi mi.
 \end{opomba}
 
 \begin{dokaz}
     računamo...
 \end{dokaz}
 
-Naslednja rezultat, ki ga bomo samo navedli brez dokaza, saj zanj potrebujemo pojme, katerih v nadaljevanju ne bomo obravnavali, zagotavlja, da se brez škode za splošnost -- pri obravnavi nesingularnih kubik -- omejimo samo na tiste v Weierstrassovi normalni formi. 
+
+Naslednji rezultat -- katerega dokaz sicer ni zahteven, a uporablja nekatere pojme, ki jih za nadaljevanje ne bomo potrebovali -- bomo samo navedli brez dokaza. Zagotavlja nam, da se lahko brez škode za splošnost pri obravnavi nesingularnih kubik omejimo samo na tiste v Weierstrassovi normalni formi. 
+
+
+% ki ga bomo samo navedli brez dokaza, saj zanj potrebujemo pojme, katerih v nadaljevanju naloge ne bomo obravnavali, zagotavlja, da se brez škode za splošnost -- pri obravnavi nesingularnih kubik -- omejimo samo na tiste v Weierstrassovi normalni formi. 
 
 \begin{trditev}
-    Vsaka nesingularna projektivna kubika je projektivno ekvivalentna neki nesingularni Weierstrassovi kubiki podani z enačbo
-    \[
-        C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3,
-    \]
-    kjer je ob tem vrednost  
+    Vsaka nesingularna projektivna kubika je projektivno ekvivalentna neki nesingularni Weierstrassovi kubiki.  
 \end{trditev}
+
+\begin{dokaz}
+    \cite[lemma 15.2]{Gibson}
+\end{dokaz}
+
+Ob tej trditvi pa se porodi vprašanje, kako prosto izbiramo imamo s koeficientoma $\alpha$ in $\beta \in \C$, ali je ta izbira lahko enolična? Za odgovor na to vprašanje najprej opazimo, da sta Weierstrassovi kubiki 
+\[
+    C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3 \quad \text{ in } \quad
+    C': \quad y'^2z' = x'^3 + \alpha' x'z'^2 + \beta' z'^3. 
+\]
+projektivno ekvivalentni, če le velja $u^4 \alpha' = \alpha$ in $u^6 \beta' = \beta$ za nek $u \in \CM$. Namreč takrat imamo projektivnost
+\begin{align*}
+    \Phi:C &\to C'\\
+    \pcoor{x : y : z} &\mapsto \pcoor{u^{-2}x : u^{-3}y : z},
+\end{align*}
+krajše zapisano 
+\[
+    x = u^2 x' \quad y = u^3 y' \quad z = z',  
+\]
+ki identificira eno krivuljo z drugo. Ob tem se transformira tudi diskriminanta $u^{12} \Delta' = \Delta$. Naslednja lema pove, da je takšne oblike tudi vsaka projektivnost med dvema projektivno ekvivalentnima Weierstrassovima kubikama. 
+        
+\begin{lema}
+    Naj bo $\Phi$ projektivnost med dvema projektivno ekvivalentnima Weierstrassovima kubikama, $C, C'$ kot zgoraj. Tedaj $\Phi$ fiksira točko $\pcoor{0 : 1 : 0}$ in je oblike 
+    \[
+        x = u^2 x' \quad y = u^3 y' \quad z = z',  
+    \]
+    za nek $u \in \CM$. Opazovane količine se tedaj transformirajo 
+    \[
+        u^4 \alpha' = \alpha, \quad u^6 \beta' = \beta \quad \text{ in } \quad u^{12} \Delta' = \Delta.
+    \]
+\end{lema}
+
+\begin{dokaz}
+    Naj bosta $F(x,y,z) = y^2z - x^3 - \alpha xz^2 - \beta z^3$ in $G(x, y, z) = y^2z - x^3 - \alpha' xz^2 - \beta' z^3$ homogena polinoma s katerima sta podani projektivno ekvivalentni krivulji $C$ in $C'$. Tedaj vemo, da je $G = \lambda(F \circ \linphi)$ in naj bo $A$ matrika linearne preslikave $\linphi$.
+    
+    Najprej pokažimo, da projektivnost $\Phi$ fiksira točko $\oio$. Za elemente v matriki $A = (a_{ij})$ moramo torej pokazati $a_{12}$, $a_{32} = 0$ in $a_{22} \neq 0$. 
+    \begin{itemize}
+        \item Če je $a_{12} \neq 0$, potem v polinomu $F(\linphi(x,y,z))$ nastopa člen $x^2z$, ki pa ga na levi strani pri $G$ ni, 
+        \item podobno, če je $a_{32} \neq 0$ imamo v polinomu $F(\linphi(x,y,z))$ člen $yz^2$, ki ga pravtako ni pri $G$. 
+    \end{itemize}
+    Ker sta $a_{12}$, $a_{32} = 0$, mora biti $a_{22} \neq 0$, sicer bi v $A$ imeli stolpec poln ničel, kar bi bilo v protislovju z obrnljivostjo $A$. 
+    
+    Sedaj v enačbo za $C$ oziroma polinom $F(x,y,z)$ vstavimo 
+    \[
+        x = a_{11}x' + a_{13}z', \quad y = a_{21}x' + a_{22}y' + a_{23}z', \quad z = a_{31}x' + a_{33}z' 
+    \]
+    in primerjamo koeficiente pri istoležnih členih z $G(x', y', z')$. Dobimo sistem enačb....
+\end{dokaz}
+
+Ugotovili smo, da lahko dva različna para koeficientov $\alpha, \beta \in \CM$ podata projektivno ekvivalentni Weierstrassovi kubiki. Obstaja pa količina, ki se pri tovrstnih transformacijah ne spreminja -- ostaja invariantna. Tej količini pravimo \emph{$j$-invarianta} Weierstrassove kubike, oziroma pozneje, eliptične krivulje. Podana je kot 
+\[
+    j = 1728(4\alpha)^3/\Delta = -1728\frac{4\alpha^3}{4\alpha^3 + 27\beta^2}.  
+\] 
+Jasno je, da se pri transformaciji \ref{} od prej $j$-invarianta ohranja. Krajši račun pokaže
+\[
+    j = 1728(4\alpha)^3/\Delta = 1728(4u^4\alpha)^3/(u^{12}\Delta') = 1728(4\alpha')^3/\Delta' = j'.
+\]
+% \[
+%    j = -1728\frac{4\alpha^3}{4\alpha^3 + 27\beta^2} 
+%     = -1728\frac{4(u^4\alpha')^3}{4(u^4\alpha')^3 + 27(u^6\beta'^2)} 
+%     = -1728\frac{4u^{12}\alpha'^3}{u^{12}(4\alpha'^3 + 27\beta'^2)}
+%     = -1728\frac{4\alpha'^3}{4\alpha'^3 + 27\beta'^2} = j'
+% \]
+
+Poznaje bomo videli, kako lahko $j$-invarianto gledamo tudi kot funkcijo kompleksne spremenljivke in tako malce pokomentirali ``zanimivost'' izbire faktorja $1728$ pred celotno formulo.
+
+Pomembna ugotovitev, ki je med drugim posledica algebraične zaprtosti polja kompleksnih števil, je naslednja. 
+
+\begin{trditev}
+    Nesingularni projektivni Weierstrassovi kubiki sta projektivno ekvivalentni natanko tedaj ko imata enaki $j$-invarianti.
+\end{trditev}
+
+\begin{dokaz}
+    
+\end{dokaz}
+
+
+
 
 
 \begin{definicija}
@@ -511,18 +603,34 @@ Naslednja rezultat, ki ga bomo samo navedli brez dokaza, saj zanj potrebujemo po
     \[
       E: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3,
     \]
-    skupaj s t.~i.\ \emph{izhodiščem} $O \in E$ na njej se imenuje \emph{eliptična krivulja} nad poljem $\C$. 
+    skupaj s t.~i.\ \emph{izhodiščem} $O \in E(\C)$ na njej se imenuje \emph{eliptična krivulja} nad poljem $\C$. 
 \end{definicija}
 
 \begin{opomba}
     \begin{enumerate}
         \item 
-        Zaradi kompletnosti smo v definicijo eliptične krivulje vklučili še izbiro izhodišča, ki igra vlogo identitete, ko eliptično krivuljo opremimo z grupno strukturo. Za lažje računanje se za izhodišče izbere enega od devetih prevojev, ki je najpogosteje kar točka v neskončnosti $\pcoor{0:1:0}$.  
+        Zaradi kompletnosti smo v definicijo eliptične krivulje vklučili še izbiro izhodišča, ki igra vlogo identitete, potem ko eliptično krivuljo opremimo z grupno strukturo. Za lažje računanje se za izhodišče izbere enega od devetih prevojev, ki je najpogosteje točka v neskončnosti $\pcoor{0:1:0}$.  
         \item 
-        Morda nepotrebno smo tukaj poudarjali, da je naša eliptična krivulja definirana nad poljem kompleksnih števil. V splošnem se elitične krivulje obravnava nad poljubnim poljem, kjer pride do izraza njegova karakterisika, ali je algebraično zaprto ipd. V našem primeru nad $\C$ takšnih skrbi ne bomo imeli. 
+        Morda smo nekoliko nepotrebno poudarjali, da je naša eliptična krivulja definirana nad poljem kompleksnih števil. Oznaka $E(\C)$ pove, da opazujemo točke na krivulji s koordinatami iz $\C$, lahko pa bi se recimo omejili samo na tiste, ki v homogenih koordinatah premorejo predstavnika s samimi racionalnimi komponentami, in takrat pisali $E(\Q)$. V splošnem se eliptične krivulje obravnava nad poljubnim poljem, kjer pride do izraza njegova karakterisika, ali je algebraično zaprto ipd. V našem primeru nad $\C$ takšnih skrbi ne bomo imeli. 
     \end{enumerate}
 \end{opomba}
 
+V nadaljevanju bo ugodneje namesto \emph{klasične} Weierstrassove oblike nesingularne kubike \ref{klasicna wnf} obravnavati malenkost prilagojeno -- projektivno ekvivalentno -- različico
+\[
+    y^2z = 4x^3 - ax^2z - bz^3.  
+\]
+Med to in klasično različico enostavno prehajamo preko projektivnosti
+\[
+    x = tx', \quad y = y', \quad z = z', \quad \text{ kjer za } t \in \CM \text{ velja } t^3 = 4.   
+\]
+Osnovne količine se tedaj povežejo preko enakosti
+\[
+    a = -t\alpha \quad b = -\beta    
+\]
+diskriminanta in $j$-invarianta pa se v $a$ in $b$ izražata kot
+\[
+    \Delta = 16(a^3 - 27b^2) \quad \text{ in } \quad j = 1728\frac{a^3}{a^3 - 27b^2}.
+\]
 
 \break
 
