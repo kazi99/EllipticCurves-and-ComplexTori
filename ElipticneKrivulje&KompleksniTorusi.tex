@@ -43,6 +43,9 @@
 \usepackage{bm}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{array}
+\usepackage{faktor}
+\usepackage{caption}
+\usepackage{xfrac}
 % \usepackage{physics}
 
 %%%
@@ -67,6 +70,8 @@
 \newcommand{\Cxyz}{\C[x,y,z]}
 \newcommand{\linphi}{\mathcal{A}_\Phi}
 \newcommand{\oio}{\pcoor{0: 1 : 0}}
+\newcommand{\om}{\omega}
+\newcommand{\inv}{^{-1}}
 
 \newcommand{\pcoor}[1]{%
   \begingroup\lccode`~=`: \lowercase{\endgroup
@@ -81,7 +86,18 @@
 
 \newcommand{\pdv}[2][]{\frac{\partial#1}{\partial#2}}
 
-\newcommand{\inv}{^{-1}}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\newcommand{\res}[2]{\operatorname{res}_{#1}(#2)}
+\newcommand{\ord}[2]{\operatorname{ord}_{#1}(#2)}
+
+\newcommand{\hol}[1]{\mathcal{O}(#1)}
+
+%command for alg-closure that automatically adapts its 'bar' to the arg based on the args length (including '\')
+\newcommand{\ols}[1]{\mskip.5\thinmuskip\overline{\mskip-.5\thinmuskip {#1} \mskip-.5\thinmuskip}\mskip.5\thinmuskip} % overline short
+\newcommand{\olsi}[1]{\,\overline{\!{#1}}} % overline short italic
+
 
 \newcommand{\kom}[1]{
     \textcolor{RoyalBlue}{//#1}
@@ -104,7 +120,9 @@
 
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%% 1. UVOD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 1. UVOD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------------------------------------------%
 
 \section{Uvod}
 
@@ -139,7 +157,9 @@ Izkazalo se je, da so inverzi funkcij, s katermi računamo dolžine lokov elips,
 če jih gledamo kot funkcije kompleksne spremenljivke. Te dvojno periodične funkcije pa so tesno povezane z enačbo,
 ki ji zadoščajo eliptične krivulje in se bomo k njim vrnili v poglavju \ref{elipticne funkcije}.
 
+%--------------------------------------------------------------------------%
 %%%%%%%%%%%%%%%%%%%%%% 2. ALGEBRAIČNE KRIVULJE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------------------------------------------%
 
 \section{Algebraične krivulje} \label{algebraicne krivulje}
 Algebraične krivulje so množice ničel polinomov nad različnimi polji. V tem poglavju bomo začeli 
@@ -417,14 +437,14 @@ Projektivne transformacije tvorijo grupo za kompozitum, ki jo označujemo s $\op
 \begin{definicija}
     Homogena polinoma $F,G \in \Cxyz$ sta \emph{projektivno ekvivalentna}, če obstajata taka projektivna transformacija $\Phi$ in $\lambda \in \CM$, da velja
     $$ G = \lambda (F \circ \mathcal{A}_\Phi). $$
-    Če sta $F$ in $G$ minimalna polinoma projektivnih krivulj $C = V(F)$ in $C' = V(G)$, pravimo, da sta krivulji $C$ in $C'$ \emph{projektivno ekvivalentni}, kadar sta njuna minimalna polinoma projektivno ekvivalentna, tedaj označimo $C \cong C'$. 
+    Če sta $F$ in $G$ minimalna polinoma projektivnih krivulj $C = V(F)$ in $C' = V(G)$, pravimo, da sta krivulji $C$ in $C'$ \emph{projektivno ekvivalentni} ali \emph{izomorfni kot projektivni algebraični krivulji}, kadar sta njuna minimalna polinoma projektivno ekvivalentna, tedaj označimo $C \cong C'$. 
 \end{definicija}
 % \kom{pri tej definiciji je mogoče malce nedoslednosti v zapisu $F \circ \Phi$...}
 
 Projektivno ekvivalenco dveh krivulj lahko interpretiramo kot prehajanje med njunima minimalnima polinomoma z uvedbo novih spremenljivk.
 
 \begin{primer*}
-    // demonstriram projektivno ekvivalenco
+    \kom{demonstriram projektivno ekvivalenco}
 \end{primer*}
 
 \begin{trditev}
@@ -462,7 +482,7 @@ Z drugimi besedami ta trditev pove, da projektivna ekvivalenca ohranja singularn
 
 %%%%% Nesingularne kubike %%%%%%
 
-\subsection{Nesingularne kubike}
+\subsection{Nesingularne kubike}\label{nesingularne kubike}
 Začnimo z definicijo projektivne kubike. 
 
 \begin{definicija}
@@ -506,7 +526,7 @@ Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta
 \end{opomba}
 
 \begin{dokaz}
-    računamo...
+    \kom{računamo...}
 \end{dokaz}
 
 
@@ -516,6 +536,7 @@ Naslednji rezultat -- katerega dokaz sicer ni zahteven, a uporablja nekatere poj
 % ki ga bomo samo navedli brez dokaza, saj zanj potrebujemo pojme, katerih v nadaljevanju naloge ne bomo obravnavali, zagotavlja, da se brez škode za splošnost -- pri obravnavi nesingularnih kubik -- omejimo samo na tiste v Weierstrassovi normalni formi. 
 
 \begin{trditev}
+    \label{kubika izomorfna neki wnf}
     Vsaka nesingularna projektivna kubika je projektivno ekvivalentna neki nesingularni Weierstrassovi kubiki.  
 \end{trditev}
 
@@ -528,7 +549,7 @@ Ob tej trditvi pa se porodi vprašanje, kako prosto izbiramo imamo s koeficiento
     C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3 \quad \text{ in } \quad
     C': \quad y'^2z' = x'^3 + \alpha' x'z'^2 + \beta' z'^3. 
 \]
-projektivno ekvivalentni, če le velja $u^4 \alpha' = \alpha$ in $u^6 \beta' = \beta$ za nek $u \in \CM$. Namreč takrat imamo projektivnost
+projektivno ekvivalentni, če velja, denimo $u^4 \alpha' = \alpha$ in $u^6 \beta' = \beta$ za nek $u \in \CM$. Namreč takrat imamo projektivnost
 \begin{align*}
     \Phi:C &\to C'\\
     \pcoor{x : y : z} &\mapsto \pcoor{u^{-2}x : u^{-3}y : z},
@@ -540,13 +561,15 @@ krajše zapisano
 ki identificira eno krivuljo z drugo. Ob tem se transformira tudi diskriminanta $u^{12} \Delta' = \Delta$. Naslednja lema pove, da je takšne oblike tudi vsaka projektivnost med dvema projektivno ekvivalentnima Weierstrassovima kubikama. 
         
 \begin{lema}
+    \label{projektivnosti wnf}
     Naj bo $\Phi$ projektivnost med dvema projektivno ekvivalentnima Weierstrassovima kubikama, $C, C'$ kot zgoraj. Tedaj $\Phi$ fiksira točko $\pcoor{0 : 1 : 0}$ in je oblike 
-    \[
+    \begin{equation}
+        \label{eq:transformacija wnf}
         x = u^2 x' \quad y = u^3 y' \quad z = z',  
-    \]
+    \end{equation}
     za nek $u \in \CM$. Opazovane količine se tedaj transformirajo 
     \[
-        u^4 \alpha' = \alpha, \quad u^6 \beta' = \beta \quad \text{ in } \quad u^{12} \Delta' = \Delta.
+        u^4 \alpha' = \alpha, \quad u^6 \beta' = \beta \quad \text{in} \quad u^{12} \Delta' = \Delta.
     \]
 \end{lema}
 
@@ -560,20 +583,45 @@ ki identificira eno krivuljo z drugo. Ob tem se transformira tudi diskriminanta 
     \end{itemize}
     Ker sta $a_{12}$, $a_{32} = 0$, mora biti $a_{22} \neq 0$, sicer bi v $A$ imeli stolpec poln ničel, kar bi bilo v protislovju z obrnljivostjo $A$. 
     
-    Sedaj v enačbo za $C$ oziroma polinom $F(x,y,z)$ vstavimo 
+    Sedaj v enačbo za $C$ oziroma polinom $\lambda F(x,y,z)$ vstavimo 
     \[
         x = a_{11}x' + a_{13}z', \quad y = a_{21}x' + a_{22}y' + a_{23}z', \quad z = a_{31}x' + a_{33}z' 
     \]
-    in primerjamo koeficiente pri istoležnih členih z $G(x', y', z')$. Dobimo sistem enačb....
+    in primerjamo koeficiente pri istoležnih členih z $G(x', y', z')$. Dobimo sistem enačb.
+    \begin{align*}
+        x^3 &: & -1 && = \text{ }& \lambda (-a_{11}^3 + a_{21}^2 a_{31} - a_{11} a_{31}^2 \alpha - a_{31}^3 \beta) \\
+        x^2y &: & 0 && = \text{ }& \lambda (2 a_{21} a_{22} a_{31}) \\
+        xy^2 &: & 0 && = \text{ }& \lambda (a_{22}^2 a_{31}) \\
+        x^2z &: & 0 && = \text{ }& \lambda (3 a_{11}^2 a_{31} + 2 a_{21} a_{23} a_{31} + a_{21}^2 a_{33} - 
+        a_{31}^3 \alpha - 2 a_{11} a_{31} a_{33} \alpha - 3 a_{31}^2 a_{33} \beta) \\
+        xyz  &: & 0 && = \text{ }& \lambda (2 a_{22} a_{23} a_{31} + 2 a_{21} a_{22} a_{33}) \\
+        y^2z &: & 1 && = \text{ }& \lambda (a_{22}^2 a_{33}) \\
+        xz^2 &: & -\alpha' && = \text{ }& \lambda (a_{23}^2 a_{31} - 3 a_{11} a_{31}^2 + 2 a_{21} a_{23} a_{33} - 
+        2 a_{31}^2 a_{33} \alpha - a_{11} a_{33}^2 \alpha - 3 a_{31} a_{33}^2 \beta) \\
+        yz^2 &: & 0 && = \text{ }& \lambda (2 a_{22} a_{23} a_{33} ) \\
+        z^3 &: & -\beta' && = \text{ }& \lambda (-a_{31}^3 + a_{23}^2 a_{33} - a_{31} a_{33}^2 \alpha - a_{33}^3 \beta)
+    \end{align*}
+    Od tod sledi $a_{13}, a_{21}, a_{23}, a_{31} = 0$ in $a_{11}, a_{33} \neq 0$. Ob tem pa dobimo še zveze
+    \[
+        a_{11}^3 = a_{33}a_{22}^2 = \lambda\inv, \quad \alpha' = \lambda a_{11}a_{33}^2 \alpha, \quad \beta' = \lambda a_{33}^3 \beta.
+    \]
+    Ker vsi neničelni skalarni večkratniki matrike $A$ določajo isto projektivnost, lahko brez škode za splošnost privzamemo $a_{33} = 1$. Če vzamemo $u \in \CM$ poljuben, da velja $u^6 = \lambda\inv$, bo 
+    \[
+        a_{11} = u^2, \quad a_{22} = u^3, \quad u^4\alpha' = \alpha \quad u^6 \beta' = \beta \quad \text{in} \quad u^{12} \Delta' = \Delta
+    \]
+    in tako vidimo, da je projektivnost $\Phi$ oblike
+    \[
+        x = u^2 x' \quad y = u^3 y' \quad z = z'.
+    \]
 \end{dokaz}
 
-Ugotovili smo, da lahko dva različna para koeficientov $\alpha, \beta \in \CM$ podata projektivno ekvivalentni Weierstrassovi kubiki. Obstaja pa količina, ki se pri tovrstnih transformacijah ne spreminja -- ostaja invariantna. Tej količini pravimo \emph{$j$-invarianta} Weierstrassove kubike, oziroma pozneje, eliptične krivulje. Podana je kot 
+Ugotovili smo, da lahko dva različna para koeficientov $\alpha, \beta \in \C$ podata projektivno ekvivalentni Weierstrassovi kubiki. Obstaja pa količina, ki se pri tovrstnih transformacijah ne spreminja -- ostaja invariantna. Tej količini pravimo \emph{$j$-invarianta} Weierstrassove kubike, oziroma pozneje, eliptične krivulje. Podana je kot 
 \[
-    j = 1728(4\alpha)^3/\Delta = -1728\frac{4\alpha^3}{4\alpha^3 + 27\beta^2}.  
+    j = -1728(4\alpha)^3/\Delta = 1728\frac{4\alpha^3}{4\alpha^3 + 27\beta^2}.  
 \] 
-Jasno je, da se pri transformaciji \ref{} od prej $j$-invarianta ohranja. Krajši račun pokaže
+Jasno je, da se pri transformaciji \eqref{eq:transformacija wnf} iz prejšnje leme $j$-invarianta ohranja. Krajši račun pokaže
 \[
-    j = 1728(4\alpha)^3/\Delta = 1728(4u^4\alpha)^3/(u^{12}\Delta') = 1728(4\alpha')^3/\Delta' = j'.
+    j = -1728(4\alpha)^3/\Delta = -1728(4u^4\alpha')^3/(u^{12}\Delta') = -1728(4\alpha')^3/\Delta' = j'.
 \]
 % \[
 %    j = -1728\frac{4\alpha^3}{4\alpha^3 + 27\beta^2} 
@@ -583,6 +631,7 @@ Jasno je, da se pri transformaciji \ref{} od prej $j$-invarianta ohranja. Krajš
 % \]
 
 Poznaje bomo videli, kako lahko $j$-invarianto gledamo tudi kot funkcijo kompleksne spremenljivke in tako malce pokomentirali ``zanimivost'' izbire faktorja $1728$ pred celotno formulo.
+\\
 
 Pomembna ugotovitev, ki je med drugim posledica algebraične zaprtosti polja kompleksnih števil, je naslednja. 
 
@@ -591,31 +640,72 @@ Pomembna ugotovitev, ki je med drugim posledica algebraične zaprtosti polja kom
 \end{trditev}
 
 \begin{dokaz}
-    
+    Implikacija v desno je jasna iz zgornjega premisleka in leme \ref{projektivnosti wnf}, preostane nam pokazati še implikacijo v levo. 
+
+    \kom{dokončat...}
 \end{dokaz}
 
+Poleg tega pa $j$-invarianta v celoti popiše vse neizomorfne Weierstrassove kubike. Za poljuben $j_0 \in \C$ obstaja Weierstrassova kubika, ki ima $j_0$ za svojo $j$-invarianto.
 
+Če je $j_0 \neq 0, 1728$, želimo iz enačbe
+\[
+    j_0 = 1728\frac{4\alpha^3}{4\alpha^3 + 27\beta^2}  
+\]
+izraziti koeficient $\alpha$, pri tem pa imamo svobodo zahtevati $\alpha = \beta$. Tedaj bo $\alpha = 27j_0/4(j_0 - 1728)$ in kubika podana z enačbo 
+\[
+  y^2z = x^3 + \frac{27j_0}{4(j_0 - 1728)}xz^2 + \frac{27j_0}{4(j_0 - 1728)}z^3
+\] 
+ima $j$-invarianto enako $j_0$. V robnih primerih imamo
+% \[
+%     y^2z = x^3 + z^3
+% \]
+% z $j$-invarianto $0$ ter
+% \[
+%   y^2z = x^3 + xz^2
+% \]
+% ki ima $j$-invarianto enako $1728$.
+% \\
 
+\begin{itemize}
+    \item pri $j_0 = 0$ kubiko z enačbo 
+    \[
+        y^2z = x^3 + z^3
+    \]
+    \item in pri $j_0 = 1728$ kubiko z enačbo
+    \[
+        y^2z = x^3 + xz^2.
+    \]
+\end{itemize}
 
+Koncept $j$-invariante lahko razširimo tudi do poljubne nesingularne projektivne kubike. Pripišemo ji $j$-invarianto njej projektivno ekvivalentne Weierstrassove kubike, ki nam jo zagotovi trditev \ref{kubika izomorfna neki wnf}. Tako prostor vseh nesingularnih kubik razpade na izomorfnostne razrede (glede na izomorfnost projektivnih algebraičnih krivulj oz. projektivno ekvivalenco), kjer je favorizirani predstavnik vsakega razreda neka nesingularna Weierstrassova kubika. Glede na to razširitev $j$-invariante na vse nesingularne projektivne kubike, je jasno, da je $j$-invariantna kot funkcija nesingularnih projektivnih kubik, na izomorfnostnih razredih konstantna. V tem smislu vidimo $j$-invarianto kot funkcijo
+\[
+    j: \bigslant{\{\text{nesingularne projektivne kubike}\}}{\cong} \to \C,
+\]
+kjer $\cong$ označuje projektivno ekvivalenco projektivnih kubik. V tem smislu bomo z $j_C$ ali $j(C)$ označevali $j$-invarianto nesingularne projektivne kubike $C$ oz.\ njenega izomorfnostnega razreda.
+\\
+
+Za konec tega poglavja bomo podali še definicijo eliptične krivulje nad $\C$. Ta se za naše namene praktično ne bo razlikovala od običajne nesingularne Weierstrassove kubike, ki smo jo obravnavali v tem razdelku \ref{nesingularne kubike}. Zaradi večje abstraktnosti standardne definicije eliptične krivulje, kot jo podaja Silverman \cite[III. \S 3.]{Silverman} in naših potreb v nadaljevanju, eliptične kriulje vpeljemo nekoliko enostavnje. Presenetljivo pa je (vsaj nad $\C$) naša definicija ekvivalenta standardni, le da za to potrebujemo Riemann--Rochov izrek, ki je izven dosega tega dela.
 
 \begin{definicija}
-    Nesingularna projektivna kubika $E(\C)$ ali samo $E$ podana z enačbo v Weierstrassovi obliki
-    \[
-      E: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3,
-    \]
-    skupaj s t.~i.\ \emph{izhodiščem} $O \in E(\C)$ na njej se imenuje \emph{eliptična krivulja} nad poljem $\C$. 
+    Nesingularna projektivna kubika $E(\C)$ ali samo $E$ skupaj s t.~i.\ \emph{izhodiščem} $O \in E(\C)$ na njej, ki ga pogosto eksplicitno ne omenjamo, se imenuje \emph{eliptična krivulja} nad poljem $\C$. 
 \end{definicija}
 
 \begin{opomba}
     \begin{enumerate}
+        \item
+        Ker nas bodo v nadaljevanju eliptične krivulje zanimale zgolj do projektivne ekvivalence natančno, bomo lahko brez škode za splošnost po trditvi \ref{kubika izomorfna neki wnf} zahtevali, da je eliptična krivulja podana z enačbo v Weierstrassovi obliki
+        \[
+            E: \quad y^2z = x^3 + \alpha x z^2 + \beta z^3,  
+        \]  
+        kjer $4\alpha^3 + 27\beta^2 \neq 0$. 
         \item 
-        Zaradi kompletnosti smo v definicijo eliptične krivulje vklučili še izbiro izhodišča, ki igra vlogo identitete, potem ko eliptično krivuljo opremimo z grupno strukturo. Za lažje računanje se za izhodišče izbere enega od devetih prevojev, ki je najpogosteje točka v neskončnosti $\pcoor{0:1:0}$.  
+        Zaradi kompletnosti smo v definicijo eliptične krivulje vključili še izbiro izhodišča, ki igra vlogo identitete, potem ko eliptično krivuljo opremimo z grupno strukturo. Za lažje računanje se za izhodišče izbere enega od devetih prevojev, ki je najpogosteje točka v neskončnosti $\pcoor{0:1:0}$.  
         \item 
         Morda smo nekoliko nepotrebno poudarjali, da je naša eliptična krivulja definirana nad poljem kompleksnih števil. Oznaka $E(\C)$ pove, da opazujemo točke na krivulji s koordinatami iz $\C$, lahko pa bi se recimo omejili samo na tiste, ki v homogenih koordinatah premorejo predstavnika s samimi racionalnimi komponentami, in takrat pisali $E(\Q)$. V splošnem se eliptične krivulje obravnava nad poljubnim poljem, kjer pride do izraza njegova karakterisika, ali je algebraično zaprto ipd. V našem primeru nad $\C$ takšnih skrbi ne bomo imeli. 
     \end{enumerate}
 \end{opomba}
 
-V nadaljevanju bo ugodneje namesto \emph{klasične} Weierstrassove oblike nesingularne kubike \ref{klasicna wnf} obravnavati malenkost prilagojeno -- projektivno ekvivalentno -- različico
+V nadaljevanju bo ugodneje namesto \emph{klasične} Weierstrassove oblike nesingularne kubike \ref{klasicna wnf} obravnavati malenkost prilagojeno -- še vedno pa projektivno ekvivalentno -- različico
 \[
     y^2z = 4x^3 - ax^2z - bz^3.  
 \]
@@ -625,27 +715,171 @@ Med to in klasično različico enostavno prehajamo preko projektivnosti
 \]
 Osnovne količine se tedaj povežejo preko enakosti
 \[
-    a = -t\alpha \quad b = -\beta    
+    a = -t\alpha, \quad b = -\beta    
 \]
 diskriminanta in $j$-invarianta pa se v $a$ in $b$ izražata kot
 \[
     \Delta = 16(a^3 - 27b^2) \quad \text{ in } \quad j = 1728\frac{a^3}{a^3 - 27b^2}.
 \]
 
-\break
-
-
+%--------------------------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%% 3. ELIPTIČNE FUNKCIJE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------------------------------------------%
 
 \section{Eliptične funkcije} \label{elipticne funkcije}
+
+Glavna vez med eliptičnimi krivuljami in kompleksnimi torusi so t.~i.\ \emph{eliptične funkcije}. Da jih vpeljemo, najprej potrebujemo nekaj priprave.
+
+\begin{definicija}
+    Aditivna podgrupa kompleksnih števil $\C$ izomorfna direktni vsoti $\Z \oplus \Z$ se imenuje \emph{mreža}. 
+\end{definicija}
+    
+Ekvivalentno je mreža prosta Abelova grupa na dveh generatorjih $\omega_1, \omega_2 \in \CM$, ki jima pravimo \emph{osnovni periodi}, za kateri velja $\Im \frac{\omega_1}{\omega_2} \neq 0$, kar pomeni, da sta $\R$-linearno neodvisni. Splošnemu elementu $\omega \in \Lambda$ pravimo \emph{perioda}. Eksplicitno si mrežo predstavljamo kot množico točk v kompleksni ravnini
+\[
+    \Lambda = \{k_1 \omega_1 + k_2 \omega_2 \mid k_1, k_2 \in \Z\},  
+\]
+kot kaže slika \ref{mreza}.
+\\
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}
+            \clip (0,0) rectangle (14cm,6cm); % Clips the picture...
+            \pgftransformcm{1}{0.6}{0.1}{1}{\pgfpoint{3cm}{3cm}} % This is actually the transformation
+            %  matrix entries that gives the slanted
+            % unit vectors. You might check it on
+            % MATLAB etc. . I got it by guessing.
+            
+            \draw (4,-2) node [left]{$\omega_2$};
+            \draw (4,-4) node [below]{$0$};
+            \draw (6,-4) node [below]{$\omega_1$};
+            \draw[style=help lines,dashed] (-14,-14) grid[step=2cm] (18,14); % Draws a grid in the new coordinates.
+            \filldraw[fill=gray, draw=black] (4,-4) rectangle (6,-2); % Puts the shaded rectangle
+            \draw[black, very thick] (4,-4) -- (6,-4);
+            \draw[black, very thick] (4,-4) -- (4,-2);
+            \draw[black, very thick, dashed] (4,-2) -- (6,-2);
+            \draw[black, very thick, dashed] (6,-4) -- (6,-2);
+
+            \draw (5,-3) node {$D$};
+            \foreach \x in {-7,-6,...,8}{                           % Two indices running over each
+            \foreach \y in {-7,-6,...,8}{                       % node on the grid we have drawn 
+            \node[draw,circle,inner sep=1pt,fill] at (2*\x,2*\y) {}; % Places a dot at those points
+            }
+            }
+        \end{scope}
+    \end{tikzpicture}
+
+    \caption{Mreža.}
+    \label{mreza}
+\end{figure}
+
+Na kompleksno ravnino $\C$ vpeljimo relacijo 
+\[
+    z \sim w \iff z - w \in \Lambda \quad \text{ za vsaka $z,w \in \C$.}
+\]
+To pomeni, da identificiramo vsaki dve točki, ki se razlikujeta kvečjemu za prišteto periodo $\omega \in \Lambda$. 
+Brez težav se lahko prepričamo, da je to ekvivalenčna relacija na $\C$. Tako lahko tvorimo kvocientno množico $\C/_{\sim}$, katere ekvivalenčne razrede bomo označevali z $z + \Lambda$ in jih imenovali \emph{translati}, saj si jih lahko predstavljamo kot za vektor $z$ translirano mrežo $\Lambda$. Pripadajoča kvocientna projekcija bo $\pi : \C \to \C/_{\sim}$. Kvocient $\C/_{\sim}$ bomo od tod dalje rajši označevali z $\C/\Lambda$. 
+
+Zaenkrat bomo $\C/\Lambda$ razumeli zgolj kot kvocientno množico, kasneje pa ga bomo opremili s topologijo, ki nam bo razkrila, da je ta prostor v resnici homeomorfen torusu. Za tem bomo definirali še s kompleksno strukturo, ki nam bo na njem omogočila definirati holomorfne preslikave.
+
+
+\begin{definicija}
+    \emph{Fundamentalni paralelogram} za mrežo $\Lambda = \langle \om_1, \om_2 \rangle$ je
+    \[
+        D_{\alpha} = \{\alpha + t_1 \om_1 + t_2 \om_2 \mid t_1, t_2 \in [0,1)\}.
+    \]
+    Zaprtje fundamentalnega paralelograma $D_\alpha$ v $\C$ bomo označili z $\ols{D}_\alpha$. 
+\end{definicija}
+
+\begin{opomba}
+    Kadar bomo govorili o fundamentalnih domenah pogosto izbira izhodišča $\alpha$ ne bo pomembna, zato ga bomo tedaj izpustili in pisali samo $D$. V tem primeru lahko privzamemo, da je s tem mišljen $D_0$. 
+\end{opomba}
+
+Naslednja lema pove, da je preslikava $D_\alpha \to \C/\Lambda$ bijekcija med možicama. 
+
+\begin{lema}
+    \label{enolicni predstavnik}
+    Poljuben translat $z + \Lambda$ mreže $\Lambda \subseteq \C$ ima natanko enega predstavnika v fundamentalni domeni $D_\alpha$. 
+\end{lema}
+
+\begin{dokaz}
+    Ker sta osnovni periodi $\omega_1, \omega_2$ $\R$-linearno neodvisni, tvorita bazo za $\C$ gledano kot realen vektorski prostor. Tako lahko zapišemo $z - \alpha = a_1 \om_1 + a_2 \om_2$, kjer sta $a_1, a_2 \in \R$. Tedaj za 
+    \[
+        t_i = a_i - \lfloor a_i \rfloor \in [0,1) \quad \text{ za $i \in \{1,2\}$},
+    \] 
+    kjer $\lfloor x \rfloor$ označuje največje celo število, ki ni večje od $x$, velja $\alpha + t_1\om_1 + t_2 \om_2 = z - \lfloor a_1 \rfloor \om_1 - \lfloor a_2 \rfloor \om_2 \in D_\alpha \cap (z + \Lambda)$.
+\end{dokaz}
+
+Spomnimo se, da so \emph{holomorfne} funkcije na neki odprti domeni $D$ tiste, ki jih je mogoče odvajati v kompleksnem smislu povsod na $D$. Kolobar holomorfnih funkcij na $D$ označimo z $\hol{D}$. Če je funkcija holomorfna na celotnem $\C$, pravimo, da je \emph{cela holomorfna} funkcija. Te označimo z $\hol{\C}$.
+
+Če je $S \subseteq D$ diskretna množica brez stekališč v $D$, potem funkcijam, ki so holomorfne na $D \setminus S$, pravimo \emph{meromorfne} funkcije, točkam iz $S$ pa \emph{singularnosti}. 
+
+\begin{definicija}
+    Naj bo $f$ meromorfna funkcija na $\C$ in $\Lambda \subseteq \C$ mreža. Če za $f$ velja
+    \[
+        f(z + \om) = f(z) \quad \text{za vse $\om \in \Lambda$ in $z \in C$},
+    \]
+    potem pravimo, da je $f$ \emph{eliptična} oziroma \emph{dvojno periodična} funkcija. Kadar želimo poudariti, da je $f$ eliptična glede na mrežo $\Lambda$, pravimo, da je \emph{$\Lambda$-periodična}. Polje $\Lambda$-periodičnih funkcij označimo z $\C(\Lambda)$. % mogoče tega zadnjega ne rabim
+\end{definicija}
+
+
+
+
+%%%%% Lastnosti eliptičnih funkcij %%%%%
+
 \subsection{Lastnosti eliptičnih funkcij}
+
+Sedaj si bomo pogledali nekaj izrekov, ki opisujejo naravo eliptičnih funkcij in jih lahko povečini priprišemo Liouvillu. Prvi je direktna posledica njegovega slavnega izreka iz kompleksne analize, ki pove, da razen konstant celih omejenih holomorfnih funkcij ni. Bralec ga lahko najde v \cite[]{}.
+
+\begin{izrek}
+    Naj bo $f$ cela eliptična funkcija. Tedaj je $f$ konstantna.
+\end{izrek}
+
+\begin{dokaz}
+    Ker je $f$ konstantna na ekvivalenčnih razredih množice $\C/\Lambda$ tj. translatih oblike $z + \Lambda$, je enolično določena že z vrednostjo na enem od predstavnikov vsakega translata. Po lemi \ref{enolicni predstavnik} vidimo, da lahko predstavnika poljubnega translata najdemo v fundametnalnem paralelogramu $D$, zato bo $f$ tako enolično določena že z vrednostmi na $D$. Ker je $f$ holomorfna na celotnem $\C$, je tam seveda zvezna in je zato zvezna tudi na zaprtju fundamentalnega paralelograma $\olsi{D}$. To je zaprta in omejena množica v $\C$ in je tako kompaktna \cite[]{}. Zvezna funkcija $f$ je na kompaktu $\olsi{D}$ omejena, kot eliptična funkcija pa je tako omejena na celotnem $\C$ \cite[]{}. Funkcija $f$ je torej omejena in cela holomorfna, zato je po Liouvillovem izreku konstantna.  
+\end{dokaz}
+
+Uskladimo nekaj notacije, ki jo bomo potrebovali v naslednjih izrekih. Če je $f$ meromorfna funkcija na odprti domeni $D \subseteq \C$, pravimo, da je \emph{reda $m \in \Z$} v točki $z_0 \in D$, če obstaja okolica $U \subseteq D$ točke $z_0$ in holomorfna funkcija $g \in \hol{U}$, ki je neničelna povsod na $U$, da velja 
+\[
+    f(z) = (z - z_0)^m g(z) \quad \text{za vse $z \in U$.}  
+\]   
+Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo} reda $m$, če pa je $m < 0$ ima $f$ v $z_0$ \emph{pol} reda $-m$.
+
+\emph{Residuum} ali \emph{ostanek} funkcije $f$ pri točki $z_0 \in D$, je koeficient pred potenco $\frac{1}{(z-z_0)}$ v Laurentovi vrsti za $f$ okrog $z_0$. Označimo ga z $\res{z_0}{f}$. 
+
+\begin{izrek}
+    Naj bo $f \in \C(\Lambda)$ in $D$ fundamentalni paralelogram glede na mrežo $\Lambda$, katerega rob $\partial D$ ne vsebuje polov ali ničel $f$. Tedaj velja 
+    \[
+        \sum_{w \in D} \res{w}{f} = 0  
+    \] 
+\end{izrek}
+
+
+
+%%%%% Weierstrassova funkcija %%%%%
+
 \subsection{Weierstrassova funkcija $\wp$}
 \break
+
+
+
+
+%--------------------------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%% 4. RIEMANNOVE PLOSKVE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------------------------------------------%
 
 \section{Riemannove ploskve} \label{riemannove ploskve}
 \subsection{Definicije in lastnosti}
 \subsection{Kompleksna struktura na eliptični krivulji}
 \subsection{Kompleksna struktura na torusu}
 \break
+
+
+%--------------------------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% 5. IZOMORFIZEM %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------------------------------------------%
+
 
 \section{Izomorfizem \texorpdfstring{$\C/\Lambda \to E(\C)$}{} in njegove posledice} \label{poglavje izomorfizem}
 
@@ -658,19 +892,24 @@ diskriminanta in $j$-invarianta pa se v $a$ in $b$ izražata kot
 \geslo{}{}
 
 % seznam uporabljene literature
+
+% (!) urejen po abecednem vrstenm redu priimkov avtorjev 
 \begin{thebibliography}{99}
+    
+    \bibitem{Gibson}
+        C.~G.~Gibson, \emph{Elementary geometry of algebraic curves: An undergraduate introduction}, Cambridge University Press, Cambridge, 1998.
+    
+    \bibitem{LangEllfunc}
+        S.~Lang, \emph{Elliptic functions}, Graduate Texts in Mathematics \textbf{112}, Springer-Verlag, New York, 1973.
 
     \bibitem{MrcunTop}
         J.~Mrčun, \emph{Topologija}, Izbrana poglavja iz matematike in računalništva \textbf{44}, DMFA--založništvo, Ljubljana, 2008.
+    
+    \bibitem{Silverman}
+        J.~H.~Silverman, \emph{The arithmetic of elliptic curves}, Graduate Texts in Mathematics \textbf{106}, Springer-Verlag, New York, 1986.
 
-    \bibitem{LangEllCurves}
-        S.~Lang, \emph{Elliptic functions}, Graduate Texts in Mathematics \textbf{112}, Springer-Verlag, New York, 1973.
-
-    \bibitem{Stevenhagen}
+    \bibitem{Stevenhagen}    
         P.~Stevenhagen, \emph{Complex elliptic curves}, verzija 1.~10.~2013, [ogled 9.~2.~2021], dostopno na \url{http://www.julianlyczak.nl/teaching/EC2015-files/ec.pdf}.
-
-    \bibitem{Gibson}
-        C.~G.~Gibson, \emph{Elementary geometry of algebraic curves: An undergraduate introduction}, Cambridge University Press, Cambridge, 1998.
     
 \end{thebibliography}
 
