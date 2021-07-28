@@ -72,6 +72,8 @@
 \newcommand{\oio}{\pcoor{0: 1 : 0}}
 \newcommand{\om}{\omega}
 \newcommand{\inv}{^{-1}}
+\newcommand{\torus}{\C/\Lambda}
+\newcommand{\elf}{\C(\Lambda)}
 
 \newcommand{\pcoor}[1]{%
   \begingroup\lccode`~=`: \lowercase{\endgroup
@@ -86,11 +88,13 @@
 
 \newcommand{\pdv}[2][]{\frac{\partial#1}{\partial#2}}
 
-
 \newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
 
-\newcommand{\res}[2]{\operatorname{res}_{#1}(#2)}
-\newcommand{\ord}[2]{\operatorname{ord}_{#1}(#2)}
+\newcommand{\res}[2]{\operatorname{res}_{#1}\left(#2\right)}
+\newcommand{\ord}[2]{\operatorname{ord}_{#1}\left(#2\right)}
+
+% \newcommand{\res}[2]{\operatorname{res}_{#1}(#2)}
+% \newcommand{\ord}[2]{\operatorname{ord}_{#1}(#2)}
 
 \newcommand{\hol}[1]{\mathcal{O}(#1)}
 
@@ -741,7 +745,7 @@ Ekvivalentno je mreža prosta Abelova grupa na dveh generatorjih $\omega_1, \ome
 kot kaže slika \ref{mreza}.
 \\
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \begin{tikzpicture}
         \begin{scope}
@@ -813,7 +817,10 @@ Naslednja lema pove, da je preslikava $D_\alpha \to \C/\Lambda$ bijekcija med mo
 
 Spomnimo se, da so \emph{holomorfne} funkcije na neki odprti domeni $D$ tiste, ki jih je mogoče odvajati v kompleksnem smislu povsod na $D$. Kolobar holomorfnih funkcij na $D$ označimo z $\hol{D}$. Če je funkcija holomorfna na celotnem $\C$, pravimo, da je \emph{cela holomorfna} funkcija. Te označimo z $\hol{\C}$.
 
-Če je $S \subseteq D$ diskretna množica brez stekališč v $D$, potem funkcijam, ki so holomorfne na $D \setminus S$, pravimo \emph{meromorfne} funkcije, točkam iz $S$ pa \emph{singularnosti}. 
+Če je $S \subseteq D$ diskretna množica brez stekališč v $D$, potem funkcijam, ki so holomorfne na $D \setminus S$ v točkah iz $S$ pa imajo pole, pravimo \emph{meromorfne} funkcije, točkam iz $S$ pa \emph{singularnosti}. Vsako meromorfno funkcijo $f$ na $D \subseteq \C$, lahko vidimo tudi kot preslikavo $D \to \RS$, kjer dodatno definiramo 
+\[
+    f(w) = \infty \quad \text{za vsak $w \in S$.} 
+\]
 
 \begin{definicija}
     Naj bo $f$ meromorfna funkcija na $\C$ in $\Lambda \subseteq \C$ mreža. Če za $f$ velja
@@ -837,23 +844,144 @@ Sedaj si bomo pogledali nekaj izrekov, ki opisujejo naravo eliptičnih funkcij i
 \end{izrek}
 
 \begin{dokaz}
-    Ker je $f$ konstantna na ekvivalenčnih razredih množice $\C/\Lambda$ tj. translatih oblike $z + \Lambda$, je enolično določena že z vrednostjo na enem od predstavnikov vsakega translata. Po lemi \ref{enolicni predstavnik} vidimo, da lahko predstavnika poljubnega translata najdemo v fundametnalnem paralelogramu $D$, zato bo $f$ tako enolično določena že z vrednostmi na $D$. Ker je $f$ holomorfna na celotnem $\C$, je tam seveda zvezna in je zato zvezna tudi na zaprtju fundamentalnega paralelograma $\olsi{D}$. To je zaprta in omejena množica v $\C$ in je tako kompaktna \cite[]{}. Zvezna funkcija $f$ je na kompaktu $\olsi{D}$ omejena, kot eliptična funkcija pa je tako omejena na celotnem $\C$ \cite[]{}. Funkcija $f$ je torej omejena in cela holomorfna, zato je po Liouvillovem izreku konstantna.  
+    Ker je $f$ konstantna na ekvivalenčnih razredih množice $\C/\Lambda$ tj. translatih oblike $z + \Lambda$, je enolično določena že z vrednostjo na enem od predstavnikov vsakega translata. Po lemi \ref{enolicni predstavnik} vidimo, da lahko predstavnika poljubnega translata najdemo v fundametnalnem paralelogramu $D$, zato bo 
+    \[
+        \sup_{z \in \C} \left\lvert f(z) \right\rvert = \sup_{z \in \olsi{D}} \left\lvert f(z) \right\rvert.
+    \]
+    % $f$ tako enolično določena že z vrednostmi na $D$. 
+    Ker je $f$ holomorfna na celotnem $\C$, je tam seveda zvezna in je zato zvezna tudi na zaprtju fundamentalnega paralelograma $\olsi{D}$. To je zaprta in omejena množica v $\C$ in je tako kompaktna \cite[Trditev 2.22]{MrcunTop}. Zvezna funkcija $f$ je na kompaktu $\olsi{D}$ omejena, kot eliptična funkcija pa je tako omejena na celotnem $\C$ \cite[Posledica 2.28]{MrcunTop}. Funkcija $f$ je torej omejena in cela holomorfna, zato je po Liouvillovem izreku konstantna.  
 \end{dokaz}
 
-Uskladimo nekaj notacije, ki jo bomo potrebovali v naslednjih izrekih. Če je $f$ meromorfna funkcija na odprti domeni $D \subseteq \C$, pravimo, da je \emph{reda $m \in \Z$} v točki $z_0 \in D$, če obstaja okolica $U \subseteq D$ točke $z_0$ in holomorfna funkcija $g \in \hol{U}$, ki je neničelna povsod na $U$, da velja 
+\begin{opomba}
+    Enako lahko sklepamo tudi, če $f$ nima ničel. Tedaj je $1/f$ cela eliptična funkcija, ko jo v polih $f$ razširimo z $0$.
+\end{opomba}
+
+\begin{lema}
+    \label{odvod el. funkcije}
+    Naj bo $f \in \elf$ eliptična funkcija. Tedaj je tudi njen odvod $f' \in \elf$ eliptična funkcija.
+\end{lema}
+
+\begin{dokaz}
+    Recimo, da je $z \in \C$ točka, kjer $f$ nima pola, zato je v njeni okolici holomorfna in jo lahko odvajamo v kompleksnem smislu. Z odvajanjem osnovnega pogoja za eliptične funkcije dobimo
+    \[
+        f'(z + \omega) = f'(z) \quad \text{ za vsak $\omega \in \Lambda$.}
+    \]
+    Če je v točki $z \in \C$ pol, pa ima tudi $f'$ v tej točki pol, torej pogoj za eliptičnost velja povsod na $\C$ in tako je $f' \in \elf$.
+\end{dokaz}
+
+Vpeljimo nekaj notacije, ki jo bomo potrebovali v naslednjih izrekih. Če je $f$ meromorfna funkcija na odprti domeni $D \subseteq \C$, pravimo, da je $f$ \emph{reda $m \in \Z$} v točki $z_0 \in D$, če obstaja okolica $U \subseteq D$ točke $z_0$ in holomorfna funkcija $g \in \hol{U}$, ki je neničelna povsod na $U$, da velja 
 \[
     f(z) = (z - z_0)^m g(z) \quad \text{za vse $z \in U$.}  
 \]   
 Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo} reda $m$, če pa je $m < 0$ ima $f$ v $z_0$ \emph{pol} reda $-m$.
 
-\emph{Residuum} ali \emph{ostanek} funkcije $f$ pri točki $z_0 \in D$, je koeficient pred potenco $\frac{1}{(z-z_0)}$ v Laurentovi vrsti za $f$ okrog $z_0$. Označimo ga z $\res{z_0}{f}$. 
+\emph{Residuum} ali \emph{ostanek} funkcije $f$ pri točki $z_0 \in D$, je koeficient pred potenco $(z-z_0)\inv$ v Laurentovi vrsti za $f$ okrog $z_0$. Označimo ga z $\res{z_0}{f}$. 
+
+% \begin{komentar}
+%     Z $\sum_{w \in \torus}$ bomo označili vsoto po $w \in D$ poljubnem fundamentalnem paralelogramu, ki pripada merži $\Lambda$ in katerega rob ne vsebuje ničel ali polov funkcije $f$.   
+% \end{komentar}
 
 \begin{izrek}
-    Naj bo $f \in \C(\Lambda)$ in $D$ fundamentalni paralelogram glede na mrežo $\Lambda$, katerega rob $\partial D$ ne vsebuje polov ali ničel $f$. Tedaj velja 
-    \[
-        \sum_{w \in D} \res{w}{f} = 0  
-    \] 
+    Naj bo $f \in \C(\Lambda)$ eliptična funkcija in $D$ fundamentalni paralelogram glede na mrežo $\Lambda$, katerega rob $\partial D$ ne vsebuje polov ali ničel $f$. Tedaj velja
+    \begin{enumerate}
+        \item \[\sum_{w \in D} \res{w}{f} = 0\] \label{identiteta 1}
+        \item \[\sum_{w \in D} \ord{w}{f} = 0\] \label{identiteta 2}
+        \item \[\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda.\] \label{identiteta 3}
+    \end{enumerate}    
 \end{izrek}
+
+\begin{dokaz}
+    (\ref{identiteta 1}) Uporabimo izrek o ostankih \cite[Izrek 71]{Globevnik}, ki pove
+    \[
+        \sum_{w \in D} \res{w}{f} = \frac{1}{2\pi i}\int_{\partial D} f(z)dz.  
+    \]
+    Razdelimo rob fundametalnega paralelograma $\partial D = \sigma_1 \cup \sigma_2 \cup \sigma_3 \cup \sigma_4$ na štiri daljice, ki ga omejujejo, kot prikazuje slika \ref{fundamentalni paralelogram}.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \begin{scope}
+                \clip (0,0) rectangle (14cm,5cm); % Clips the picture...
+                \pgftransformcm{1}{0.6}{0.1}{1}{\pgfpoint{3cm}{3cm}};
+                \filldraw[fill=gray, draw=black] (4,-4) rectangle (6,-2);
+                % \draw (4,-2) node [left]{$\alpha + \omega_2$};
+                \draw (4,-4) node [below]{$\alpha$};
+                % \draw (6,-4) node [below]{$\alpha + \omega_1$};
+                \draw (5,-3) node {$D$};
+                \draw (4,-3) node [left]{$\sigma_4$};
+                \draw (5,-4) node [below]{$\sigma_1$};
+                \draw (6,-3) node [right]{$\sigma_2$};
+                \draw (5,-2) node [above]{$\sigma_3$};
+                
+                \foreach \x in {4,6}{                          
+                    \foreach \y in {-4,-2}{                       
+                        \node[draw,circle,inner sep=1pt,fill] at (\x,\y) {}; 
+                    }
+                }
+                
+            \end{scope}
+        \end{tikzpicture}
+        
+        \caption{Fundamentalni paralelogram.}
+        \label{fundamentalni paralelogram}
+    \end{figure}
+
+
+    Jasno tedaj velja
+    \[
+        \int_{\partial D} f(z)dz = \int_{\sigma_1} f(z)dz + \int_{\sigma_2} f(z)dz + \int_{\sigma_3} f(z)dz + \int_{\sigma_4} f(z)dz,
+    \]
+    s preprosto zamenjavo spremenljivk pa je zaradi periodičnosti $f$ preprosto videti, da se integrala po nasprotnih stranicah odštejeta, kar nam da želeni rezultat. 
+    \\
+    (\ref{identiteta 2}) Po lemi \ref{odvod el. funkcije} je $f' \in \elf$, zato je tudi kvocient $f'/f \in \elf$ eliptičen. Tedaj velja
+    \[
+        \sum_{w \in D} \ord{w}{f} = \frac{1}{2\pi i}\int_{\partial D} \frac{f'(z)}{f(z)}dz = 0. 
+    \]
+    Kjer smo v prvi enakosti uporabili princip argumenta \cite[Izrek 72]{Globevnik}, druga enakost pa je identiteta \ref{identiteta 1}, ki velja zaradi eliptičnosti $f'/f$.
+    \\
+    (\ref{identiteta 3}) Oglejmo si funkcijo $z \mapsto z \frac{f'(z)}{f(z)}$. Jasno je ta funkcija meromorfna na $\C$. Naj bo $z_0 \in \C$ poljuben. Tedaj obstaja $m \in \Z$, okolica $U \subseteq \C$ točke $z_0$ in holomorfna funkcija $g \in \hol{U}$, ki je neničelna na $U$, da velja
+    \[
+        f(z) = (z - z_0)^m g(z) \quad \text{ za vsak $z \in U$.}  
+    \]
+    Z odvajanjem te enakosti dobimo
+    \[
+        f'(z) = m(z - z_0)^{m - 1} g(z) + (z - z_0)^m g'(z),
+    \]
+    ki pravtako velja povsod na $U$. Skupaj tako dobimo, da za vsak $z \in U$ velja
+    \[
+        z\frac{f'(z)}{f(z)} = \frac{mz}{z-z_0} + z\frac{g'(z)}{g(z)} = \frac{mz_0}{z-z_0} + m + z\frac{g'(z)}{g(z)}.
+    \]
+    Ker edino člen $\frac{mz_0}{z-z_0}$ prispeva h glavnemu delu Laurentovega razvoja $h$ okrog $z_0$, je 
+    \[
+        \res{z_0}{z \frac{f'(z)}{f(z)}} = mz_0 = \ord{z_0}{f}z_0.  
+    \]
+    Tako dobimo 
+    \[
+        \sum_{w \in D} \ord{w}{f}\cdot w = \sum_{w \in D} \res{w}{z \frac{f'(z)}{f(z)}} = \frac{1}{2 \pi i} \int_{\partial D} z \frac{f'(z)}{f(z)}dz. 
+    \] 
+
+
+\end{dokaz}
+
+\begin{opomba}
+    \kom{razložim zakaj lahko predpostavlamo, da obstaja tak fund. paralelogram, ki nima ničel \& polov na robu...}
+
+    \kom{lahko bi razložli zakaj v tej vsoti vedno seštevamo končno mnogo neničelnih členov (spet posledica principa identičnosti)}
+\end{opomba}
+
+\begin{definicija}
+    \emph{Red} eliptične funkcije je število polov šteto z večkratnostjo v poljubnem fundamentalnem paralelogramu. 
+\end{definicija}
+
+Tudi, če pol leži na robu $\partial D$ izbranega fundamentalnega paralelograma štejemo red tega pola v $D$ kot  
+
+\begin{posledica}
+    Nekonstantna eliptična funkcija ima red vsaj $2$.
+\end{posledica}
+
+\begin{posledica}
+    Nekonstantna eliptična funkcija $f: \C \to \RS = \C \cup \{\infty\}$ je surjektivna. 
+\end{posledica}
 
 
 
@@ -898,6 +1026,9 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     
     \bibitem{Gibson}
         C.~G.~Gibson, \emph{Elementary geometry of algebraic curves: An undergraduate introduction}, Cambridge University Press, Cambridge, 1998.
+
+    \bibitem{Globevnik}
+        J.~Globevnik in M.~Brojan, \emph{Analiza II}, verzija 10.~8.~2010, [ogled 28.~7.~2021], dostopno na \url{https://www.fmf.uni-lj.si/~globevnik/skriptaII.pdf}.
     
     \bibitem{LangEllfunc}
         S.~Lang, \emph{Elliptic functions}, Graduate Texts in Mathematics \textbf{112}, Springer-Verlag, New York, 1973.
