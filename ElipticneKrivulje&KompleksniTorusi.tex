@@ -46,6 +46,7 @@
 \usepackage{faktor}
 \usepackage{caption}
 \usepackage{xfrac}
+\usepackage[shortlabels]{enumitem}
 % \usepackage{physics}
 
 %%%
@@ -90,13 +91,15 @@
 
 \newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
 
-\newcommand{\res}[2]{\operatorname{res}_{#1}\left(#2\right)}
-\newcommand{\ord}[2]{\operatorname{ord}_{#1}\left(#2\right)}
+% \newcommand{\res}[2]{\operatorname{res}_{#1}\left(#2\right)}
+% \newcommand{\ord}[2]{\operatorname{ord}_{#1}\left(#2\right)}
 
-% \newcommand{\res}[2]{\operatorname{res}_{#1}(#2)}
-% \newcommand{\ord}[2]{\operatorname{ord}_{#1}(#2)}
+\newcommand{\res}[2]{\operatorname{res}_{#1}(#2)}
+\newcommand{\ord}[2]{\operatorname{ord}_{#1}(#2)}
 
 \newcommand{\hol}[1]{\mathcal{O}(#1)}
+
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 
 %command for alg-closure that automatically adapts its 'bar' to the arg based on the args length (including '\')
 \newcommand{\ols}[1]{\mskip.5\thinmuskip\overline{\mskip-.5\thinmuskip {#1} \mskip-.5\thinmuskip}\mskip.5\thinmuskip} % overline short
@@ -250,7 +253,7 @@ Definicija \ref{reg sing tocke} nam omogoči formulirati prvo opazko.
     Najprej se spomnimo definicije podmnogoterosti. Neprazna podmnožica $X \subseteq \R^{n+k}$ je \emph{$n$-podmnogoterost} razreda gladkosti $\mathcal{C}^r$, za $r \in \{0,1,\dots, \infty, \omega\}$, če za vsako točko $x_0 \in X$ obstaja okolica $U \subseteq \R^{n+k}$ točke $x_0$ in t.~i.\ definicijska funkcija $F: U \subseteq \R^{n+k} \to \R^k$ razreda $\mathcal{C}^r$ na $U$, da velja
     \begin{enumerate}
         \item $X \cap U = F^{-1}(\{0\}) = \{x \in U | F(x) = 0\}$ in
-        \item Jacobijeva matrika definicijske funkcije $F$ ima poln rang povsod na $X \cap U$, t.~j.\  $\rang JF(x) = k$ za vsak $x \in X \cap U$.
+        \item Jacobijeva matrika definicijske funkcije $F$ ima poln rang povsod na $X \cap U$, t.~j.\  $\rang J F(x) = k$ za vsak $x \in X \cap U$.
     \end{enumerate}
     Številu $n$ pravimo \emph{dimenzija} podmnogoterosti $X$, številu $k$ pa \emph{kodimenzija}.
     \\
@@ -840,6 +843,7 @@ Spomnimo se, da so \emph{holomorfne} funkcije na neki odprti domeni $D$ tiste, k
 Sedaj si bomo pogledali nekaj izrekov, ki opisujejo naravo eliptičnih funkcij in jih lahko povečini priprišemo Liouvillu. Prvi je direktna posledica njegovega slavnega izreka iz kompleksne analize, ki pove, da razen konstant celih omejenih holomorfnih funkcij ni. Bralec ga lahko najde v \cite[]{}.
 
 \begin{izrek}
+    \label{cele el. funkcije}
     Naj bo $f$ cela eliptična funkcija. Tedaj je $f$ konstantna.
 \end{izrek}
 
@@ -882,15 +886,23 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
 % \end{komentar}
 
 \begin{izrek}
+    \label{liouville}
     Naj bo $f \in \C(\Lambda)$ eliptična funkcija in $D$ fundamentalni paralelogram glede na mrežo $\Lambda$, katerega rob $\partial D$ ne vsebuje polov ali ničel $f$. Tedaj velja
-    \begin{enumerate}
-        \item \[\sum_{w \in D} \res{w}{f} = 0\] \label{identiteta 1}
-        \item \[\sum_{w \in D} \ord{w}{f} = 0\] \label{identiteta 2}
-        \item \[\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda.\] \label{identiteta 3}
-    \end{enumerate}    
+    \begin{flalign*}
+        &\sum_{w \in D} \res{w}{f} = 0 && \label{identiteta 1} \tag{a} \\ 
+        &\sum_{w \in D} \ord{w}{f} = 0 && \label{identiteta 2} \tag{b} \\
+        &\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda. && \label{identiteta 3} \tag{c}
+    \end{flalign*}
+
+    % \begin{enumerate}[(a)]
+    %     \item \[\sum_{w \in D} \res{w}{f} = 0\] \label{identiteta 1}
+    %     \item \[\sum_{w \in D} \ord{w}{f} = 0\] \label{identiteta 2}
+    %     \item \[\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda.\] \label{identiteta 3}
+    % \end{enumerate}    
 \end{izrek}
 
 \begin{dokaz}
+    \par
     (\ref{identiteta 1}) Uporabimo izrek o ostankih \cite[Izrek 71]{Globevnik}, ki pove
     \[
         \sum_{w \in D} \res{w}{f} = \frac{1}{2\pi i}\int_{\partial D} f(z)dz.  
@@ -901,8 +913,8 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
         \centering
         \begin{tikzpicture}
             \begin{scope}
-                \clip (0,0) rectangle (14cm,5cm); % Clips the picture...
-                \pgftransformcm{1}{0.6}{0.1}{1}{\pgfpoint{3cm}{3cm}};
+                \clip (0,0) rectangle (14cm,4cm); % Clips the picture...
+                \pgftransformcm{1}{0.6}{0.1}{1}{\pgfpoint{2cm}{2cm}};
                 \filldraw[fill=gray, draw=black] (4,-4) rectangle (6,-2);
                 % \draw (4,-2) node [left]{$\alpha + \omega_2$};
                 \draw (4,-4) node [below]{$\alpha$};
@@ -933,12 +945,15 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     \]
     s preprosto zamenjavo spremenljivk pa je zaradi periodičnosti $f$ preprosto videti, da se integrala po nasprotnih stranicah odštejeta, kar nam da želeni rezultat. 
     \\
+    \par
     (\ref{identiteta 2}) Po lemi \ref{odvod el. funkcije} je $f' \in \elf$, zato je tudi kvocient $f'/f \in \elf$ eliptičen. Tedaj velja
     \[
         \sum_{w \in D} \ord{w}{f} = \frac{1}{2\pi i}\int_{\partial D} \frac{f'(z)}{f(z)}dz = 0. 
     \]
-    Kjer smo v prvi enakosti uporabili princip argumenta \cite[Izrek 72]{Globevnik}, druga enakost pa je identiteta \ref{identiteta 1}, ki velja zaradi eliptičnosti $f'/f$.
+    Kjer smo v prvi enakosti uporabili princip argumenta \cite[Izrek 72]{Globevnik}, druga enakost pa je identiteta (\ref{identiteta 1}), ki velja zaradi eliptičnosti $f'/f$.
     \\
+    \par
+    % mogoče bom povsod zamenjal $z_0$ z $w$...
     (\ref{identiteta 3}) Oglejmo si funkcijo $z \mapsto z \frac{f'(z)}{f(z)}$. Jasno je ta funkcija meromorfna na $\C$. Naj bo $z_0 \in \C$ poljuben. Tedaj obstaja $m \in \Z$, okolica $U \subseteq \C$ točke $z_0$ in holomorfna funkcija $g \in \hol{U}$, ki je neničelna na $U$, da velja
     \[
         f(z) = (z - z_0)^m g(z) \quad \text{ za vsak $z \in U$.}  
@@ -949,45 +964,241 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     \]
     ki pravtako velja povsod na $U$. Skupaj tako dobimo, da za vsak $z \in U$ velja
     \[
-        z\frac{f'(z)}{f(z)} = \frac{mz}{z-z_0} + z\frac{g'(z)}{g(z)} = \frac{mz_0}{z-z_0} + m + z\frac{g'(z)}{g(z)}.
+        z\frac{f'(z)}{f(z)} = \frac{mz}{z-z_0} + z\frac{g'(z)}{g(z)} = \frac{mz_0}{z-z_0} + \underbrace{m + z\frac{g'(z)}{g(z)}}_{\in \hol{U}}.
     \]
-    Ker edino člen $\frac{mz_0}{z-z_0}$ prispeva h glavnemu delu Laurentovega razvoja $h$ okrog $z_0$, je 
+    Ker sta zadnja dva člena holomorfna na $U$, edino člen $\frac{mz_0}{z-z_0}$ prispeva h glavnemu delu Laurentovega razvoja funkcije $z \mapsto z \frac{f'(z)}{f(z)}$ okrog $z_0$. Zato je 
     \[
-        \res{z_0}{z \frac{f'(z)}{f(z)}} = mz_0 = \ord{z_0}{f}z_0.  
+        \operatorname{res}_{z_0} \left( z \frac{f'(z)}{f(z)} \right) = mz_0 = \ord{z_0}{f}z_0.  
+        % \res{z_0}{z \frac{f'(z)}{f(z)}} = mz_0 = \ord{z_0}{f}z_0.  
     \]
     Tako dobimo 
     \[
-        \sum_{w \in D} \ord{w}{f}\cdot w = \sum_{w \in D} \res{w}{z \frac{f'(z)}{f(z)}} = \frac{1}{2 \pi i} \int_{\partial D} z \frac{f'(z)}{f(z)}dz. 
+        \sum_{w \in D} \ord{w}{f}\cdot w 
+        = \sum_{w \in D} \operatorname{res}_{w} \left( z \frac{f'(z)}{f(z)} \right)
+        = \frac{1}{2 \pi i} \int_{\partial D} z \frac{f'(z)}{f(z)}dz. 
     \] 
+    Poglejmo si sedaj zadnji integral, ki ga podobno kot pri dokazu (\ref{identiteta 1}) razbijemo na vsoto integralov po štirih stranicah. Z uvedbo nove spremenljivke $w = z + \omega_2$ v integral po stranici $\sigma_1$ vidimo
+    \begin{multline*}
+        \int_{\sigma_1} z \frac{f'(z)}{f(z)}dz = 
+        \int_{\sigma_1} z \frac{f'(z + \omega_2)}{f(z + \omega_2)}dz = \\ = 
+        - \int_{\sigma_3} (w - \omega_2) \frac{f'(w)}{f(w)}dw = 
+        - \int_{\sigma_3} z \frac{f'(z)}{f(z)}dz + \omega_2 \int_{\sigma_3} \frac{f'(z)}{f(z)}dz.
+    \end{multline*}
+    Podobno z uvedbo nove spremenljivke $w = z + \omega_1$ storimo z integralom po stranici $\sigma_2$ in tako dobimo
+    \[
+        \int_{\partial D} z \frac{f'(z)}{f(z)}dz = \omega_1 \int_{\sigma_4} \frac{f'(z)}{f(z)}dz + \omega_2 \int_{\sigma_3} \frac{f'(z)}{f(z)}dz.
+    \]
+    \\
 
+    Za poljubno sklenjeno krivuljo $\gamma : [0,1] \to \C$, tj. $\gamma(0) = \gamma(1)$, ki ne poteka skozi izhodišče $0\in \C$, je
+    \[
+        \frac{1}{2 \pi i} \int_\gamma \frac{dz}{z} \in \Z
+    \]
+    \emph{ovojno število} krivulje $\gamma$ okoli $0$. Več o tem lahko bralec najde v \cite[4.2.1.]{Ahlfors}.
+    \\
 
+    Osredotočimo se sedaj samo na prvi integral, premislek za drugega je analogen. Opazimo, da je zaradi eilptičnosti $f$ krivulja $f(\sigma_4)$ sklenjena, saj sta krajišči daljice $\sigma_4$ točki $\alpha$ in $\alpha + \omega_2$ v katerih ima $f$ enaki vrednosti. Pot $\gamma : [0,1] \to f(\sigma_4)$, ki predstavlja to sklenjen0 krivuljo, je podana s predpisom $t \mapsto f(\alpha + t\omega_2)$.\kom{to ni parametrizacija krivulje v običajnem smislu, saj je lahko neinjektivna, je potrebno kaj takega še omeniti?} Torej lahko zapišemo 
+    \[
+        2 \pi i k_1 = 
+        \int_{\gamma} \frac{dz}{z} = 
+        \int_0^1 \frac{\gamma'(t)}{\gamma(t)}dt =
+        \int_0^1 \frac{f'(\alpha + t\omega_2)}{f(\alpha + t\omega_2)}\omega_2 dt = 
+        \int_{\sigma_4} \frac{f'(z)}{f(z)}dz.
+    \]
+    za nek $k_1 \in \Z$. Podobno je tako tudi
+    \[
+        2 \pi i k_2 = \int_{\sigma_3} \frac{f'(z)}{f(z)}dz,
+    \]
+    za nek $k_2 \in \Z$. Skupaj je torej 
+    \[
+        \sum_{w \in D} \ord{w}{f} \cdot w = 
+        \frac{1}{2 \pi i} \int_{\partial D} z\frac{f'(z)}{f(z)}dz = 
+        k_1 \omega_1 + k_2 \omega_2\in \Lambda.  
+    \]
 \end{dokaz}
 
 \begin{opomba}
-    \kom{razložim zakaj lahko predpostavlamo, da obstaja tak fund. paralelogram, ki nima ničel \& polov na robu...}
+    \label{liouville opomba}
+    \begin{enumerate}
+        \item
+        V vseh treh točkah seštevamo po neštevnem fundamentalnem paralelogramu $D$, toda vse tri vsote vsebujejo zgolj končno mnogo neničelnih členov. Residuum in red funkcije $f$, sta lahko različna od nič samo v ničlah ali polih $f$, teh pa je v kompaktu $\ols{D}$ lahko le končno, saj bi sicer prišli v protislovje s principom identičnosti. Ta pravi, da se meromorfni funkciji definirani na neki odprti domeni $\Omega$, ki se ujemata na množici s stekališčem v $\Omega$, ujemata povsod, kjer sta definirani \cite[]{}.
+        \item 
+        Kot nakazuje izrek je izbira fundamentalnega paralelograma irelevantna, dokler ta izpolnjuje določene predpostavke o robu. Kljub temu pa se prepričajmo, da lahko vselej takšen fundamentalni paralelogram vedno izberemo. 
 
-    \kom{lahko bi razložli zakaj v tej vsoti vedno seštevamo končno mnogo neničelnih členov (spet posledica principa identičnosti)}
+        Denimo, da temu ni tako, torej da ima vsak fundamentalni paralelogram na svojem robu vsaj en pol eliptične funkcije $f$. S translacijami
+        \[
+            \tau_n : z \mapsto z + \frac{1}{n}(\om_1 + \om_2); \quad n\in \N
+        \]
+        delujemo na rob fundamentalnega paralelograma $\partial D$ in tako dobimo števno mnogo različnih polov za $f$. To zaporedje polov leži v uniji $\cup_{n \in \N} \tau_n(\partial D)$, ki jo lahko zapremo v dovolj velik zaprt disk. Na ta način dobimo zaporedje polov v kompaktu, ki ima po Bolzano-Weierstrassovem izreku stekališče, kar pa je v nasprotju s tem, da je množica polov meromorfne funkcije diskretna v $\C$. 
+        
+        Podobno lahko hkrati sklepamo še za ničle funkcije $f$ in s pomočjo principa identičnosti pridemo v protislovje z diskretnostjo množice ničel meromorfne funkcije $f$.
+        \item 
+        Točka (\ref{identiteta 2}) pove, da ima eliptična funkcija na fundamentalnem paralelogramu enako število ničel in polov štetih z večkratnostjo. 
+    \end{enumerate}
 \end{opomba}
 
 \begin{definicija}
     \emph{Red} eliptične funkcije je število polov šteto z večkratnostjo v poljubnem fundamentalnem paralelogramu. 
 \end{definicija}
 
-Tudi, če pol leži na robu $\partial D$ izbranega fundamentalnega paralelograma štejemo red tega pola v $D$ kot  
+Tudi, če pol $z_0$ leži na robu $\partial D$ izbranega fundamentalnega paralelograma, lahko govorimo o redu tega pola v $D$. Takrat štejemo \emph{red pola $z_0$ v $D$} kot $\frac{1}{2}\ord{z_0}{f}$, če pol ni eno od štirih oglišč, oziroma, v primeru ko pol $z_0$ je oglišče paralelograma, vzamemo za njegov red vrednost
+\[
+    \frac{\ell(\partial \Delta(z_0, r) \cap D)}{2 \pi r}\ord{z_0}{f}.
+\]
+Ob tem $\ell$ opisuje dolžino danega krožnega loka, $r > 0$ pa je dovolj majhen, da je $z_0$ edino oglišče fundamentalnega paralelograma vsebovano v odprtem disku ${\Delta(z_0, r) =}$ ${\{z \in \C \mid \left\lvert z - z_0 \right\rvert < r\}}$. Z drugimi besedami je ta količina normaliziran notranji kot fundamentalnega paralelograma pri oglišču $z_0$ pomnožen z $\ord{z_0}{f}$.  
+
+\begin{zgled*}
+
+\end{zgled*}
 
 \begin{posledica}
     Nekonstantna eliptična funkcija ima red vsaj $2$.
 \end{posledica}
 
+\begin{dokaz}
+    Denimo, da je $f \in \elf$ eliptična funkcija z enim polom na fundamentalni domeni $D$, saj vemo že, da bi bila konstantna, če nebi imela nobenega pola po izreku \ref{cele el. funkcije}. Brez škode za splošnost lahko predpostavimo, da pol leži v notranjosti $D$. Tedaj dobimo z integracijo po robu $\partial D$ neničelni residuum
+    \[
+        0 \neq \res{\alpha}{f} = \frac{1}{2 \pi i} \int_{\partial D} f(z)dz.  
+    \]
+    To pa je v nasprotju z izrekom \ref{liouville} (\ref{identiteta 1}), ki pove, da je ta residuum -- edini člen v vsoti -- enak nič. 
+\end{dokaz}
+
 \begin{posledica}
     Nekonstantna eliptična funkcija $f: \C \to \RS = \C \cup \{\infty\}$ je surjektivna. 
 \end{posledica}
+
+\begin{dokaz}
+    Ker je $f \in \elf$ nekonstantna, ima po izreku \ref{cele el. funkcije} pol in lahko zato rečemo, da tam doseže točko $\infty$. Naj bo sedaj $w \in \C$ poljubna točka in pokažimo, da obstaja $z \in \C$, da velja $f(z) = w$.
+    
+    Definirajmo $g(z) := f(z) - w$. Funkcija $g$ je pravtako eliptična in ima pol, saj je takšna $f$ in prištevanje konstante na ti dve lastnosti nima vpliva. Po opombi \ref{liouville opomba} (3) ima $g$ ničlo v $\C$, kar pokaže želeno.
+\end{dokaz}
 
 
 
 %%%%% Weierstrassova funkcija %%%%%
 
 \subsection{Weierstrassova funkcija $\wp$}
+
+Osrednja tema tega poglavja, ki bo povezala eliptične krivulje s kompleksnimi torusi in za katero smo potrebno teorijo razvijali v prejšnjem razdelku, bo t.~i.\ \emph{Weierstrassova funkcija} $\wp$. 
+
+
+Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda \setminus \{0\}$.
+
+\begin{lema}
+    \label{lema o oceni vrste po mrezi}
+    Za vsako celo število $k > 2$ je vrsta 
+    \[
+        \sum_{\om \in \Lambda'} \frac{1}{\om^k}
+    \]
+    absolutno konvergentna.
+\end{lema}
+
+\begin{dokaz}
+    Za vsak $n \in \N$ definirajmo množice
+    \[
+        C_n = \{k_1 \om_1 + k_2 \om_2\in \Lambda \mid k_1 + k_2 = n\}.  
+    \]
+    Preprosto se je prepričati, da je moč posamezne od teh množic $\#C_n = 4n$. Vsak element $\om \in C_n$ pa lahko po absolutni vrednosti ocenimo $\left\lvert \om \right\rvert > \rho n$, kjer je $\rho > 0$ razdalija od izhodišča $0$, do roba paralelograma z oglišči v točkah $\pm \om_1, \pm \om_2$. Tedaj velja ocena
+    \[
+        \sum_{\om \in \Lambda'} \frac{1}{\left\lvert  \om^k \right\rvert} = 
+        \sum_{n = 1}^\infty \sum_{\om \in C_n} \frac{1}{\left\lvert  \om \right\rvert^k} \leq
+        \sum_{n = 1}^\infty \sum_{\om \in C_n} \frac{1}{(\rho n)^k} =
+        \sum_{n = 1}^\infty \frac{4n}{\rho^k n^k} = 
+        \frac{4}{\rho^k} \sum_{n = 1}^\infty \frac{1}{n^{k-1}}.
+    \]
+    Zadnja vrsta konvergira natanko tedaj, ko je $k - 1 > 1$ in tako po primerjalnem kriteriju dobimo absolutno kovergenco vrste $\sum_{\om \in \Lambda'} \om^{-k}$.
+\end{dokaz}
+
+\begin{definicija}
+    \label{eisensteinova vrsta}
+    Za celo število $k > 2$ je \emph{Eisensteinova vrsta reda $k$}
+    \[
+        G_k(\Lambda) = \sum_{\om \in \Lambda'} \frac{1}{\om^k}.  
+    \]
+\end{definicija}
+
+\begin{opomba}
+    Opazimo, da za lihe $k$ velja $G_k(\Lambda) = 0$, saj se člena pri $\om$ in $-\om\in\Lambda'$ v vsoti odštejeta. 
+\end{opomba}
+
+\begin{izrek}
+    o konvergenci holomorfnih funkcijskih vrst
+\end{izrek}
+
+\begin{dokaz}
+    \cite[\S 5, Theorem 1]{Ahlfors}
+\end{dokaz}
+
+\begin{lema}
+    \label{elipticna vrsta}
+    Za vsako celo število $k > 2$, vrsta 
+    \[
+        \sum_{\om \in \Lambda'} \frac{1}{(z - \om)^k}
+    \]
+    konvergira absolutno za poljuben $z\in \C\setminus\Lambda'$ in enakomerno po kompaktih na $\C \setminus \Lambda'$. Kot preslikava $\C \to \RS$ pa predstavlja meromorfno funkcijo s poli v možici $\Lambda'$. 
+\end{lema}
+
+\begin{dokaz}
+    Glavna ideja tukaj bo uporabiti Weierstrassov M-test. Najprej pa si pripravimo oceno. 
+    
+    Naj bo $K\subseteq \C\setminus \Lambda'$ poljuben kompakt. Kot kompakt v evklidskem prostoru je omejen, torej obstaja $r > 0$, da je $K \subseteq \Delta(0,r)$. Za vseh razen končno mnogo $\omega\in\Lambda$, ki ležijo v disku $\Delta(0,2r)$, velja 
+    \[
+        \abs{\omega} \geq 2r \geq 2\abs{z} \quad \text{za vsak $z\in K$,}
+    \] 
+    od tod pa preko trikotniške neenakosti $\abs{\omega} \leq \abs{z - \omega} + \abs{z}$ dobimo 
+    \begin{equation}
+        \label{ocena za vrsto}
+        \abs{z - \om} \geq \abs{\om} - \abs{z} \geq \frac{1}{2}\abs{\om} \quad \text{za vse $z \in K$ in $\abs{\om} \geq 2r$.}  
+    \end{equation}
+    % Za teh končno mnogo $\omega \in \Delta(0,2r)\cap \Lambda$ pa obstaja konstanta $c>0$, da velja
+    % \[
+    %     \abs{z - \om} \geq c \quad \text{za vse $z \in K$.}  
+    % \] 
+
+    Sedaj definirajmo funkcijsko zaporedje $(f_n)_{n \in \N}$ na $K$ podano kot
+    \[
+        f_n(z) = \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{1}{(z - \om)^k}.
+    \]
+    Zanj velja
+    \[
+        \abs{f_n(z)} \leq 
+        \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{1}{\abs{z - \om}^k} \leq
+        \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{2^k}{\abs{\om}^k} \leq
+        \sum_{\om\in\Lambda'} \frac{2^k}{\abs{\om}^k},
+    \]
+    kjer smo za drugo neenakost uporabili oceno \ref{ocena za vrsto}. Vrsta na desni konvergira kot smo ugotovili v dokazu leme \ref{lema o oceni vrste po mrezi}, tako pa nam je uspelo funkcijsko zaporedje $(f_n)_{n\in \N}$ po absolutni vrednosti navzgor omejiti s konstantnim -- torej konvergentnim zaporedjem. Po Weierstrassovem M-testu \cite[]{Globevnik} je funkcijsko zaporedje $(f_n)_{n\in \N}$ absolutno in enakomerno konvergentno na poljubem kompaktu $K \subseteq \C\setminus\Lambda'$.
+    
+    Enako torej velja tudi za vrsto 
+    \[
+        \sum_{\om \in \Lambda'} \frac{1}{(z - \om)^k} = 
+        \sum_{\substack{\om \in \Lambda' \\ \abs{\om} < 2r}} \frac{1}{(z - \om)^k} + \lim_{n \to \infty} f_n(z).
+    \]
+    % te delne vsote pa bomo za dovolj velike $n\in\N$ poskusili omejiti s členom konvergentnega zaporedja, ki je neodvisno od $z \in K$. Za majhne $n\in \N$, torej tiste za katere je $n < r$, pa že imamo oceno 
+    % \[
+    %     \abs{f_n(z)} = \sum_{\substack{\om\in\Lambda' \\ n-1 \leq \abs{\om} < n}} \frac{1}{\abs{z - \om}^s} \leq \frac{}{c^s}
+    % \]
+    % ki je neodvisna od $z\in K$.  
+\end{dokaz}
+
+\begin{primer*}
+    Tako smo prišli, do prvega netrivialnega primera eliptične funkcije. Prepričajmo se, da je funkcija podana s predpisom
+    \[
+        f(z) = \sum_{\om \in \Lambda} \frac{1}{(z - \om)^k}, \quad \text{za k > 2}  
+    \]
+    res ne le meromorfna, ampak tudi eliptična (to je vrsta iz leme \ref{elipticna vrsta}, ki smo ji prišteli člen $z^{-k}$).
+
+    Če je $z \in \C$ poljuben in $\om_0 \in \Lambda$ poljubna perioda, računamo
+    \[
+        f(z + \om_0) = 
+        \sum_{\om \in \Lambda} \frac{1}{(z + \om_0 - \om)^k} = 
+        \sum_{\om \in \Lambda} \frac{1}{(z - (\om - \om_0))^k} = 
+        \sum_{\om \in \Lambda} \frac{1}{(z - \om)^k} = 
+        f(z),
+    \]
+    kjer smo v predzadnji enakosti upoštevali, da je translacija $\om \mapsto \om - \om_0$ bijekcija mreže $\Lambda$ samo vase, ki nam zgolj premeša vrstni red seštevanja v zadnji vsoti. 
+\end{primer*}
+
+
 \break
 
 
@@ -1011,6 +1222,10 @@ Tudi, če pol leži na robu $\partial D$ izbranega fundamentalnega paralelograma
 
 \section{Izomorfizem \texorpdfstring{$\C/\Lambda \to E(\C)$}{} in njegove posledice} \label{poglavje izomorfizem}
 
+\subsection{Uniformizacija}
+\subsection{$j$-invarianta}
+ 
+% koeficienta 60 in 140 pred G_4, G_6 sta najmanjša, da je ena limita v zvezi z diskriminanto enaka 0...
 
 \break
 
@@ -1024,6 +1239,9 @@ Tudi, če pol leži na robu $\partial D$ izbranega fundamentalnega paralelograma
 % (!) urejen po abecednem vrstenm redu priimkov avtorjev 
 \begin{thebibliography}{99}
     
+    \bibitem{Ahlfors}
+        L.~V.~Ahlfors, \emph{Complex analysis}, third edition, McGraw-Hill, Inc., New York, 1979.
+
     \bibitem{Gibson}
         C.~G.~Gibson, \emph{Elementary geometry of algebraic curves: An undergraduate introduction}, Cambridge University Press, Cambridge, 1998.
 
