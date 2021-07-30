@@ -101,6 +101,8 @@
 
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 
+\newcommand{\disk}[2]{\Delta(#1, #2)}
+
 %command for alg-closure that automatically adapts its 'bar' to the arg based on the args length (including '\')
 \newcommand{\ols}[1]{\mskip.5\thinmuskip\overline{\mskip-.5\thinmuskip {#1} \mskip-.5\thinmuskip}\mskip.5\thinmuskip} % overline short
 \newcommand{\olsi}[1]{\,\overline{\!{#1}}} % overline short italic
@@ -977,7 +979,7 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
         = \sum_{w \in D} \operatorname{res}_{w} \left( z \frac{f'(z)}{f(z)} \right)
         = \frac{1}{2 \pi i} \int_{\partial D} z \frac{f'(z)}{f(z)}dz. 
     \] 
-    Poglejmo si sedaj zadnji integral, ki ga podobno kot pri dokazu (\ref{identiteta 1}) razbijemo na vsoto integralov po štirih stranicah. Z uvedbo nove spremenljivke $w = z + \omega_2$ v integral po stranici $\sigma_1$ vidimo
+    Poglejmo si sedaj zadnji integral, ki ga podobno kot pri dokazu (\ref{identiteta 1}) razbijemo na vsoto integralov po štirih stranicah. Argument o odštevanju integralov po nasprotnih stranicah paralelograma pa tokrat zaradi neperiodičnosti funkcije $z \mapsto z \frac{f'(z)}{f(z)}$ ne bo deloval. Z uvedbo nove spremenljivke $w = z + \omega_2$ v integral po stranici $\sigma_1$ vidimo
     \begin{multline*}
         \int_{\sigma_1} z \frac{f'(z)}{f(z)}dz = 
         \int_{\sigma_1} z \frac{f'(z + \omega_2)}{f(z + \omega_2)}dz = \\ = 
@@ -990,20 +992,22 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     \]
     \\
 
-    Za poljubno sklenjeno krivuljo $\gamma : [0,1] \to \C$, tj. $\gamma(0) = \gamma(1)$, ki ne poteka skozi izhodišče $0\in \C$, je
+    Za poljubno sklenjeno in kosoma gladko krivuljo $\gamma : [0,1] \to \C$, tj. $\gamma(0) = \gamma(1)$, ki ne poteka skozi izhodišče $0\in \C$, je
     \[
         \frac{1}{2 \pi i} \int_\gamma \frac{dz}{z} \in \Z
     \]
-    \emph{ovojno število} krivulje $\gamma$ okoli $0$. Več o tem lahko bralec najde v \cite[4.2.1.]{Ahlfors}.
+    \emph{ovojno število} krivulje $\gamma$ okoli $0$ in nam pove kolikokrat se krivulja $\gamma$ ovije okoli izhodišča. Podrobnosti o tem lahko bralec najde v \cite[4.2.1.]{Ahlfors}.
     \\
 
-    Osredotočimo se sedaj samo na prvi integral, premislek za drugega je analogen. Opazimo, da je zaradi eilptičnosti $f$ krivulja $f(\sigma_4)$ sklenjena, saj sta krajišči daljice $\sigma_4$ točki $\alpha$ in $\alpha + \omega_2$ v katerih ima $f$ enaki vrednosti. Pot $\gamma : [0,1] \to f(\sigma_4)$, ki predstavlja to sklenjen0 krivuljo, je podana s predpisom $t \mapsto f(\alpha + t\omega_2)$.\kom{to ni parametrizacija krivulje v običajnem smislu, saj je lahko neinjektivna, je potrebno kaj takega še omeniti?} Torej lahko zapišemo 
+    Osredotočimo se sedaj samo na prvi integral, premislek za drugega je analogen. Opazimo, da je zaradi eilptičnosti $f$ krivulja $f(\sigma_4)$ sklenjena, saj sta krajišči daljice $\sigma_4$ točki $\alpha$ in $\alpha + \omega_2$ v katerih ima $f$ enaki vrednosti. Pot $\gamma : [0,1] \to f(\sigma_4)$, ki predstavlja to sklenjeno krivuljo, je podana s predpisom $t \mapsto f(\alpha + t\omega_2)$. Opomnimo še, da to ni nujno parametrizacija krivulje v običajnem smislu, saj je lahko neinjektivna. 
+    
+    Zapišemo lahko 
     \[
         2 \pi i k_1 = 
         \int_{\gamma} \frac{dz}{z} = 
         \int_0^1 \frac{\gamma'(t)}{\gamma(t)}dt =
         \int_0^1 \frac{f'(\alpha + t\omega_2)}{f(\alpha + t\omega_2)}\omega_2 dt = 
-        \int_{\sigma_4} \frac{f'(z)}{f(z)}dz.
+        \int_{\sigma_4} \frac{f'(z)}{f(z)}dz
     \]
     za nek $k_1 \in \Z$. Podobno je tako tudi
     \[
@@ -1021,7 +1025,7 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     \label{liouville opomba}
     \begin{enumerate}
         \item
-        V vseh treh točkah seštevamo po neštevnem fundamentalnem paralelogramu $D$, toda vse tri vsote vsebujejo zgolj končno mnogo neničelnih členov. Residuum in red funkcije $f$, sta lahko različna od nič samo v ničlah ali polih $f$, teh pa je v kompaktu $\ols{D}$ lahko le končno, saj bi sicer prišli v protislovje s principom identičnosti. Ta pravi, da se meromorfni funkciji definirani na neki odprti domeni $\Omega$, ki se ujemata na množici s stekališčem v $\Omega$, ujemata povsod, kjer sta definirani \cite[]{}.
+        V vseh treh točkah seštevamo po neštevnem fundamentalnem paralelogramu $D$, toda vse tri vsote vsebujejo zgolj končno mnogo neničelnih členov. Residuum in red funkcije $f$, sta lahko različna od nič samo v ničlah ali polih $f$, teh pa je v kompaktu $\ols{D}$ lahko le končno, saj bi sicer prišli v protislovje s principom identičnosti. Ta pravi, da se meromorfni funkciji definirani na neki odprti domeni $\Omega$, ki se ujemata na množici s stekališčem v $\Omega$, ujemata povsod na $\Omega$ \cite[]{}.
         \item 
         Kot nakazuje izrek je izbira fundamentalnega paralelograma irelevantna, dokler ta izpolnjuje določene predpostavke o robu. Kljub temu pa se prepričajmo, da lahko vselej takšen fundamentalni paralelogram vedno izberemo. 
 
@@ -1079,18 +1083,25 @@ Ob tem $\ell$ opisuje dolžino danega krožnega loka, $r > 0$ pa je dovolj majhe
 
 \subsection{Weierstrassova funkcija $\wp$}
 
-Osrednja tema tega poglavja, ki bo povezala eliptične krivulje s kompleksnimi torusi in za katero smo potrebno teorijo razvijali v prejšnjem razdelku, bo t.~i.\ \emph{Weierstrassova funkcija} $\wp$. 
-
+Osrednja tema tega poglavja, ki bo povezala eliptične krivulje s kompleksnimi torusi in za katero je bilo potrebno razvijati teorijo v prejšnjem razdelku, bo t.~i.\ \emph{Weierstrassova funkcija} $\wp$. 
 
 Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda \setminus \{0\}$.
 
-\begin{lema}
-    \label{lema o oceni vrste po mrezi}
-    Za vsako celo število $k > 2$ je vrsta 
+\begin{definicija}
+    \label{eisensteinova vrsta}
+    Za celo število $k > 2$ je \emph{Eisensteinova vrsta reda $k$} podana kot
     \[
-        \sum_{\om \in \Lambda'} \frac{1}{\om^k}
+        G_k(\Lambda) = \sum_{\om \in \Lambda'} \frac{1}{\om^k}.  
     \]
-    absolutno konvergentna.
+\end{definicija}
+
+\begin{opomba}
+    Opazimo, da za lihe $k$ velja $G_k(\Lambda) = 0$, saj se člena pri $\om$ in $-\om\in\Lambda'$ v vsoti odštejeta. 
+\end{opomba}
+
+\begin{lema}
+    \label{lema o konvergenci eisensteinove vrste}
+    Za vsako celo število $k > 2$ Eisensteinova vrsta reda $k$ absolutno konvergentna.
 \end{lema}
 
 \begin{dokaz}
@@ -1109,76 +1120,104 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
     Zadnja vrsta konvergira natanko tedaj, ko je $k - 1 > 1$ in tako po primerjalnem kriteriju dobimo absolutno kovergenco vrste $\sum_{\om \in \Lambda'} \om^{-k}$.
 \end{dokaz}
 
-\begin{definicija}
-    \label{eisensteinova vrsta}
-    Za celo število $k > 2$ je \emph{Eisensteinova vrsta reda $k$}
-    \[
-        G_k(\Lambda) = \sum_{\om \in \Lambda'} \frac{1}{\om^k}.  
-    \]
-\end{definicija}
-
-\begin{opomba}
-    Opazimo, da za lihe $k$ velja $G_k(\Lambda) = 0$, saj se člena pri $\om$ in $-\om\in\Lambda'$ v vsoti odštejeta. 
-\end{opomba}
-
-\begin{izrek}
-    o konvergenci holomorfnih funkcijskih vrst
-\end{izrek}
-
-\begin{dokaz}
-    \cite[\S 5, Theorem 1]{Ahlfors}
-\end{dokaz}
-
 \begin{lema}
     \label{elipticna vrsta}
     Za vsako celo število $k > 2$, vrsta 
     \[
         \sum_{\om \in \Lambda'} \frac{1}{(z - \om)^k}
     \]
-    konvergira absolutno za poljuben $z\in \C\setminus\Lambda'$ in enakomerno po kompaktih na $\C \setminus \Lambda'$. Kot preslikava $\C \to \RS$ pa predstavlja meromorfno funkcijo s poli v možici $\Lambda'$. 
+    konvergira absolutno za poljuben $z\in \C\setminus\Lambda'$ in enakomerno po kompaktih na $\C \setminus \Lambda'$. 
 \end{lema}
 
 \begin{dokaz}
-    Glavna ideja tukaj bo uporabiti Weierstrassov M-test. Najprej pa si pripravimo oceno. 
+    Glavna ideja dokaza bo s pomočjo nekaj ocen uporabiti Weierstrassov M-test. Naj bo $K \subseteq \C$ poljuben kompakt disjunkten z $\Lambda'$. Kot tak je omejen, zato je vsebovan v nekem disku $\Delta(0,r)$ z radijem $r > 0$. Razdelimo obravnavo period $\omega \in \Lambda'$ na tiste, ki ležijo v disku $\Delta(0,2r)$ in na tiste, ki ne.
     
-    Naj bo $K\subseteq \C\setminus \Lambda'$ poljuben kompakt. Kot kompakt v evklidskem prostoru je omejen, torej obstaja $r > 0$, da je $K \subseteq \Delta(0,r)$. Za vseh razen končno mnogo $\omega\in\Lambda$, ki ležijo v disku $\Delta(0,2r)$, velja 
+    (i) Za vse $\omega \in \Lambda' \cap \Delta(0,2r)$ zaradi kompaktnosti $K$ obstaja
     \[
-        \abs{\omega} \geq 2r \geq 2\abs{z} \quad \text{za vsak $z\in K$,}
-    \] 
-    od tod pa preko trikotniške neenakosti $\abs{\omega} \leq \abs{z - \omega} + \abs{z}$ dobimo 
-    \begin{equation}
-        \label{ocena za vrsto}
-        \abs{z - \om} \geq \abs{\om} - \abs{z} \geq \frac{1}{2}\abs{\om} \quad \text{za vse $z \in K$ in $\abs{\om} \geq 2r$.}  
-    \end{equation}
-    % Za teh končno mnogo $\omega \in \Delta(0,2r)\cap \Lambda$ pa obstaja konstanta $c>0$, da velja
-    % \[
-    %     \abs{z - \om} \geq c \quad \text{za vse $z \in K$.}  
-    % \] 
-
-    Sedaj definirajmo funkcijsko zaporedje $(f_n)_{n \in \N}$ na $K$ podano kot
-    \[
-        f_n(z) = \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{1}{(z - \om)^k}.
+        \min_{z \in K} \abs{z - \omega} =: \epsilon_\omega > 0
     \]
-    Zanj velja
+    Ker pa je takšnih period, za katere je $\abs{\omega} < 2r$, zgolj končno mnogo, denimo $n \in \N$, lahko za $\epsilon$ izberemo najmamnjšega izmed $\epsilon_\om$ in tako velja 
     \[
-        \abs{f_n(z)} \leq 
-        \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{1}{\abs{z - \om}^k} \leq
-        \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{2^k}{\abs{\om}^k} \leq
-        \sum_{\om\in\Lambda'} \frac{2^k}{\abs{\om}^k},
+        \abs{z - \omega} \geq \epsilon \quad \text{za vse $z \in K$ in vse $0 < \abs{\omega} < 2r$.}  
     \]
-    kjer smo za drugo neenakost uporabili oceno \ref{ocena za vrsto}. Vrsta na desni konvergira kot smo ugotovili v dokazu leme \ref{lema o oceni vrste po mrezi}, tako pa nam je uspelo funkcijsko zaporedje $(f_n)_{n\in \N}$ po absolutni vrednosti navzgor omejiti s konstantnim -- torej konvergentnim zaporedjem. Po Weierstrassovem M-testu \cite[]{Globevnik} je funkcijsko zaporedje $(f_n)_{n\in \N}$ absolutno in enakomerno konvergentno na poljubem kompaktu $K \subseteq \C\setminus\Lambda'$.
     
-    Enako torej velja tudi za vrsto 
+    (ii) Za vse periode $\abs{\omega} \geq 2r$ pa preko trikotniške neenakosti
     \[
-        \sum_{\om \in \Lambda'} \frac{1}{(z - \om)^k} = 
-        \sum_{\substack{\om \in \Lambda' \\ \abs{\om} < 2r}} \frac{1}{(z - \om)^k} + \lim_{n \to \infty} f_n(z).
+        \abs{\om} \leq \abs{z - \om} + \abs{z} \quad \text{za vse $z \in K$}
     \]
-    % te delne vsote pa bomo za dovolj velike $n\in\N$ poskusili omejiti s členom konvergentnega zaporedja, ki je neodvisno od $z \in K$. Za majhne $n\in \N$, torej tiste za katere je $n < r$, pa že imamo oceno 
-    % \[
-    %     \abs{f_n(z)} = \sum_{\substack{\om\in\Lambda' \\ n-1 \leq \abs{\om} < n}} \frac{1}{\abs{z - \om}^s} \leq \frac{}{c^s}
-    % \]
-    % ki je neodvisna od $z\in K$.  
+    vidimo, da velja 
+    \[
+        \abs{z - \om} \geq 
+        \abs{\om} - \abs{z} \geq 
+        \abs{\om} - r \geq 
+        \abs{\om} - \frac{1}{2}\abs{\om} \geq
+        \frac{1}{2}\abs{\om} \quad \text{za vse $z\in K$.}
+    \]
+    Tako pridemo do ocene
+    \[
+        \sum_{\om \in \Lambda'} \frac{1}{\abs{z - \om}^k} = 
+        \sum_{\substack{\om \in \Lambda' \\ \abs{\om} < 2r}} \frac{1}{\abs{z - \om}^k} + \sum_{\substack{\om \in \Lambda' \\ \abs{\om} \geq 2r}} \frac{1}{\abs{z - \om}^k} \leq
+        \frac{n}{\epsilon^k} + \sum_{\substack{\om \in \Lambda' \\ \abs{\om} \geq 2r}} \frac{2^k}{\abs{\om}^k},
+    \]
+    ki velja povsod na $K$. Ker je zadnja vsota del absolutno konvergentne Eisensteinove vrste reda $k$ po lemi \ref{lema o konvergenci eisensteinove vrste}, nam Weierstrassov M-test zagotavlja želeni rezultat.
 \end{dokaz}
+
+\begin{izrek}
+    Naj bo $(f_n)_{n \in \N}$ zaporedje holomorfnih funkcij na odprti domeni $\Omega \subseteq \C$, ki enakomerno po kompaktih v $\Omega$ konvergira k limitni funkciji $f$. Tedaj je tudi $f \in \hol{\Omega}$ holomorfna na $\Omega$ in zaporedje odvodov $(f'_n)_{n\in \N}$ konvergira enakomerno po kompaktih k odvodu limitne funkcije $f'$.
+\end{izrek}
+
+\begin{dokaz}
+    \cite[\S 5, Theorem 1]{Ahlfors}
+\end{dokaz}
+    
+% Kot preslikava $\C \to \RS$ vrsta 
+% \[
+%     \sum_{\om \in \Lambda} \frac{1}{(z - \om)^k}
+% \]
+% zaradi enakomerne konvergence po kompaktih v $\C\setminus\Lambda$ predstavlja meromorfno funkcijo s poli v možici $\Lambda'$. 
+
+
+% \begin{dokaz}
+%     Glavna ideja tukaj bo uporabiti Weierstrassov M-test. Najprej pa si pripravimo oceno. 
+    
+%     Naj bo $K\subseteq \C\setminus \Lambda'$ poljuben kompakt. Kot kompakt v evklidskem prostoru je omejen, torej obstaja $r > 0$, da je $K \subseteq \Delta(0,r)$. Za vseh razen končno mnogo $\omega\in\Lambda$, ki ležijo v disku $\Delta(0,2r)$, velja 
+%     \[
+%         \abs{\omega} \geq 2r \geq 2\abs{z} \quad \text{za vsak $z\in K$,}
+%     \] 
+%     od tod pa preko trikotniške neenakosti $\abs{\omega} \leq \abs{z - \omega} + \abs{z}$ dobimo 
+%     \begin{equation}
+%         \label{ocena za vrsto}
+%         \abs{z - \om} \geq \abs{\om} - \abs{z} \geq \frac{1}{2}\abs{\om} \quad \text{za vse $z \in K$ in $\abs{\om} \geq 2r$.}  
+%     \end{equation}
+%     % Za teh končno mnogo $\omega \in \Delta(0,2r)\cap \Lambda$ pa obstaja konstanta $c>0$, da velja
+%     % \[
+%     %     \abs{z - \om} \geq c \quad \text{za vse $z \in K$.}  
+%     % \] 
+
+%     Sedaj definirajmo funkcijsko zaporedje $(f_n)_{n \in \N}$ na $K$ podano kot
+%     \[
+%         f_n(z) = \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{1}{(z - \om)^k}.
+%     \]
+%     Zanj velja
+%     \[
+%         \abs{f_n(z)} \leq 
+%         \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{1}{\abs{z - \om}^k} \leq
+%         \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{2^k}{\abs{\om}^k} \leq
+%         \sum_{\om\in\Lambda'} \frac{2^k}{\abs{\om}^k},
+%     \]
+%     kjer smo za drugo neenakost uporabili oceno \ref{ocena za vrsto}. Vrsta na desni konvergira kot smo ugotovili v dokazu leme \ref{lema o oceni vrste po mrezi}, tako pa nam je uspelo funkcijsko zaporedje $(f_n)_{n\in \N}$ po absolutni vrednosti navzgor omejiti s konstantnim -- torej konvergentnim zaporedjem. Po Weierstrassovem M-testu \cite[]{Globevnik} je funkcijsko zaporedje $(f_n)_{n\in \N}$ absolutno in enakomerno konvergentno na poljubem kompaktu $K \subseteq \C\setminus\Lambda'$.
+    
+%     Enako torej velja tudi za vrsto 
+%     \[
+%         \sum_{\om \in \Lambda'} \frac{1}{(z - \om)^k} = 
+%         \sum_{\substack{\om \in \Lambda' \\ \abs{\om} < 2r}} \frac{1}{(z - \om)^k} + \lim_{n \to \infty} f_n(z).
+%     \]
+%     % te delne vsote pa bomo za dovolj velike $n\in\N$ poskusili omejiti s členom konvergentnega zaporedja, ki je neodvisno od $z \in K$. Za majhne $n\in \N$, torej tiste za katere je $n < r$, pa že imamo oceno 
+%     % \[
+%     %     \abs{f_n(z)} = \sum_{\substack{\om\in\Lambda' \\ n-1 \leq \abs{\om} < n}} \frac{1}{\abs{z - \om}^s} \leq \frac{}{c^s}
+%     % \]
+%     % ki je neodvisna od $z\in K$.  
+% \end{dokaz}
 
 \begin{primer*}
     Tako smo prišli, do prvega netrivialnega primera eliptične funkcije. Prepričajmo se, da je funkcija podana s predpisom
