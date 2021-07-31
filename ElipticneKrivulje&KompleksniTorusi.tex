@@ -59,6 +59,7 @@
   \node (#1) {\strut};}
 
 %%%  
+\usetikzlibrary{decorations.markings}
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -306,7 +307,6 @@ Definicija \ref{reg sing tocke} nam omogoči formulirati prvo opazko.
         \pdv[f]{x} = \frac{1}{2} \left( \pdv[f]{x_1} - i\pdv[f]{x_2}\right) = \frac{1}{2} \left( u_{x_1} + i v_{x_1} - i u_{x_2} + v_{x_2}\right) = u_{x_1} + iv_{x_1}
     \]
     (analogno dobimo za odvod po $y$) in predpostavka o nesingularnosti krivulje nam zagotovita, da je v vsaki točki na $C$ vsaj eden od $u_{x_1}$, $v_{x_1}$, $u_{x_2}$, $v_{x_2}$ neničelni. To pa že zadošča za polnost ranga Jacobijeve matrike $Jg$ v dani točki, saj sta leva in desna $2 \times 2$ bloka alternativna predstavitev kompleksnih števil kot matrična algebra znotraj realnih $2 \times2$ matrik $M_2(\R)$.  
-
 \end{dokaz}
 
 Ta trditev pove, katere od afinih algebraičnih krivulj ne le lokalno v okolici regularnih točk izgledajo kot ploskve, temveč tudi so zares ploskve. 
@@ -479,7 +479,7 @@ Posebej bo za nas pomembno, da je projektivna ekvivalenca ekvivalenčna relacija
         \label{proj ekviv poly}
         G = \lambda (F \circ \mathcal{A}_\Phi).
     \end{equation}
-    Če je $C$ nesingularna, je $(F_x, F_y, F_z) \neq 0$ povsod na $\C^3$, torej z odvajanjem zveze \ref{proj ekviv poly} v točki $(x,y,z)$ in upoštevanjem Leibnitzovega pravila za odvajanje produkta dobimo
+    Če je $C$ nesingularna, je $(F_x, F_y, F_z) \neq 0$ povsod na $\C^3\setminus\{0\}$, torej z odvajanjem zveze \ref{proj ekviv poly} v točki $(x,y,z)$ in upoštevanjem Leibnitzovega pravila za odvajanje produkta dobimo
     \[
         (G_x, G_y, G_z)_{(x,y,z)} = \lambda (F_x, F_y, F_z)_{\mathcal{A}_\Phi (x,y,z)} \cdot A,
     \]
@@ -503,7 +503,7 @@ Začnimo z definicijo projektivne kubike.
 \end{definicija}
 
 Pri izbirnem predmetu Algebraične krivulje smo spoznali popolno klasifikacijo projektivnih kubik do projektivne ekvivalence natančno. Najprej jih delimo na nesingularne in singularne, te pa dalje na nerazcepne in razcepne. Podrobneje se v to klasifikacijo ne bomo spuščali, bralec pa si lahko več o tem prebere v \cite[poglavje 15]{Gibson}.
-Za nas bodo posebej zanimive nesingularne projektivne kubike, saj bomo te lahko preko projektivnosti zapisali v lepšo obliko, ki jo bo lažje analizirati. Tej klasični obliki pravimo \emph{Weierstrassova normalna forma} in v njej se enačba kubike glasi 
+Za nas bodo posebej zanimive nesingularne projektivne kubike, saj bomo te lahko preko projektivnosti zapisali v lepši obliki, ki jo bo lažje analizirati. Tej klasični obliki pravimo \emph{Weierstrassova normalna forma} in v njej se enačba kubike glasi 
 \begin{equation}
     \label{klasicna wnf}
     y^2z = x^3 + \alpha xz^2 + \beta z^3. 
@@ -511,6 +511,7 @@ Za nas bodo posebej zanimive nesingularne projektivne kubike, saj bomo te lahko 
 Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta $\alpha, \beta \in \C$ mora veljati posebna zveza, kar pove nasledja trditev.
 
 \begin{trditev}
+    \label{kriterij za singularnost wnf}
     Projektivna kubika $C \subseteq \PC$ podana v Weierstrassovi normalni formi
     \[
         C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3
@@ -532,10 +533,41 @@ Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta
         \Delta = -16(4\alpha^3 + 27\beta^2),
     \]
     zaradi razlogov, ki bodo jasni pozneje. To konvencijo bomo privzeli tudi mi.
+    % zato da ima j-invarianta celoštevilske koeficiente...
 \end{opomba}
 
 \begin{dokaz}
-    \kom{računamo...}
+    Naj bo $F(x,y,z) = y^2z - x^3 - \alpha xz^2 - \beta z^3$. Pokažimo, da obstaja singularna točka na $C$ natanko tedaj ko je $4\alpha^3 + 27\beta^2 = 0$. To se bo zgodilo natanko tedaj ko bo sistem
+    \begin{align*}
+        0 &= F_x(x,y,z) = -3x^2 - \alpha z^2\\
+        0 &= F_y(x,y,z) = 2yz\\
+        0 &= F_z(x,y,z) = y^2 - 2\alpha xz - 3 \beta z^2
+    \end{align*}
+    imel netrivialno rešitev. Če je $z = 0$, dobimo iz prve enačbe $x = 0$ in iz tretje $y = 0$, to pa niso koordinate nobene projektivne točke, zato lahko privzamemo $z \neq 0$. Druga enačba tedaj implicira $y = 0$, tretjo lahko zaradi $z \neq 0$ delimo z $z$ in tako skupaj dobimo
+    \[
+        3x^2 + \alpha z^2 = 0 \quad \text{in} \quad 2\alpha x - 3 \beta z = 0.   
+    \]
+    Za netrivialno rešitev tega sistema zadošča poiskati že netrivialno rešitev sistema
+    \[
+        3x^2 + \alpha z^2 = 0 \quad \text{in} \quad (2\alpha x)^2 = (3 \beta z)^2. 
+    \]
+    Ta sistem pa se v matrični obliki glasi
+    \[
+        \begin{pmatrix}
+            3 & \alpha \\
+            4\alpha^2 & -9\beta^2
+        \end{pmatrix} 
+        \begin{pmatrix}
+            x^2 \\
+            z^2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0 \\
+            0
+        \end{pmatrix}
+    \]
+    in ima netrivialno rešitev natanko tedaj, ko je determinanta sistema $-4\alpha^3 - 27\beta^2$ enaka $0$. 
 \end{dokaz}
 
 
@@ -651,7 +683,34 @@ Pomembna ugotovitev, ki je med drugim posledica algebraične zaprtosti polja kom
 \begin{dokaz}
     Implikacija v desno je jasna iz zgornjega premisleka in leme \ref{projektivnosti wnf}, preostane nam pokazati še implikacijo v levo. 
 
-    \kom{dokončat...}
+    Denimo, da imata Weierstrassovi kubiki
+    \[
+        C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3 \quad \text{ in } \quad
+        C': \quad y'^2z' = x'^3 + \alpha' x'z'^2 + \beta' z'^3. 
+    \]
+    enaki $j$-invarianti, torej, da velja
+    \[
+        \frac{(4\alpha)^3}{4\alpha^3 + 27\beta^2} = \frac{(4\alpha')^3}{4\alpha'^3 + 27\beta'^2}.
+    \]
+    Kar nam da
+    \begin{equation}
+        \label{vez med koeficienti izmorfnih wnf}
+        \alpha^3 \beta'^2 = \alpha'^3 \beta^2.
+    \end{equation}
+    Sedaj iščemo projektivnost oblike $x = u^2 x'$, $y = u^3 y'$, $z = z'$ za nek $u \in \CM$. Ločimo tri primere.
+
+    \begin{itemize}
+        \item[(i)]
+        $\alpha = 0$. Tedaj mora biti $\beta \neq 0$, saj bi sicer $C$ bila singularna po \ref{kriterij za singularnost wnf}. Od tod iz \ref{vez med koeficienti izmorfnih wnf} sledi, da je $\alpha' = 0$ in zato je tudi $\beta' \neq 0$, sicer bi bila $C'$ singularna. Zadošča vzeti $u \in \CM$ za katerega je $u^6 = \beta/\beta'$.
+        \item[(ii)]
+        $\beta = 0$. Tedaj je iz podobnih razlogov kot zgoraj $\alpha \neq 0$, $\beta' = 0$ in $\alpha' \neq 0$. Za $u \in \CM$ zadoščavzeti rešitev enačbe $u^4 = \alpha/\alpha'$.
+        \item[(iii)]
+        $\alpha\beta \neq 0$. Tedaj je tudi $\alpha'\beta' \neq 0$, namreč če bi eden od $\alpha'$, $\beta'$ bil ničeln, bi preko bil zaradi vezi \ref{vez med koeficienti izmorfnih wnf} tudi drugi, kar bi nasprotovalo nesingularnosti krivulje $C'$. Opazimo, da takrat velja
+        \[
+            \left(\frac{\alpha}{\alpha'}\right)^3 = \left(\frac{\beta}{\beta'}\right)^2
+        \]
+        in za $u \in \CM$ zadošča vzeti rešitev $u^{12} = (\alpha/\alpha')^3 = (\beta/\beta')^2$.
+    \end{itemize}
 \end{dokaz}
 
 Poleg tega pa $j$-invarianta v celoti popiše vse neizomorfne Weierstrassove kubike. Za poljuben $j_0 \in \C$ obstaja Weierstrassova kubika, ki ima $j_0$ za svojo $j$-invarianto.
@@ -779,7 +838,7 @@ kot kaže slika \ref{mreza}.
         \end{scope}
     \end{tikzpicture}
 
-    \caption{Mreža.}
+    \caption{Mreža $\Lambda$ in fundamentalni paralelogram $D$.}
     \label{mreza}
 \end{figure}
 
@@ -875,6 +934,7 @@ Sedaj si bomo pogledali nekaj izrekov, ki opisujejo naravo eliptičnih funkcij i
     Če je v točki $z \in \C$ pol, pa ima tudi $f'$ v tej točki pol, torej pogoj za eliptičnost velja povsod na $\C$ in tako je $f' \in \elf$.
 \end{dokaz}
 
+% mogoče bi splošne domene ki jih označujem z D zamenjal z \Omega, in imel D rezerviran izključno za fundamentalni paralelogram. 
 Vpeljimo nekaj notacije, ki jo bomo potrebovali v naslednjih izrekih. Če je $f$ meromorfna funkcija na odprti domeni $D \subseteq \C$, pravimo, da je $f$ \emph{reda $m \in \Z$} v točki $z_0 \in D$, če obstaja okolica $U \subseteq D$ točke $z_0$ in holomorfna funkcija $g \in \hol{U}$, ki je neničelna povsod na $U$, da velja 
 \[
     f(z) = (z - z_0)^m g(z) \quad \text{za vse $z \in U$.}  
@@ -891,9 +951,9 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     \label{liouville}
     Naj bo $f \in \C(\Lambda)$ eliptična funkcija in $D$ fundamentalni paralelogram glede na mrežo $\Lambda$, katerega rob $\partial D$ ne vsebuje polov ali ničel $f$. Tedaj velja
     \begin{flalign*}
-        &\sum_{w \in D} \res{w}{f} = 0 && \label{identiteta 1} \tag{a} \\ 
-        &\sum_{w \in D} \ord{w}{f} = 0 && \label{identiteta 2} \tag{b} \\
-        &\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda. && \label{identiteta 3} \tag{c}
+        &\sum_{w \in D} \res{w}{f} = 0 && \label{identiteta 1} \tag{i} \\ 
+        &\sum_{w \in D} \ord{w}{f} = 0 && \label{identiteta 2} \tag{ii} \\
+        &\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda. && \label{identiteta 3} \tag{iii}
     \end{flalign*}
 
     % \begin{enumerate}[(a)]
@@ -922,18 +982,31 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
                 \draw (4,-4) node [below]{$\alpha$};
                 % \draw (6,-4) node [below]{$\alpha + \omega_1$};
                 \draw (5,-3) node {$D$};
-                \draw (4,-3) node [left]{$\sigma_4$};
-                \draw (5,-4) node [below]{$\sigma_1$};
-                \draw (6,-3) node [right]{$\sigma_2$};
-                \draw (5,-2) node [above]{$\sigma_3$};
+                \draw (3.95,-3) node [left]{$\sigma_4$};
+                \draw (5.2,-4.2) node [below]{$\sigma_1$};
+                \draw (6.1,-3.1) node [right]{$\sigma_2$};
+                \draw (4.8,-1.8) node [above]{$\sigma_3$};
+
+                % \draw[postaction={decorate}] (4,-4)--(4,-2);
                 
                 \foreach \x in {4,6}{                          
                     \foreach \y in {-4,-2}{                       
-                        \node[draw,circle,inner sep=1pt,fill] at (\x,\y) {}; 
+                        \node[draw,circle,inner sep=0.7pt,fill] at (\x,\y) {}; 
                     }
-                }
-                
+                };
+
+                \begin{scope}[thick,decoration={
+                    markings,
+                    mark=at position 0.5 with {\arrow{stealth}}
+                        }
+                    ] 
+                    \draw[postaction={decorate}] (4,-4)--(6,-4);
+                    \draw[postaction={decorate}] (6,-4)--(6,-2);
+                    \draw[postaction={decorate}] (6,-2)--(4,-2);
+                    \draw[postaction={decorate}] (4,-2)--(4,-4);
+                \end{scope}
             \end{scope}
+
         \end{tikzpicture}
         
         \caption{Fundamentalni paralelogram.}
@@ -992,7 +1065,7 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     \]
     \\
 
-    Za poljubno sklenjeno in kosoma gladko krivuljo $\gamma : [0,1] \to \C$, tj. $\gamma(0) = \gamma(1)$, ki ne poteka skozi izhodišče $0\in \C$, je
+    Za poljubno sklenjeno in odsekoma gladko krivuljo $\gamma : [0,1] \to \C$, tj. $\gamma(0) = \gamma(1)$, ki ne poteka skozi izhodišče $0\in \C$, je
     \[
         \frac{1}{2 \pi i} \int_\gamma \frac{dz}{z} \in \Z
     \]
@@ -1056,13 +1129,14 @@ Ob tem $\ell$ opisuje dolžino danega krožnega loka, $r > 0$ pa je dovolj majhe
 \end{zgled*}
 
 \begin{posledica}
+    \label{poseldica o redu elipticne funkcije}
     Nekonstantna eliptična funkcija ima red vsaj $2$.
 \end{posledica}
 
 \begin{dokaz}
     Denimo, da je $f \in \elf$ eliptična funkcija z enim polom na fundamentalni domeni $D$, saj vemo že, da bi bila konstantna, če nebi imela nobenega pola po izreku \ref{cele el. funkcije}. Brez škode za splošnost lahko predpostavimo, da pol leži v notranjosti $D$. Tedaj dobimo z integracijo po robu $\partial D$ neničelni residuum
     \[
-        0 \neq \res{\alpha}{f} = \frac{1}{2 \pi i} \int_{\partial D} f(z)dz.  
+        \frac{1}{2 \pi i} \int_{\partial D} f(z)dz = \res{\alpha}{f} \neq 0.  
     \]
     To pa je v nasprotju z izrekom \ref{liouville} (\ref{identiteta 1}), ki pove, da je ta residuum -- edini člen v vsoti -- enak nič. 
 \end{dokaz}
@@ -1083,7 +1157,7 @@ Ob tem $\ell$ opisuje dolžino danega krožnega loka, $r > 0$ pa je dovolj majhe
 
 \subsection{Weierstrassova funkcija $\wp$}
 
-Osrednja tema tega poglavja, ki bo povezala eliptične krivulje s kompleksnimi torusi in za katero je bilo potrebno razvijati teorijo v prejšnjem razdelku, bo t.~i.\ \emph{Weierstrassova funkcija} $\wp$. 
+Osrednja tema tega poglavja, ki bo povezala eliptične krivulje s kompleksnimi torusi in za katero je bilo potrebno razvijati teorijo v prejšnjem razdelku, bo najprej definicija nato pa preučevanje lastnosti t.~i.\ \emph{Weierstrassove funkcije} $\wp$. 
 
 Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda \setminus \{0\}$.
 
@@ -1101,7 +1175,7 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
 
 \begin{lema}
     \label{lema o konvergenci eisensteinove vrste}
-    Za vsako celo število $k > 2$ Eisensteinova vrsta reda $k$ absolutno konvergentna.
+    Za vsako celo število $k > 2$ je Eisensteinova vrsta reda $k$ absolutno konvergentna.
 \end{lema}
 
 \begin{dokaz}
@@ -1117,11 +1191,11 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
         \sum_{n = 1}^\infty \frac{4n}{\rho^k n^k} = 
         \frac{4}{\rho^k} \sum_{n = 1}^\infty \frac{1}{n^{k-1}}.
     \]
-    Zadnja vrsta konvergira natanko tedaj, ko je $k - 1 > 1$ in tako po primerjalnem kriteriju dobimo absolutno kovergenco vrste $\sum_{\om \in \Lambda'} \om^{-k}$.
+    Klasičen rezultat iz realne analize pove, da zadnja vrsta konvergira natanko tedaj, ko je $k - 1 > 1$ in tako po primerjalnem kriteriju dobimo absolutno kovergenco Eisensteinove vrste $\sum_{\om \in \Lambda'} \om^{-k}$.
 \end{dokaz}
 
 \begin{lema}
-    \label{elipticna vrsta}
+    \label{lema o absolutni in enakomerni konvergenci}
     Za vsako celo število $k > 2$, vrsta 
     \[
         \sum_{\om \in \Lambda'} \frac{1}{(z - \om)^k}
@@ -1159,10 +1233,11 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
         \sum_{\substack{\om \in \Lambda' \\ \abs{\om} < 2r}} \frac{1}{\abs{z - \om}^k} + \sum_{\substack{\om \in \Lambda' \\ \abs{\om} \geq 2r}} \frac{1}{\abs{z - \om}^k} \leq
         \frac{n}{\epsilon^k} + \sum_{\substack{\om \in \Lambda' \\ \abs{\om} \geq 2r}} \frac{2^k}{\abs{\om}^k},
     \]
-    ki velja povsod na $K$. Ker je zadnja vsota del absolutno konvergentne Eisensteinove vrste reda $k$ po lemi \ref{lema o konvergenci eisensteinove vrste}, nam Weierstrassov M-test zagotavlja želeni rezultat.
+    ki velja povsod na $K$. Ker je zadnja vsota del (po lemi \ref{lema o konvergenci eisensteinove vrste}) absolutno konvergentne Eisensteinove vrste reda $k$, nam Weierstrassov M-test zagotavlja želeni rezultat.
 \end{dokaz}
 
 \begin{izrek}
+    \label{izrek o konvergenci holomorfnih funkcij}
     Naj bo $(f_n)_{n \in \N}$ zaporedje holomorfnih funkcij na odprti domeni $\Omega \subseteq \C$, ki enakomerno po kompaktih v $\Omega$ konvergira k limitni funkciji $f$. Tedaj je tudi $f \in \hol{\Omega}$ holomorfna na $\Omega$ in zaporedje odvodov $(f'_n)_{n\in \N}$ konvergira enakomerno po kompaktih k odvodu limitne funkcije $f'$.
 \end{izrek}
 
@@ -1170,73 +1245,65 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
     \cite[\S 5, Theorem 1]{Ahlfors}
 \end{dokaz}
     
-% Kot preslikava $\C \to \RS$ vrsta 
-% \[
-%     \sum_{\om \in \Lambda} \frac{1}{(z - \om)^k}
-% \]
-% zaradi enakomerne konvergence po kompaktih v $\C\setminus\Lambda$ predstavlja meromorfno funkcijo s poli v možici $\Lambda'$. 
-
-
-% \begin{dokaz}
-%     Glavna ideja tukaj bo uporabiti Weierstrassov M-test. Najprej pa si pripravimo oceno. 
-    
-%     Naj bo $K\subseteq \C\setminus \Lambda'$ poljuben kompakt. Kot kompakt v evklidskem prostoru je omejen, torej obstaja $r > 0$, da je $K \subseteq \Delta(0,r)$. Za vseh razen končno mnogo $\omega\in\Lambda$, ki ležijo v disku $\Delta(0,2r)$, velja 
-%     \[
-%         \abs{\omega} \geq 2r \geq 2\abs{z} \quad \text{za vsak $z\in K$,}
-%     \] 
-%     od tod pa preko trikotniške neenakosti $\abs{\omega} \leq \abs{z - \omega} + \abs{z}$ dobimo 
-%     \begin{equation}
-%         \label{ocena za vrsto}
-%         \abs{z - \om} \geq \abs{\om} - \abs{z} \geq \frac{1}{2}\abs{\om} \quad \text{za vse $z \in K$ in $\abs{\om} \geq 2r$.}  
-%     \end{equation}
-%     % Za teh končno mnogo $\omega \in \Delta(0,2r)\cap \Lambda$ pa obstaja konstanta $c>0$, da velja
-%     % \[
-%     %     \abs{z - \om} \geq c \quad \text{za vse $z \in K$.}  
-%     % \] 
-
-%     Sedaj definirajmo funkcijsko zaporedje $(f_n)_{n \in \N}$ na $K$ podano kot
-%     \[
-%         f_n(z) = \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{1}{(z - \om)^k}.
-%     \]
-%     Zanj velja
-%     \[
-%         \abs{f_n(z)} \leq 
-%         \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{1}{\abs{z - \om}^k} \leq
-%         \sum_{\substack{\om\in\Lambda' \\ 2r \leq \abs{\om} < n}} \frac{2^k}{\abs{\om}^k} \leq
-%         \sum_{\om\in\Lambda'} \frac{2^k}{\abs{\om}^k},
-%     \]
-%     kjer smo za drugo neenakost uporabili oceno \ref{ocena za vrsto}. Vrsta na desni konvergira kot smo ugotovili v dokazu leme \ref{lema o oceni vrste po mrezi}, tako pa nam je uspelo funkcijsko zaporedje $(f_n)_{n\in \N}$ po absolutni vrednosti navzgor omejiti s konstantnim -- torej konvergentnim zaporedjem. Po Weierstrassovem M-testu \cite[]{Globevnik} je funkcijsko zaporedje $(f_n)_{n\in \N}$ absolutno in enakomerno konvergentno na poljubem kompaktu $K \subseteq \C\setminus\Lambda'$.
-    
-%     Enako torej velja tudi za vrsto 
-%     \[
-%         \sum_{\om \in \Lambda'} \frac{1}{(z - \om)^k} = 
-%         \sum_{\substack{\om \in \Lambda' \\ \abs{\om} < 2r}} \frac{1}{(z - \om)^k} + \lim_{n \to \infty} f_n(z).
-%     \]
-%     % te delne vsote pa bomo za dovolj velike $n\in\N$ poskusili omejiti s členom konvergentnega zaporedja, ki je neodvisno od $z \in K$. Za majhne $n\in \N$, torej tiste za katere je $n < r$, pa že imamo oceno 
-%     % \[
-%     %     \abs{f_n(z)} = \sum_{\substack{\om\in\Lambda' \\ n-1 \leq \abs{\om} < n}} \frac{1}{\abs{z - \om}^s} \leq \frac{}{c^s}
-%     % \]
-%     % ki je neodvisna od $z\in K$.  
-% \end{dokaz}
+Oglejmo si sedaj funkcijo $f:\C\setminus\Lambda \to \C$ podano s predpisom
+\[
+    f(z) = \sum_{\om \in \Lambda} \frac{1}{(z - \om)^k}, \quad k > 2.
+\]
+Zaradi absolutne konvergence te vrste po lemi \ref{lema o absolutni in enakomerni konvergenci} si lahko predstavljamo, da jo seštevamo postopoma po diskih $\disk{0}{n}$ za $n\in\N$ in tako dobimo zaporedje delnih vsot, ki so holomorfne na $\C\setminus\Lambda$ in konvergirajo k $f$. Po izreku \ref{izrek o konvergenci holomorfnih funkcij} je $f$ holomorfna na $\C \setminus \Lambda$ v vsakem $\om_0 \in \Lambda$ pa ima pol reda $k$ in residuujem $0$. O tem se prepričamo, saj lahko zapišemo
+\[
+    f(z) = \frac{1}{(z-\om_0)^k} + \sum_{\om \in \Lambda \setminus \{\om_0\}} \frac{1}{(z - \om)^k}
+\]
+na neki dovolj majhni prebodeni okolici točke $\om_0\in \C$. Glavnemu delu okrog $\om_0$ prispeva samo člen $(z - \om_0)^{-k}$, vrsta, ki ostane, pa je zaradi leme \ref{lema o absolutni in enakomerni konvergenci} po podobnem razmisleku kot zgoraj holomorfna na tej prebodeni okolici in zato na glavni del nima vpliva. Tako je $f$ meromorfna funkcija na $\C$. 
 
 \begin{primer*}
-    Tako smo prišli, do prvega netrivialnega primera eliptične funkcije. Prepričajmo se, da je funkcija podana s predpisom
+    \label{primer odvod wp}
+    Zgornje nam omogoča konstruirati prvi netrivialen primer eliptične funkcije, ki pa bo koristen tudi v nadaljevanju. Prepričajmo se, da je funkcija podana s predpisom
     \[
-        f(z) = \sum_{\om \in \Lambda} \frac{1}{(z - \om)^k}, \quad \text{za k > 2}  
+        f(z) = \sum_{\om \in \Lambda} \frac{1}{(z - \om)^3}
     \]
-    res ne le meromorfna, ampak tudi eliptična (to je vrsta iz leme \ref{elipticna vrsta}, ki smo ji prišteli člen $z^{-k}$).
-
-    Če je $z \in \C$ poljuben in $\om_0 \in \Lambda$ poljubna perioda, računamo
+    ne le meromorfna, ampak res tudi eliptična. Če je $z \in \C$ poljuben in $\om_0 \in \Lambda$ poljubna perioda, računamo
     \[
         f(z + \om_0) = 
-        \sum_{\om \in \Lambda} \frac{1}{(z + \om_0 - \om)^k} = 
-        \sum_{\om \in \Lambda} \frac{1}{(z - (\om - \om_0))^k} = 
-        \sum_{\om \in \Lambda} \frac{1}{(z - \om)^k} = 
+        \sum_{\om \in \Lambda} \frac{1}{(z + \om_0 - \om)^3} = 
+        \sum_{\om \in \Lambda} \frac{1}{(z - (\om - \om_0))^3} = 
+        \sum_{\om \in \Lambda} \frac{1}{(z - \om)^3} = 
         f(z),
     \]
-    kjer smo v predzadnji enakosti upoštevali, da je translacija $\om \mapsto \om - \om_0$ bijekcija mreže $\Lambda$ samo vase, ki nam zgolj premeša vrstni red seštevanja v zadnji vsoti. 
+    kjer smo v predzadnji enakosti upoštevali, da je translacija $\om \mapsto \om - \om_0$ zgolj permutacija mreže $\Lambda$, ki nam zgolj premeša vrstni red seštevanja v zadnji (absolutno konvergentni) vsoti. 
 \end{primer*}
 
+Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ pol stopnje $3$ oziroma na fundamentalnem paralelogramu ima natanko pol stopnje $3$, torej bi lahko rekli, da je eliptična funkcija reda $3$. Posledica \ref{poseldica o redu elipticne funkcije} nam zagotavlja, da je spodnja meja za red nekonstantne eliptične funkcije enaka $2$, zato se je naravno vprašati ali je ta meja kdaj dosežena. Poskusili bi lahko z vrsto $\sum_{\om\in\Lambda}(z - \om)^{-2}$, toda ta žal ne konvergira absolutno. Vseeno pa jo lahko nekoliko popravimo, kar nas privede do naslednje definicije. 
+
+\begin{definicija}
+    \emph{Weierstrassova eliptična funkcija $\wp$} glede na mrežo $\Lambda$ je
+    \[
+        \wp(z) = \frac{1}{z^2} + \sum_{\om\in\Lambda'}\left(\frac{1}{(z-\om)^2} - \frac{1}{\om^2}\right).
+    \]
+\end{definicija}
+
+\begin{trditev}
+    Za Weierstrassovo funkcijo $\wp$ glede na mrežo $\Lambda$ veljajo naslednje točke.
+    \begin{itemize}
+        \item[(i)] Vrsta, ki predstavlja funkcijo $\wp$, konvergira absolutno in enakomerno po kompaktih v $\C\setminus\Lambda'$, zato je $\wp$ holomorfna funkcija na $\C \setminus \Lambda$.
+        \item[(ii)] $\wp$ je soda.
+        \item[(iii)] $\wp$ je $\Lambda$-periodična.
+        \item[(iv)] točke iz mreže $\Lambda$ so natanko poli Weierstrassove funkcije $\wp$. Vsi so stopnje $2$, residuumi v njih pa so vedno enaki $0$. 
+    \end{itemize}
+\end{trditev}
+
+\begin{dokaz}
+    (i)
+
+    (ii) Preprost račun pokaže
+    \begin{multline*}
+        \wp(-z) =   
+        \frac{1}{(-z)^2} + \sum_{\om\in\Lambda'}\left(\frac{1}{(-z-\om)^2} - \frac{1}{\om^2}\right) \\ = 
+        \frac{1}{z^2} + \sum_{\om\in\Lambda'}\left(\frac{1}{(z+\om)^2} - \frac{1}{(-\om)^2}\right) =
+        \frac{1}{z^2} + \sum_{\om\in\Lambda'}\left(\frac{1}{(z-\om)^2} - \frac{1}{\om^2}\right) =
+        \wp(z),
+    \end{multline*}
+    kjer smo za predzadnji enačaj upoštevali da zrcaljenje $\omega \mapsto -\omega$ zgolj samo premeša vrstni red seštevanja v vrsti.
+\end{dokaz}
 
 \break
 
