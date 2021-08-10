@@ -526,13 +526,22 @@ Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta
 \end{trditev}
 
 \begin{opomba}
-    Vrednosti $4\alpha^3 + 27\beta^2$ (včasih tudi njeni nasprotni vrednosti) pravimo \emph{diskriminanta} Weierstrassove kubike in jo običajno označimo z $\Delta$. Ta vpeljava je usklajena z diskriminanto kubičnega polinoma $f(x) = x^3 + \alpha x + \beta$, ki pove ali ima $f$ kakšno večkratno ničlo. To se zgodi natanko takrat, ko je njegova diskriminanta enaka $0$. 
+    Vrednost $-4\alpha^3 - 27\beta^2$ je med drugim diskriminanta kubičnega polinoma $f(x) = x^3 + \alpha x + \beta$, ki nam pove kako je z večkratnostjo ničel polinoma $f$. Njena vrednost je enaka $0$ natanko tedaj, ko $f$ premore kakšno večkratno ničlo. 
     
-    V literaturi se diskriminanta Weierstrassove kubike vpelje kot
+    To ime privzamemo tudi v kontekstu kubik, kjer \emph{diskriminanto Weierstrassove kubike} vpeljemo kot
     \[
-        \Delta = -16(4\alpha^3 + 27\beta^2),
+        \Delta = -16(4\alpha^3 + 27\beta^2).
     \]
-    zaradi razlogov, ki bodo jasni pozneje. To konvencijo bomo privzeli tudi mi.
+    Izkaže se, da je faktor $16$ ugodno dodati za lepšo obliko računov v nadaljevanju. 
+
+    % Vrednosti $4\alpha^3 + 27\beta^2$ (včasih tudi njeni nasprotni vrednosti) pravimo \emph{diskriminanta} Weierstrassove kubike in jo običajno označimo z $\Delta$. Ta vpeljava je usklajena z diskriminanto kubičnega polinoma $f(x) = x^3 + \alpha x + \beta$, ki pove ali ima $f$ kakšno večkratno ničlo. To se zgodi natanko takrat, ko je njegova diskriminanta enaka $0$. 
+    
+    % V literaturi se diskriminanta Weierstrassove kubike vpelje kot
+    % \[
+    %     \Delta = -16(4\alpha^3 + 27\beta^2),
+    % \]
+    % zaradi razlogov, ki bodo jasni pozneje. To konvencijo bomo privzeli tudi mi.
+
     % zato da ima j-invarianta celoštevilske koeficiente...
 \end{opomba}
 
@@ -786,9 +795,11 @@ Osnovne količine se tedaj povežejo preko enakosti
     a = -t\alpha, \quad b = -\beta    
 \]
 diskriminanta in $j$-invarianta pa se v $a$ in $b$ izražata kot
-\[
+\begin{equation}
+    \label{transformacija diskriminante in j-invariante}    
     \Delta = 16(a^3 - 27b^2) \quad \text{ in } \quad j = 1728\frac{a^3}{a^3 - 27b^2}.
-\]
+\end{equation}
+
 
 %--------------------------------------------------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%% 3. ELIPTIČNE FUNKCIJE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1257,7 +1268,7 @@ na neki dovolj majhni prebodeni okolici točke $\om_0\in \C$. Glavnemu delu okro
 
 \begin{primer*}
     \label{primer odvod wp}
-    Zgornje nam omogoča konstruirati prvi netrivialen primer eliptične funkcije, ki pa bo koristen tudi v nadaljevanju. Prepričajmo se, da je funkcija podana s predpisom
+    Zgornje nam omogoča konstruirati prvi netrivialen primer eliptične funkcije, ki bo koristen tudi v nadaljevanju. Prepričajmo se, da je funkcija podana s predpisom
     \[
         f(z) = \sum_{\om \in \Lambda} \frac{1}{(z - \om)^3}
     \]
@@ -1269,7 +1280,7 @@ na neki dovolj majhni prebodeni okolici točke $\om_0\in \C$. Glavnemu delu okro
         \sum_{\om \in \Lambda} \frac{1}{(z - \om)^3} = 
         f(z),
     \]
-    kjer smo v predzadnji enakosti upoštevali, da je translacija $\om \mapsto \om - \om_0$ zgolj permutacija mreže $\Lambda$, ki nam zgolj premeša vrstni red seštevanja v zadnji (absolutno konvergentni) vsoti. 
+    kjer smo v predzadnji enakosti upoštevali, da je translacija $\om \mapsto \om - \om_0$ zgolj permutacija mreže $\Lambda$, ki samo premeša vrstni red seštevanja v zadnji (absolutno konvergentni) vsoti. 
 \end{primer*}
 
 Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ pol stopnje $3$ oziroma na fundamentalnem paralelogramu ima natanko pol stopnje $3$, torej bi lahko rekli, da je eliptična funkcija reda $3$. Posledica \ref{poseldica o redu elipticne funkcije} nam zagotavlja, da je spodnja meja za red nekonstantne eliptične funkcije enaka $2$, zato se je naravno vprašati ali je ta meja kdaj dosežena. Poskusili bi lahko z vrsto $\sum_{\om\in\Lambda}(z - \om)^{-2}$, toda ta žal ne konvergira absolutno. Vseeno pa jo lahko nekoliko popravimo, kar nas privede do naslednje definicije. 
@@ -1282,6 +1293,7 @@ Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ p
 \end{definicija}
 
 \begin{trditev}
+    \label{lastnosti wp}
     Za Weierstrassovo funkcijo $\wp$ glede na mrežo $\Lambda$ veljajo naslednje točke.
     \begin{itemize}
         \item[(i)] Vrsta, ki predstavlja funkcijo $\wp$, konvergira absolutno in enakomerno po kompaktih v $\C\setminus\Lambda'$, zato je $\wp$ holomorfna funkcija na $\C \setminus \Lambda$.
@@ -1292,7 +1304,35 @@ Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ p
 \end{trditev}
 
 \begin{dokaz}
-    (i)
+    (i) Podobno kot v dokazu leme \ref{lema o absolutni in enakomerni konvergenci} bomo obravnavo razdelili na periode $\om\in \Lambda$, ki ležijo znotraj diska $\disk{0}{2r}$, ki omejuje nek izbrani kompakt $K \subseteq \C\setminus\Lambda$, in tiste, ki ležijo v njegovem komplementu. 
+    Na kompaktu $K$ že vemo, da lahko omejimo izraz
+    \[
+        \frac{1}{\abs{z^2}} + \sum_{\substack{\om\in\Lambda' \\ \abs{\om} < 2r}} \left\lvert\frac{1}{(z - \om)^2} - \frac{1}{\om^2}\right\rvert < M \quad \text{za vsak $z \in K$,}
+    \]
+    kjer je $M \in \R$.
+    %  = n \cdot \max\{\max_{z \in K} \abs{z^{-2}}, \max_{\om\in\Lambda', \abs{\om} < 2r, z \in K} \abs{(z-\om)^{-2} - \om^{-2}}\}$ in je $n\in\N$ število period $\om\in\Lambda$, ki ležijo znotraj diska $\disk{0}{2r}$.
+    Za periode $\om\in\Lambda, \abs{\om} \geq 2r$ in $z \in K$, pa najprej ocenimo 
+    \[
+        \abs{z - \om} \geq \abs{\om} - \abs{z} \geq \frac{1}{2}\abs{\om}  
+    \] 
+    nato pa še
+    \[
+        \abs{2\om - z} \leq \abs{2\om} - \abs{z} \leq \frac{5}{2} \abs{\om}.
+    \]
+    Tako velja
+    \[
+        \abs{\frac{1}{(z - \om)^2} - \frac{1}{\om^2}} = 
+        \abs{\frac{\om^2 - (z - \om)^2}{\om^2(z - \om)^2}} =
+        \abs{\frac{z(2\om - z)}{\om^2 (z - \om)^2}} \leq
+        \frac{r \cdot \frac{5}{2}\abs{\om}}{\abs{\om}^2(\frac{1}{2}\abs{\om})^2} = 
+        \frac{10r}{\abs{\om}^3},
+    \]
+    kar pomeni, da lahko del vsote, ki teče po $\om\in\Lambda', \abs{\om} \geq 2r$, navzogor omejimo s konstanto $10r$ pomnoženim (po lemi \ref{lema o konvergenci eisensteinove vrste}) konvergentnim delom vrste $\sum_{\om\in\Lambda'}\abs{\om}^{-3}$.
+
+    Zaporedje holomorfnih delnih vsot je tako po Weierstrassovem M-testu absolutno in po kompaktih enakomerno konvergentno na $\C\setminus\Lambda$. Po izreku \ref{izrek o konvergenci holomorfnih funkcij} je limitna funkcija zaporedja -- tj. Weierstrassova funkcija $\wp$ -- holomorfna na $\C\setminus\Lambda$, vrsto pa lahko odvajamo členoma, kar pomeni, da je odvod funckije $\wp$ enak
+    \[
+        \wp'(z) = \sum_{\om \in \Lambda}\frac{-2}{(z-\om)^3}. 
+    \]
 
     (ii) Preprost račun pokaže
     \begin{multline*}
@@ -1302,8 +1342,136 @@ Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ p
         \frac{1}{z^2} + \sum_{\om\in\Lambda'}\left(\frac{1}{(z-\om)^2} - \frac{1}{\om^2}\right) =
         \wp(z),
     \end{multline*}
-    kjer smo za predzadnji enačaj upoštevali da zrcaljenje $\omega \mapsto -\omega$ zgolj samo premeša vrstni red seštevanja v vrsti.
+    kjer smo za predzadnji enačaj upoštevali, da zrcaljenje $\omega \mapsto -\omega$ samo premeša vrstni red seštevanja v absolutno konvergentni vrsti.
+
+    (iii) Naj bo $\om\in \Lambda$ poljuben. Kot smo se prepričali v primeru \ref{primer odvod wp}, je $\wp'$ eliptična funkcija, zato je $\wp'(z + \om) - \wp'(z) = 0$, kar pomeni, da se funkciji $\wp(z + \om)$ in $\wp(z)$ razlikujeta zgolj za prišteto konstanto. Če v obe vstavimo $z = -\frac{\omega}{2}$ in upoštevamo sodost funkcije $\wp$, vidimo, da je ta konstanta enaka $0$, kar pokaže želeno.
+
+    (iv) Zaradi $\Lambda$-periodičnosti funkcije $\wp$ po točki (iii), je dovolj situacijo obravnavati samo okoli točke $0\in\Lambda$. Podobno kot smo sklepali o polih funkcije iz primera \ref{primer odvod wp}, tudi tukaj vidimo, da na neki prebodeni okolici točke $0$ glavnemu delu Laurentove vrste za $\wp$ okoli $0$ prispeva samo člen $z^{-2}$, ki nam da pol reda $2$ z ostankom $0$, preostanek vrste pa po dokazu točke (i) na tej prebodeni okolici definira holomorfno funkcijo, ki na glavni del nima vpliva.  
 \end{dokaz}
+
+Naše zanimanje za Weierstrassovo eliptično funkcijo se skriva v dejstvu, da ta funkcija zadošča posebni diferencialni enačbi oblike $\wp'(z)^2 = p(\wp(z))$, kjer je $p \in \C[x]$ kubični polinom, ki je v tesni povezavi z Weierstrassovo enačbo eliptične krivulje. Da bo ta povezava jasneje razvidna, si poglejmo Laurentov razvoj $\wp$ okoli izhodišča $0$. 
+
+\begin{lema}
+    Naj bo $\wp$ Weierstrassova eliptična funkcija glede na mrežo $\Lambda$. Njen Laurentov razvoj okoli točke $0$ je
+    \[
+        \wp(z) = \frac{1}{z^2} + \sum_{k = 1}^\infty(2k + 1)G_{2k + 2}(\Lambda)z^{2k},  
+    \]
+    kjer $G_{2k}(\Lambda)$ označuje Eisensteinovo vrsto reda $2k$.
+\end{lema}
+
+\begin{dokaz}
+    Najprej z odvajanjem geometrijske vrste za $(1 - x)^{-1}$ pri $\abs{x} < 1$ ugotovimo, da je 
+    \[
+        \frac{1}{(1 - x)^2} = \sum_{n = 0}^\infty (n + 1) x^n \quad \text{za $\abs{x} < 1$}  
+    \]
+    in ta konvergenca je enakomerna in absolutna na kompaktih v disku $\disk{0}{1}$. To uporabimo v izrazu
+    \[
+        \frac{1}{(z - \om)^2} - \frac{1}{\om^2} = 
+        \frac{1}{\om^2}\left(\frac{1}{(1 - \frac{z}{\om})^2} - 1\right) = 
+        \frac{1}{\om^2} \sum_{n = 1}^\infty (n + 1)\frac{z^n}{\om^{n}} = 
+        \sum_{n = 1}^\infty (n + 1)\frac{z^n}{\om^{n + 2}}, 
+    \]
+    ki velja za vse $\om\in\Lambda'$ in $\abs{z} < \abs{\om}$. Tako imamo
+    \begin{align*}
+        \wp(z) &= 
+        \frac{1}{z^2} + \sum_{\om\in\Lambda'}\left(\frac{1}{(z-\om)^2} - \frac{1}{\om^2}\right) \\
+        &= \frac{1}{z^2} + \sum_{\om\in\Lambda'}\sum_{n = 1}^\infty (n + 1)\frac{z^n}{\om^{n + 2}} \\
+        &= \frac{1}{z^2} + \sum_{n = 1}^\infty \left( \sum_{\om\in\Lambda'} \frac{1}{\om^{n + 2}} \right) (n + 1) z^n \\
+        &= \frac{1}{z^2} + \sum_{n = 1}^\infty (n + 1) G_{n + 2}(\Lambda) z^n \\
+        &= \frac{1}{z^2} + \sum_{k = 1}^\infty (2k + 1) G_{2k + 2}(\Lambda) z^{2k}
+    \end{align*}
+    za vse $\abs{z} < \min_{\om\in\Lambda'}\abs{\om}$. V drugem enačaju smo zamenjali vrstni red seštevanja, kar nam omogoča absolutna konvergenca obeh vrst, v zadnjem enačaju pa smo preindeksirali vsoto na sode $n\in \N$, saj so vse Eisensteinove vrste lihega reda enake $0$. 
+\end{dokaz}
+
+\begin{izrek}
+    \label{ode za wp}
+    Naj bo $\Lambda$ mreža. Tedaj za Weierstrassovo eliptično funkcijo $\wp$ glede na $\Lambda$ velja
+    \begin{equation}
+        \label{wp identiteta}
+        \wp'(z)^2 = 4\wp(z)^3 - g_2(\Lambda)\wp(z) - g_3(\Lambda),
+    \end{equation}
+    \\
+    kjer je sta $g_2(\Lambda) = 60G_4(\Lambda)$ in $g_3(\Lambda) = 140G_6(\Lambda)$.
+\end{izrek}
+
+\begin{dokaz}
+    Definirajmo funkcijo $f:\C\setminus\Lambda \to \C$ s predpisom
+    \[
+        f(z) = \wp'(z)^2 - 4\wp(z)^3 + g_2(\Lambda)\wp(z) + g_3(\Lambda).
+    \]
+    Kot vsota samih meromorfnih $\Lambda$-periodičnih funkcij je $f$ meromorfna $\Lambda$-periodičnana funkcija na $\C$. Zato jo na neki prebodeni okolici $U \subseteq \C$ točke $0$ razvjemo v konvergentno Laurentovo vrsto. Najprej izračunajmo prvih nekaj členov Laurentovih vrst naslednjih funkcij.
+    \begin{align*}
+        \wp'(z)^2 &= \frac{4}{z^6} - 24G_4(\Lambda)\frac{1}{z^2} - 80G_6(\Lambda) + 36G_4(\Lambda)^2z^2 + \cdots \\
+        -4\wp(z)^3 &= -\frac{4}{z^6} - 36G_4(\Lambda) \frac{1}{z^2} - 60G_6(\Lambda) - 84G_8(\Lambda)z^2 + \cdots \\
+        60G_4(\Lambda)\wp(z) &= 60G_4(\Lambda)\frac{1}{z^2} + 180G_4(\Lambda)^2z^2 + \cdots  
+    \end{align*}
+    Vidimo, da vsaka od njih nastopa v definiciji funkcije $f$, zato bo njen Laurentov razvoj okoli $0$ enak
+    \begin{equation}
+        \label{razvoj identitete za wp}    
+        f(z) = 0 \cdot \frac{1}{z^6} + 0 \cdot \frac{1}{z^2} + 0 + (216G_4(\Lambda)^2 - 84G_8(\Lambda))z^2 + \cdots.
+    \end{equation}
+    Funkcija $f$ tako nima glavnega dela pri $0$ in je zato na okolici $U$ holomorfna. Zaradi $\Lambda$-periodičnosti je holomorfna tudi na vsaki okolici poljubne periode $\om\in\Lambda$ in je tako cela eliptična funcija, kot takšna pa je po izreku \ref{cele el. funkcije} konstantna. Preostane le še ugotoviti kateri konstanti je enaka. Iz razvoja \ref{razvoj identitete za wp} takoj sledi, da je ta konstanta $0$, ko vanjo vstavimo točko $0$, to pa tudi zaključi dokaz izreka.
+\end{dokaz}
+
+Izrek \ref{ode za wp} nam namiguje, da lahko s poljubno mrežo $\Lambda$ definiramo eliptično krivuljo
+\begin{equation}
+    \label{elipticna krivulja glede na mrezo}    
+    E_\Lambda : \quad y^2 z = 4x^3 - g_2(\Lambda)x z^2 - g_3(\Lambda) z^3.
+\end{equation}
+Če vanjo vstavimo $z = 1$ ter $x = \wp$ in $y = \wp'$, dobimo natanko formulo iz izreka. Preostane se le še prepričati, da ta enačba res podaja eliptično krivuljo -- preveriti je treba pogoj o nesingularnosti. V ta namen dokažimo naslednji dve lemi.
+
+% ki bo v afini karti pri $z = 1$ parametrizirana s preslikavo $z \mapsto (\wp(z), \wp'(z))$ na nekem fundamentalnem paralelogramu.
+% Prepričati se je le še treba, da je ta vedno tudi nesingularna. 
+%
+% Diskriminanta eliptične krivulje podane z enačbo 
+% je po \ref{transformacija diskriminante in j-invariante} enaka $ $. Sedaj bi radi pokazali, da lahko iz poljubne mreže $\Lambda \subseteq \C$ dobimo eliptično krivuljo, kar pomeni, da moramo pokazati nesingularnost krivulje 
+%
+% Za to najprej potrebujemo naslednjo lemo.
+\begin{lema}
+    \label{polperiode so nicle odvoda wp}
+    Točka $z \in \C\setminus\Lambda$ je ničla za $\wp'$ natanko tedaj, ko je $2z \in \Lambda$.
+\end{lema}
+
+\begin{dokaz}
+    Najprej se lotimo implikacije iz desne na levo.
+
+    Ker je $\wp$ soda po \ref{lastnosti wp} (ii), vemo, da je njen odvod $\wp'$ liha funkcija. Tako lahko za $2z\in \Lambda$ in upoštevajem $\Lambda$-periodičnosti $\wp'$ zapišemo
+    \[
+        \wp'(z) = \wp'(z - 2z) = \wp'(-z) = -\wp'(z).
+    \]
+    Od tod pa jasno sledi, da je $\wp'(z) = 0$.
+
+    Obratno, recimo, da sta $\om_1, \om_2 \in \Lambda$ osnovni periodi. Tedaj so edine točke v fundamentalnem paralelogramu $D_0$, za katere velja $z \in \C\setminus\Lambda$ in $2z\in\Lambda$, ravno \emph{polperiode}
+    \[
+        \frac{\om_1}{2}, \quad \frac{\om_2}{2}, \quad \frac{\om_1 + \om_2}{2} 
+    \]
+    in vse tri so po zgornjem ničle $\wp'$. Kot smo se prepričali v primeru \ref{primer odvod wp}, je $\wp'$ eliptična funkcija reda $3$, zato razen treh našteih polperiod, ki predstavljajo enostavne ničle, po izreku \ref{liouville} (ii) drugih ničel na fundamentalnem paralelogramu ni.   
+\end{dokaz}
+
+\begin{lema}
+    Za poljubno mrežo $\Lambda \subseteq \C$ velja $g_2(\Lambda)^3 - 27g_3(\Lambda)^2 \neq 0$
+\end{lema}
+
+\begin{dokaz}
+    Najprej se spomnimo, da je diskriminanta kubičnega polinoma $f(x) = 4x^3 - g_2 x - g_3$ enaka $16(g_2^3 - 27g_3^2)$ in, da nam ta pove kdaj ima polinom $f$ kakšno večkratno ničlo. Pokazali bomo, da ima za poljubno mrežo $\Lambda$ polinom $4x^3 - g_2(\Lambda) x - g_3(\Lambda)$ same različne ničle, saj je natanko takrat njegov diskriminanta neničelna.  
+
+    Naj bosta $\om_1, \om_2 \in \Lambda$ osnovni periodi in označimo tri polperiode kot
+    \[
+        r_1 = \frac{\om_1}{2}, \quad r_2 = \frac{\om_2}{2}, \quad r_3 = \frac{\om_1 + \om_2}{2}.
+    \]
+    Vse tri so po lemi \ref{polperiode so nicle odvoda wp} ničle za $\wp'$. Poleg tega pa so vse tri vrednosti $\wp(r_i)$ za $i \in \{1,2,3\}$ ničle polinoma $4x^3 - g_2(\Lambda) x - g_3(\Lambda)$, kar je razvidno takoj, ko v identiteto \ref{wp identiteta} iz izreka \ref{ode za wp} vstavimo osnovne tri polperiode $r_1, r_2, r_3$.
+    
+    Vemo tudi, da diskriminanto in produkt poljubnih dveh različnih ničel povezuje enakost 
+    % enaka produktu razlik poljubnih dveh ničel
+    \[
+        16(g_2(\Lambda)^3 - 27g_3(\Lambda)^2) = 256\prod_{1 \leq i < j \leq 3}(\wp(r_i) - \wp(r_j))^2,  
+    \]
+    zato bo zadoščalo pokazati, da so vse $\wp(r_i)$ različne.
+    
+    Naj bo $g_i(z) = \wp(z) - \wp(r_i)$. Funkcija $g_i$ je eliptična funkcija reda $2$ s poli v mreži $\Lambda$. Očitno je $r_i$ njena ničla, ki pa mora biti reda $2$, saj je ničla tudi za odvod $g_i' = \wp'$ po lemi \ref{polperiode so nicle odvoda wp}. To pomeni, da na fundamentalnem paralelogramu drugih ničel nima. Od to sledi, da je $\wp(r_i) \neq \wp(r_j)$ za vsaka $i \neq j$, kar pokaže, da je diskriminanta neničelna oziroma da je $g_2(\Lambda)^3 - 27g_3(\Lambda)^2 \neq 0$. 
+\end{dokaz}
+
+Poljubni mreži $\Lambda \subseteq \C$ lahko torej priredimo eliptično krivuljo podano z enačbo \ref{elipticna krivulja glede na mrezo}. Tako smo pokazali pomemben del sklepnega izreka te naloge. To razmišljanje bomo nadaljevali v poglavju \ref{poglavje izomorfizem}, kjer se bomo lotili še obrata -- kako iz eliptične krivulje priti do mreže.
 
 \break
 
@@ -1329,6 +1497,11 @@ Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ p
 \section{Izomorfizem \texorpdfstring{$\C/\Lambda \to E(\C)$}{} in njegove posledice} \label{poglavje izomorfizem}
 
 \subsection{Uniformizacija}
+
+\begin{izrek}
+    \label{uniformizacija}
+\end{izrek}
+
 \subsection{$j$-invarianta}
  
 % koeficienta 60 in 140 pred G_4, G_6 sta najmanjša, da je ena limita v zvezi z diskriminanto enaka 0...
