@@ -784,7 +784,7 @@ Za konec tega poglavja bomo podali še definicijo eliptične krivulje nad $\C$. 
 
 V nadaljevanju bo ugodneje namesto \emph{klasične} Weierstrassove oblike nesingularne kubike \ref{klasicna wnf} obravnavati malenkost prilagojeno -- še vedno pa projektivno ekvivalentno -- različico
 \[
-    y^2z = 4x^3 - ax^2z - bz^3.  
+    y^2z = 4x^3 - axz^2 - bz^3.  
 \]
 Med to in klasično različico enostavno prehajamo preko projektivnosti
 \[
@@ -1027,9 +1027,9 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
 
     Jasno tedaj velja
     \[
-        \int_{\partial D} f(z)dz = \int_{\sigma_1} f(z)dz + \int_{\sigma_2} f(z)dz + \int_{\sigma_3} f(z)dz + \int_{\sigma_4} f(z)dz,
+        \int_{\partial D} f(z)dz = \int_{\sigma_1} f(z)dz + \int_{\sigma_2} f(z)dz + \int_{\sigma_3} f(z)dz + \int_{\sigma_4} f(z)dz.
     \]
-    s preprosto zamenjavo spremenljivk pa je zaradi periodičnosti $f$ preprosto videti, da se integrala po nasprotnih stranicah odštejeta, kar nam da želeni rezultat. 
+    Z zamenjavo spremenljivk $w = z + \om_1$ v prvem in $w = z + \om_2$ v četrtem interalu je zaradi periodičnosti $f$ preprosto videti, da se integrala po nasprotnih stranicah odštejeta, kar nam da želeni rezultat. 
     \\
     \par
     (\ref{identiteta 2}) Po lemi \ref{odvod el. funkcije} je $f' \in \elf$, zato je tudi kvocient $f'/f \in \elf$ eliptičen. Tedaj velja
@@ -1129,14 +1129,14 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     \emph{Red} eliptične funkcije je število polov šteto z večkratnostjo v poljubnem fundamentalnem paralelogramu. 
 \end{definicija}
 
-Tudi, če pol $z_0$ leži na robu $\partial D$ izbranega fundamentalnega paralelograma, lahko govorimo o redu tega pola v $D$. Takrat štejemo \emph{red pola $z_0$ v $D$} kot $\frac{1}{2}\ord{z_0}{f}$, če pol ni eno od štirih oglišč, oziroma, v primeru ko pol $z_0$ je oglišče paralelograma, vzamemo za njegov red vrednost
+Tudi, če pol $z_0$ leži na robu $\partial D$ izbranega fundamentalnega paralelograma, lahko govorimo o redu tega pola v $D$. Takrat štejemo \emph{red pola $z_0$ v $D$} kot $\frac{1}{2}\ord{z_0}{f}$, če pol ni eno od štirih oglišč, oziroma, v primeru ko je pol $z_0$ oglišče paralelograma, vzamemo za njegov red vrednost
 \[
     \frac{\ell(\partial \Delta(z_0, r) \cap D)}{2 \pi r}\ord{z_0}{f}.
 \]
 Ob tem $\ell$ opisuje dolžino danega krožnega loka, $r > 0$ pa je dovolj majhen, da je $z_0$ edino oglišče fundamentalnega paralelograma vsebovano v odprtem disku ${\Delta(z_0, r) =}$ ${\{z \in \C \mid \left\lvert z - z_0 \right\rvert < r\}}$. Z drugimi besedami je ta količina normaliziran notranji kot fundamentalnega paralelograma pri oglišču $z_0$ pomnožen z $\ord{z_0}{f}$.  
 
 \begin{zgled*}
-
+    % kako to izgleda...
 \end{zgled*}
 
 \begin{posledica}
@@ -1468,10 +1468,10 @@ Izrek \ref{ode za wp} nam namiguje, da lahko s poljubno mrežo $\Lambda$ definir
     \]
     zato bo zadoščalo pokazati, da so vse $\wp(r_i)$ različne.
     
-    Naj bo $g_i(z) = \wp(z) - \wp(r_i)$. Funkcija $g_i$ je eliptična funkcija reda $2$ s poli v mreži $\Lambda$. Očitno je $r_i$ njena ničla, ki pa mora biti reda $2$, saj je ničla tudi za odvod $g_i' = \wp'$ po lemi \ref{polperiode so nicle odvoda wp}. To pomeni, da na fundamentalnem paralelogramu drugih ničel nima. Od to sledi, da je $\wp(r_i) \neq \wp(r_j)$ za vsaka $i \neq j$, kar pokaže, da je diskriminanta neničelna oziroma da je $g_2(\Lambda)^3 - 27g_3(\Lambda)^2 \neq 0$. 
+    Naj bo $g_i(z) = \wp(z) - \wp(r_i)$. Funkcija $g_i$ je eliptična funkcija reda $2$ s poli v mreži $\Lambda$. Očitno je $r_i$ njena ničla, ki pa mora biti reda $2$, saj je tudi ničla odvoda $g_i' = \wp'$ po lemi \ref{polperiode so nicle odvoda wp}. To pomeni, da na fundamentalnem paralelogramu drugih ničel nima. Od to sledi, da je $\wp(r_i) \neq \wp(r_j)$ za vsaka $i \neq j$, kar pokaže, da je diskriminanta neničelna oziroma da je $g_2(\Lambda)^3 - 27g_3(\Lambda)^2 \neq 0$. 
 \end{dokaz}
 
-Poljubni mreži $\Lambda \subseteq \C$ lahko torej priredimo eliptično krivuljo podano z enačbo \ref{elipticna krivulja glede na mrezo}. Tako smo pokazali pomemben del sklepnega izreka te naloge. To razmišljanje bomo nadaljevali v poglavju \ref{poglavje izomorfizem}, kjer se bomo lotili še obrata -- kako iz eliptične krivulje priti do mreže.
+Poljubni mreži $\Lambda \subseteq \C$ lahko torej priredimo eliptično krivuljo podano z enačbo \ref{elipticna krivulja glede na mrezo}. Tako smo pokazali pomemben del sklepnega izreka te naloge. To razmišljanje bomo nadaljevali v poglavju \ref{poglavje izomorfizem}, kjer se bomo lotili še obrata -- kako iz eliptične krivulje priti do mreže in vse skupaj povzeli v uniformizacijskem izreku \ref{uniformizacija}.
 
 \break
 
@@ -1484,7 +1484,101 @@ Poljubni mreži $\Lambda \subseteq \C$ lahko torej priredimo eliptično krivuljo
 
 \section{Riemannove ploskve} \label{riemannove ploskve}
 \subsection{Definicije in lastnosti}
+
+% Uvod
+
+\begin{definicija}
+    \emph{Riemannova ploskev} je povezan $2$-števen Hausdorffov topološki prostor $X$, opremljen z družino \emph{lokalnih kart} $((U_i, \varphi_i))_{i \in I}$, ki ji pravimo \emph{kompleksni atlas}, za katero velja
+    \begin{enumerate}[(i)]
+        \item $(U_i)_{i \in I}$ je odprto pokritje za $X$.
+        \item Preslikava $\varphi_i : U_i \to U'_i \subseteq \C$ je homeomorfizem med okolico $U_i \subseteq X$ in neko odprto pomnožico $U'_i \subseteq \C$. Njenemu inverzu pravimo \emph{lokalna parametrizacija}.
+        \item Za poljubna $i,j \in I$ je t.~i.\ \emph{prehodna preslikava}
+        \[
+            \varphi_{ij} = \varphi_i \circ \varphi_j\inv : \varphi_j(U_i \cap U_j) \to \varphi_i(U_i \cap U_j)   
+        \]
+        holomorfna na odprti množici $\varphi_j(U_i \cap U_j) \subseteq \C$.
+    \end{enumerate}
+\end{definicija}
+
+\begin{zgled*}
+    
+\end{zgled*}
+
+\begin{definicija}
+    Naj bosta $X$ in $Y$ Riemannovi ploskvi. Pravimo, da je zvezna preslikava $f:X \to Y$ \emph{holomorfna}, kadar je za poljubni lokalni karti $(U, \varphi)$ iz kompleksnega atlasa $X$ in $(V, \psi)$ iz kompleksnega atlasa $Y$ preslikava
+    \[
+        \psi \circ f \circ \varphi\inv : \varphi(U \cap f\inv(V)) \to \psi(V)
+    \]
+    holomorfna na $\varphi(U \cap f\inv(V)) \subseteq \C$.
+\end{definicija}
+
+\begin{izrek}(Izrek o implicitni preslikavi)
+    \label{izrek o impliclitni preslikavi}
+    Naj bo $\Omega \subseteq \C^2$ odprto območje in naj bo $f : \Omega \to \C : (z, w) \mapsto f(z,w)$ funkcija, ki je holomorfna v obeh spremenljivkah posebej. Denimo, da je $(\alpha, \beta) \in \Omega$ ničla za $f$ in, da velja $\pdv[f]{w}(\alpha, \beta) \neq 0$, kjer $\pdv[f]{w}$ označuje kompleksni odvod po drugi spremenljivki. Tedaj obstajata dovolj majhni okolici $U \subseteq \C$ točke $\alpha$ in $V \subseteq \C$ okolica točke $\beta$ ter enolično določena holomorfna preslikava $\phi : U \to V$, ki izpolnjuje pogoj: 
+    Za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
+    
+    % za katero velja, da je za vse pare $(z, w) \in U \times V$ $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
+    
+    % za vse $z \in U$ velja $f(z, \varphi(z)) = 0$ in za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \varphi(z)$.
+
+\end{izrek}
+
+\begin{komentar}
+    To je dobro poznani izrek o implicitni preslikavi, ki smo ga že srečali. Z drugimi besedami pravi, da lahko množico ničel gladke funkcije $f$ lokalno predstavimo kot graf neke gladke funkcije $\phi$ nad eno izmed spremenljivk, za nas pa bo pomembno, da ta funkcija $\phi$ ni le gladka, ampak tudi holomorfna. 
+\end{komentar}
+
+\begin{dokaz}
+    Na zvezo $f(z, \phi(z)) = 0$, ki velja povsod na $z \in U \subseteq \C$ delujemo s Caucy-Riemannovim operatorjem $\pdv{\bar{z}}$ in dobimo
+    \[
+        f_{\bar{z}}(z, \phi(z)) + f_{\bar{w}}(z, \phi(z)) \pdv[\phi]{\bar{z}}(z) = 0.  
+    \] 
+\end{dokaz}
+
+\begin{trditev}
+    \label{holomorfna bijekcija je biholomorfizem}
+    Naj bosta $X$ in $Y$ Riemannovi ploskvi in naj bo $f: X \to Y$ holomorfna bijekcija med njima. Tedaj je tudi preslikava $f\inv : Y \to X$ holomorfna.
+\end{trditev}
+
+\begin{opomba}
+    Takšni holomorfni preslikavi $f : X \to Y$, katere inverz je pravtako holomorfen, pravimo \emph{biholomorfizem} in tedaj imamo Riemannovi ploskvi $X$ in $Y$ za \emph{biholomorfni} oziroma \emph{izomorfni} v smislu Riemannovih ploskev, kar označujemo z 
+    \[
+        X \cong Y.
+    \]
+    % Tedaj, ko takšna holomorfna bijekcija med dvema Riemannovima ploskvama obstaja, 
+\end{opomba}
+
+\begin{dokaz}
+    Vzemimo iz kompleksnih atlasov za $X$ oziroma $Y$ lokalni karti $(U, \varphi)$ ozioma $(V, \psi)$.
+    % iz kompleksnih atlasov za $X$ oziroma za $Y$. 
+    Ker je $f$ bijekcija, velja $f(U \cap f\inv(V)) = f(U) \cap V$ in preslikava 
+    \[
+        \psi \circ f \circ \varphi\inv : \varphi(U \cap f\inv(V)) \to \psi(f(U) \cap V)  
+    \]
+    je holomorfna bijekcija med dvema odprtima množicama v $\C$. Sedaj želimo pokazati, da je njen inverz $\varphi \circ f\inv \circ \psi\inv$ holomorfen na $\psi(f(U) \cap V) \subseteq \C$.
+
+    Naj bo $z_0 \in \varphi(U \cap f\inv(V))$ poljubna. Tedaj je $(\psi \circ f \circ \varphi\inv)'(z_0) \neq 0$. V nasprotnem primeru bi sicer lahko na neki dovolj majhni okolici $W \subseteq \varphi(U \cap f\inv(V))$ točke $z_0$ zapisali 
+    \[
+        \psi(f(\varphi\inv(z))) - \psi(f(\varphi\inv(z_0))) = (z - z_0)^m g(z),
+    \]
+    kjer je $m \geq 2$ in $g \in \hol{W}$ brez ničle na $W$, kar bi bilo v nasprotju z injektivnostjo $\psi \circ f \circ \varphi\inv$. Tako dobimo po izreku o inverzni funkciji \cite[Izrek 67]{Globevnik} holomorfen inverz definiran na okolici točke $\psi(f(\varphi(z_0))) \in \psi(f(U) \cap V)$, katerega predpis se bo zaradi enoličnosti inverzov ujemal z $\varphi \circ f\inv \circ \psi\inv$ na ustrezni domeni. Tako storimo za vsak $z_0 \in \varphi(U \cap f\inv(V))$, kar nam zagotovi holomorfnost preslikave $\varphi \circ f\inv \circ \psi\inv$ na celotnem $\psi(f(U) \cap V)$. 
+    
+    S tem smo pokazali holomorfnost preslikave $f\inv$ v vseh lokalnih kartah Riemannovih ploskev $X$ in $Y$, kar zagotovi biholomorfnost preslikave $f$ in zaključi dokaz. 
+\end{dokaz}
+
+
+%%%%% Komplkesna struktura na eliptični krivulji %%%%%
+
 \subsection{Kompleksna struktura na eliptični krivulji}
+
+V tem razdelku si bomo ogledali kako eliptični krivulji oziroma kar vsaki nesingularni projektivni algebraični krivulji priredimo kompleksno strukturo, da ta postane kompaktna Riemannova ploskev. Začeli bomo z afino različico krivulje v $\C^2$, na njej definirali kompleksen atlas, nato pa ga bomo prenesli in nekoliko dopolnili do kompleksnega atlasa projektivne krivulje. 
+
+Naj bo afina različica eliptične krivulje podana z enačbo
+\[
+    E: \quad y^2 = 4x^3 - ax - b, \quad a^3 - 27b^2 \neq 0.
+\]
+
+
+
 \subsection{Kompleksna struktura na torusu}
 \break
 
