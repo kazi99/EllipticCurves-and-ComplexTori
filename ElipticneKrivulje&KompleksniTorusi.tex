@@ -47,6 +47,8 @@
 \usepackage{caption}
 \usepackage{xfrac}
 \usepackage[shortlabels]{enumitem}
+\usepackage{quiver}
+\usepackage{tikz-cd}
 % \usepackage{physics}
 
 %%%
@@ -60,6 +62,7 @@
 
 %%%  
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{cd}
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -121,6 +124,7 @@
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\rang}{rang}
 \DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\pr}{pr}
 
 % vstavite svoje definicije ...
 %  \newcommand{}{}
@@ -340,7 +344,7 @@ Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti.
     Kompleksen projektiven prostor dimenzije $1$ smo že srečali. To je \emph{Riemannova sfera} $\widehat{\C} = P^1(\C)$. Včasih jo bomo poimenovali tudi (kompleksna) projektivna premica. Riemannova sfera ima sicer še nekoliko več strukture, ki smo jo zaenkrat pri projektivnih prostorih izpustili, a se bomo k temu vrnili v poglavju o Riemannovih ploskvah \ref{riemannove ploskve}.
 \end{primer*}
 
-Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov v $\C^{n+1}$. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prostora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s t.i.\ homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{\bm0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim \in P^n(\C)$ kar v homogenih koordinatah zapišemo z
+Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov v $\C^{n+1}$. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prostora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s t.i.\ homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim = \{(\lambda x_0, \dots, \lambda x_n) \in \C^{n+1} \mid \lambda \in \CM\} \in P^n(\C)$ kar v homogenih koordinatah zapišemo z
     \[
         [x]_\sim = \pcoor{x_0 : \ldots : x_n}
     \]
@@ -349,6 +353,16 @@ in zanje velja
         [x_0: \ldots: x_n] = \pcoor{\lambda x_0: \ldots: \lambda x_n}
     \]
 za poljuben $\lambda \in \CM$.
+
+\begin{opomba} 
+    \label{topologija na projektivnih prostorih}   
+    Projektivne prostore lahko opremimo tudi s topologijo, ki nam bo omogočila govoriti o zveznosti kvocientne projekcije
+    \[
+        \pi : \C^{n+1}\setminus\{0\} \to P^n(\C) \quad (x_0, \ldots, x_n) \mapsto \pcoor{x_0 : \ldots : x_n}. 
+    \]
+    In sicer vzamemo za odprte množice v $P^n(\C)$ \emph{natanko} tiste $U \subseteq P^n(\C)$ za katere je $\pi\inv(U)$ odprta v $\C^{n+1}\setminus\{0\}$. Hkrati je to tudi največja topologija na $P^n(\C)$, za katero je projekcija $\pi$ še vedno zvezna.  
+    Tej topologiji pravimo \emph{kvocientna topologija} in o njej si lahko bralec več pogleda v \cite[poglavje 3.2.]{MrcunTop}
+\end{opomba}
 
 \begin{komentar}
     Projektivne prostore lahko ekvivalentno definiramo tudi kot prostore orbit (desnega) delovanja krožnice $S^1 \subseteq \C$ s skalarnim množenjem na kompleksni enotski sferi 
@@ -1512,28 +1526,6 @@ Poljubni mreži $\Lambda \subseteq \C$ lahko torej priredimo eliptično krivuljo
     holomorfna na $\varphi(U \cap f\inv(V)) \subseteq \C$.
 \end{definicija}
 
-\begin{izrek}(Izrek o implicitni preslikavi)
-    \label{izrek o impliclitni preslikavi}
-    Naj bo $\Omega \subseteq \C^2$ odprto območje in naj bo $f : \Omega \to \C : (z, w) \mapsto f(z,w)$ funkcija, ki je holomorfna v obeh spremenljivkah posebej. Denimo, da je $(\alpha, \beta) \in \Omega$ ničla za $f$ in, da velja $\pdv[f]{w}(\alpha, \beta) \neq 0$, kjer $\pdv[f]{w}$ označuje kompleksni odvod po drugi spremenljivki. Tedaj obstajata dovolj majhni okolici $U \subseteq \C$ točke $\alpha$ in $V \subseteq \C$ okolica točke $\beta$ ter enolično določena holomorfna preslikava $\phi : U \to V$, ki izpolnjuje pogoj: 
-    Za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
-    
-    % za katero velja, da je za vse pare $(z, w) \in U \times V$ $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
-    
-    % za vse $z \in U$ velja $f(z, \varphi(z)) = 0$ in za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \varphi(z)$.
-
-\end{izrek}
-
-\begin{komentar}
-    To je dobro poznani izrek o implicitni preslikavi, ki smo ga že srečali. Z drugimi besedami pravi, da lahko množico ničel gladke funkcije $f$ lokalno predstavimo kot graf neke gladke funkcije $\phi$ nad eno izmed spremenljivk, za nas pa bo pomembno, da ta funkcija $\phi$ ni le gladka, ampak tudi holomorfna. 
-\end{komentar}
-
-\begin{dokaz}
-    Na zvezo $f(z, \phi(z)) = 0$, ki velja povsod na $z \in U \subseteq \C$ delujemo s Caucy-Riemannovim operatorjem $\pdv{\bar{z}}$ in dobimo
-    \[
-        f_{\bar{z}}(z, \phi(z)) + f_{\bar{w}}(z, \phi(z)) \pdv[\phi]{\bar{z}}(z) = 0.  
-    \] 
-\end{dokaz}
-
 \begin{trditev}
     \label{holomorfna bijekcija je biholomorfizem}
     Naj bosta $X$ in $Y$ Riemannovi ploskvi in naj bo $f: X \to Y$ holomorfna bijekcija med njima. Tedaj je tudi preslikava $f\inv : Y \to X$ holomorfna.
@@ -1565,18 +1557,210 @@ Poljubni mreži $\Lambda \subseteq \C$ lahko torej priredimo eliptično krivuljo
     S tem smo pokazali holomorfnost preslikave $f\inv$ v vseh lokalnih kartah Riemannovih ploskev $X$ in $Y$, kar zagotovi biholomorfnost preslikave $f$ in zaključi dokaz. 
 \end{dokaz}
 
+\begin{izrek}(Izrek o implicitni preslikavi)
+    \label{izrek o impliclitni preslikavi}
+    Naj bo $\Omega \subseteq \C^2$ odprto območje in naj bo $f : \Omega \to \C : (z, w) \mapsto f(z,w)$ funkcija, ki je holomorfna v obeh spremenljivkah posebej. Denimo, da je $(\alpha, \beta) \in \Omega$ ničla za $f$ in, da velja $f_w(\alpha, \beta) \neq 0$, kjer $f_w$ označuje kompleksni odvod po drugi spremenljivki. Tedaj obstajata dovolj majhni okolici $U \subseteq \C$ točke $\alpha$ in $V \subseteq \C$ okolica točke $\beta$ ter enolično določena holomorfna preslikava $\phi : U \to V$, ki izpolnjuje pogoj: 
+    Za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
+    
+    % za katero velja, da je za vse pare $(z, w) \in U \times V$ $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
+    
+    % za vse $z \in U$ velja $f(z, \varphi(z)) = 0$ in za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \varphi(z)$.
+
+\end{izrek}
+
+\begin{komentar}
+    To je dobro poznani izrek o implicitni preslikavi, ki smo ga že srečali. Z drugimi besedami pravi, da lahko množico ničel gladke funkcije $f$ lokalno predstavimo kot graf neke gladke funkcije $\phi$ nad eno izmed spremenljivk, za nas pa bo pomembno, da ta funkcija $\phi$ ni le gladka, ampak tudi holomorfna. 
+\end{komentar}
+
+\begin{dokaz}
+    Dokaz gladke verzije izreka bralec najde v \cite[Izrek 14]{Globevnik}, preostane nam le še obravnava holomorfnosti implicitne funkcije $\phi$.
+
+    Na zvezo $f(z, \phi(z)) = 0$, ki velja povsod na $z \in U \subseteq \C$ delujemo s Caucy-Riemannovim operatorjem $\pdv{\bar{z}}$ in tako dobimo
+    \[
+        f_{\bar{z}}(z, \phi(z)) + f_{w}(z, \phi(z)) \pdv[\phi]{\bar{z}}(z) = 0.  
+    \] 
+    Ker je $f$ holomorfna v prvi spremenljivki je $f_{\bar{z}}(z, \phi(z)) = 0$ za vse $z \in U$, po drugi strani pa zaradi zveznosti in $\pdv[f]{w}(\alpha, \beta) \neq 0$ velja $f_{w}(z, \phi(z)) \neq 0$ na celotnem $U$, ki ga po potrebi lahko tudi zmanjšamo. Od tod pa sledi
+    \[
+        \pdv[\phi]{\bar{z}} = 0 \quad \text {povsod na $U$,}  
+    \]
+    kar je ekvivalentno holomorfnosti funkcije $\phi$ na $U$. 
+\end{dokaz}
+
 
 %%%%% Komplkesna struktura na eliptični krivulji %%%%%
 
 \subsection{Kompleksna struktura na eliptični krivulji}
 
 V tem razdelku si bomo ogledali kako eliptični krivulji oziroma kar vsaki nesingularni projektivni algebraični krivulji priredimo kompleksno strukturo, da ta postane kompaktna Riemannova ploskev. Začeli bomo z afino različico krivulje v $\C^2$, na njej definirali kompleksen atlas, nato pa ga bomo prenesli in nekoliko dopolnili do kompleksnega atlasa projektivne krivulje. 
+\\
+% \begin{center}
+%     \textsc{1. del}
+% \end{center}
 
-Naj bo afina različica eliptične krivulje podana z enačbo
+\textsc{1. del} Naj bo afina različica eliptične krivulje podana z enačbo
 \[
-    E: \quad y^2 = 4x^3 - ax - b, \quad a^3 - 27b^2 \neq 0.
+    E: \quad y^2 = 4x^3 - ax - b, \quad a^3 - 27b^2 \neq 0
+\]
+in označimo z $f(x,y) = y^2 - 4x^3 + ax + b$ njen minimalni polinom. Opazovana krivulja $E = V(f) \subseteq \C^2$ je torej množica ničel polinoma $f$. Zaradi pogoja $a^3 - 27b^2 \neq 0$, je $E$ nesingularna, kar pomeni, da je v vsaki točki na $E$ vsaj eden od parcialnih odvodov polinoma $f$ neničeln. 
+
+Osredotočimo se sedaj na eno točko $(\alpha, \beta) \in E$ in brez škode za splošnost predpostavimo, da je $f_y(\alpha, \beta) \neq 0$. Polinom $f$ je seveda holomorfna funkcija v obeh svojih spremenljivkah, zato nam izrek o implicitni funkciji \ref{izrek o impliclitni preslikavi} zagotavlja obstoj holomorfne preslikave 
+\[
+    \phi : W \to W'  
+\]
+kjer je $W \subseteq \C$ okolica $\alpha$ in $W' \subseteq \C$ okolica $\beta$. Še pomembneje pa nam implicitna funkcija $\phi$ omogoča definirati lokalno parametrizacijo krivulje $E$
+\[
+    W \to E : z \mapsto (z, \phi(z)).
+\] 
+Ta je med drugim homeomorfizem na svojo sliko $U := (W \times \phi(W)) \cap E$, ki je zaradi holomorfnosti\footnote{$\phi$ je nekonstantna holomorfna funkcija, torej je odprta preslikava} $\phi$ odprta v $E$, njen inverz pa je projekcija $\pr_1 : U \subseteq E \to W$, ki jo bomo odslej označevali s $\varphi$. 
+% phi(W) je odp v C, torej je W x phi(W) odprta v C^2, torej je U odprta v E.
+
+
+% slika kako je U graf funkcije \phi (kot slika v Kompl. torusi & el. krivulje p.14)
+
+\begin{komentar}
+    Zelo podobno bi storili, v primeru ko je $f_x(\alpha, \beta) \neq 0$. Tedaj bi lokalna parametrizacija bila oblike $z \mapsto (\phi(z), z)$, okolica $U$ pa bi bila graf holomorfne funkcije $\phi$ nad $y$-spremenljivko namesto $x$. Tako bi za predpis homeomorfizma $\varphi$ uporabili projekcijo $\pr_2$ namesto $\pr_1$.
+\end{komentar}
+
+Tak par $(U, \varphi)$ bo lokalna karta pri točki $(\alpha, \beta) \in E$, za skupek vseh teh pa bi se radi prepričali, da tvori kompleksen atlas za $E$. 
+
+Za družino $((U_i, \varphi_i))_{i \in I}$ pravkar konstruiranih lokalnih kart (indeksiramo jih kar s točkami iz $E$) velja: $(U_i)_{i \in I}$ tvori odprto pokritje za $E$, saj njihova unija vsebuje vse točke iz $E$, preslikave $\varphi_i$ pa so homeomorfizmi. Preostane nam preveriti še kompatibilnostni pogoj -- da so vse prehodne preslikave
+\[
+    \varphi_i \circ \varphi_j\inv : \varphi_j(U_i \cap U_j) \to \varphi_i(U_i \cap U_j)  
+\]
+holomorfne. Vzemimo poljubni dve karti $(U_i, \varphi_i)$ in $(U_j, \varphi_j)$, označimo s $\phi_i : W_i \to \C$ holomorfno funkcijo katere graf nad eno izmed spremenljivk je okolica $U_i$ in analogno definiramo $\phi_j : W_j \to \C$ ob tem pa ločimo dva primera. 
+\begin{enumerate}
+    \item Okolici $U_i$, $U_j$ sta grafa funkcij nad istima spremenljivkama. Obravnavajmo samo primer ko je ta spremenljivka $x$, drugi gre povsem analogno. Tedaj računamo
+    \[
+        (\varphi_i \circ \varphi_j\inv)(z) = \pr_1(z, \phi_j(z)) = z \quad \text{za vse $z \in \varphi_j(U_i \cap U_j)$,}
+    \] 
+    kar pomeni, da je prehodna preslikava $\varphi_i \circ \varphi_j\inv = \id_{\varphi_j(U_i \cap U_j)}$ enaka idnetiteti na množici $\varphi_j(U_i \cap U_j)$, ki je očitno holomorfna. 
+
+    \item Okolici $U_i$, $U_j$ nista grafa funkcij nad istima spremenljivkama in recimo, da je $U_i$ graf funkcije $\phi_i$ nad spremenljivko $x$, množica $U_j$ pa naj bo graf funkcije $\phi_j$ nad spremenljivko $y$. Tedaj izračunamo
+    \[
+        (\varphi_i \circ \varphi_j\inv)(z) = \pr_1(\phi_j(z), z) = \phi_j(z) \quad \text{za vse $z \in \varphi_j(U_i \cap U_j)$.}   
+    \]
+    Funkcija $\phi_j$ je holomorfna na kvečjemu večji množici $W_j \supseteq \varphi_j(U_i \cap U_j)$, zato je prehodna preslikava $\varphi_i \circ \varphi_j\inv$ holomorfna na celotnem $\varphi_j(U_i \cap U_j)$. Do povsem enakega zaključka pridemo, če je $U_i$ graf funkcije nad spremenljivko $y$, $U_j$ pa nad spremenljivko $x$. 
+\end{enumerate} 
+Tako vidimo, da je družina lokalnih kart $((U_i, \varphi_i))_{i \in I}$ res kompleksni atlas za $E$. 
+\\
+
+% \begin{center}
+%     \textsc{2. del}
+% \end{center}
+\textsc{2. del} \emph{Projektivno zaprtje} afine verzije eliptične krivulje $E$ bo projektivna krivulja $\olsi{E} \subseteq \PC$ podana s homogenizacijo enačbe za $E$
+\[
+    \olsi{E} : y^2z = 4x^3 - axz^2 - bz^3  
+\]
+oziroma s homogenim polinomom $F(x,y,z) = y^2z - 4x^3 + axz^2 + bz^3$, ki je homogenizacija polinoma $f$. S pomočjo kompleksnega atlasa za $E$ bomo sedaj konstruirali atlas za $\olsi{E}$. 
+
+\begin{komentar}
+    Ta del bo zahteval znanje iz uvoda v geometrijsko topologijo o kvocientnih topoloških prostorih, zato se bomo za podrobnosti sklicali na \cite[poglavje 3.2.]{MrcunTop}. Bralec ga lahko po potrebi tudi preskoči, saj ga obravnavamo zgolj za kompletnost celotne izpeljave. 
+    % in za nadaljevanje ne bo bistven, potrebovali bomo samo končni rezultat. 
+    % , in ga lahko bralec po potrebi tudi preskoči, saj ga obravnavamo zgolj za kompletnost celotne izpeljava. 
+\end{komentar}
+
+Naj bo 
+\[
+    \iota: \C^2 \hookrightarrow \C^3\setminus\{0\} \quad (x,y) \mapsto (x,y,1)
+\]
+vložitev, $\pi : \C^3 \setminus \{0\} \to \PC$ pa kvocientna projekcija iz opombe \ref{topologija na projektivnih prostorih}, kjer smo projektivne prostore opremili s topologijo. Najprej opazimo, da se projektivno zaprtje $\olsi{E} \subseteq \PC$ od afine krivulje $E$ v bistvu razlikuje samo v eni točki. Natančneje vidimo, da je 
+\[
+    \olsi{E} = \pi(\iota(E)) \cup \{\pcoor{0 : 1 : 0}\}.
+\] 
+Točko $\pcoor{0 : 1 : 0}$ bomo imenovali \emph{točka v neskončnosti} eliptične krivulje in zanjo bo potrebno posebej definirati lokalno karto. Pred tem pa se posvetimo lokalnim kartam za $\pi(\iota(E))$.
+
+Označimo $V_i = \pi(\iota(U_i))$, $W_i \subseteq \C$ naj bo kot prej slika homeomorfizma $\varphi_i$. Pomožno preslikavo $\varphi'_i : \iota(U_i) \to W_i$ definiramo s predpisom 
+\[
+    \varphi'_i(x,y,z) = \varphi_i(x,y),
+\]
+tako bo $\varphi'_i \circ \iota = \varphi_i$.
+
+Preslikava $\pi: \iota(U_i) \to V_i \subseteq \PC$ je injekcija, saj se nobeni dve različni točki iz $\iota(U_i)$ ne razlikujeta za skalarni večkratnik iz $\CM$. Kot homeomorfizem je tudi $\varphi'_i$ injekcija, kar pomeni, da imata ti dve preslikavi enaka vlakna. Od tod sklepamo, da je inducirana preslikava $\olsi{\varphi}_i$ dobro definirana zvezna injekcija. Iz surjektivnosti $\varphi'_i$ sledi surjektivnost $\olsi{\varphi}_i$, ker pa je $\varphi'_i$ homeomorfizem (torej v posebnem kvocientana presliava), je inducirana preslikava $\olsi{\varphi}_i : V_i \to W_i$ homeomorfizem, kot ponazarja komutativen diagram. Ta premislek utemeljuje \cite[Posledica 3.23]{MrcunTop}.
+
+\[    
+    \begin{tikzcd}
+        \iota(U_i) \arrow{r}{\varphi'_i} \ar[labels=left]{d}{\pi} & W_i \\
+        V_i \ar[dashed, labels=below right]{ur}{\olsi{\varphi}_i} 
+    \end{tikzcd}
 \]
 
+Iz komutativnega diagrama dobimo lahko predpis za inverz induciranega homeomorfizma $\olsi{\varphi}_i\inv = \pi \circ {\varphi'_i}\inv$. Tako pa se lahko prepričamo o kompatibilanosti lokalnih kart $(V_i, \olsi{\varphi_i})$. Za poljubna $i,j \in I$ velja
+\[
+    \olsi{\varphi_i} \circ \olsi{\varphi_j}\inv = 
+    \olsi{\varphi_i} \circ \pi \circ {\varphi'_j}\inv = 
+    \varphi'_i \circ {\varphi'_j}\inv = 
+    \varphi'_i \circ \iota \circ \varphi_j\inv = 
+    \varphi_i \circ \varphi_j\inv,
+\]
+kar nas pripelje do prehodne preslikave med lokalnima kartama afine krivulje $E$, za katero smo se že v prvem delu prepričali, da je holomorfna, torej kompatibilnostni pogoj velja tudi za karti $(V_i, \olsi{\varphi}_i)$, $(V_j, \olsi{\varphi}_j)$.
+
+Skupek vseh na ta način konstruiranih parov $(V_i, \olsi{\varphi}_i)$ bo prispeval kompleksnemu atlasu za $\olsi{E}$, za celoto pa nam manjka že prej omenjena lokalna karta okrog točke v neskončnosti $\pcoor{0 : 1 : 0}$. Poglejmo si polinom $F(x, 1, z) = z - 4x^3 + axz^2 + bz^3$ okrog točke $(x,z) = (0,0)$. Njegov odvod po $z$ 
+\[
+    F_z(x,1,z) = 1 + ax^2 + 3bz^2
+\]
+je v omenjeni točki je različen od nič, kar pomeni, da po izreku o implicitni funkciji obstajata okolici $W_\infty, W' \subseteq \C$ točke $0$ in holomorfna funkcija $\phi : W_\infty \to W'$, da je $F(x, 1, \phi(x)) = 0$ za vse $x \in W_\infty$. Označimo $U_\infty = \{(x, 1, \phi(x)) \subseteq \C^3 \setminus \{(0,0,0)\}\mid x \in W_\infty\}$. Tedaj je pomožna preslikava 
+\[
+    \varphi'_\infty : U_\infty \to W_\infty \quad (x,y,z) \mapsto x
+\]
+homeomorfizem z inverzom podanim s predpisom $x \mapsto (x,1,\phi(x))$. Označimo $V_\infty = \pi(U_\infty) \subseteq \olsi{E} \subseteq \PC$. Sedaj se pod istimi pogoji kot zgoraj inducira homeomorfizem $\olsi{\varphi}_\infty : V_\infty \to W_\infty$, da komutira diagram.
+\[    
+    \begin{tikzcd}
+        U_\infty \arrow{r}{\varphi'_\infty} \ar[labels=left]{d}{\pi} & W_\infty \\
+        V_\infty \ar[dashed, labels=below right]{ur}{\olsi{\varphi}_\infty}
+    \end{tikzcd}
+\]
+
+Preverimo, da je lokalna karta $(V_\infty, \olsi{\varphi}_\infty)$ kompatibilna z ostalimi lokalnimi kartami, torej, da sta
+\begin{align*}
+    \olsi{\varphi}_\infty \circ \olsi{\varphi}_i\inv &: \olsi{\varphi}_i(V_\infty \cap V_i) \to \olsi{\varphi}_\infty(V_\infty \cap V_i) \\
+    \olsi{\varphi}_i \circ \olsi{\varphi}_\infty\inv &: \olsi{\varphi}_\infty(V_\infty \cap V_i) \to \olsi{\varphi}_i(V_\infty \cap V_i) 
+\end{align*}
+holomorfni za poljuben $i \in I$. Izračunamo
+\begin{align*}
+    \olsi{\varphi}_\infty \circ \olsi{\varphi}_i\inv = 
+    \olsi{\varphi}_\infty \circ \pi \circ {\varphi'_i}\inv =
+    \varphi'_\infty \circ {\varphi'_i}\inv \\
+    % \begin{cases}
+    %     \phi & \text{$U_i$ je graf funkcije $\phi$ nad $x$-koordinato} \\
+    %     \id & \text{$U_i$ je graf funkcije nad $y$-koordinato}
+    % \end{cases}
+    \olsi{\varphi}_i \circ \olsi{\varphi}_\infty\inv = 
+    \olsi{\varphi}_i \circ \pi \circ {\varphi'_\infty}\inv = 
+    \varphi'_i \circ {\varphi'_\infty}\inv,
+\end{align*}
+z obravnavo primerov, pa se prepičamo, da sta $\varphi'_\infty \circ {\varphi'_i}\inv$ in $\varphi'_i \circ {\varphi'_\infty}\inv$ vedno holomorfni.
+
+Družini $((V_i, \olsi{\varphi}_i))_{i \in I}$ torej dodamo še karto $(V_\infty, \olsi{\varphi}_\infty)$ pri točki $\pcoor{0 : 1 : 0}$ in tako bo celotna družina tvorila kompleksen atlas za $\olsi{E}$. Res, družina $(V_i)_{i \in I \cup \{\infty\}}$ tvori odprto pokritje za $\olsi{E}$, vse preslikave $\olsi{\varphi}_i$ so homeomorfizmi in vse lokalne karte so med sabo kompatibilne. 
+% izrek o implicitni funkciji podobno kot v prvem delu omogoči definirati homeomorfizem $\varphi'_\infty :  $
+
+
+
+
+% \[
+%     \begin{tikzcd}
+%         A \arrow[r, "\phi" near start, "\psi"', "\eta" near end] & B
+%     \end{tikzcd}
+% \]
+
+% \[
+%     \begin{tikzcd}
+%         {\iota(U_i)} & {W_i} \\
+%         {V_i}
+%         \arrow["{\varphi'_i}", from=1-1, to=1-2]
+%         \arrow["{\bar{\varphi}_i}"', dashed, from=2-1, to=1-2]
+%         % \arrow["\cong"{description}, dashed, from=2-1, to=1-2]
+%         \arrow["\pi"', from=1-1, to=2-1]
+%     \end{tikzcd}
+% \]
+
+% Preslikava $\varphi'_i$ v $\iota(U_i)$ identificira natanko iste pare  
+
+% Preslikava $\varphi'_i$ je homeomorfizem, vse točke iz $V_i \subseteq \PC$ imajo enolične predstavnike 
+
+
+
+% Tako smo konstruirali lokalno karto $(U, \varphi)$ pri točki $(\alpha, \beta) \in E$. Skupek vseh takšnih lokalnih kart zberemo v družino $((U_i, \varphi_i))_{i \in I}$, ki je lahko indeksirana kar s točkami iz $E$, prepričali pa se bomo, da je ta družina kompleksen atlas za $E$. 
+% Družina 
 
 
 \subsection{Kompleksna struktura na torusu}
