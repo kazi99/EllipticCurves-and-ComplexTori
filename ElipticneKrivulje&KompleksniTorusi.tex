@@ -83,12 +83,12 @@
 \newcommand{\pcoor}[1]{%
 \begingroup\lccode`~=`: \lowercase{\endgroup
 \edef~}{\mathbin{\mathchar\the\mathcode`:}\nobreak}%
-[% opening symbol
+\left[% opening symbol
 \begingroup
 \mathcode`:=\string"8000
 #1%
 \endgroup
-]% closing symbol
+\right]% closing symbol
 }
 
 \newcommand{\pdv}[2][]{\frac{\partial#1}{\partial#2}}
@@ -782,7 +782,7 @@ Koncept $j$-invariante lahko razširimo tudi do poljubne nesingularne projektivn
 \[
     j: \bigslant{\{\text{nesingularne projektivne kubike}\}}{\cong} \to \C,
 \]
-kjer $\cong$ označuje projektivno ekvivalenco projektivnih kubik. V tem smislu bomo z $j_C$ ali $j(C)$ označevali $j$-invarianto nesingularne projektivne kubike $C$ oz.\ njenega izomorfnostnega razreda.
+kjer $\cong$ označuje projektivno ekvivalenco projektivnih kubik. V tem smislu bomo z $j_C$ ali $j(C)$ označevali $j$-invarianto nesingularne projektivne kubike $C$ oz.\ $j$-invarianto njenega izomorfnostnega razreda.
 \\
 
 Za konec tega poglavja bomo podali še definicijo eliptične krivulje nad $\C$. Ta se za naše namene praktično ne bo razlikovala od običajne nesingularne Weierstrassove kubike, ki smo jo obravnavali v tem razdelku \ref{nesingularne kubike}. Zaradi večje abstraktnosti standardne definicije eliptične krivulje, kot jo podaja Silverman \cite[III. \S 3.]{Silverman} in naših potreb v nadaljevanju, eliptične kriulje vpeljemo nekoliko enostavnje. Presenetljivo pa je (vsaj nad $\C$) naša definicija ekvivalenta standardni, le da za to potrebujemo Riemann--Rochov izrek, ki je izven dosega tega dela.
@@ -806,7 +806,7 @@ Za konec tega poglavja bomo podali še definicijo eliptične krivulje nad $\C$. 
     \end{enumerate}
 \end{opomba}
 
-V nadaljevanju bo ugodneje namesto \emph{klasične} Weierstrassove oblike nesingularne kubike \ref{klasicna wnf} obravnavati malenkost prilagojeno -- še vedno pa projektivno ekvivalentno -- različico
+V nadaljevanju bo ugodneje namesto \emph{klasične} Weierstrassove oblike nesingularne kubike \ref{klasicna wnf} obravnavati malenkost prilagojeno -- še vedno pa projektivno ekvivalentno obliko
 \[
     y^2z = 4x^3 - axz^2 - bz^3.  
 \]
@@ -831,7 +831,7 @@ diskriminanta in $j$-invarianta pa se v $a$ in $b$ izražata kot
 
 \section{Eliptične funkcije} \label{elipticne funkcije}
 
-Glavna vez med eliptičnimi krivuljami in kompleksnimi torusi so t.~i.\ \emph{eliptične funkcije}. Da jih vpeljemo, najprej potrebujemo nekaj priprave.
+Glavna vez med eliptičnimi krivuljami in kompleksnimi torusi so t.~i.\ \emph{eliptične funkcije}. Da jih vpeljemo, najprej potrebujemo nekaj novih pojmov.
 
 \begin{definicija}
     Aditivna podgrupa kompleksnih števil $\C$ izomorfna direktni vsoti $\Z \oplus \Z$ se imenuje \emph{mreža}. 
@@ -856,7 +856,7 @@ kot kaže slika \ref{mreza}.
             
             \draw (4,-2) node [left]{$\omega_2$};
             \draw (4,-4) node [below]{$0$};
-            \draw (6,-4) node [below]{$\omega_1$};
+            \draw (6,-4) node [right]{$\omega_1$};
             \draw[style=help lines,dashed] (-14,-14) grid[step=2cm] (18,14); % Draws a grid in the new coordinates.
             \filldraw[fill=gray, draw=black] (4,-4) rectangle (6,-2); % Puts the shaded rectangle
             \draw[black, very thick] (4,-4) -- (6,-4);
@@ -916,7 +916,7 @@ Naslednja lema pove, da je preslikava $D_\alpha \to \C/\Lambda$ bijekcija med mo
 
 Spomnimo se, da so \emph{holomorfne} funkcije na neki odprti domeni $D$ tiste, ki jih je mogoče odvajati v kompleksnem smislu povsod na $D$. Kolobar holomorfnih funkcij na $D$ označimo z $\hol{D}$. Če je funkcija holomorfna na celotnem $\C$, pravimo, da je \emph{cela holomorfna} funkcija. Te označimo z $\hol{\C}$.
 
-Če je $S \subseteq D$ diskretna množica brez stekališč v $D$, potem funkcijam, ki so holomorfne na $D \setminus S$ v točkah iz $S$ pa imajo pole, pravimo \emph{meromorfne} funkcije, točkam iz $S$ pa \emph{singularnosti}. Vsako meromorfno funkcijo $f$ na $D \subseteq \C$, lahko vidimo tudi kot preslikavo $D \to \RS$, kjer dodatno definiramo 
+Če je $S \subseteq D$ diskretna množica brez stekališč v $D$, potem funkcijam, ki so holomorfne na $D \setminus S$, v točkah iz $S$ pa imajo pole, pravimo \emph{meromorfne} funkcije, točkam iz $S$ pa \emph{singularnosti}. Vsako meromorfno funkcijo $f$ na $D \subseteq \C$, lahko vidimo tudi kot preslikavo $D \to \RS$, kjer dodatno definiramo 
 \[
     f(w) = \infty \quad \text{za vsak $w \in S$.} 
 \]
@@ -1053,14 +1053,15 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     \[
         \int_{\partial D} f(z)dz = \int_{\sigma_1} f(z)dz + \int_{\sigma_2} f(z)dz + \int_{\sigma_3} f(z)dz + \int_{\sigma_4} f(z)dz.
     \]
-    Z zamenjavo spremenljivk $w = z + \om_1$ v prvem in $w = z + \om_2$ v četrtem interalu je zaradi periodičnosti $f$ preprosto videti, da se integrala po nasprotnih stranicah odštejeta, kar nam da želeni rezultat. 
+    % Z zamenjavo spremenljivk $w = z + \om_1$ v prvem in $w = z + \om_2$ v četrtem interalu je zaradi periodičnosti $f$ preprosto videti, da se integrala po parih nasprotnih stranic ($\sigma_1$ in $\sigma_3$ ter $\sigma_2$ in $\sigma_4$) odštejeta, kar nam da želeni rezultat. 
+    Z zamenjavo spremenljivk $w = z + \om_1$ v prvem in $w = z + \om_2$ v četrtem interalu je zaradi periodičnosti $f$ in orientacije obeh parov nasprotnih stranic ($\sigma_1$ in $\sigma_3$ ter $\sigma_2$ in $\sigma_4$) razvidno, da se integrala po parih nasprotnoležečih stranic izničita, kar nam da želeni rezultat $0$.
     \\
     \par
     (\ref{identiteta 2}) Po lemi \ref{odvod el. funkcije} je $f' \in \elf$, zato je tudi kvocient $f'/f \in \elf$ eliptičen. Tedaj velja
     \[
         \sum_{w \in D} \ord{w}{f} = \frac{1}{2\pi i}\int_{\partial D} \frac{f'(z)}{f(z)}dz = 0. 
     \]
-    Kjer smo v prvi enakosti uporabili princip argumenta \cite[Izrek 72]{Globevnik}, druga enakost pa je identiteta (\ref{identiteta 1}), ki velja zaradi eliptičnosti $f'/f$.
+    Kjer smo v prvi enakosti uporabili princip argumenta \cite[Izrek 72]{Globevnik}, druga enakost pa je identiteta (\ref{identiteta 1}), ki velja zaradi eliptičnosti kvocienta $f'/f$.
     \\
     \par
     % mogoče bom povsod zamenjal $z_0$ z $w$...
@@ -1133,7 +1134,7 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$ ima $f$ v $z_0$ \emph{ničlo}
     \label{liouville opomba}
     \begin{enumerate}
         \item
-        V vseh treh točkah seštevamo po neštevnem fundamentalnem paralelogramu $D$, toda vse tri vsote vsebujejo zgolj končno mnogo neničelnih členov. Residuum in red funkcije $f$, sta lahko različna od nič samo v ničlah ali polih $f$, teh pa je v kompaktu $\ols{D}$ lahko le končno, saj bi sicer prišli v protislovje s principom identičnosti. Ta pravi, da se meromorfni funkciji definirani na neki odprti domeni $\Omega$, ki se ujemata na množici s stekališčem v $\Omega$, ujemata povsod na $\Omega$ \cite[]{}.
+        V vseh treh točkah seštevamo po neštevnem fundamentalnem paralelogramu $D$, toda vse tri vsote vsebujejo zgolj končno mnogo neničelnih členov. Residuum in red funkcije $f$, sta lahko različna od nič samo v ničlah ali polih $f$, teh pa je v kompaktu $\olsi{D}$ lahko le končno, saj bi sicer prišli v protislovje s principom identičnosti. Ta pravi, da se meromorfni funkciji definirani na neki odprti domeni $\Omega$, ki se ujemata na množici s stekališčem v $\Omega$, ujemata povsod na $\Omega$ \cite[]{}.
         \item 
         Kot nakazuje izrek je izbira fundamentalnega paralelograma irelevantna, dokler ta izpolnjuje določene predpostavke o robu. Kljub temu pa se prepričajmo, da lahko vselej takšen fundamentalni paralelogram vedno izberemo. 
 
@@ -1649,13 +1650,13 @@ Ta je med drugim homeomorfizem na svojo sliko $U := (W \times \phi(W)) \cap E$, 
 
 Tak par $(U, \varphi)$ bo lokalna karta pri točki $(\alpha, \beta) \in E$, za skupek vseh teh pa bi se radi prepričali, da tvori kompleksen atlas za $E$. 
 
-Za družino $((U_i, \varphi_i))_{i \in I}$ pravkar konstruiranih lokalnih kart (indeksiramo jih kar s točkami iz $E$) velja: $(U_i)_{i \in I}$ tvori odprto pokritje za $E$, saj njihova unija vsebuje vse točke iz $E$, preslikave $\varphi_i$ pa so homeomorfizmi. Preostane nam preveriti še kompatibilnostni pogoj -- da so vse prehodne preslikave
+Za družino $((U_i, \varphi_i))_{i \in I}$ pravkar konstruiranih lokalnih kart (indeksiramo jih kar s točkami iz $E$) velja: $(U_i)_{i \in I}$ tvori odprto pokritje za $E$, saj njihova unija vsebuje vse točke iz $E$, preslikave $\varphi_i$ pa so homeomorfizmi. Preostane preveriti še kompatibilnostni pogoj -- da so vse prehodne preslikave
 \[
     \varphi_i \circ \varphi_j\inv : \varphi_j(U_i \cap U_j) \to \varphi_i(U_i \cap U_j)  
 \]
 holomorfne. Vzemimo poljubni dve karti $(U_i, \varphi_i)$ in $(U_j, \varphi_j)$, označimo s $\phi_i : W_i \to \C$ holomorfno funkcijo katere graf nad eno izmed spremenljivk je okolica $U_i$ in analogno definiramo $\phi_j : W_j \to \C$ ob tem pa ločimo dva primera. 
 \begin{enumerate}
-    \item Okolici $U_i$, $U_j$ sta grafa funkcij nad istima spremenljivkama. Obravnavajmo samo primer ko je ta spremenljivka $x$, drugi gre povsem analogno. Tedaj računamo
+    \item Okolici $U_i$, $U_j$ sta grafa funkcij nad istima spremenljivkama. Obravnavajmo samo primer ko je ta spremenljivka $x$, drugi gre povsem analogno. Tedaj izračunamo
     \[
         (\varphi_i \circ \varphi_j\inv)(z) = \pr_1(z, \phi_j(z)) = z \quad \text{za vse $z \in \varphi_j(U_i \cap U_j)$,}
     \] 
@@ -1694,11 +1695,11 @@ vložitev, $\pi : \C^3 \setminus \{0\} \to \PC$ pa kvocientna projekcija iz opom
 \] 
 Točko $\pcoor{0 : 1 : 0}$ bomo imenovali \emph{točka v neskončnosti} eliptične krivulje in zanjo bo potrebno posebej definirati lokalno karto. Pred tem pa se posvetimo lokalnim kartam za $\pi(\iota(E))$.
 
-Označimo $V_i = \pi(\iota(U_i))$, $W_i \subseteq \C$ naj bo kot prej slika homeomorfizma $\varphi_i$. Pomožno preslikavo $\varphi'_i : \iota(U_i) \to W_i$ definiramo s predpisom 
+Označimo $V_i = \pi(\iota(U_i))$. Kot prej naj bo $W_i \subseteq \C$ slika homeomorfizma $\varphi_i$. Pomožno preslikavo $\varphi'_i : \iota(U_i) \to W_i$ definiramo s predpisom 
 \[
-    \varphi'_i(x,y,z) = \varphi_i(x,y),
+    \varphi'_i(x,y,z) = \varphi_i(x,y)
 \]
-tako bo $\varphi'_i \circ \iota = \varphi_i$.
+in tako bo $\varphi'_i \circ \iota = \varphi_i$.
 
 Preslikava $\pi: \iota(U_i) \to V_i \subseteq \PC$ je injekcija, saj se nobeni dve različni točki iz $\iota(U_i)$ ne razlikujeta za skalarni večkratnik iz $\CM$ in zaradi tega tvori samo trivialne identifikacije. Kot homeomorfizem je tudi $\varphi'_i$ injekcija, kar pomeni, da imata ti dve preslikavi enaka vlakna -- same enoelementne množice. Od tod sklepamo, da je inducirana preslikava $\olsi{\varphi}_i$ dobro definirana zvezna injekcija. Iz surjektivnosti $\varphi'_i$ sledi surjektivnost $\olsi{\varphi}_i$, ker pa je $\varphi'_i$ homeomorfizem (torej v posebnem kvocientana presliava), je inducirana preslikava $\olsi{\varphi}_i : V_i \to W_i$ homeomorfizem, kot ponazarja komutativen diagram. Ta premislek utemeljuje \cite[Posledica 3.23]{MrcunTop}.
 
@@ -1711,7 +1712,7 @@ Preslikava $\pi: \iota(U_i) \to V_i \subseteq \PC$ je injekcija, saj se nobeni d
 \end{equation}    
 
 
-Iz komutativnega diagrama lahko inverz induciranega homeomorfizma izrazimo kot $\olsi{\varphi}_i\inv = \pi \circ {\varphi'_i}\inv$. To pa nam omogoči prepričati se o kompatibilanosti lokalnih kart $(V_i, \olsi{\varphi_i})$.
+Iz komutativnega diagrama lahko inverz induciranega homeomorfizma izrazimo kot $\olsi{\varphi}_i\inv = \pi \circ {\varphi'_i}\inv$. To pa nam omogoči prepričati se o kompatibilanosti lokalnih kart $(V_i, \olsi{\varphi}_i)$.
 % Tako pa se lahko prepričamo o kompatibilanosti lokalnih kart $(V_i, \olsi{\varphi_i})$. 
 Za poljubna $i,j \in I$ velja
 \[
@@ -1727,11 +1728,11 @@ Skupek vseh na ta način konstruiranih parov $(V_i, \olsi{\varphi}_i)$ bo prispe
 \[
     F_z(x,1,z) = 1 + ax^2 + 3bz^2
 \]
-je v omenjeni točki je različen od nič, kar pomeni, da po izreku o implicitni funkciji obstajata okolici $W_\infty, W' \subseteq \C$ točke $0$ in holomorfna funkcija $\phi : W_\infty \to W'$, da je $F(x, 1, \phi(x)) = 0$ za vse $x \in W_\infty$. Označimo $U_\infty = \{(x, 1, \phi(x)) \subseteq \C^3 \setminus \{(0,0,0)\}\mid x \in W_\infty\}$. Tedaj je pomožna preslikava 
+je v omenjeni točki različen od nič, kar pomeni, da po izreku o implicitni funkciji obstajata okolici $W_\infty, W' \subseteq \C$ točke $0$ in holomorfna funkcija $\phi_\infty : W_\infty \to W'$, da je $F(x, 1, \phi_\infty(x)) = 0$ za vse $x \in W_\infty$. Opomnimo še, da iz $\phi_\infty(x) = 0$ sledi $x = 0$, saj je to edina rešitev enačbe $F(x, 1, 0) = -4x^3 = 0$. Označimo $U_\infty = \{(x, 1, \phi_\infty(x)) \subseteq \C^3 \setminus \{(0,0,0)\}\mid x \in W_\infty\}$. Tedaj je pomožna preslikava 
 \[
     \varphi'_\infty : U_\infty \to W_\infty \quad (x,y,z) \mapsto x
 \]
-homeomorfizem z inverzom podanim s predpisom $x \mapsto (x,1,\phi(x))$. Označimo $V_\infty = \pi(U_\infty) \subseteq \olsi{E} \subseteq \PC$. Sedaj se pod istimi pogoji kot zgoraj inducira homeomorfizem $\olsi{\varphi}_\infty : V_\infty \to W_\infty$, da komutira diagram.
+homeomorfizem, ki ima inverz podan s predpisom $x \mapsto (x,1,\phi_\infty(x))$. Označimo $V_\infty = \pi(U_\infty) \subseteq \olsi{E} \subseteq \PC$. Sedaj se pod istimi pogoji kot zgoraj inducira homeomorfizem $\olsi{\varphi}_\infty : V_\infty \to W_\infty$, da komutira diagram.
 \begin{equation}
     \label{projektivna karta v inf diagram}    
     \begin{tikzcd}
@@ -1740,28 +1741,76 @@ homeomorfizem z inverzom podanim s predpisom $x \mapsto (x,1,\phi(x))$. Označim
     \end{tikzcd}
 \end{equation}   
 
-
 Preverimo, da je lokalna karta $(V_\infty, \olsi{\varphi}_\infty)$ kompatibilna z ostalimi lokalnimi kartami, torej, da sta
 \begin{align*}
-    \olsi{\varphi}_\infty \circ \olsi{\varphi}_i\inv &: \olsi{\varphi}_i(V_\infty \cap V_i) \to \olsi{\varphi}_\infty(V_\infty \cap V_i) \\
-    \olsi{\varphi}_i \circ \olsi{\varphi}_\infty\inv &: \olsi{\varphi}_\infty(V_\infty \cap V_i) \to \olsi{\varphi}_i(V_\infty \cap V_i) 
+    \olsi{\varphi}_i \circ \olsi{\varphi}_\infty\inv &: \olsi{\varphi}_\infty(V_\infty \cap V_i) \to \olsi{\varphi}_i(V_\infty \cap V_i) \\
+    \olsi{\varphi}_\infty \circ \olsi{\varphi}_i\inv &: \olsi{\varphi}_i(V_\infty \cap V_i) \to \olsi{\varphi}_\infty(V_\infty \cap V_i)
 \end{align*}
-holomorfni za poljuben $i \in I$. Z upoštevanjem komutativnih diagramov \eqref{projektivna karta diagram} in \eqref{projektivna karta v inf diagram} izračunamo
-\begin{align*}
-    \olsi{\varphi}_\infty \circ \olsi{\varphi}_i\inv = 
-    \olsi{\varphi}_\infty \circ \pi \circ {\varphi'_i}\inv =
-    \varphi'_\infty \circ {\varphi'_i}\inv \\
-    % \begin{cases}
-    %     \phi & \text{$U_i$ je graf funkcije $\phi$ nad $x$-koordinato} \\
-    %     \id & \text{$U_i$ je graf funkcije nad $y$-koordinato}
-    % \end{cases}
-    \olsi{\varphi}_i \circ \olsi{\varphi}_\infty\inv = 
-    \olsi{\varphi}_i \circ \pi \circ {\varphi'_\infty}\inv = 
-    \varphi'_i \circ {\varphi'_\infty}\inv,
-\end{align*}
-z obravnavo primerov, pa se prepičamo, da sta $\varphi'_\infty \circ {\varphi'_i}\inv$ in $\varphi'_i \circ {\varphi'_\infty}\inv$ vedno holomorfni.
+holomorfni za poljuben $i \in I$. Najprej še dodatno predpostavimo, da je $U_i \subseteq E \subseteq \C^2$ graf holomorfne funkcije nad spremenljivko $x$. Obravnava primera, ko je okolica $U_i$ graf holomorfne funkcije nad spremenljivko $y$, bo podobna in bo sldedila za tem.
 
-Družini $((V_i, \olsi{\varphi}_i))_{i \in I}$ torej dodamo še karto $(V_\infty, \olsi{\varphi}_\infty)$ pri točki $\pcoor{0 : 1 : 0}$ in tako bo celotna družina tvorila kompleksen atlas za $\olsi{E}$. Res, družina $(V_i)_{i \in I \cup \{\infty\}}$ tvori odprto pokritje za $\olsi{E}$, vse preslikave $\olsi{\varphi}_i$ so homeomorfizmi in vse lokalne karte so med sabo kompatibilne. 
+Za holomorfnost omenjenih prehodnih preslikav potrebujemo razumeti njuni domeni oz. še prej množico $V_\infty \cap V_i$. Zanimajo nas samo tisti $i \in I$, za katere je $V_\infty \cap V_i$ neprazna, zato bomo brez škode za splošnost to privzeli, saj so v nasprotnem primeru kompatibilnostni pogoji že na prazno izpolnjeni. Po eni strani, množica $V_\infty \cap V_i$ vsebuje vse točke oblike $\pcoor{z : 1 : \phi_\infty(z)}$, za nek $z \in W_\infty$, po drugi strani pa ima ta točka zaradi vsebovanosti v $V_i$ tudi obliko $\pcoor{w : \phi_i(w) : 1}$ za nek $w \in W_i$. Sedaj smo eno projektivno točko zapisali s pomočjo dveh različnih predstavnikov, ki se razlikujeta za multiplikativno konstanto iz $\CM$. Tako iz primerjave tretjih komponent (do multiplikativne konstante iz $\CM$ natančno) ugotovimo, da je $\phi_\infty(z) \neq 0$ in je tako posredno tudi $z \neq 0$. S primerjavo drugih komponent pa vidimo, mora veljati $\phi_i(w) \neq 0$, primerjava prvih komponent pa iz pogoja $z \neq 0$ zagotovi še $w \neq 0$. Od tod je potem razvidno $\pcoor{z : 1 : \phi_\infty(z)} = \pcoor{\tfrac{z}{\phi_\infty(z)} : \tfrac{1}{\phi_\infty(z)} : 1}$ ter $\pcoor{w : \phi_i(w) : 1} = \pcoor{\tfrac{w}{\phi_i(w)} : 1 : \tfrac{1}{\phi_i(w)}}$. 
+
+Če je $z \in \olsi{\varphi}_\infty(V_\infty \cap V_i)$ poljuben, potem izračunamo 
+\[
+    \olsi{\varphi}_i (\olsi{\varphi}_\infty\inv (z)) = 
+    \olsi{\varphi}_i (\pcoor{z : 1 : \phi_\infty(z)}) = 
+    \olsi{\varphi}_i (\pcoor{\tfrac{z}{\phi_\infty(z)} : \tfrac{1}{\phi_\infty(z)} : 1}) = 
+    \frac{z}{\phi_\infty(z)}.
+\]
+Za $w \in \olsi{\varphi}_i(V_\infty \cap V_i)$ pa imamo
+\[
+    \olsi{\varphi}_\infty (\olsi{\varphi}_i\inv(w)) =
+    \olsi{\varphi}_\infty (\pcoor{w : \phi_i(w) : 1}) =
+    \olsi{\varphi}_\infty \left(\pcoor{\tfrac{w}{\phi_i(w)} : 1 : \tfrac{1}{\phi_i(w)}}\right) =
+    \frac{w}{\phi_i(w)}.
+\]
+V obeh primerih sta prehodni preslikavi holomorfni na $\olsi{\varphi}_\infty(V_\infty \cap V_i)$ oz. $\olsi{\varphi}_i(V_\infty \cap V_i)$.
+
+Obravajmo še primer, ko je $U_i \subseteq E$ graf holomorfne funkcije $\phi_i$ nad spremenljivko $y$. Tedaj (neprazna) množica $V_\infty \cap V_i$ vsebuje točke oblike $\pcoor{z : 1 : \phi_\infty(z)} = \pcoor{\phi_i(w) : w : 1}$ za neka $z \in W_\infty$ in $w \in W_i$. Podobno kot prej lahko sklepamo, da je $\phi_\infty(z) \neq 0$, od tod dobimo $z \neq 0$. Iz primerjave prve komponente lahko vidimo $\phi_i(w) \neq 0$ in iz primerjave druge komponente dobimo $w \neq 0$. Tako za poljuben $z \in \olsi{\varphi}_\infty(V_\infty \cap V_i)$ dobimo
+\[
+    \olsi{\varphi}_i (\olsi{\varphi}_\infty\inv (z)) = 
+    \olsi{\varphi}_i (\pcoor{z : 1 : \phi_\infty(z)}) = 
+    \olsi{\varphi}_i (\pcoor{\tfrac{z}{\phi_\infty(z)} : \tfrac{1}{\phi_\infty(z)} : 1}) = 
+    \frac{1}{\phi_\infty(z)},
+\]
+za poljuben $w \in \olsi{\varphi}_i(V_\infty \cap V_i)$ pa vidimo
+\[
+    \olsi{\varphi}_\infty (\olsi{\varphi}_i\inv(w)) =
+    \olsi{\varphi}_\infty (\pcoor{\phi_i(w) : w : 1}) =
+    \olsi{\varphi}_\infty (\pcoor{\tfrac{\phi_i(w)}{w} : 1 : \tfrac{1}{w}}) = 
+    \frac{\phi_i(w)}{w}.
+\]
+Tudi ti dve preslikavi sta torej holomorfni kjer sta definirani na $\olsi{\varphi}_\infty(V_\infty \cap V_i)$ oz. $\olsi{\varphi}_i(V_\infty \cap V_i)$, kar nazadnje pomeni, da lokana karta $(V_\infty, \olsi{\varphi}_\infty)$ izpolnjuje kompatibilnostni pogoj s poljubno lokalno karto iz družine $\mathcal{E}$.
+% $((V_i, \olsi{\varphi}_i))_{i \in I}$.
+
+
+% Z upoštevanjem komutativnih diagramov \eqref{projektivna karta diagram} in \eqref{projektivna karta v inf diagram} izračunamo
+% \begin{align*}
+%     \olsi{\varphi}_\infty \circ \olsi{\varphi}_i\inv = 
+%     \olsi{\varphi}_\infty \circ \pi \circ {\varphi'_i}\inv =
+%     \varphi'_\infty \circ {\varphi'_i}\inv, \\
+%     % \begin{cases}
+%     %     \phi & \text{$U_i$ je graf funkcije $\phi$ nad $x$-koordinato} \\
+%     %     \id & \text{$U_i$ je graf funkcije nad $y$-koordinato}
+%     % \end{cases}
+%     \olsi{\varphi}_i \circ \olsi{\varphi}_\infty\inv = 
+%     \olsi{\varphi}_i \circ \pi \circ {\varphi'_\infty}\inv = 
+%     \varphi'_i \circ {\varphi'_\infty}\inv.
+% \end{align*}
+% Kadar je $U_i \subseteq E$ graf holomorfne funkcije $\phi_i$ nad prvo koordinato $x$, je 
+% \begin{align*}
+%     (\varphi'_\infty \circ {\varphi'_i}\inv)(z) &= 
+%     \varphi'_\infty(z, \phi_i(z), 1) = 
+%     z \quad \text{za vsak $z \in \olsi{\varphi}_i(V_\infty \cap V_i)$ in}\\
+%     (\varphi'_i \circ {\varphi'_\infty}\inv)(z) &=
+%     \varphi'_i(z, 1, \phi_\infty(z)) = 
+% \end{align*}
+
+% $\varphi'_i : U_i \subseteq \C^2 \to \C$
+
+% z obravnavo primerov, pa se prepičamo, da sta $\varphi'_\infty \circ {\varphi'_i}\inv$ in $\varphi'_i \circ {\varphi'_\infty}\inv$ vedno holomorfni.
+
+Če družini $((V_i, \olsi{\varphi}_i))_{i \in I}$ dodamo še karto $(V_\infty, \olsi{\varphi}_\infty)$ pri točki $\pcoor{0 : 1 : 0}$, bo tako celotna družina $((V_i,\olsi{\varphi}_i))_{i \in I \cup \{\infty\}}$ tvorila kompleksen atlas za $\olsi{E}$. Res, družina $(V_i)_{i \in I \cup \{\infty\}}$ tvori odprto pokritje za $\olsi{E}$, vse preslikave $\olsi{\varphi}_i$ so homeomorfizmi in vse lokalne karte so med sabo kompatibilne. 
 % izrek o implicitni funkciji podobno kot v prvem delu omogoči definirati homeomorfizem $\varphi'_\infty :  $
 
 
