@@ -47,8 +47,8 @@
 \usepackage{caption}
 \usepackage{xfrac}
 \usepackage[shortlabels]{enumitem}
-\usepackage{quiver}
 \usepackage{tikz-cd}
+\usepackage{quiver}
 % \usepackage{physics}
 
 %%%
@@ -124,6 +124,7 @@
 
 \newcommand{\ti}{t.~i.\ }
 \newcommand{\tj}{tj.\ }
+\newcommand{\oz}{oz.\ }
 
 \newcommand{\kom}[1]{
     \textcolor{RoyalBlue}{//#1}
@@ -177,13 +178,18 @@ sploh sprejemamo veljavne rešitve. Spomnimo se fundametalnega izreka algebre, k
 vsak nekonstanten polinom s kompleksnimi koeficienti ničlo v polju kompleksnih števil, med tem
 ko brez težav poiščemo realne polinome, ki realnih ničel nimajo. Podobno situacijo imamo tukaj. 
 Eliptične krivulje se namreč da študirati nad mnogo različnimi polji. Nad končnimi polji igrajo
-eliptične kriulje pomembno vlogo v kriprografiji, nad racionalnimi števili v algebraični teoriji
+eliptične kriulje pomembno vlogo v kriprografiji, nad poljem racionalnih števil in njihovih razširitvah pridejo do izraza v algebraični teoriji
 števil, mi pa jih bomo v tem delu gledali nad poljem kompleksnih števil. 
 \par
 V primeru obravnave nad poljem kompleksnih števil eliptične
-krivulje naravno pridobijo dodatno kompleksno stukturo in na ta način postanejo t.~i.\ \emph{Riemannove ploskve}. Ta struktura nam omogoča analizo holomorfnih funkcij na prostorih, ki niso nujno domene v kompleksni ravnini in jo
+krivulje naravno pridobijo dodatno kompleksno stukturo in na ta način postanejo t.~i.\ \emph{Riemannove ploskve}. Ta struktura nam omogoči analizo holomorfnih funkcij na prostorih, ki niso nujno domene v kompleksni ravnini in jo
 bomo bolj podrobno preiskali v poglavju \ref{riemannove ploskve}. V nadaljevanju bomo videli, da tudi torus premore strukturo Riemannove ploskve in ga bomo skupaj s to strukturo imenovali kompleksni torus. Izkaže se, da je kompleksni
-torus najbolj smiselna domena dvojno periodičnih oz. eliptičnih funkcij. Lastnosti in obnašanje eliptičnih funkcij si bomo ogledali v poglavju \ref{elipticne funkcije}, klučno vlogo pa bo igrala prav posebna Weierstrassova eliptična funkcija $\wp$. Ta nam bo nazadnje v poglavju \ref{poglavje izomorfizem} omogočila konstrukcijo preslikave, ki bo pokazala, da sta kompleksni torus in eliptična krivulja v nekem smislu enaka matematična objekta.
+torus najbolj smiselna domena dvojno periodičnih oz. eliptičnih funkcij. Lastnosti in obnašanje eliptičnih funkcij si bomo ogledali v poglavju \ref{elipticne funkcije}, ključno vlogo pa bo igrala prav posebna Weierstrassova eliptična funkcija $\wp$. Skupaj s svojim kompleksnim odvodom Weierstrassova funkcija $\wp$ zadošča enačbi
+\[
+  \wp'(z)^2 = 4\wp(z)^3 - g_2\wp(z) - g_3,  
+\] 
+ki je po obliki presenetljivo podobna enačbi eliptične krivulje.
+Ta zveza nam bo nazadnje v poglavju \ref{poglavje izomorfizem} omogočila konstrukcijo preslikave, ki bo pokazala, da sta kompleksni torus in eliptična krivulja v nekem smislu enaka matematična objekta.
 
 Vredno je še opomniti, da eliptične krivulje in področja, v katerih se uporabljajo,
 nimajo več vsebinsko praktično nič opravka z elipsami. 
@@ -254,7 +260,7 @@ S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in r
 \end{definicija}
 
 \begin{primer*}
-    Naj bo $f(x,y) = x^2 + y^2 - 1$ in $g(x,y) = (x^2 + y^2 - 1)^2$. Jasno je $V(f) = V(g)$, kar pomeni, da $f$ in $g$ določata isto algebraično krivuljo -- kompleksno enotsko sfero $S(\C^2)$. Toda sistem 
+    Naj bo $f(x,y) = x^2 + y^2 - 1$ in $g(x,y) = (x^2 + y^2 - 1)^2$. Jasno je $V(f) = V(g)$, kar pomeni, da $f$ in $g$ določata isto algebraično krivuljo. Toda sistem 
     \begin{equation}
         \label{sistem f}
         f_x(x,y) = 2x = 0, \quad f_y(x,y) = 2y = 0, \quad f(x,y) = 0
@@ -266,7 +272,7 @@ S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in r
         g_y(x,y) = 4y(x^2 + y^2 - 1) &= 0, \\
         g(x,y) &= 0 \nonumber
     \end{align}
-    pa jih ima veliko. Namreč vsaka rešitev enačbe $f(x,y) = x^2 + y^2 - 1 = 0$ reši sistem \ref{sistem g} od koder bi lahko napačno sklepali, da je vsaka točka krivulje $S(\C^2)$ singularna. Minimalni polinom opazovane krivulje je $f$ in iz sistema \ref{sistem f} vidimo, da singularnih točk nimamo, torej je krivulja nesingularna. 
+    pa jih ima veliko. Namreč vsaka rešitev enačbe $f(x,y) = x^2 + y^2 - 1 = 0$ reši sistem \ref{sistem g} od koder bi lahko napačno sklepali, da je vsaka točka krivulje $V(f)$ singularna. Minimalni polinom opazovane krivulje je $f$ in iz sistema \ref{sistem f} vidimo, da singularnih točk nimamo, torej je krivulja nesingularna. 
     
 \end{primer*}
 
@@ -293,8 +299,8 @@ Definicija \ref{reg sing tocke} nam omogoči formulirati prvo opazko.
     \[
     Jg = 
     \begin{pmatrix}
-        u_{x_1} & u_{x_2} & u_{y_1} & u_{y_2} \\
-        v_{x_1} & v_{x_2} & v_{y_1} & v_{y_2}
+        \pdv[u]{x_1} & \pdv[u]{x_2} & \pdv[u]{y_1} & \pdv[u]{y_2} \\
+        \pdv[v]{x_1} & \pdv[v]{x_2} & \pdv[v]{y_1} & \pdv[v]{y_2}
     \end{pmatrix}
     =
     \left (
@@ -650,15 +656,17 @@ ki identificira eno krivuljo z drugo. Ob tem se transformira tudi diskriminanta 
         
 \begin{lema}
     \label{projektivnosti wnf}
-    Naj bo $\Phi$ projektivnost med dvema projektivno ekvivalentnima Weierstrassovima kubikama, $C, C'$ kot zgoraj. Tedaj $\Phi$ fiksira točko $\pcoor{0 : 1 : 0}$ in je oblike 
+    Naj bosta $C, C'$ projektivno ekvivalentni Weierstrassovi kubiki, kot zgoraj in $\Phi: C \to C'$ poljubna projektivnost med njima. Tedaj $\Phi$ fiksira točko $\pcoor{0 : 1 : 0}$ in je oblike
+    % Naj bo $\Phi$ projektivnost med dvema projektivno ekvivalentnima Weierstrassovima kubikama, $C, C'$ kot zgoraj. Tedaj $\Phi$ fiksira točko $\pcoor{0 : 1 : 0}$ in je oblike 
     \begin{equation}
         \label{eq:transformacija wnf}
         x = u^2 x' \quad y = u^3 y' \quad z = z',  
     \end{equation}
     za nek $u \in \CM$. Opazovane količine se tedaj transformirajo 
-    \[
+    \begin{equation}
+        \label{eq:transformacija koeficientov in diskriminante}
         u^4 \alpha' = \alpha, \quad u^6 \beta' = \beta \quad \text{in} \quad u^{12} \Delta' = \Delta.
-    \]
+    \end{equation}
 \end{lema}
 
 \begin{dokaz}
@@ -1543,10 +1551,14 @@ uvodni opis...
     \end{enumerate}
 \end{definicija}
 
+\begin{opomba}
+    Za vsako lokalno karto $(U, \varphi)$ iz danega kompleksnega atlasa, bo zožitev $\varphi|_V$ na poljubno manjšo odprto podmnožico $V \subseteq U$ še vedno lokalna karta kompatibilna z vsemi drugimi iz danega kompleksnega atlasa. Zato lahko v nadaljevanju po potrebi izbiramo lokalne karte definirane na poljubno majhnih odprtih množicah v $X$. 
+\end{opomba}
+
 \begin{zgled*}
     (i) Kompleksna ravnina $\C$ je Riemannova ploskev podana z eno samo lokalno karto $(\C, \id_\C)$. 
 
-    (ii) Poljubna odprta podmnožica $V$ Riemannove ploskve $X$ je tudi Riemannova ploskev. Če je $((U_i, \varphi_i))_{i \in I}$ kompleksni atlas za $X$, potem vzamemo družino $((U_i \cap V, \varphi_i|_{U_i \cap V}))_{i \in I}$ za kompleksni atlas $V\subseteq X$. Res, $(U_i \cap V)_{i \in I}$ je odprto pokritje za $V$, zožitve $\varphi_i|_{U_i \cap V}$ so še vedno homeomorfizmi, morda nekoliko manjših okolic, vse zožitve prehodnih preslikav pa so tudi same holomorfne, spet morda na kakšnih manjših okolicah. 
+    (ii) Poljubna odprta podmnožica $V$ Riemannove ploskve $X$ je tudi Riemannova ploskev. Če je $((U_i, \varphi_i))_{i \in I}$ kompleksni atlas za $X$, potem vzamemo družino $((U_i \cap V, \varphi_i|_{U_i \cap V}))_{i \in I}$ za kompleksni atlas $V\subseteq X$. Res, $(U_i \cap V)_{i \in I}$ je odprto pokritje za $V$, zožitve $\varphi_i|_{U_i \cap V}$ so še vedno homeomorfizmi, morda nekoliko manjših okolic, vse zožitve prehodnih preslikav pa so tudi same holomorfne, spet morda na kakšnih manjših odprtih okolicah. 
     
     (iii) Riemannova sfera
 \end{zgled*}
@@ -1577,7 +1589,7 @@ uvodni opis...
 \end{trditev}
 
 \begin{dokaz}
-    Naj bosta $(U', \varphi')$ in $(V', \psi')$ drugi lokalni karti, da velja $x \in U'$ in $f(x) \in V'$. Tedaj bo na $\varphi'(U \cap U')$, ali po potrebi na manjši okolici točke $\varphi'(x)$, veljalo
+    Naj bosta $(U', \varphi')$ in $(V', \psi')$ drugi lokalni karti (kompatibilni z $(U, \varphi)$ in $(V, \psi)$), da velja $x \in U'$ in $f(x) \in V'$. Tedaj bo na $\varphi'(U \cap U')$, ali po potrebi na manjši okolici točke $\varphi'(x)$, veljalo
     \begin{align*}    
         \psi' \circ f \circ {\varphi'}\inv &= 
         \psi' \circ (\psi\inv \circ \psi) \circ f \circ (\varphi\inv \circ \varphi) \circ {\varphi'}\inv \\
@@ -1708,7 +1720,7 @@ Ta je med drugim homeomorfizem na svojo sliko $U := (W \times \phi(W)) \cap E$, 
 %%%%
 
 \begin{komentar}
-    Zelo podobno bi storili, v primeru ko je $f_x(\alpha, \beta) \neq 0$. Tedaj bi lokalna parametrizacija bila oblike $z \mapsto (\phi(z), z)$, okolica $U$ pa bi bila graf holomorfne funkcije $\phi$ nad spremenljivko $y$ namesto $x$. Tako bi za predpis homeomorfizma $\varphi$ uporabili projekcijo $\pr_2$ namesto $\pr_1$.
+    Zelo podobno bi storili v primeru, ko je $f_x(\alpha, \beta) \neq 0$. Tedaj bi lokalna parametrizacija bila oblike $z \mapsto (\phi(z), z)$, okolica $U$ pa bi bila graf holomorfne funkcije $\phi$ nad spremenljivko $y$ namesto $x$. Tako bi za predpis homeomorfizma $\varphi$ uporabili projekcijo $\pr_2$ namesto $\pr_1$.
 \end{komentar}
 
 Vsak tak par $(U, \varphi)$ bomo sprejeli kot lokalno karto. 
@@ -1794,7 +1806,7 @@ Skupek vseh na ta način konstruiranih parov $(V_i, \olsi{\varphi}_i)$ bo prispe
 \[
     F_z(x,1,z) = 1 + ax^2 + 3bz^2
 \]
-je v omenjeni točki različen od nič, kar pomeni, da po izreku o implicitni funkciji obstajata okolici $W_\infty, W' \subseteq \C$ točke $0$ in holomorfna funkcija $\phi_\infty : W_\infty \to W'$, da je $F(x, 1, \phi_\infty(x)) = 0$ za vse $x \in W_\infty$. Opomnimo še, da iz $\phi_\infty(x) = 0$ sledi $x = 0$, saj je to edina rešitev enačbe $F(x, 1, 0) = -4x^3 = 0$. Označimo $U_\infty = \{(x, 1, \phi_\infty(x)) \subseteq \C^3 \setminus \{(0,0,0)\}\mid x \in W_\infty\}$. Tedaj je pomožna preslikava 
+je v omenjeni točki različen od nič, kar pomeni, da po izreku o implicitni funkciji obstajata okolici $W_\infty, W' \subseteq \C$ točke $0$ in holomorfna funkcija $\phi_\infty : W_\infty \to W'$, da je $F(x, 1, \phi_\infty(x)) = 0$ za vse $x \in W_\infty$. Opomnimo še, da iz $\phi_\infty(x) = 0$ sledi $x = 0$, saj je to edina rešitev enačbe $F(x, 1, 0) = -4x^3 = 0$. Označimo $U_\infty = \{(x, 1, \phi_\infty(x)) \in \C^3 \setminus \{(0,0,0)\}\mid x \in W_\infty\}$. Tedaj je pomožna preslikava 
 \[
     \varphi'_\infty : U_\infty \to W_\infty \quad (x,y,z) \mapsto x
 \]
@@ -1816,7 +1828,7 @@ holomorfni za poljuben $i \in I$. Najprej še dodatno predpostavimo, da je $U_i 
 
 Za holomorfnost omenjenih prehodnih preslikav potrebujemo razumeti njuni domeni oz. še prej množico $V_\infty \cap V_i$. Zanimajo nas samo tisti $i \in I$, za katere je $V_\infty \cap V_i$ neprazna, zato bomo brez škode za splošnost to privzeli, saj so v nasprotnem primeru kompatibilnostni pogoji že na prazno izpolnjeni. 
 
-Po eni strani, množica $V_\infty \cap V_i$ vsebuje vse točke oblike $\pcoor{z : 1 : \phi_\infty(z)}$, za nek $z \in W_\infty$, po drugi strani pa ima ta točka zaradi vsebovanosti v $V_i$ tudi obliko $\pcoor{w : \phi_i(w) : 1}$ za nek $w \in W_i$. Eno projektivno točko smo tako zapisali s pomočjo dveh različnih predstavnikov, ki se razlikujeta za multiplikativno konstanto iz $\CM$. Tako iz primerjave tretjih komponent (do multiplikativne konstante iz $\CM$ natančno) ugotovimo, da je $\phi_\infty(z) \neq 0$ in je tako posredno tudi $z \neq 0$. S primerjavo drugih komponent vidimo, da mora veljati $\phi_i(w) \neq 0$, primerjava prvih komponent pa iz pogoja $z \neq 0$ zagotovi še $w \neq 0$. Od tod je potem razvidno $\pcoor{z : 1 : \phi_\infty(z)} = \pcoor{\tfrac{z}{\phi_\infty(z)} : \tfrac{1}{\phi_\infty(z)} : 1}$ ter $\pcoor{w : \phi_i(w) : 1} = \pcoor{\tfrac{w}{\phi_i(w)} : 1 : \tfrac{1}{\phi_i(w)}}$. 
+Po eni strani, množica $V_\infty \cap V_i$ vsebuje vse točke oblike $\pcoor{z : 1 : \phi_\infty(z)}$, za nek $z \in W_\infty$, po drugi strani pa ima ta točka zaradi vsebovanosti v $V_i$ tudi obliko $\pcoor{w : \phi_i(w) : 1}$ za nek $w \in W_i$. Eno projektivno točko smo tako zapisali s pomočjo dveh različnih predstavnikov, ki se razlikujeta za multiplikativno konstanto iz $\CM$. Tako iz primerjave tretjih komponent (do multiplikativne konstante iz $\CM$ natančno) ugotovimo, da je $\phi_\infty(z) \neq 0$ in je tako posredno tudi $z \neq 0$. S primerjavo drugih komponent vidimo, da mora veljati $\phi_i(w) \neq 0$, primerjava prvih komponent pa iz pogoja $z \neq 0$ zagotovi še $w \neq 0$. Ker lahko homogene koordinate s temi neničelnimi vrednostmi delimo, je od tod je razvidno $\pcoor{z : 1 : \phi_\infty(z)} = \pcoor{\tfrac{z}{\phi_\infty(z)} : \tfrac{1}{\phi_\infty(z)} : 1}$ ter $\pcoor{w : \phi_i(w) : 1} = \pcoor{\tfrac{w}{\phi_i(w)} : 1 : \tfrac{1}{\phi_i(w)}}$. 
 
 Če je $z \in \olsi{\varphi}_\infty(V_\infty \cap V_i)$ poljuben, potem izračunamo 
 \[
@@ -1852,15 +1864,105 @@ Tudi ti dve preslikavi sta torej holomorfni kjer sta definirani, \tj na $\olsi{\
 
 Če družini $((V_i, \olsi{\varphi}_i))_{i \in I}$ dodamo še karto $(V_\infty, \olsi{\varphi}_\infty)$ pri točki $\pcoor{0 : 1 : 0}$, bo tako celotna družina $((V_i,\olsi{\varphi}_i))_{i \in I \cup \{\infty\}}$ tvorila kompleksen atlas za $\olsi{E}$. Res, družina $(V_i)_{i \in I \cup \{\infty\}}$ tvori odprto pokritje za $\olsi{E}$, vse preslikave $\olsi{\varphi}_i$ so homeomorfizmi in vse lokalne karte so med sabo kompatibilne. 
 
-\begin{zgled*}
-    
-\end{zgled*}
-
 \begin{opomba}
     Na začetku razdelka \ref{Kompleksna struktura na elipticni krivulji} smo omenili, da je eliptična krivulja kompaktna. To bomo sicer videli preko biholomorfizma (ki je v posebnem tudi homeomorfizem) s kompleksnim torusom, lahko pa to pokažemo tudi na sledeč način. Če $F \in \C[x,y,z]$ označuje minimalni polinom krivulje $E$, je množica $\{ (x,y,z) \in \C^3\setminus\{0\} \mid F(x,y,z) = 0\}$ zaprta v $\C^3\setminus\{0\}$, njen presek s kompleksno enotsko sfero $S(\C^3)$ pa je kompakten. Slika tega preseka s kvocientno projekcijo $S(\C^3) \to \PC$, je ravno $E\subseteq \PC$, kot zvezna slika kompakta pa je tudi sama kompaktna, torej je $E$ kompaktna. 
     
     Tukaj lahko vlogo eliptične krivulje $E \subseteq \PC$ prevzame tudi poljubna projektivna algebraična krivulja in enak premislek nam pokaže, da je tudi ta kompaktna podmnožica v $\PC$.
 \end{opomba}
+
+S tem je zaključena konstrukcija kompleksnega atlasa na eliptični krivulji. Za konec tega razdelka si poglejmo še uporabo kompleksne strukture na primeru holomorfnih funkcij med eliptičnima kriuljama.  
+
+\subsubsection{Holomorfna funkcija med eliptičnima krivuljama}
+    V poglavju \ref{algebraicne krivulje} smo definirali pojem projektivne transformacije oziroma projektivnosti in nato v lemi \ref{projektivnosti wnf} opazili, da imajo vse projektivnosti med projektivno ekvivalentnima eliptičnima krivuljama točno določeno obliko. V tem zgledu bomo pokazali, da je vsaka takšna projektivnost tudi holomorfna funkcija. 
+
+\begin{trditev}
+    Naj bosta $E_1, E_2 \subseteq \PC$ eliptični krivulji podani z enačbama 
+    \[
+        E_1 : \quad y^2z = 4x^3 - a_1xz^2 - b_1z^3 \quad \text {in} \quad
+        E_2 : \quad y^2z = 4x^3 - a_2xz^2 - b_2z^3
+    \]
+    in naj bo $u \in \CM$ tak, da je
+    \[
+        g: E_1 \to E_2 \quad \pcoor{x : y : z} \mapsto \pcoor{u^2x : u^3y : z}  
+    \]
+    projektivna ekvivalenca med njima. Tedaj je $g$ holomorfna preslikava.  
+\end{trditev}
+
+\begin{proof}
+    Po definiciji preverimo holomorfnost preslikave. Okoli poljubne točke $p \in E_1$ ter njene slike $g(p) \in E_2$ bomo poiskali par kart $\varphi$ in $\psi$ iz atlasov za $E_1$ in $E_2$ in se prepričali o holomorfnosti preslikave $\psi \circ g \circ \varphi\inv$. 
+    
+    Označimo 
+    \[
+        f_i(x, y) = y^2 - 4x^3 + a_ix + b_i
+    \]
+    za $i \in \{1,2\}$ in z $f_i^*$ homogenizacijo $f_i$ glede na spremenjivko $z$, kar je ravno minimalni polinom krivulje $E_i$. Ker sta $E_i$ eliptični, sta po definiciji nesingularni in imata neničelni diskriminanti, kar pomeni, da ima kubični polinom $4x^3 - a_1x - b_1$ tri različne (kompleksne) ničle $e_1, e_2, e_3$. Projektivnost $g$ poveže, keoficiente $a_i, b_i$, in sicer po \ref{eq:transformacija koeficientov in diskriminante} velja $a_2 = u^4 a_1$, $b_2 = u^6 b_1$, torej so $u^2e_1, u^2e_2, u^2e_3$ tri različne ničle polinoma $4x^3 - a_2x - b_2$. To vidimo tudi direktno z uporabo projektivnost $h$, ki je bijektivna in slika $\pcoor{e_i : 0 : 1} \mapsto \pcoor{u^2 e_i : 0 : 1}$. Hkrati pa so točke oblike $(e_i, 0)$ \oz $(u^2 e_i, 0)$ edine v katerih je $\pdv[f_1]{y} = 0$ \oz $\pdv[f_2]{y} = 0$ in, ki rešijo enačbo $f_1 = 0$ \oz $f_2 = 0$. Na afinem delu krivulje bo tako, razen v teh treh točkah, množno uporabiti lokalne karte, ki izhajajo iz dejstva, da je krivuljo mogoče predstaviti kot graf holomorfne nad spremenljivko $x$. 
+    
+    Ločimo nekaj možnosti glede na izbrano točko $p \in E_1$.
+    \begin{enumerate}
+        \item[(i)] $p = \pcoor{e_i : 0 : 1}$: Tedaj vidimo, da je $g(p) = \pcoor{u^2 e_i : 0 : 1}$, torej izberimo lokalni karti $\varphi$ okrog $p \in E_1$ in $\psi$ okrog $g(p) \in E_2$, ki sta na dovolj majhnih okolicah $p$ oziroma $g(p)$ podani s predpisoma 
+        \[
+            \varphi(\pcoor{x : y : 1}) = y \quad \text{in} \quad
+            \psi(\pcoor{x : y : 1}) = y \quad  
+        \] 
+        njuna inverza pa kot 
+        \[
+            \varphi\inv(w) = \pcoor{\phi_1(w) : w : 1} \quad \text{in} \quad
+            \psi\inv(w) = \pcoor{\phi_2(w) : w : 1}.
+        \]
+        Ob tem sta $\phi_1, \phi_2$ holomorfni funkciji, ki v konstrukciji kompleksnega atlasa izhajata iz primera, ko lahko afina dela krivulj $E_1$ in $E_2$ okoli $p$ oziroma $g(p)$ izrazimo kot grafa funkcij $\phi_1$ in $\phi_2$ nad spremenljivko $y$. Tedaj izračunamo
+        \[
+            \psi(g(\varphi\inv(w))) = 
+            \psi(g(\pcoor{\phi_1(w) : w : 1})) = 
+            \psi([u^2\phi_1(w) : u^3w : 1]) = 
+            u^3w,
+        \]
+        ki je jasno holomorfna na dovolj majhni odprti okolici točke $\varphi(p)$. 
+        \item[(ii)] $p = \pcoor{0 : 1 : 0}$: Tudi za točko v neskončnosti imamo na obeh krivuljah lokalni karti $\varphi$ okrog $p$ in $\psi$ okrog $g(p) = \oio$ podani s predpisoma 
+        \[
+            \varphi(\pcoor{x : 1 : z}) = x \quad \text{in} \quad
+            \psi(\pcoor{x : 1 : z}) = x,  
+        \] 
+        njuna inverza pa z 
+        \[
+            \varphi\inv(w) = \pcoor{\phi_1(w) : 1 : w} \quad \text{in} \quad
+            \psi\inv(w) = \pcoor{\phi_2(w) : 1 : w},
+        \]
+        za ustrezni holomorfni funkciji $\phi_1$ in $\phi_2$ na dovolj majhnih odprtih okolicah $\varphi(p)$ oziroma $\psi(g(p))$. Tedaj na tej majhni okolici $\varphi(p)$ velja 
+        \begin{align*}
+            \psi(g(\varphi\inv(w))) &= 
+            \psi(g(\pcoor{\phi_1(w) : 1 : w})) \\
+            &= \psi(\pcoor{u^2\phi_1(w) : u^3 : w}) =
+            \psi\left(\pcoor{\tfrac{\phi_1(w)}{u} : 1 : \tfrac{w}{u^3}}\right) = 
+            \tfrac{\phi_1(w)}{u}.
+        \end{align*}
+        Slednji račun pokaže, da je $\psi \circ g \circ \varphi\inv$ na tej odprti okolici holomorfna.
+        
+
+        \item[(iii)] Nazadnje naj bo točka $p \in E_1$ poljubna, ki ni iz zgornjih dveh primerov. Tedaj imamo okoli $p$ in $g(p)$ lokani karti $\varphi$ in $\psi$, s predpisoma
+        \[
+            \varphi(\pcoor{x : y : 1}) = x \quad \text{in} \quad
+            \psi(\pcoor{x : y : 1}) = x. 
+        \]   
+        Njuna inverza imata predpisa
+        \[
+            \varphi\inv(w) = \pcoor{w : \phi_1(w) : 1} \quad \text{in} \quad
+            \psi\inv(w) = \pcoor{w : \phi_2(w) : 1},
+        \]
+        kjer sta $\phi_1$ in $\phi_2$ ustrezni holomorfni funkciji, katerih graf je lokalno afnini del krivulj $E_1$ \oz $E_2$ okoli točk $p$ \oz $g(p)$. Tedaj izračunamo
+        \[
+            \psi(g(\varphi\inv(w))) =
+            \psi(g(\pcoor{w : \phi_1(w) : 1})) =
+            \psi(\pcoor{u^2 w : u^3 \phi_1(w) : 1}) = 
+            u^2 w,
+        \]
+        kar je jasno predpis holomorfne funkcije na odprti okolici točke $\varphi(p)$. 
+    \end{enumerate}
+\end{proof}
+
+Poleg tega opazimo, da smo hkrati z istim premislekom pokazali tudi holomorfnost inverza dane projektivnosti, saj njen predpis po menjavi $u$ v $1/u$ še vedno ohranja obliko. Od tod sledi, da sta projektivno ekvivalentni eliptični krivulji tudi izomorfni kot Riemannovi ploskvi. Z drugimi besedami to pomeni, da smo algebraični izomorfizem (projektivnost med krivuljama) prevedli v analitičnega -- biholomorfizem Riemmanovih ploskev.
+% V zadnjem poglavju bomo pojasnili, še obrat te izjave, da vsak analitičen izomorfizem inducira tudi algebraičnega. 
+
+Neformalno opomnimo še, da je vsaka holomorfna funkcija $f: E_1 \to E_2$, v nekem smislu tudi algebraična -- njen prepis je podan s koorinatnimi funkcijami, ki so racianalne funkcije v spremenljivkah $x,y,z$.  
 
 \newpage
 %%%%% Komplkesna struktura na torusu %%%%%
@@ -1914,25 +2016,61 @@ Lotimo se sedaj še kompleksne strukture na $\torus$. Tukaj bo bistvena kvocient
     Družina $((U_i, \varphi_i))_{i \in I}$, kjer je $U_i \subseteq \torus$ fundamentalna okolica neke točke baznega prostora $\torus$ in $\varphi_i = (\pi|_{V_i})\inv$, kjer je $V_i \subseteq \C$ kopija fundamentalne okolice, tvori kompleksni atlas prostora $\torus$.  
 \end{trditev}
 
-Za poljubno točko $z + \Lambda \in \torus$ naj bo $U \subseteq \torus$ njena fundamentalna okolica in $V \subseteq \C$ poljubna njej homeomorfna kopija. Tedaj vemo, da je $\pi|_V : V \to U$ homeomorfizem, ki kompleksno strukturo okolice $V \subseteq \C$ prenese na torus. Tako bo njen inverz $(\pi|_V)\inv$ dober kandidat za lokalno karto. Pokažimo, da je res tako, \tj da družina vseh takšnih parov $(U, (\pi|_V)\inv)$ tvori kompleksen atlas za $\torus$. 
+\begin{dokaz}
+    Za poljubno točko $z + \Lambda \in \torus$ naj bo $U \subseteq \torus$ njena fundamentalna okolica in $V \subseteq \C$ poljubna njej homeomorfna kopija. Tedaj vemo, da je $\pi|_V : V \to U$ homeomorfizem, ki kompleksno strukturo okolice $V \subseteq \C$ prenese na torus. Tako bo njen inverz $(\pi|_V)\inv$ dober kandidat za lokalno karto. Pokažimo, da je res tako, \tj da družina vseh takšnih parov $(U, (\pi|_V)\inv)$ tvori kompleksen atlas za $\torus$. 
 
-Po konstrukciji vse fundamentalne okolice pokrijejo bazni prostor $\torus$ in kot smo že omenili, so vse lokalne karte homeomorfizmi. Da bo omenjena družina kompleksen atlas, preostane preveriti še kompatibilnostni pogoj. Vzemimo poljubni dve lokalni karti sestavljeni iz okolic $U_1, U_2 \subseteq \torus$ in pripadajočih homeomorfizmov $(\pi|_{V_1})\inv : V_1 \to U_1$ ter $(\pi|_{V_2})\inv : V_2 \to U_2$, ki ju označimo s $\varphi_1$ in $\varphi_2$. Prepričajmo se, da je preslikava 
-\[
-    \varphi_1 \circ \varphi_2\inv : \varphi_2(U_1 \cap U_2) \longrightarrow  \varphi_1(U_1 \cap U_2)
-\]
-holomorfna na odprti množici $\varphi_2(U_1 \cap U_2) \subseteq \C$. Najlažje bo, če si ogledamo njen predpis. Za poljuben $z \in \varphi_2(U_1 \cap U_2)$ je $\varphi_1(\varphi_2\inv(z)) = z + \om_z$, za neki $\om_z \in \Lambda$, ki je odvisen od $z$. Zvezna preslikava $\varphi_1 \circ \varphi_2\inv - \id_\C$ bo tako slikala iz okolice $\varphi_2(U_1 \cap U_2)$ točke $z$ v mrežo $\Lambda$. Slednja je opremljena z diskretno topologijo, zato bo omenjena preslikava konstantna na vsaki povezani komponenti odprte množice $\varphi_2(U_1 \cap U_2)$. To pomeni, da ima na vsaki komponenti prehodna prelikava predpis oblike 
-\[
-    \varphi_1(\varphi_2\inv(z)) = z + \om,
-\]
-za neki $\om \in \Lambda$ (ta je zares odvisen samo od komponente za poveznost). Iz tega predpisa je torej razvidno, da je preslikava $\varphi_1 \circ \varphi_2\inv$ holomorfna. 
+    Po konstrukciji vse fundamentalne okolice pokrijejo bazni prostor $\torus$ in kot smo že omenili, so vse lokalne karte homeomorfizmi. Da bo omenjena družina kompleksen atlas, preostane preveriti še kompatibilnostni pogoj. Vzemimo poljubni dve lokalni karti sestavljeni iz okolic $U_1, U_2 \subseteq \torus$ in pripadajočih homeomorfizmov $(\pi|_{V_1})\inv : V_1 \to U_1$ ter $(\pi|_{V_2})\inv : V_2 \to U_2$, ki ju označimo s $\varphi_1$ in $\varphi_2$. Prepričajmo se, da je preslikava 
+    \[
+        \varphi_1 \circ \varphi_2\inv : \varphi_2(U_1 \cap U_2) \longrightarrow  \varphi_1(U_1 \cap U_2)
+    \]
+    holomorfna na odprti množici $\varphi_2(U_1 \cap U_2) \subseteq \C$. Najlažje bo, če si ogledamo njen predpis. Za poljuben $z \in \varphi_2(U_1 \cap U_2)$ je $\varphi_1(\varphi_2\inv(z)) = z + \om_z$, za neki $\om_z \in \Lambda$, ki je odvisen od $z$. Zvezna preslikava $\varphi_1 \circ \varphi_2\inv - \id_\C$ bo tako slikala iz okolice $\varphi_2(U_1 \cap U_2)$ točke $z$ v mrežo $\Lambda$. Slednja je opremljena z diskretno topologijo, zato bo omenjena preslikava konstantna na vsaki povezani komponenti odprte množice $\varphi_2(U_1 \cap U_2)$. To pomeni, da ima na vsaki komponenti prehodna prelikava predpis oblike 
+    \[
+        \varphi_1(\varphi_2\inv(z)) = z + \om,
+    \]
+    za neki $\om \in \Lambda$ (ta je zares odvisen samo od komponente za poveznost). Iz tega predpisa je torej razvidno, da je preslikava $\varphi_1 \circ \varphi_2\inv$ holomorfna. 
+\end{dokaz}
 
 \begin{definicija}
     Naj bo $\Lambda \subseteq \C$ mreža. Kvocientnemu prostoru $\torus$ skupaj s pripadajočim kompleksnim atlasom pravimo \emph{kompleksni torus}.  
 \end{definicija}
 
-\begin{primer*}
-    Poglejmo si primer preslikave med tvema kompleksnima torusoma. Naj bosta $\Lambda_1$ in $\Lambda_2$ mreži v $\C$  
-\end{primer*}
+\begin{lema}
+    Kvocientna projekcija $\pi : \C \to \torus$ je holomorfna. 
+\end{lema}
+
+\begin{dokaz}
+    Preverili bomo holomorfnost preslikave $\pi$ okoli vsake točke v $\C$, bistveno je opaziti, da je $\pi$ lokalni homeomorfizem. Naj bo $z_0 \in \C$ poljubna in $V \subseteq \C$ njena dovolj majhna odprta okolica, ki se s $\pi$ homeomorfno preslika na odprto množico $U \subseteq \torus$, tako, da je $(\pi|_{V})\inv : U \to V$ lokalna karta za $\torus$. 
+
+    Za holomorfnost $\pi$, si to preslikavo oglejmo v kartah. Kompleksna struktura na $\C$ je podana že z eno samo karto, \tj $(\C, \id_\C)$, zato bomo preverili holomorfnost preslikave
+    \[
+        ((\pi|_{V})\inv \circ \pi) : \pi\inv(U) \to \C.
+    \]
+    Ker nas zares zanima samo obnašanje te preslikave okoli točke $z_0$, lahko obravnavamo zgolj njeno zožitev na odprto okolico $V \subseteq \pi\inv(U) = \bigcup_{\om \in \Lambda} (V + \om)$. Od tod pa takoj sledi, da je $((\pi|_V)\inv \circ \pi)|_V = \id_V$ holomorfna funkcija na $V \subseteq \C$, kar dokaže želeno. 
+\end{dokaz}
+
+\subsubsection{Holomorfne preslikave med kompleksnimi torusi}
+
+Podobno kot smo obravnavali holomorfne preslikave med eliptičnima krivuljama, si bomo v tem podrazdelku pogledali holomorfne preslikave med kompleksnima torusoma. Začeli bomo z zgledom takšne preslikave, ki izhaja iz posebnega avtomorfizma kompleksne ravnine $\C$, nato pa z manjšo pomočjo teorije krovnih prostorov pokazali, da v resinci vsaka holomorfna preslikava med kompleksnima torusoma izhaja iz takšnega avtomorfizma. 
+
+\begin{zgled*}
+    Naj bosta $\Lambda_1$ in $\Lambda_2$ mreži v kompleksni ravnini in $a, b \in \C$ kompleksni števili, da velja
+    \[
+        a\Lambda_1 \subseteq \Lambda_2.
+    \]
+    Naj bo $f : \C \to \C$ linearna preslikava podana s predpisom $f(z) = az + b$ in označimo kvocientni projekciji $\pi_1 : \C \to \C/\Lambda_1$ ter $\pi_2 : \C \to \C/\Lambda_2$. 
+
+    Za projekcijo $\pi_1$ in kompozicijo $\pi_2 \circ f : \C \to \C/\Lambda_2$ ter točki $z, w \in \C$ velja, če je $\pi_1(z) = \pi_1(w)$ \oz $z + \Lambda_1 = w + \Lambda_1$ potem je tudi $\pi_2(f(z)) = \pi_2(f(w))$ \oz $az + b + \Lambda_2 = az + b + \Lambda_2$, zaradi $a\Lambda_1 \subseteq \Lambda_2$. Od tod se po izreku \cite[]{MrcunTop} inducira zvezna preslikava $\olsi{f} : \C/\Lambda_1 \to \C/\Lambda_2$, da velja $\pi_1 \circ \olsi{f} = f \circ \pi_2$ oziroma, da komutira naslednji diagram.
+
+
+
+\end{zgled*}
+
+\begin{trditev}
+    Naj bo 
+\end{trditev}
+% \begin{primer*}
+%     Poglejmo si primer preslikave med dvema kompleksnima torusoma. Naj bosta $\Lambda_1$ in $\Lambda_2$ mreži v $\C$  
+% \end{primer*}
 
 
 % Tvorimo sedaj družino parov $(U, \pi|_)$
