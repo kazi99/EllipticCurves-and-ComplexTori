@@ -8,8 +8,10 @@
 % naslednje ukaze ustrezno napolnite
 \avtor{Izak Jenko}
 
-\naslov{Kompleksni torusi in eliptične krivulje}
-\title{Complex tori and elliptic curves}
+% \naslov{Kompleksni torusi in eliptične krivulje}
+\naslov{Eliptične krivulje in kompleksni torusi}
+% \title{Complex tori and elliptic curves}
+\title{Elliptic curves and complex tori}
 
 % navedite ime mentorja s polnim nazivom: doc.~dr.~Ime Priimek,
 % izr.~prof.~dr.~Ime Priimek, prof.~dr.~Ime Priimek
@@ -25,16 +27,28 @@
 
 %  V povzetku na kratko opišite vsebinske rezultate dela. Sem ne sodi razlaga organizacije dela --
 %  v katerem poglavju/razdelku je kaj, pač pa le opis vsebine.
-\povzetek{}
+\povzetek{\emph{Eliptična krivulja} nad poljem kompleksnih števil $\C$ je nesingularna projektivna kubika, podana z Weierstrassovo enačbo. S pomočjo izreka o implicitni funkciji pokažemo, da ta dopušča kompleksno sturkturo, kar pomeni, da postane Riemannova ploskev. Po drugi strani vsak torus, predstavljen kot kvocient $\C$ po mreži $\Lambda$ -- diskretni podgrupi $\C$ izomorfni $\Z^2$, podeduje kompleksno strukturo preko kvocientne preslikave in tako upraviči imenovanje \emph{kompleksni torusi}. Izkaže se, da ti dve, bistveno različni konstrukciji, presenetljivo porodita enaka \oz izomorfna matematična objekta. To vez razložimo preko teorije dvojno periodičnih funkcij, imenovanih eliptične funkcije, in modularnih funkcij z mnogo simetrije povezane z modularno grupo $\operatorname{SL}_2(\Z)$. Obravnavamo njihove osnovne lastnosti in razijemo teorijo Weierstrassove $\wp$-funkcije, ki nam nazadnje omogoči eksplicitno podati omenjeni izomorfizem, in dokazati uniformizacijski izrek, ki združuje oba objekta.
+} 
 
 %  Prevod slovenskega povzetka v angleščino.
-\abstract{}
+\abstract{An \emph{elliptic curve} over the field of complex numbers $\C$ is a nonsingular projective cubic, given by the Weierstrass equation. Using the implicit function theorem we show, that it admits a complex structure, which makes it a Riemann surface. 
+On the other hand every torus, which we view as a quotient of $\C$ modulo a lattice $\Lambda$ -- a discrete subgroup of $\C$ isomorphic to $\Z^2$, inherits a complex structure via its quotient map and justifies us naming them \emph{complex tori}. These two, vastly different construcions, remarkably trun out to yield the same i.~e.\ isomorphic mathematical objects. This link is explaind using the theory of doubly periodic functions, also called elliptic functions, and modular functions, which are meromorphic functions on the upper half plane enjoying many symmetries involving the modular group $\operatorname{SL}_2(\Z)$. 
+We discuss their basic properties and develop the necessary theory of the Weierstrass $\wp$-function, alowing us to explicitly construct the aforementioned isomorphism and prove the uniformizaton theorem, unifying both objects of study. 
+
+% can be endowed with a complex stru 
+
+% \[
+%     y^2z = 4x^3 - axz^2 - bz^3, \quad \text{with } a^3 -27b^2 \neq 0.    
+% \]
+% In this paper we expose a remarkable link between elliptic curves and complex tori, which we view as quotiens of $\C$ modulo a lattice and poses a natural complex structure. 
+%  which allows us to view them as Riemann surfaces.  
+}
 
 % navedite vsaj eno klasifikacijsko oznako --
 % dostopne so na www.ams.org/mathscinet/msc/msc2020.html
-\klasifikacija{}
-\kljucnebesede{} % navedite nekaj ključnih pojmov, ki nastopajo v delu
-\keywords{} % angleški prevod ključnih besed
+\klasifikacija{11F03, 11G05, 14H52, 14H55}
+\kljucnebesede{eliptična krivulja, eliptična funkcija, kompleksni torus, Weierstrassova $\wp$-funkcija, $j$-invarianta, modularna funkcija} % navedite nekaj ključnih pojmov, ki nastopajo v delu
+\keywords{elliptic curve, elliptic function, complex torus, Weierstrass $\wp$-function, $j$-invariant, modular function} % angleški prevod ključnih besed
 
 \zapisiMetaPodatke  % poskrbi za metapodatke in veljaven PDF/A-1b standard
 
@@ -87,7 +101,8 @@
 \newcommand{\inv}{^{-1}}
 \newcommand{\torus}{\C/\Lambda}
 \newcommand{\elf}{\C(\Lambda)}
-\newcommand{\SL}{\operatorname{SL}_2(\Z)}
+% \newcommand{\SL}{\operatorname{SL}_2(\Z)}
+\newcommand{\SL}{\Gamma}
 
 \newcommand{\abcd}{\big(\begin{smallmatrix} a & b\\c & d \end{smallmatrix}\big)}
 \newcommand{\pabcd}{\begin{pmatrix} a & b \\ c & d \end{pmatrix}}
@@ -221,7 +236,8 @@ Ta zveza nam bo nazadnje v poglavju \ref{poglavje izomorfizem} omogočila konstr
 Vredno je še opomniti, da eliptične krivulje in področja, v katerih se uporabljajo,
 nimajo več vsebinsko praktično nič opravka z elipsami. 
 Izkazalo se je, da so inverzi funkcij, s katermi računamo dolžine lokov elips, dvojno periodični,
-če jih gledamo kot funkcije kompleksne spremenljivke in od tod pride ime eliptičnih funkcij. V teh izračunih namreč integriramo izraze oblike $R(t, \sqrt{f(t)})$, kjer je $R \in \C(x,y)$ in $f$ polinom tretje ali četrte stopnje brez kvadratnih faktorjev. Pri tem pa polinom $f$ usteza ravno desni strani enačbe, ki podaja podaja eliptično krivuljo. 
+če jih gledamo kot funkcije kompleksne spremenljivke in od tod pride ime eliptičnih funkcij. V teh izračunih namreč integriramo izraze oblike $R(t, \sqrt{f(t)})$, kjer je $R \in \C(x,y)$ racionalna funkcija in $f$ polinom tretje ali četrte stopnje brez kvadratnih faktorjev. Ravno polinom $f$, pa se pod ustrezno uvedbo nove spremenljivke da transformirati v desno stran enačbe, ki podaja eliptično krivuljo. 
+% Pri tem pa polinom $f$ usteza ravno desni strani enačbe, ki podaja podaja eliptično krivuljo. 
 % Te dvojno periodične funkcije pa so tesno povezane z enačbo,
 % ki ji zadoščajo eliptične krivulje in se bomo k njim vrnili v poglavju \ref{elipticne funkcije}.
 
@@ -247,7 +263,7 @@ kompleksnimi koeficienti. Množica ničel poljubnega polinoma $f \in \C[x_1, \do
 \] 
 
 \begin{definicija}
-    Množica $C \subseteq \C^2$ je \emph{afina algebraična krivulja}, če obstaja tak polinom $f \in \C[x,y]$ stopnje vsaj $1$, da je
+    Množica $C \subseteq \C^2$ je \emph{afina algebraična krivulja}, če obstaja tak nekonstanten polinom $f \in \C[x,y]$, da je
     \[
         C = V(f).
     \]
@@ -291,13 +307,13 @@ S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in r
     Naj bo $f(x,y) = x^2 + y^2 - 1$ in $g(x,y) = (x^2 + y^2 - 1)^2$. Jasno je $V(f) = V(g)$, kar pomeni, da $f$ in $g$ določata isto algebraično krivuljo. Toda sistem 
     \begin{equation}
         \label{sistem f}
-        f_x(x,y) = 2x = 0, \quad f_y(x,y) = 2y = 0, \quad f(x,y) = 0
+        \pdv[f]{x}(x,y) = 2x = 0, \quad \pdv[f]{y}(x,y) = 2y = 0, \quad f(x,y) = 0
     \end{equation}
     nima nobene rešitve, sistem
     \begin{align}
         \label{sistem g}
-        g_x(x,y) = 4x(x^2 + y^2 - 1) &= 0, \nonumber \\ 
-        g_y(x,y) = 4y(x^2 + y^2 - 1) &= 0, \\
+        \pdv[g]{x}(x,y) = 4x(x^2 + y^2 - 1) &= 0, \nonumber \\ 
+        \pdv[g]{y}(x,y) = 4y(x^2 + y^2 - 1) &= 0, \\
         g(x,y) &= 0 \nonumber
     \end{align}
     pa jih ima veliko. Namreč vsaka rešitev enačbe $f(x,y) = x^2 + y^2 - 1 = 0$ reši sistem \ref{sistem g}, od koder bi lahko napačno sklepali, da je vsaka točka krivulje $V(f)$ singularna. Minimalni polinom opazovane krivulje je $f$ in iz sistema \ref{sistem f} vidimo, da singularnih točk nimamo, torej je krivulja nesingularna. 
@@ -405,7 +421,7 @@ Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti.
     Kompleksen projektiven prostor dimenzije $1$ smo že srečali. To je \emph{Riemannova sfera} $\widehat{\C} = \mathbb{P}^1_\C$. Včasih jo bomo imenovali tudi (kompleksna) projektivna premica. Riemannova sfera ima sicer še nekoliko več strukture, ki smo jo zaenkrat pri projektivnih prostorih izpustili, a se bomo k temu vrnili v \ref{riemannove ploskve}. poglavju o Riemannovih ploskvah.
 \end{primer*}
 
-Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov v $\C^{n+1}$. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prostora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s \ti homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim = \{(\lambda x_0, \dots, \lambda x_n) \in \C^{n+1} \mid \lambda \in \CM\} \in P^n(\C)$, kar v homogenih koordinatah zapišemo z
+Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov v $\C^{n+1}$. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prostora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s \ti homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim = \{(\lambda x_0, \dots, \lambda x_n) \in \C^{n+1} \mid \lambda \in \CM\} \in \PP^n_\C$, kar v homogenih koordinatah zapišemo z
     \[
         [x]_\sim = \pcoor{x_0 : \ldots : x_n}
     \]
@@ -451,6 +467,7 @@ Zdaj lahko definiramo projektivne algebraične krivulje. Definicija se pričakov
     \[
         C = V(F). 
     \]
+    \emph{Afini del} projektivne algebraične krivulje $C$ je afina algebraična krivulja, ki je množica ničel dehomogeniziranega polinoma $f = F(x,y,1) \in \C[x,y]$, torej $V(f)$. 
 \end{definicija}
 
 Podobno kot v afinem primeru, želimo tudi tukaj govoriti o singularnih točkah na projektivnih krivuljah. Naj bo od tod dalje $F \in \C[x,y,z]$ homogeni polinom najnižje stopnje, da velja $V(F) = C$.
@@ -1770,6 +1787,8 @@ Zelo pomemba trditev, ki razčisti vprašanje o  holomorfnosti inverza holomorfn
     \label{izrek o impliclitni preslikavi}
     Naj bo $\Omega \subseteq \C^2$ odprto območje in naj bo $f : \Omega \to \C : (z, w) \mapsto f(z,w)$ funkcija, ki je holomorfna v obeh spremenljivkah posebej. Denimo, da je $(\alpha, \beta) \in \Omega$ ničla za $f$ in da velja $f_w(\alpha, \beta) \neq 0$, kjer $f_w$ označuje kompleksni odvod po drugi spremenljivki. Tedaj obstajata dovolj majhni okolici $U \subseteq \C$ točke $\alpha$ in $V \subseteq \C$ okolica točke $\beta$ ter enolično določena holomorfna preslikava $\phi : U \to V$, ki izpolnjuje pogoj: 
     Za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
+    % Naj bo $\Omega \subseteq \C^2$ odprto območje in naj bo $f : \Omega \to \C : (z, w) \mapsto f(z,w)$ funkcija, ki je holomorfna v obeh spremenljivkah posebej. Denimo, da je $(z_0, w_0) \in \Omega$ ničla za $f$ in da velja $f_w(z_0, w_0) \neq 0$, kjer $f_w$ označuje kompleksni odvod po drugi spremenljivki. Tedaj obstajata dovolj majhni okolici $U \subseteq \C$ točke $z_0$ in $V \subseteq \C$ okolica točke $w_0$ ter enolično določena holomorfna preslikava $\phi : U \to V$, ki izpolnjuje pogoj: Za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
+
     
     % za katero velja, da je za vse pare $(z, w) \in U \times V$ $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
     
@@ -1862,7 +1881,7 @@ $(U_i)_{i \in I}$ tvori odprto pokritje za $E$, saj njihova unija vsebuje vse to
 \[
     \varphi_i \circ \varphi_j\inv : \varphi_j(U_i \cap U_j) \to \varphi_i(U_i \cap U_j)  
 \]
-holomorfne. Vzemimo poljubni dve karti $(U_i, \varphi_i)$ in $(U_j, \varphi_j)$, označimo s $\phi_i : W_i \to \C$ holomorfno funkcijo, katere graf nad eno izmed spremenljivk je okolica $U_i$. Analogno definiramo tudi $\phi_j : W_j \to \C$ ob tem pa ločimo dva primera. 
+holomorfne. Vzemimo poljubni dve karti $(U_i, \varphi_i)$ in $(U_j, \varphi_j)$, označimo s $\phi_i : W_i \to \C$ holomorfno funkcijo, katere graf nad eno izmed spremenljivk je okolica $U_i$. Analogno definiramo tudi $\phi_j : W_j \to \C$ in $U_j$, ob tem pa ločimo dva primera. 
 \begin{enumerate}
     \item Okolici $U_i$, $U_j$ sta grafa funkcij nad istima spremenljivkama. Obravnavajmo samo primer, ko je ta spremenljivka $x$, drugi gre povsem analogno. Tedaj izračunamo
     \[
@@ -1990,9 +2009,11 @@ za poljuben $w \in \olsi{\varphi}_i(V_\infty \cap V_i)$ pa vidimo
     \olsi{\varphi}_\infty (\pcoor{\tfrac{\phi_i(w)}{w} : 1 : \tfrac{1}{w}}) = 
     \frac{\phi_i(w)}{w}.
 \]
-Tudi ti dve preslikavi sta torej holomorfni, kjer sta definirani, \tj na $\olsi{\varphi}_\infty(V_\infty \cap V_i)$ oz. $\olsi{\varphi}_i(V_\infty \cap V_i)$, kar nazadnje pomeni, da lokalna karta $(V_\infty, \olsi{\varphi}_\infty)$ izpolnjuje kompatibilnostni pogoj s poljubno lokalno karto iz družine $\mathcal{E}$.
+Tudi ti dve preslikavi sta torej holomorfni, kjer sta definirani, \tj na $\olsi{\varphi}_\infty(V_\infty \cap V_i)$ oz. $\olsi{\varphi}_i(V_\infty \cap V_i)$, kar nazadnje pomeni, da lokalna karta $(V_\infty, \olsi{\varphi}_\infty)$ izpolnjuje kompatibilnostni pogoj s poljubno lokalno karto iz družine $((V_i, \olsi{\varphi}_i))_{i \in I}$.
+% $\mathcal{E}$.
 
-Če družini $((V_i, \olsi{\varphi}_i))_{i \in I}$ dodamo še karto $(V_\infty, \olsi{\varphi}_\infty)$ pri točki $\pcoor{0 : 1 : 0}$, bo tako celotna družina $((V_i,\olsi{\varphi}_i))_{i \in I \cup \{\infty\}}$ tvorila kompleksen atlas za $\olsi{E}$. Res, družina $(V_i)_{i \in I \cup \{\infty\}}$ tvori odprto pokritje za $\olsi{E}$, vse preslikave $\olsi{\varphi}_i$ so homeomorfizmi in vse lokalne karte so med sabo kompatibilne. 
+% Če družini $((V_i, \olsi{\varphi}_i))_{i \in I}$
+Če slednji dodamo še karto $(V_\infty, \olsi{\varphi}_\infty)$ pri točki $\pcoor{0 : 1 : 0}$, bo tako celotna družina $((V_i,\olsi{\varphi}_i))_{i \in I \cup \{\infty\}}$ tvorila kompleksen atlas za $\olsi{E}$. Res, družina $(V_i)_{i \in I \cup \{\infty\}}$ tvori odprto pokritje za $\olsi{E}$, vse preslikave $\olsi{\varphi}_i$ so homeomorfizmi in vse lokalne karte so med sabo kompatibilne. 
 
 \begin{opomba}
     Na začetku razdelka \ref{Kompleksna struktura na elipticni krivulji} smo omenili, da je eliptična krivulja kompaktna. To bomo sicer videli preko biholomorfizma (ki je v posebnem tudi homeomorfizem) s kompleksnim torusom, lahko pa to pokažemo tudi na sledeč način. Če $F \in \C[x,y,z]$ označuje minimalni polinom krivulje $E$, je množica $\{ (x,y,z) \in \C^3\setminus\{0\} \mid F(x,y,z) = 0\}$ zaprta v $\C^3\setminus\{0\}$, njen presek s kompleksno enotsko sfero $S(\C^3)$ pa je kompakten. Slika tega preseka s kvocientno projekcijo $S(\C^3) \to \PC$, je ravno $E\subseteq \PC$, kot zvezna slika kompakta pa je tudi sama kompaktna, torej je $E$ kompaktna. 
@@ -2028,7 +2049,7 @@ S tem je zaključena konstrukcija kompleksnega atlasa na eliptični krivulji. Za
     \]
     za $i \in \{1,2\}$.
     % in z $f_i^*$ homogenizacijo $f_i$ glede na spremenjivko $z$, kar je ravno minimalni polinom krivulje $E_i$. 
-    Ker sta $E_i$ eliptični, sta po definiciji nesingularni in imata neničelni diskriminanti, kar pomeni, da ima kubični polinom $4x^3 - a_1x - b_1$ tri različne (kompleksne) ničle $e_1$, $e_2$, $e_3$. Projektivnost $g$ poveže keoficiente $a_i$, $b_i$, in sicer po \ref{eq:transformacija koeficientov in diskriminante} velja $a_2 = u^4 a_1$, $b_2 = u^6 b_1$, torej so $u^2e_1$, $u^2e_2$, $u^2e_3$ tri različne ničle polinoma $4x^3 - a_2x - b_2$. To vidimo tudi direktno z uporabo projektivnosti $g$, ki je bijektivna in slika $\pcoor{e_i : 0 : 1} \mapsto \pcoor{u^2 e_i : 0 : 1}$. Hkrati pa so točke oblike $(e_i, 0)$ \oz $(u^2 e_i, 0)$ edine v katerih je $\pdv[f_1]{y} = 0$ \oz $\pdv[f_2]{y} = 0$ in, ki rešijo enačbo $f_1 = 0$ \oz $f_2 = 0$. Na afinem delu krivulje bo tako, razen v teh treh točkah, množno uporabiti lokalne karte, ki izhajajo iz dejstva, da je krivuljo mogoče predstaviti kot graf holomorfne funkcije nad spremenljivko $x$. 
+    Ker sta $E_i$ eliptični, sta po definiciji nesingularni in imata neničelni diskriminanti, kar pomeni, da ima kubični polinom $4x^3 - a_1x - b_1$ tri različne (kompleksne) ničle $e_1$, $e_2$, $e_3$. Projektivnost $g$ poveže para keoficientov $(a_i, b_i)$, in sicer po \eqref{eq:transformacija koeficientov in diskriminante} velja $a_2 = u^4 a_1$, $b_2 = u^6 b_1$, torej so $u^2e_1$, $u^2e_2$, $u^2e_3$ tri različne ničle polinoma $4x^3 - a_2x - b_2$. To vidimo tudi direktno z uporabo projektivnosti $g$, ki je bijektivna in slika $\pcoor{e_i : 0 : 1} \mapsto \pcoor{u^2 e_i : 0 : 1}$. Hkrati pa so točke oblike $(e_i, 0)$ \oz $(u^2 e_i, 0)$ edine v katerih je $\pdv[f_1]{y} = 0$ \oz $\pdv[f_2]{y} = 0$ in, ki rešijo enačbo $f_1 = 0$ \oz $f_2 = 0$. Na afinem delu krivulje bo tako, razen v teh treh točkah, množno uporabiti lokalne karte, ki izhajajo iz dejstva, da je krivuljo mogoče predstaviti kot graf holomorfne funkcije nad spremenljivko $x$. 
     
     Ločimo nekaj možnosti glede na izbrano točko $p \in E_1$.
     \begin{enumerate}
@@ -2333,13 +2354,20 @@ Izkaže se, da velja tudi neke vrste obrat te konstrukcije. Namreč vsaka zvezna
 % \newpage
 \section{Uniformizacija} \label{poglavje izomorfizem}
 
-Zadnje poglavje o uniformizaciji povezuje vsa prejšnja. Začeli bomo s konstrukcijo preslikave, ki nam jo je namigoval izrek \ref{ode za wp}. Ta preslikava se bo preko kompleksnih struktur, ki smo ju za kompleksni torus in eliptično krivuljo konstruirali v prejšnjem poglavju, izkazala za bijekcijo in celo biholomorfizem. 
-
-Nadalje se bomo posvetili mrežam v kompleksni ravnini in si ogledali kako smemo dano mrežo transformirati, da še vedno ostanemo v istem izomorfnostnem razredu kompleksnih torusov, ki ju dani mreži porodita. Ena od teh podob mreže bo prav posebne oblike, kar bomo izkoristili za nekoliko drugačno interpretacijo Eisensteinovih vrst $G_k(\Lambda)$ iz \ref{elipticne funkcije}.\ poglavja, in sicer kot holomorfno funkcijo zgornje polravnivne
+Zadnje poglavje o uniformizaciji povezuje vsa prejšnja. Na začetku 
+%
+% Začeli bomo s konstrukcijo preslikave, ki nam jo je namigoval izrek \ref{ode za wp}. Ta preslikava se bo preko kompleksnih struktur, ki smo ju za kompleksni torus in eliptično krivuljo konstruirali v prejšnjem poglavju, izkazala za bijekcijo in celo biholomorfizem. 
+%
+% Nadalje
+se bomo posvetili mrežam v kompleksni ravnini in si ogledali kako smemo dano mrežo transformirati, da še vedno ostanemo v istem izomorfnostnem razredu kompleksnih torusov, ki ju dani mreži porodita. Ena od teh podob mreže bo prav posebne oblike, kar bomo izkoristili za nekoliko drugačno interpretacijo Eisensteinovih vrst $G_k(\Lambda)$ iz \ref{elipticne funkcije}.\ poglavja, in sicer kot holomorfnih funkcij na zgornji polravnivni
 \[
     \HH = \{z \in \C \mid \Im(z) > 0\}.
 \]
-Od tod bomo to analogijo nadaljevali še z $j$-invarianto, kjer se bomo dotaknili \emph{modularnih funkcij}. Ta interpretacija z modularnimi funkcijami nam bo nazadnje omogočila vse skupaj povezati in združiti kompleksne toruse in eliptične krivulje nad $\C$ v uniformizacijskem izreku \ref{uniformizacija}. 
+To analogijo bomo nadaljevali še z $j$-invarianto, kjer se bomo dotaknili \emph{modularnih funkcij} z mnogo simetrije povezane z grupo $\operatorname{SL}_2(\Z)$.
+
+Nadaljevali bomo s konstrukcijo preslikave, ki nam jo je namigoval izrek \ref{ode za wp}. Ta preslikava se bo preko kompleksnih struktur, ki smo ju za kompleksni torus in eliptično krivuljo konstruirali v prejšnjem poglavju, izkazala za bijekcijo in celo biholomorfizem. 
+
+Interpretacija $j$-invariante kot modularne funkcije nam bo nazadnje omogočila vse skupaj povezati in združiti kompleksne toruse in eliptične krivulje nad $\C$ v uniformizacijskem izreku \ref{uniformizacija}. 
 % nazadnje pa bomo zaključili z uniformizacijskim izrekom. 
 
 \subsection{Mreže in modularnost}
@@ -2773,7 +2801,11 @@ kar je razvidno iz obnašanja funkcij $g_2$ in $\Delta$ v neskončnosti. Vse sku
 
 \subsection{Izomorfizem \texorpdfstring{$\C/\Lambda \to E(\C)$ in uniformizacija}{}} 
 
-V tem razdelku podamo izomorfizem Riemannovih ploskev -- kompleksnega torusa $\torus$ in eliptične krivulje $E_\Lambda(\C)$. Nazanje pa s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opisuje, kako poljubni eliptični krivulji nad $\C$ priredimo mrežo $\Lambda$ in posledično izomorfen kompleksni torus $\torus$.
+V tem razdelku podamo izomorfizem Riemannovih ploskev -- kompleksnega torusa $\torus$ in eliptične krivulje $E_\Lambda$, podane z enačbo
+\[
+    y^2z = 4x^3 - g_2(\Lambda)xz^2 - g_3(\Lambda)z^3.
+\]
+Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opisuje, kako poljubni eliptični krivulji nad $\C$ priredimo mrežo $\Lambda$ in posledično izomorfen kompleksni torus $\torus$.
 
 \begin{izrek}
     \label{izomorfizem torusa in krivulje}
@@ -2989,7 +3021,7 @@ V tem razdelku podamo izomorfizem Riemannovih ploskev -- kompleksnega torusa $\t
     Vemo že, da je $j$-invarianta modularna funkcija reda $0$, torej je invarintna na delovanje $\SL$ in tako podaja dobro definirano funkcijo na prostoru orbit $\HH/\SL$. 
     % \textbf{injektivnost še}
     
-    Nadalje, če za $\tau_1, \tau_2 \in \HH$ velja $j(\tau_1) = j(\tau_2)$, imata mreži $\lattice{1}{\tau_1}$ in $\lattice{1}{\tau_2}$ isti $j$-invarianti, od koder po trditvi \ref{ekvivalentni mrezi -- isti j} sledi, da sta homotetični. Za homotetični mreži takšne oblike pa nam trditev \ref{ekvivalentne normalizirane mreze} zagotavlja obstoj $\gamma \in \SL$, da velja $\tau_1 = \gamma \tau_2$. To pomeni, da sta $\tau_1$ in $\tau_2$ del iste orbite in zato $j$ inducira injektivno preslikavo na kvocientu $\HH/\SL$.
+    Nadalje, če za $\tau_1, \tau_2 \in \HH$ velja $j(\tau_1) = j(\tau_2)$, imata mreži $\lattice{1}{\tau_1}$ in $\lattice{1}{\tau_2}$ isti $j$-invarianti, od koder po trditvi \ref{ekvivalentni mrezi -- isti j} iz dodatka sledi, da sta homotetični. Za homotetični mreži takšne oblike pa nam trditev \ref{ekvivalentne normalizirane mreze} zagotavlja obstoj elementa $\gamma \in \SL$, da velja $\tau_1 = \gamma \tau_2$. To pomeni, da sta $\tau_1$ in $\tau_2$ del iste orbite in zato $j$ inducira injektivno preslikavo na kvocientu $\HH/\SL$.
 
     Oglejmo si še, zakaj je $j$ surejktivna. Od tod bo namreč sledila surjektivnost in posledično bijektivnost inducirane preslikave na prostoru orbit. Ker je $j$ nekonstantna holomorfna funkcija, je $j(\HH)$ odprta množica v $\C$. Kompleksna ravnina $\C$ je povezana, zato bo zadoščalo preveriti, da je $j(\HH)$ tudi zaprta v $\C$, od koder bo sledilo $j(\HH) = \C$ in pokazlo surjektivnost $j$. 
 
@@ -3031,7 +3063,7 @@ V tem razdelku podamo izomorfizem Riemannovih ploskev -- kompleksnega torusa $\t
 \end{dokaz}
 % koeficienta 60 in 140 pred G_4, G_6 sta najmanjša, da je ena limita v zvezi z diskriminanto enaka 0...
 
-Izrek \ref{izomorfizem torusa in krivulje} je pokazal, kako lahko vsak kompleksni torus realiziramo kot eliptično krivuljo. Vsako eliptično krivuljo namreč podaja par koeficientov $(a,b)$, ki nastopata v enačbi $y^2z = 4x^3 - axz^2 - bz^3$ in za katera velja $a^3 - 27b^2 \neq 0$. Kompleksnemu torusu $\torus$ smo tako priredili eliptično krivuljo s koeficientoma $(g_2(\Lambda), g_3(\Lambda))$ in pokazali, da je ta torusu $\torus$ res tudi izomorfna. Uniformizacijski izrek pa s pomočjo modularne $j$-invariante razkrije še obrat -- da poljuben takšnen par koeficientov $(a,b)$ vedno izhaja iz nekega kompleksnega torusa \oz pripadajoče mreže na zgoraj opisan način.
+Izrek \ref{izomorfizem torusa in krivulje} je pokazal, kako lahko vsak kompleksni torus realiziramo kot eliptično krivuljo. Vsako eliptično krivuljo namreč podaja par koeficientov $(a,b)$, ki nastopata v enačbi $y^2z = 4x^3 - axz^2 - bz^3$ in za katera velja $a^3 - 27b^2 \neq 0$. Kompleksnemu torusu $\torus$ smo tako priredili eliptično krivuljo s parom koeficientov $(g_2(\Lambda), g_3(\Lambda))$ in pokazali, da je temu torusu res tudi izomorfna. Uniformizacijski izrek pa s pomočjo modularne $j$-invariante razkrije še obrat -- da poljuben takšnen par koeficientov $(a,b)$ vedno izhaja iz nekega kompleksnega torusa \oz pripadajoče mreže na zgoraj opisan način.
 
 % Videli smo že, kako eliptično krivuljo podaja par keoficientov $(a,b)$, za katera je $a^3 - 27b^2 \neq 0$, ki nastopata v enačbi $y^2z = 4x^3 - axz^2 - bz^3$. Poleg tega smo po izreku \ref{izomorfizem torusa in krivulje} videli kako lahko vsak kompleksni torus realiziramo kot neko eliptično krivuljo Uniformizacijski izrek tedaj pokaže, da ta par vedno izhaja iz nekega kompleksnega torusa \oz pripadajoče mreže,  
 
@@ -3136,6 +3168,16 @@ Izrek \ref{izomorfizem torusa in krivulje} je pokazal, kako lahko vsak kompleksn
 \geslo{elliptic curve}{eliptična krivulja}
 \geslo{complex torus}{kompleksni torus}
 \geslo{Weierstrass $\wp$-function}{Weierstrassova $\wp$-funkcija}
+\geslo{algebraic curve}{algebraična krivulja}
+\geslo{holomorphic map}{holomorfna preslikava}
+\geslo{Riemann surface}{Riemannova ploskev}
+\geslo{$j$-invariant}{$j$-invarianta}
+\geslo{modular function}{modularna funkcija}
+\geslo{lattice}{mreža}
+\geslo{Eisenstein series}{Eisensteinove vrste}
+\geslo{modular discriminant}{modularna diskriminanta}
+\geslo{uniformization}{uniformizacija}
+\geslo{complex structure}{kompleksna struktura}
 
 % seznam uporabljene literature
 % Na vsak vir, naveden v seznamu literature, se moramo v glavnem besedilu vsaj enkrat sklicati.
