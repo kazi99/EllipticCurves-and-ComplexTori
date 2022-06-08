@@ -27,12 +27,12 @@
 
 %  V povzetku na kratko opišite vsebinske rezultate dela. Sem ne sodi razlaga organizacije dela --
 %  v katerem poglavju/razdelku je kaj, pač pa le opis vsebine.
-\povzetek{\emph{Eliptična krivulja} nad poljem kompleksnih števil $\C$ je nesingularna projektivna kubika, podana z Weierstrassovo enačbo. S pomočjo izreka o implicitni funkciji pokažemo, da ta dopušča kompleksno sturkturo, kar pomeni, da postane Riemannova ploskev. Po drugi strani vsak torus, predstavljen kot kvocient $\C$ po mreži $\Lambda$ -- diskretni podgrupi $\C$ izomorfni $\Z^2$, podeduje kompleksno strukturo preko kvocientne preslikave in tako upraviči imenovanje \emph{kompleksni torusi}. Izkaže se, da ti dve, bistveno različni konstrukciji, presenetljivo porodita enaka \oz izomorfna matematična objekta. To vez razložimo preko teorije dvojno periodičnih funkcij, imenovanih eliptične funkcije, in modularnih funkcij z mnogo simetrije povezane z modularno grupo $\operatorname{SL}_2(\Z)$. Obravnavamo njihove osnovne lastnosti in razijemo teorijo Weierstrassove funkcije $\wp$, ki nam nazadnje omogoči eksplicitno podati omenjeni izomorfizem in dokazati uniformizacijski izrek, ki združuje oba objekta.
+\povzetek{\emph{Eliptična krivulja} nad poljem kompleksnih števil $\C$ je nesingularna projektivna kubika, podana z Weierstrassovo enačbo. S pomočjo izreka o implicitni funkciji pokažemo, da ta dopušča kompleksno sturkturo, kar pomeni, da postane Riemannova ploskev. Po drugi strani vsak torus, predstavljen kot kvocient $\C$ po mreži $\Lambda$ -- diskretni podgrupi $\C$ izomorfni $\Z^2$, podeduje kompleksno strukturo preko kvocientne preslikave in tako upraviči imenovanje \emph{kompleksni torusi}. Izkaže se, da ti dve, bistveno različni konstrukciji, presenetljivo porodita enaka \oz izomorfna matematična objekta. To vez razložimo preko teorije dvojno periodičnih funkcij, imenovanih eliptične funkcije, in modularnih funkcij z mnogo simetrije povezane z modularno grupo $\operatorname{SL}_2(\Z)$. Obravnavamo njihove osnovne lastnosti in razvijemo teorijo Weierstrassove funkcije $\wp$, ki nam nazadnje omogoči eksplicitno podati omenjeni izomorfizem in dokazati uniformizacijski izrek, ki združuje oba objekta.
 } 
 
 %  Prevod slovenskega povzetka v angleščino.
 \abstract{An \emph{elliptic curve} over the field of complex numbers $\C$ is a nonsingular projective cubic, given by the Weierstrass equation. Using the implicit function theorem we show, that it admits a complex structure, which makes it a Riemann surface. 
-On the other hand every torus, which we view as a quotient of $\C$ modulo a lattice $\Lambda$ -- a discrete subgroup of $\C$ isomorphic to $\Z^2$, inherits a complex structure via its quotient map and justifies us naming them \emph{complex tori}. These two, vastly different construcions, remarkably trun out to yield the same i.~e.\ isomorphic mathematical objects. This link is explaind using the theory of doubly periodic functions, also called elliptic functions, and modular functions, which are meromorphic functions on the upper half plane enjoying many symmetries involving the modular group $\operatorname{SL}_2(\Z)$. 
+On the other hand every torus, which we view as a quotient of $\C$ modulo a lattice $\Lambda$ -- a discrete subgroup of $\C$ isomorphic to $\Z^2$, inherits a complex structure via its quotient map, which justifies us naming them \emph{complex tori}. These two, vastly different constructions, remarkably trun out to yield the same i.~e.\ isomorphic mathematical objects. This link is explaind using the theory of doubly periodic functions, also called elliptic functions, and modular functions, which are meromorphic functions on the upper half plane enjoying many symmetries involving the modular group $\operatorname{SL}_2(\Z)$. 
 We discuss their basic properties and develop the necessary theory of the Weierstrass $\wp$-function, alowing us to explicitly construct the aforementioned isomorphism and prove the uniformizaton theorem, unifying both objects of study. 
 
 % can be endowed with a complex stru 
@@ -412,9 +412,9 @@ Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti.
 \begin{definicija}
     \emph{Kompleksen projektivni prostor} dimenzije $n$ je 
     \[
-        \mathbb{P}^n_\C = (\C^{n+1} \setminus \{0 \}) / \langle v \sim \lambda v; \lambda \in \C^{\times} \rangle.
+        \mathbb{P}^n_\C = (\C^{n+1} \setminus \{0 \}) / \langle v \sim \lambda v; \lambda \in \CM \rangle.
     \]
-    Tukaj $\C^{\times}$ označuje multiplikativno grupo kompleksnih števil oz. $\C \setminus \{0 \}$. 
+    Tukaj $\CM$ označuje multiplikativno grupo kompleksnih števil oz. $\C \setminus \{0 \}$. 
     % daj to v seznam oznak
     Pri tem bomo $\PC$ -- kot projektiven prostor dimenzije $2$ -- imenovali \emph{kompleksna projektivna ravnina}. Pridevnik kompleksna bomo v nadaljevanju pogosto izpustili.
 \end{definicija}
@@ -529,20 +529,23 @@ V ta namen najprej poglejmo, kaj so projektivne transformacije, ki nam bodo poma
 \end{definicija}
 
 \begin{opomba}
-    \begin{enumerate}
-        \item Analogno lahko definiramo projektivne transformacije tudi na več razsežnih projektivnih prostorih. 
-        \item
-        S preslikavami te oblike na projektivni premici oz. Riemannovi sferi, smo se že srečali. Te so natanko \emph{Möbiusove} ali \emph{lomljene linearne preslikave}, ki tvorijo grupo (kompleksnih) avtomorfizmov Riemannove sfere.
+    % \begin{enumerate}
+        % \item 
+        (1) Analogno lahko definiramo projektivne transformacije tudi na več razsežnih projektivnih prostorih. 
+        % \item
+
+        (2) S preslikavami te oblike na projektivni premici oz. Riemannovi sferi, smo se že srečali. Te so natanko \emph{Möbiusove} ali \emph{lomljene linearne preslikave}, ki tvorijo grupo (kompleksnih) avtomorfizmov Riemannove sfere.
         $$\Aut(\RS) = \left\{ z \mapsto \frac{az + b}{cz +d} \middle\vert a,b,c,d \in \C \text{ in }  ad - bc \neq 0 \right\}.$$
         Preslikavo $z \mapsto \tfrac{az + b}{cx +d}$ lahko namreč identificiramo s preslikavo 
         \[
             \pcoor{x:y} \mapsto \pcoor{ax + by: cx + dy},  
         \]
         kjer ima vlogo točke $\infty \in \RS$ projektivna točka $\pcoor{0:1}$. 
-        \item
-        Če definiramo kvocientno projekcijo $\pi : \C^3 \setminus \{0\} \to \PC$, ki točki $(x,y,z)$ priredi projektivno točko $\pcoor{x:y:z}$, potem velja 
+        % \item
+
+        (3) Če definiramo kvocientno projekcijo $\pi : \C^3 \setminus \{0\} \to \PC$, ki točki $(x,y,z)$ priredi projektivno točko $\pcoor{x:y:z}$, potem velja 
         $$\pi \circ \mathcal{A}_\Phi = \Phi \circ \pi.$$
-    \end{enumerate}
+    % \end{enumerate}
 \end{opomba}
 
 Projektivne transformacije tvorijo grupo za kompozitum, ki je izomorfna grupi $\operatorname{PGL(3, \C)} = \GL(3,\C)/\CM$, posebej je $\Aut(\RS) \cong \operatorname{PGL(2,\C)}$. Več o tem lahko najdemo v \cite[poglavje 11]{Gibson}.
@@ -781,11 +784,11 @@ ki identificira eno krivuljo z drugo. Ob tem se transformira tudi diskriminanta 
         a_{11}^3 = a_{33}a_{22}^2 = \lambda\inv, \quad \alpha' = \lambda a_{11}a_{33}^2 \alpha, \quad \beta' = \lambda a_{33}^3 \beta.
     \]
     Ker vsi neničelni skalarni večkratniki matrike $A$ določajo isto projektivnost, lahko brez izgube splošnosti privzamemo $a_{33} = 1$. Če vzamemo $t \in \CM$ poljuben, da velja $t^6 = \lambda\inv$, bo $a_{22}$ enak bodisi $t^3$, bodisi $-t^3$. Po potrebi lahko z menjavo $t \mapsto -t$ vedno dosežemo, da velja $a_{22} = t^3$. Iz zveze $a_{11}^3 = t^6$ pa sledi ena od naslenjih treh možnosti.
-    \begin{itemize}
+    \begin{enumerate}[(i)]
         \item Če je $a_{11} = t^2$, vzamimo $u = t$ in takrat je $a_{11} = u^2$ in $a_{22} = u^3$.
         \item Če je $a_{11} = \rho t^2$, kjer je $\rho = e^{2\pi i/3}$ tretji primitivni koren enote, vzamemo $u = \rho^2 t$ in dobimo $a_{11} = u^2$ in $a_{22} = u^3$.
         \item Če je $a_{11} = \rho^2 t^2$, vzamemo $u = \rho t$ in ob tem dobimo $a_{11} = u^2$ ter $a_{22} = u^3$.
-    \end{itemize}
+    \end{enumerate}
     Vedno lahko torej izberemo tak $u \in \CM$, za katerega je $u^6 = \lambda\inv$, da velja
     \[
         a_{11} = u^2, \quad a_{22} = u^3, \quad u^4\alpha' = \alpha, \quad u^6 \beta' = \beta \quad \text{in} \quad u^{12} \Delta' = \Delta
@@ -907,18 +910,19 @@ naša definicija ekvivalenta standardni, le da za to potrebujemo Riemann--Rochov
 \end{definicija}
 
 \begin{opomba}
-    \begin{enumerate}
-        \item
-        Ker nas bodo v nadaljevanju eliptične krivulje zanimale zgolj do projektivne ekvivalence natančno, bomo lahko brez škode za splošnost po trditvi \ref{kubika izomorfna neki wnf} zahtevali, da je eliptična krivulja podana z enačbo v Weierstrassovi obliki
+    % \begin{enumerate}
+        % \item
+        (1) Ker nas bodo v nadaljevanju eliptične krivulje zanimale zgolj do projektivne ekvivalence natančno, bomo lahko brez škode za splošnost po trditvi \ref{kubika izomorfna neki wnf} zahtevali, da je eliptična krivulja podana z enačbo v Weierstrassovi obliki
         \[
             E: \quad y^2z = x^3 + \alpha x z^2 + \beta z^3,  \quad \text{kjer $4\alpha^3 + 27\beta^2 \neq 0$.}
         \]  
      
-        \item 
-        Zaradi kompletnosti smo v definicijo eliptične krivulje vključili še izbiro izhodišča, ki igra vlogo neutralnega elementa, potem ko eliptično krivuljo opremimo z grupno strukturo. Za lažje računanje se za izhodišče izbere enega od devetih prevojev, ki je najpogosteje točka v neskončnosti $\pcoor{0:1:0}$.  
-        \item 
-        Morda smo nekoliko nepotrebno poudarjali, da je naša eliptična krivulja definirana nad poljem kompleksnih števil. Oznaka $E(\C)$ pove, da opazujemo točke na krivulji s koordinatami iz $\C$, lahko pa bi se recimo omejili samo na tiste, ki v homogenih koordinatah premorejo predstavnika s samimi racionalnimi komponentami, in takrat pisali $E(\Q)$. V splošnem se eliptične krivulje obravnava nad poljubnim poljem, kjer pride do izraza njegova karakterisika, ali je algebraično zaprto ipd. V našem primeru nad $\C$ takšnih skrbi ne bomo imeli. 
-    \end{enumerate}
+        % \item 
+        (2) Zaradi kompletnosti smo v definicijo eliptične krivulje vključili še izbiro izhodišča, ki igra vlogo neutralnega elementa, potem ko eliptično krivuljo opremimo z grupno strukturo. Za lažje računanje se za izhodišče izbere enega od devetih prevojev, ki je najpogosteje točka v neskončnosti $\pcoor{0:1:0}$.  
+        % \item 
+
+        (3) Morda smo nekoliko nepotrebno poudarjali, da je naša eliptična krivulja definirana nad poljem kompleksnih števil. Oznaka $E(\C)$ pove, da opazujemo točke na krivulji s koordinatami iz $\C$, lahko pa bi se recimo omejili samo na tiste, ki v homogenih koordinatah premorejo predstavnika s samimi racionalnimi komponentami, in takrat pisali $E(\Q)$. V splošnem se eliptične krivulje obravnava nad poljubnim poljem, kjer pride do izraza njegova karakterisika, ali je algebraično zaprto ipd. V našem primeru nad $\C$ takšnih skrbi ne bomo imeli. 
+    % \end{enumerate}
 \end{opomba}
 
 V nadaljevanju bo ugodneje namesto \emph{klasične} Weierstrassove oblike nesingularne kubike \eqref{klasicna wnf} obravnavati malenkost prilagojeno -- še vedno pa projektivno ekvivalentno obliko
@@ -1101,16 +1105,21 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$, ima $f$ v $z_0$ \emph{ničlo
 \begin{izrek}
     \label{liouville}
     Naj bo $f \in \C(\Lambda)$ eliptična funkcija in $D$ fundamentalni paralelogram glede na mrežo $\Lambda$, katerega rob $\partial D$ ne vsebuje polov ali ničel $f$. Tedaj velja
-    \begin{flalign*}
-        &\sum_{w \in D} \res{w}{f} = 0 && \label{eq: identiteta 1} \tag{i} \\ 
-        &\sum_{w \in D} \ord{w}{f} = 0 && \label{eq: identiteta 2} \tag{ii} \\
-        &\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda. && \label{eq: identiteta 3} \tag{iii}
-    \end{flalign*}
+    \begin{align}
+        &\sum_{w \in D} \res{w}{f} = 0  \label{eq: identiteta 1} 
+        \tag{\emph{i}}
+        \\ 
+        &\sum_{w \in D} \ord{w}{f} = 0  \label{eq: identiteta 2}
+        \tag{\emph{ii}} 
+        \\
+        &\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda.  \label{eq: identiteta 3} 
+        \tag{\emph{iii}}
+    \end{align}
 
-    % \begin{enumerate}[(a)]
-    %     \item \[\sum_{w \in D} \res{w}{f} = 0\] \label{identiteta 1}
-    %     \item \[\sum_{w \in D} \ord{w}{f} = 0\] \label{identiteta 2}
-    %     \item \[\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda.\] \label{identiteta 3}
+    % \begin{enumerate}[(i)]
+    %     \item \[\sum_{w \in D} \res{w}{f} = 0\] \label{eq: identiteta 1}
+    %     \item \[\sum_{w \in D} \ord{w}{f} = 0\] \label{eq: identiteta 2}
+    %     \item \[\sum_{w \in D} \ord{w}{f}\cdot w \in \Lambda.\] \label{eq: identiteta 3}
     % \end{enumerate}    
 \end{izrek}
 
@@ -1735,7 +1744,7 @@ Iz tega in podobnih principov se je razvila teorija Riemannovih ploskev. Osnovne
         \olsi{f}(a) = \infty \text{ za vse } a \in S.  
     \]
     Polejmo si, zakaj bi $\olsi{f}$ bila tudi holomorfna. V ta namen si lokalno okoli poljubne točke iz $D$ oglejmo $\olsi{f}$ v kartah, ob tem pa ločimo dve možnosti.
-    \begin{enumerate}
+    \begin{enumerate}[(i)]
         \item Če je $z \in D\setminus S$, zaradi diskretnosti množice $S$, obstaja odprta okolica $U$ točke $z$, ki je diskjunktna z $S$. Tedaj je funkcija
         \[
             \id_\C \circ \olsi{f} \circ \id_U\inv = f|_U  
@@ -1901,7 +1910,7 @@ $(U_i)_{i \in I}$ tvori odprto pokritje za $E$, saj njihova unija vsebuje vse to
     \varphi_i \circ \varphi_j\inv : \varphi_j(U_i \cap U_j) \to \varphi_i(U_i \cap U_j)  
 \]
 holomorfne. Vzemimo poljubni dve karti $(U_i, \varphi_i)$ in $(U_j, \varphi_j)$, označimo s $\phi_i : W_i \to \C$ holomorfno funkcijo, katere graf nad eno izmed spremenljivk je okolica $U_i$. Analogno definiramo tudi $\phi_j : W_j \to \C$ in $U_j$, ob tem pa ločimo dva primera. 
-\begin{enumerate}
+\begin{enumerate}[(i)]
     \item Okolici $U_i$, $U_j$ sta grafa funkcij nad istima spremenljivkama. Obravnavajmo samo primer, ko je ta spremenljivka $x$, drugi gre povsem analogno. Tedaj izračunamo
     \[
         (\varphi_i \circ \varphi_j\inv)(z) = \pr_1(z, \phi_j(z)) = z \quad \text{za vse $z \in \varphi_j(U_i \cap U_j)$,}
@@ -2583,7 +2592,7 @@ Naslednja trditev pove, da vsaka orbita seka fundamentalno domeno vsaj v eni to�
     Natančneje $z$ in $z'$ iz $D$ ležita v isti orbiti natanko tedaj, ko je $\abs{\Re(z)} = \frac12$ in $z = z' \pm 1$ ali pa je $\abs{z} = 1$ in je $z' = -1/z$. Dokaz najdemo v \cite[Izrek 1, VII, \S1]{Serre}.
 \end{komentar}
 
-Vrnimo se sedaj nazaj k mrežam oblike $\langle 1, \tau \rangle$, kjer je $\tau \in \HH$. Omenjali smo že, da sta mreži $\lattice{1}{\tau_1}$ in $\lattice{1}{\tau_2}$ homotetični, če med $\tau_1$ in $\tau_2$ lahko prehajamo z nekim zaporedjem delovanj $S$ in $T$. Naslednja trditev nam poda karakterizacijo homotetičnosti mrež preko grupe $\SL$.
+Vrnimo se sedaj nazaj k mrežam oblike $\langle 1, \tau \rangle$, kjer je $\tau \in \HH$. Omenjali smo že, da sta mreži $\lattice{1}{\tau_1}$ in $\lattice{1}{\tau_2}$ homotetični, če med $\tau_1$ in $\tau_2$ lahko prehajamo z nekim zaporedjem delovanj $S$ in $T$. Naslednja trditev nam poda karakterizacijo homotetičnosti mrež preko modularne grupe $\SL$.
 
 % da imamo z grupo $\SL$ podano deobro definirano delovanje na zgornji polravnini $\HH$.
 
@@ -2773,7 +2782,7 @@ nam pokaže še, da so funkcije $G_{2k} : \HH \to \C$ tudi holomorfne.
                 \node[draw,circle,inner sep=1pt,fill] at (3.5,2) {};
                 \draw (7,0) node [below]{$x$};
                 \node[draw,circle,inner sep=1pt,fill] at (7,0) {};
-                \draw (-2.5,0.25) node [above]{$\HH$};
+                \draw (-2.2,0.5) node [left]{$\HH$};
             \end{scope}
         \end{tikzpicture}
 
@@ -2786,7 +2795,7 @@ nam pokaže še, da so funkcije $G_{2k} : \HH \to \C$ tudi holomorfne.
     \[
         \abs{\frac{\tau - x}{i - x}} \geq \delta, \quad \text{ za vse } \tau \in S_{a, \varepsilon} \text{ in vse } x \in \R,
     \]
-    kjer za $\delta$ vzamemo $\delta := \min\{\delta_{a + i\varepsilon}, \delta_{-a + i\varepsilon}, \frac{\varepsilon}{\abs{i - a}}\} \in (0,1)$, kar zaključi dokaz. \qedhere 
+    kjer za $\delta$ vzamemo $\delta := \min\left\{\delta_{a + i\varepsilon}, \delta_{-a + i\varepsilon}, \frac{\varepsilon}{\abs{i - a}}\right\} \in (0,1)$, kar zaključi dokaz. \qedhere 
     % $\abs{\frac{\tau - x}{i - x}} \geq \delta$ za vse $x \in \R$ ter $\tau \in S_{a,\varepsilon}$, kjer za $\delta$ vzamemo $\delta := \min\{\delta_{a + i\varepsilon}, \delta_{-a + i\varepsilon}, \frac{\varepsilon}{\abs{i - a}}\} \in (0,1)$.  
     
     % $x < \min\{-R_{-a + i\varepsilon}, -a\} = r_-$. 
@@ -2825,13 +2834,14 @@ Tako družina funkcij $G_{2k}$ podaja prvi netrivialen primer modularnih funkcij
 
 
 \subsubsection*{Modularna diskriminanta}
-Iz definicije je razvidno, da je množica šibko modularnih funkcij danega reda $2k$ zaprta za $\C$-linearne kombinacije, torej tvori kompleksen vektorski prostor. Na ta način lahko iz starih šibko modularnih funkcij reda $2k$ dobimo nove, ki so spet reda $2k$. Pomembna konstrukcija, ki nam omogoča prehajanje med različnimi redi, pa je produkt. Če sta $f_1$ in $f_2$ šibko modularni reda $2k_1$ in $2k_2$, je njun produkt $f_1f_2$ šibko modularna funkcija reda $2k_1 + 2k_2$. To sledi iz modularnostenga pogoja, ki mu zadošča $f_1f_2$. Za vsak $\gamma \in \operatorname{SL}_2(\Z)$ namreč velja
+Iz definicije je razvidno, da je množica šibko modularnih funkcij danega reda $2k$ zaprta za $\C$-linearne kombinacije, torej tvori kompleksen vektorski prostor. Na ta način lahko iz starih šibko modularnih funkcij reda $2k$ dobimo nove, ki so spet reda $2k$. Pomembna konstrukcija, ki nam omogoča prehajanje med različnimi redi, pa je produkt. Če sta $f_1$ in $f_2$ šibko modularni redov $2k_1$ in $2k_2$, je njun produkt $f_1f_2$ šibko modularna funkcija reda $2k_1 + 2k_2$. To sledi iz modularnostenga pogoja, ki mu zadošča $f_1f_2$. Za vsak $\gamma \in \operatorname{SL}_2(\Z)$ namreč velja
 \begin{align*}
     f_1(z)f_2(z) &= 
     (cz + d)^{-2k_1} f_1\left(\gamma z\right)(cz + d)^{-2k_2} f_2\left(\gamma z\right) \\
     &= (cz + d)^{-2k_1 - 2k_2} f_1f_2\left(\gamma z\right).
 \end{align*}
 Kompleksen vektorski prostor vseh šibko modularnih funkcij tako postane kompleksna algebra z enoto, ki je konstantna funkcija $1$ reda $0$.
+\newline
 
 Spomnimo se oznak $g_2(\Lambda) = 60G_4(\Lambda)$ in $g_3(\Lambda) = 140G_6(\Lambda)$ iz poglavja \ref{elipticne funkcije}. Povsem analogno definiramo modularni funkciji
 \[
@@ -2864,7 +2874,7 @@ Funkcija $j$ je holomorfna na $\HH$, saj sta takšni že $g_2^3$ in $\Delta$, sl
 \[
     \lim_{\tau \to \infty}j(\tau) = \infty,
 \]
-kar je razvidno iz obnašanja funkcij $g_2$ in $\Delta$ v neskončnosti. Vse skupaj lahko povzamemo v trditvi.
+kar je razvidno iz obnašanja funkcij $g_2$ in $\Delta$ v neskončnosti. Vse skupaj lahko povzamemo v naslednji trditvi.
 
 \begin{trditev}
     Funkcija $j : \HH \to \C$ je modularna funkcija reda $0$ z limito v neskončnosti $\lim_{\tau \to \infty}j(\tau) = \infty$.
@@ -2892,11 +2902,11 @@ kar je razvidno iz obnašanja funkcij $g_2$ in $\Delta$ v neskončnosti. Vse sku
 
 \subsection{Izomorfizem \texorpdfstring{$\C/\Lambda \to E(\C)$ in uniformizacija}{}} 
 
-V tem razdelku podamo izomorfizem Riemannovih ploskev -- kompleksnega torusa $\torus$ in eliptične krivulje $E_\Lambda$, podane z enačbo
+V tem razdelku podamo izomorfizem Riemannovih ploskev -- kompleksnega torusa $\torus$ in eliptične krivulje $E_\Lambda(\C)$, podane z enačbo
 \[
-    y^2z = 4x^3 - g_2(\Lambda)xz^2 - g_3(\Lambda)z^3.
+    E_\Lambda: \quad y^2z = 4x^3 - g_2(\Lambda)xz^2 - g_3(\Lambda)z^3.
 \]
-Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opisuje, kako poljubni eliptični krivulji nad $\C$ priredimo mrežo $\Lambda$ in posledično izomorfen kompleksni torus $\torus$.
+Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opisuje, kako poljubni eliptični krivulji nad $\C$ priredimo mrežo $\Lambda$ in posledično njej izomorfen kompleksni torus $\torus$.
 
 \begin{izrek}
     \label{izomorfizem torusa in krivulje}
