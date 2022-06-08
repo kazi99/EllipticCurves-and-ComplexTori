@@ -66,6 +66,8 @@ We discuss their basic properties and develop the necessary theory of the Weiers
 \usepackage{quiver}
 \usepackage{mathrsfs}
 % \usepackage{physics}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 %%%
 
@@ -967,15 +969,16 @@ kot kaže slika \ref{mreza}.
             % unit vectors. You might check it on
             % MATLAB etc. . I got it by guessing.
             
-            \draw (4,-2) node [left]{$\omega_2$};
-            \draw (4,-4) node [below]{$0$};
-            \draw (6,-4) node [right]{$\omega_1$};
+            \draw (4,-1.9) node [left]{$\omega_2$};
+            \draw (3.8,-4) node [below]{$0$};
+            \draw (6,-4.1) node [right]{$\omega_1$};
             \draw[style=help lines,dashed] (-14,-14) grid[step=2cm] (18,14); % Draws a grid in the new coordinates.
-            \filldraw[fill=gray, draw=black] (4,-4) rectangle (6,-2); % Puts the shaded rectangle
-            \draw[black, very thick] (4,-4) -- (6,-4);
-            \draw[black, very thick] (4,-4) -- (4,-2);
-            \draw[black, very thick, dashed] (4,-2) -- (6,-2);
-            \draw[black, very thick, dashed] (6,-4) -- (6,-2);
+            \fill[fill=gray!50] (4,-4) rectangle (6,-2); % Puts the shaded rectangle
+            % \fill[fill = gray!50] (0,0.5) rectangle (5,5);
+            \draw[black, thick] (4,-4) -- (6,-4);
+            \draw[black, thick] (4,-4) -- (4,-2);
+            \draw[black, thick, dashed] (4,-2) -- (6,-2);
+            \draw[black, thick, dashed] (6,-4) -- (6,-2);
 
             \draw (5,-3) node {$D$};
             \foreach \x in {-7,-6,...,8}{                           % Two indices running over each
@@ -1125,10 +1128,11 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$, ima $f$ v $z_0$ \emph{ničlo
             \begin{scope}
                 \clip (0,0) rectangle (14cm,4cm); % Clips the picture...
                 \pgftransformcm{1}{0.6}{0.1}{1}{\pgfpoint{2cm}{2cm}};
-                \filldraw[fill=gray, draw=black] (4,-4) rectangle (6,-2);
-                \draw (4,-2) node [left]{$\alpha + \omega_2$};
-                \draw (4,-4) node [below]{$\alpha$};
-                \draw (6,-4) node [right]{$\alpha + \omega_1$};
+                \fill[fill=gray!50] (4,-4) rectangle (6,-2);
+                % \fill[fill = gray!50] (0,0.5) rectangle (5,5);
+                \draw (4,-1.9) node [left]{$\alpha + \omega_2$};
+                \draw (3.9,-4) node [below]{$\alpha$};
+                \draw (6,-4.1) node [right]{$\alpha + \omega_1$};
                 \draw (5,-3) node {$D$};
                 \draw (3.95,-3) node [left]{$\sigma_4$};
                 \draw (5.2,-4.2) node [below]{$\sigma_1$};
@@ -1139,7 +1143,7 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$, ima $f$ v $z_0$ \emph{ničlo
                 
                 \foreach \x in {4,6}{                          
                     \foreach \y in {-4,-2}{                       
-                        \node[draw,circle,inner sep=0.7pt,fill] at (\x,\y) {}; 
+                        \node[draw,circle,inner sep=1pt,fill] at (\x,\y) {}; 
                     }
                 };
 
@@ -2537,7 +2541,14 @@ V začetku poglavja \ref{elipticne funkcije} smo vpeljali pojem fundamentalnega 
 \[
     D = \{z \in \HH \mid \abs{\Re(z)} \leq 1/2 \text{ in } \abs{z} \geq 1\},
 \]
-ki jo imenujemo \emph{fundamentalna domena}. Na sliki \ref{...} vidimo, kako fundamentalno domeno $D$ transformirajo nekateri elementi grupe $\SL$.
+ki jo imenujemo \emph{fundamentalna domena}. Na sliki \ref{slika delovanja modularne grupe} vidimo, kako fundamentalno domeno $D$ transformirajo nekateri elementi grupe $\SL$.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.12]{ModularTiling_3.png}
+    \caption{Delovanje modularne grupe $\SL$ na $\HH$.}
+    \label{slika delovanja modularne grupe}
+\end{figure}
 
 Naslednja trditev pove, da vsaka orbita seka fundamentalno domeno vsaj v eni točki.
 
@@ -2733,9 +2744,44 @@ nam pokaže še, da so funkcije $G_{2k} : \HH \to \C$ tudi holomorfne.
     \[
         \abs{\frac{\tau - x}{i - x}} \geq \abs{\frac{a + i\varepsilon - x}{i - x}},
     \]
-    kot vidimo na sliki \ref{}, torej bo za vse $\tau \in S_{a, \varepsilon}$ in vse $x > a$
+    kot vidimo na sliki \ref{mnozica S_a,eps}, torej bo za vse $\tau \in S_{a, \varepsilon}$ in vse $x > a$
     % $x > \max\{R_{a + i\varepsilon}, a\} = r_+$
-    veljalo $\abs{\tfrac{\tau - x}{i - x}} \geq \delta_{a+i\varepsilon}$. Simetrično lahko sklepamo, da bo $\abs{\tfrac{\tau - x}{i - x}} \geq \delta_{-a+i\varepsilon}$ za vse $\tau \in S_{a, \varepsilon}$ in vse $x < -a$. Za $x \in [-a,a]$ in vse $\tau \in S_{a, \varepsilon}$ pa velja $\abs{\frac{\tau - x}{i - x}} \geq \frac{\varepsilon}{\abs{i - x}} \geq \frac{\varepsilon}{\abs{i - a}}$.
+    veljalo $\abs{\tfrac{\tau - x}{i - x}} \geq \delta_{a+i\varepsilon}$. 
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \begin{scope}
+                % \clip (0,0) rectangle (14cm, 5cm);
+                \fill[fill = gray!50] (0,0.5) rectangle (5,5);
+                \draw (2.5,3) node {$S_{a,\varepsilon}$};
+                \draw[<->] (-3, 0) -- (8,0);
+                \draw[dashed] (0,5) -- (5,5);
+                \draw (0,0.5) -- (5,0.5);
+                \draw (0,0.5) -- (0,5);
+                \draw (5,0.5) -- (5,5);
+                \draw (2.5,0) node [below]{$0$};
+                \node[draw,circle,inner sep=1pt,fill] at (2.5,0) {};
+                % \draw (5,0) node [below]{$a$};
+                % \node[draw,circle,inner sep=1pt,fill] at (5,0) {};
+                % \draw (0,0) node [below]{$-a$};
+                % \node[draw,circle,inner sep=1pt,fill] at (0,0) {};
+                \draw (0,0.5) node [left]{$-a + i\varepsilon$};
+                \node[draw,circle,inner sep=1pt,fill] at (0,0.5) {};
+                \draw (5,0.5) node [right]{$a + i\varepsilon$};
+                \node[draw,circle,inner sep=1pt,fill] at (5,0.5) {};
+                \draw (3.5,2) node [right]{$\tau$};
+                \node[draw,circle,inner sep=1pt,fill] at (3.5,2) {};
+                \draw (7,0) node [below]{$x$};
+                \node[draw,circle,inner sep=1pt,fill] at (7,0) {};
+                \draw (-2.5,0.25) node [above]{$\HH$};
+            \end{scope}
+        \end{tikzpicture}
+
+        \caption{Množica $S_{a,\varepsilon}$ v zgornji polravnini $\HH$.}
+        \label{mnozica S_a,eps}
+    \end{figure}
+    %    
+    Simetrično lahko sklepamo, da bo $\abs{\tfrac{\tau - x}{i - x}} \geq \delta_{-a+i\varepsilon}$ za vse $\tau \in S_{a, \varepsilon}$ in vse $x < -a$. Za $x \in [-a,a]$ in vse $\tau \in S_{a, \varepsilon}$ pa velja $\abs{\frac{\tau - x}{i - x}} \geq \frac{\varepsilon}{\abs{i - x}} \geq \frac{\varepsilon}{\abs{i - a}}$.
     Skupaj je torej 
     \[
         \abs{\frac{\tau - x}{i - x}} \geq \delta, \quad \text{ za vse } \tau \in S_{a, \varepsilon} \text{ in vse } x \in \R,
