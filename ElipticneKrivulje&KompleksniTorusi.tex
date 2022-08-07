@@ -27,12 +27,12 @@
 
 %  V povzetku na kratko opišite vsebinske rezultate dela. Sem ne sodi razlaga organizacije dela --
 %  v katerem poglavju/razdelku je kaj, pač pa le opis vsebine.
-\povzetek{\emph{Eliptična krivulja} nad poljem kompleksnih števil $\C$ je nesingularna projektivna kubika, podana z Weierstrassovo enačbo. S pomočjo izreka o implicitni funkciji pokažemo, da ta dopušča kompleksno sturkturo, kar pomeni, da postane Riemannova ploskev. Po drugi strani vsak torus, predstavljen kot kvocient $\C$ po mreži $\Lambda$ -- diskretni podgrupi $\C$ izomorfni $\Z^2$, podeduje kompleksno strukturo preko kvocientne preslikave in tako upraviči imenovanje \emph{kompleksni torusi}. Izkaže se, da ti dve, bistveno različni konstrukciji, presenetljivo porodita enaka \oz izomorfna matematična objekta. To vez razložimo preko teorije dvojno periodičnih funkcij, imenovanih eliptične funkcije, in modularnih funkcij z mnogo simetrije povezane z modularno grupo $\operatorname{SL}_2(\Z)$. Obravnavamo njihove osnovne lastnosti in razvijemo teorijo Weierstrassove funkcije $\wp$, ki nam nazadnje omogoči eksplicitno podati omenjeni izomorfizem in dokazati uniformizacijski izrek, ki združuje oba objekta.
+\povzetek{\emph{Eliptična krivulja} nad poljem kompleksnih števil $\C$ je nesingularna projektivna kubika, podana z Weierstrassovo enačbo. S pomočjo izreka o implicitni funkciji pokažemo, da ta dopušča kompleksno sturkturo, kar pomeni, da postane Riemannova ploskev. Po drugi strani vsak torus, predstavljen kot kvocient $\C$ po mreži $\Lambda$ -- diskretni podgrupi $\C$ izomorfni $\Z^2$, podeduje kompleksno strukturo preko kvocientne preslikave in tako pojasni imenovanje \emph{kompleksni torus}. Izkaže se, da ti dve, bistveno različni konstrukciji, presenetljivo porodita enaka \oz izomorfna matematična objekta. To vez razložimo preko teorije dvojno periodičnih funkcij, imenovanih eliptične funkcije, in modularnih funkcij z mnogo simetrije, povezane z modularno grupo $\operatorname{SL}_2(\Z)$. Obravnavamo njihove osnovne lastnosti in razvijemo teorijo Weierstrassove funkcije $\wp$, ki nam nazadnje omogoči eksplicitno podati omenjeni izomorfizem in dokazati uniformizacijski izrek, ki združuje oba objekta.
 } 
 
 %  Prevod slovenskega povzetka v angleščino.
 \abstract{An \emph{elliptic curve} over the field of complex numbers $\C$ is a nonsingular projective cubic, given by the Weierstrass equation. Using the implicit function theorem we show, that it admits a complex structure, which makes it a Riemann surface. 
-On the other hand every torus, which we view as a quotient of $\C$ modulo a lattice $\Lambda$ -- a discrete subgroup of $\C$ isomorphic to $\Z^2$, inherits a complex structure via its quotient map, which justifies us naming them \emph{complex tori}. These two, vastly different constructions, remarkably trun out to yield the same i.~e.\ isomorphic mathematical objects. This link is explaind using the theory of doubly periodic functions, also called elliptic functions, and modular functions, which are meromorphic functions on the upper half plane enjoying many symmetries involving the modular group $\operatorname{SL}_2(\Z)$. 
+On the other hand every torus, which we view as a quotient of $\C$ modulo a lattice $\Lambda$ -- a discrete subgroup of $\C$ isomorphic to $\Z^2$, inherits a complex structure via its quotient map, which justifies us naming it \emph{complex torus}. These two, vastly different constructions, remarkably turn out to yield the same i.e.\ isomorphic mathematical objects. This link is explained using the theory of doubly periodic functions, also called elliptic functions, and modular functions, which are meromorphic functions on the upper half plane enjoying many symmetries involving the modular group $\operatorname{SL}_2(\Z)$. 
 We discuss their basic properties and develop the necessary theory of the Weierstrass $\wp$-function, alowing us to explicitly construct the aforementioned isomorphism and prove the uniformizaton theorem, unifying both objects of study. 
 
 % can be endowed with a complex stru 
@@ -221,7 +221,7 @@ eliptične kriulje pomembno vlogo v kriptografiji, nad poljem racionalnih števi
 \par
 V primeru obravnave nad poljem kompleksnih števil eliptične
 krivulje naravno pridobijo dodatno kompleksno stukturo in na ta način postanejo \ti \emph{Riemannove ploskve}. Ta struktura nam omogoči analizo holomorfnih funkcij na prostorih, ki niso nujno domene v kompleksni ravnini in jo
-bomo bolj podrobno preiskali v poglavju \ref{riemannove ploskve}.
+bomo bolj podrobno raziskali v poglavju \ref{riemannove ploskve}.
 Po drugi strani bomo toruse vpeljali kot kvocientne prostore kompleksne ravnine $\C$ po delovanju diskretne grupe izomorfne $\Z^2$. To delovanje bo na nek način dovolj regularno, da bo tako konstruirani kvocientni prostor prevzel ključne lokalne lastnosti kompleksne ravnine in nam tako olajšal definicijo kompleksne strukture in interpretacije holomorfnih funkcij na njem. Skupaj s to strukturo bomo ta kvocientni prostor imenovali kompleksni torus in izkazal se bo za najbolj primerno domeno \ti \emph{eliptičnih funkcij}. V osnovi so eliptične \oz dvojno periodične funkcije meromorfne funkcije z dvema periodama -- v dveh realno linearno neodvisnih smereh v kompleksni ravnini. Njihove lastnosti in obnašanje si bomo ogledali v poglavju \ref{elipticne funkcije}, ključno vlogo pa bo igrala prav posebna Weierstrassova eliptična funkcija $\wp$.
 % Ta pogled bo precej poenostavil definicijo kompleksne strukture in interpretacije holomorfnih funkcij na njem
 % V nadaljevanju bomo videli, da tudi torus premore strukturo Riemannove ploskve in ga bomo skupaj s to strukturo imenovali kompleksni torus. Izkaže se, da je kompleksni
@@ -238,7 +238,7 @@ Ta zveza nam bo nazadnje v poglavju \ref{poglavje izomorfizem} omogočila konstr
 Vredno je še opomniti, da eliptične krivulje in področja, v katerih se uporabljajo,
 nimajo več vsebinsko praktično nič opravka z elipsami. 
 Izkazalo se je, da so inverzi funkcij, s katermi računamo dolžine lokov elips, dvojno periodični,
-če jih gledamo kot funkcije kompleksne spremenljivke in od tod pride ime eliptičnih funkcij. V teh izračunih namreč integriramo izraze oblike $R(t, \sqrt{f(t)})$, kjer je $R \in \C(x,y)$ racionalna funkcija in $f$ polinom tretje ali četrte stopnje brez kvadratnih faktorjev. Ravno polinom $f$, pa se pod ustrezno uvedbo nove spremenljivke da transformirati v desno stran enačbe, ki podaja eliptično krivuljo. 
+če jih gledamo kot funkcije kompleksne spremenljivke in od tod pride ime eliptičnih funkcij. V teh izračunih namreč integriramo izraze oblike $R(t, \sqrt{f(t)})$, kjer je $R \in \C(x,y)$ neka racionalna funkcija in $f$ polinom tretje ali četrte stopnje brez kvadratnih faktorjev. Ravno polinom $f$ pa se pod ustrezno uvedbo nove spremenljivke da transformirati v desno stran enačbe, ki podaja eliptično krivuljo. 
 % Pri tem pa polinom $f$ usteza ravno desni strani enačbe, ki podaja podaja eliptično krivuljo. 
 % Te dvojno periodične funkcije pa so tesno povezane z enačbo,
 % ki ji zadoščajo eliptične krivulje in se bomo k njim vrnili v poglavju \ref{elipticne funkcije}.
@@ -293,6 +293,8 @@ Zato uvedemo pojem minimalnega polinoma krivulje $C$.
 \begin{opomba}
     Če je $f$ minimalni polinom krivulje $C$, je to tudi $\alpha f$ za $\alpha \in \CM$, saj je $V(f) = V(\alpha f)$. Minimalni polinomi afine algebraične krivulje se tako lahko razlikujejo za neničelno konstanto.
 \end{opomba}
+
+% če bi hoteli pogoj, da je neki "vodilni" koeficient enak 1, bi potebovali uvesti neko monomsko ureditev
 
 S pomočjo minimalnega polinoma krivulje, lahko sedaj definiramo singularne in regularne točke na njej.
 
@@ -386,7 +388,7 @@ Definicija \ref{reg sing tocke} nam omogoči formulirati prvo opazko.
     \[
         \pdv[f]{x} = \frac{1}{2} \left( \pdv[f]{x_1} - i\pdv[f]{x_2}\right) = \frac{1}{2} \left( u_{x_1} + i v_{x_1} - i u_{x_2} + v_{x_2}\right) = u_{x_1} + iv_{x_1},
     \]
-    skupaj z analognim računom za $\pdv[f]{y} = u_{y_1} + iv_{y_1}$, in predpostavko o nesingularnosti krivulje nam zagotovita, da je v vsaki točki na $C$ vsaj eno od števil $u_{x_1} + iv_{x_1}$ in $u_{y_1} + iv_{y_1}$ neničelno. Normi teh dveh števil sta ravno determinanti levega \oz desnega $2\times 2$ bloka matrike $Jg$, ki ima zato v vsaki točki iz $C$ poln rang.
+    skupaj z analognim računom za $\pdv[f]{y} = u_{y_1} + iv_{y_1}$, in predpostavko o nesingularnosti krivulje nam zagotovita, da je v vsaki točki na $C$ vsaj eno od števil $u_{x_1} + iv_{x_1}$ in $u_{y_1} + iv_{y_1}$ neničelno. Normi teh dveh števil sta ravno determinanti skrajnega levega \oz desnega $2\times 2$ bloka matrike $Jg$, ki ima zato v vsaki točki iz $C$ poln rang.
     % vsaj eden od parcialnih odvodov $u_{x_1}$, $v_{x_1}$, $u_{y_1}$, $v_{y_1}$ različen od $0$. Vsaj eden izmed levega \oz desnega $2\times 2$ bloka matrike $Jg$ 
     % To pa že zadošča za polnost ranga Jacobijeve matrike $Jg$ v dani točki, 
     % saj sta leva in desna $2 \times 2$ bloka alternativna predstavitev kompleksnih števil kot matrična algebra znotraj realnih $2 \times2$ matrik $M_2(\R)$.  
@@ -420,10 +422,10 @@ Najprej bomo obravnavali kompleksno projektivno ravnino in njene lastnosti.
 \end{definicija}
 
 \begin{primer*}
-    Kompleksen projektiven prostor dimenzije $1$ smo že srečali. To je \emph{Riemannova sfera} $\widehat{\C} = \mathbb{P}^1_\C$. Včasih jo bomo imenovali tudi (kompleksna) projektivna premica. Riemannova sfera ima sicer še nekoliko več strukture, ki smo jo zaenkrat pri projektivnih prostorih izpustili, a se bomo k temu vrnili v \ref{riemannove ploskve}. poglavju o Riemannovih ploskvah.
+    Kompleksen projektiven prostor dimenzije $1$ smo že srečali. To je \emph{Riemannova sfera} $\widehat{\C} \equiv \mathbb{P}^1_\C$. Včasih jo bomo imenovali tudi (kompleksna) projektivna premica. Riemannova sfera ima sicer še nekoliko več strukture, ki smo jo zaenkrat pri projektivnih prostorih izpustili, a se bomo k njej vrnili v \ref{riemannove ploskve}. poglavju o Riemannovih ploskvah.
 \end{primer*}
 
-Projektivni prostor si lahko predstavljmo kot množico vseh enodimenzionalnih vektorskih podprostorov v $\C^{n+1}$. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prostora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s \ti homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim = \{(\lambda x_0, \dots, \lambda x_n) \in \C^{n+1} \mid \lambda \in \CM\} \in \PP^n_\C$, kar v homogenih koordinatah zapišemo z
+Projektivni prostor si lahko predstavljamo kot množico vseh enodimenzionalnih vektorskih podprostorov v $\C^{n+1}$. Ti so v našem primeru vse kompleksne premice, ki potekajo skozi izhodišče. Vse točke na posamezni kompleksni premici brez izhodišča identificiramo, ta ekvivalenčni razred pa potem tvori eno samo točko projektivnega prostora. Vsak tak ekvivalenčni razred oz. točko v projektivnem prostoru predstavimo s \ti homogenimi koordinatami. Poljuben $x = (x_0, \dots, x_n) \in \C^{n+1}\setminus \{0\}$ je predstavnik ekvivalenčnega razreda $[x]_\sim = \{(\lambda x_0, \dots, \lambda x_n) \in \C^{n+1} \mid \lambda \in \CM\} \in \PP^n_\C$, kar v homogenih koordinatah zapišemo z
     \[
         [x]_\sim = \pcoor{x_0 : \ldots : x_n}
     \]
@@ -439,8 +441,8 @@ za poljuben $\lambda \in \CM$.
     \[
         q : \C^{n+1}\setminus\{0\} \to \PP_\C^n, \quad (x_0, \ldots, x_n) \mapsto \pcoor{x_0 : \ldots : x_n}. 
     \]
-    In sicer vzamemo za odprte množice v $\PP_\C^n$ \emph{natanko} tiste $U \subseteq \PP_\C^n$, za katere je $q\inv(U)$ odprta v $\C^{n+1}\setminus\{0\}$. Hkrati je to tudi največja topologija na $\PP_\C^n$, za katero je projekcija $q$ še vedno zvezna.  
-    Tej topologiji pravimo \emph{kvocientna topologija} in o njej si lahko bralec več pogleda v \cite[poglavje 3.2.]{MrcunTop}
+    In sicer vzamemo za odprte množice v $\PP_\C^n$ \emph{natanko} tiste podmnožice $U \subseteq \PP_\C^n$, za katere je $q\inv(U)$ odprta v $\C^{n+1}\setminus\{0\}$. Hkrati je to tudi največja topologija na $\PP_\C^n$, za katero je projekcija $q$ še vedno zvezna.  
+    Tej topologiji pravimo \emph{kvocientna topologija} in o njej lahko več izvemo v \cite[poglavje 3.2]{MrcunTop}.
 \end{opomba}
 
 \begin{komentar}
@@ -453,7 +455,7 @@ za poljuben $\lambda \in \CM$.
         \PP_\C^n \equiv S(\C^{n+1})/S^1.
     \]
     Ker je kompleksna enotska sfera $S(\C^{n+1})$ kompakten $2$-števen Hausdorffov prostor, je zaradi delovanja kompaktne krožnice $S^1$, tudi projektiven prostor $\PP_\C^n$ kompakten $2$-števen in Hausdorffov. Podrobnosti o tem lahko bralec najde v 
-    \cite[Zgled 3.43. (2)]{MrcunTop}.
+    \cite[zgled 3.43]{MrcunTop}.
 \end{komentar}
 
 Za definicijo projektivnih algebraičnih krivulj potrebujemo  polinome, ki so usklajeni s homogenostjo koordinat na $\PC$. To so t.~i.\ \emph{homogeni polinomi}. Polinom $F \in \C[x,y,z]$ stopnje $d = \deg F$ je \emph{homogen}, če so vsi njegovi monomi stopnje $d$ oz. ekvivalentno, če za vsak $\lambda \in \CM$ in vsak $(x,y,z) \in \C^3$ velja
@@ -485,41 +487,41 @@ Podobno kot v afinem primeru, želimo tudi tukaj govoriti o singularnih točkah 
 Najprej se prepičamo, da so vsi parcialni odvodi homogenega polinoma spet homogeni polinomi. Res, odvod poljubnega monoma po kateri koli spremenljivki, je bodisi $0$ ali pa spet monom ene stopnje nižje. To nam zagotovi, da je definicija dobra.
 
 Vidimo torej, da so singularne točke ravno rešitve sistema $F = \pdv[F]{x}= \pdv[F]{y} = \pdv[F]{z} = 0$.
-Izkaže se, da je ena enačba tukaj odveč. To pove nasledja trditev, imenovana \emph{Eulerjeva identiteta}.
+Izkaže se, da je ena enačba tukaj odveč. To pove naslednja trditev, imenovana \emph{Eulerjeva identiteta}.
 
 \begin{trditev}
-    Naj bo $F \in \Cxyz$ homogen polinom stopnje $n$. Tedaj velja
+    Naj bo $F \in \Cxyz$ homogen polinom stopnje $d$. Tedaj velja
     \[
-        \pdv[F]{x}(x,y,z)x + \pdv[F]{y}(x,y,z)y + \pdv[F]{z}(x,y,z)z = nF(x,y,z). 
+        \pdv[F]{x}(x,y,z)x + \pdv[F]{y}(x,y,z)y + \pdv[F]{z}(x,y,z)z = d \cdot F(x,y,z). 
     \]
 \end{trditev}
 
 \begin{dokaz}
     Ker je polinom $F$ homogen, velja 
     \[
-        F(\lambda x, \lambda y, \lambda z) = \lambda^n F(x,y,z).
+        F(\lambda x, \lambda y, \lambda z) = \lambda^d F(x,y,z).
     \]
     Če to enakost odvajamo po $\lambda$, dobimo
     \[
         \pdv[F]{x}(\lambda x,\lambda y,\lambda z)x + 
         \pdv[F]{y}(\lambda x,\lambda y,\lambda z) y + 
-        \pdv[F]{z}(\lambda x,\lambda y,\lambda z) z = n\lambda^{n-1}F(x,y,z).
+        \pdv[F]{z}(\lambda x,\lambda y,\lambda z) z = d\lambda^{d-1}F(x,y,z).
     \]
     Nazadnje vstavimo $\lambda = 1$ in trditev sledi.
 \end{dokaz}
 
-Sedaj bi radi razvili način, kako malce bolj ``generalno'' ločiti projektivne krivulje. Razlikovanje vseh krivulj želimo reducirati zgolj na različne geometrijske karakteristike in nekaj parametrov. 
+Sedaj bi radi razvili način, kako malce bolj splošno ločiti projektivne krivulje. Razlikovanje vseh krivulj želimo reducirati zgolj na različne geometrijske karakteristike in nekaj parametrov. 
 Projektivne krivulje bomo tako razlikovali do \emph{projektivne ekvivalence} natančno. 
 To nam bo v nadaljevanju omogočilo omejitev obravnave nesingularnih kubik na takšne, ki so podane s preprostejšimi polinomskimi enačbami.
-V ta namen najprej poglejmo, kaj so projektivne transformacije, ki nam bodo pomagale pri tem.
+V ta namen najprej poglejmo, kaj so projektivne transformacije, ki nam bodo pri tem pomagale.
 
 \begin{definicija}
-    Naj bo $(a_{ij}) = A \in \GL(3, \C)$ obrnljiva kompleksna $3 \times 3$ matrika. \emph{Projektivna transformacija} ali \emph{projektivnost} je preslikava
+    Naj bo $(a_{ij}) = A \in \GL_3(\C)$ obrnljiva kompleksna $3 \times 3$ matrika. \emph{Projektivna transformacija} ali \emph{projektivnost} je preslikava
         \begin{gather*}
             \Phi : \PC \to \PC,\\
             \pcoor{x:y:z} \mapsto \pcoor{a_{11}x + a_{12}y + a_{13}z: a_{21}x + a_{22}y + a_{23}z: a_{31}x + a_{32}y + a_{33}z}.
         \end{gather*}
-    Projektivnosti $\Phi$ je pravzaprav določena z linearno preslikavo $\mathcal{A}_{\Phi} : \C^3 \to \C^3$, ki predstavlja množenje z matriko $A$.
+    Projektivnost $\Phi$ je pravzaprav določena z linearno preslikavo $\mathcal{A}_{\Phi} : \C^3 \to \C^3$, ki predstavlja množenje z matriko $A$.
 
     Nekoliko manj formalno projektivnost podamo tudi kot uvedbo novih spremenljivk 
     \[
@@ -548,7 +550,7 @@ V ta namen najprej poglejmo, kaj so projektivne transformacije, ki nam bodo poma
     % \end{enumerate}
 \end{opomba}
 
-Projektivne transformacije tvorijo grupo za kompozitum, ki je izomorfna grupi $\operatorname{PGL(3, \C)} = \GL(3,\C)/\CM$, posebej je $\Aut(\RS) \cong \operatorname{PGL(2,\C)}$. Več o tem lahko najdemo v \cite[poglavje 11]{Gibson}.
+Projektivne transformacije tvorijo grupo za kompozitum, ki je izomorfna grupi $\operatorname{PGL}_3(\C) = \GL_3(\C)/\CM$, posebej je $\Aut(\RS) \cong \operatorname{PGL_2(\C)}$. Več o tem lahko najdemo v \cite[poglavje 11]{Gibson}.
 % \kom{mogoče bi bilo fino tudi to dokazati kot trditev.}
 
 \begin{definicija}
@@ -576,10 +578,10 @@ Projektivno ekvivalenco dveh krivulj lahko interpretiramo kot prehajanje med nju
 \end{trditev}
 
 \begin{dokaz}
-    Naj bodo $C, C', C'' \subseteq \PC$ projektivne algebraične krivulje in $F, G, H \in \Cxyz$ njihovi minimalni polinomi. 
+    Naj bodo $C, C', C''\subseteq \PC$ projektivne algebraične krivulje in $F, G, H \in \Cxyz$ njihovi minimalni polinomi. 
     \par Relacija je refleksivna. Za projektivnost vzamemo $\Phi = \id_{\PC}$ in konstanto $\lambda = 1$. 
     \par Denimo, da velja $C \cong C'$, torej je $G = \lambda (F \circ \mathcal{A}_\Phi)$ za neko projektivnost $\Phi$ in $\lambda \in \CM$. Tedaj velja $F = \frac{1}{\lambda} (G \circ \mathcal{A}_\Phi\inv)$. Ker je $\mathcal{A}_\Phi\inv = \mathcal{A}_{\Phi\inv}$, velja tudi $C' \cong C$, zato je relacija simetrična. 
-    \par Denimo, da sta projektivno ekvivalentni $C$ in $C'$ ter $C'$ in $C''$. Tedaj imamo $G = \lambda (F \circ \mathcal{A}_\Phi)$ in $H = \mu (G \circ \mathcal{A}_\Psi)$. Od tod vidimo, da je $H = \mu\lambda(G \circ \mathcal{A}_\Phi \circ \mathcal{A}_\Psi)$. Tako iz $\mathcal{A}_\Phi \circ \mathcal{A}_\Psi = \mathcal{A}_{\Phi \circ \Psi}$ sledi $C \cong C''$, torej je projektivna ekvivalenca tudi tranzitivna. 
+    \par Denimo, da sta projektivno ekvivalentni krivulji $C$ in $C'$ ter $C'$ in $C''$. Tedaj imamo $G = \lambda (F \circ \mathcal{A}_\Phi)$ in $H = \mu (G \circ \mathcal{A}_\Psi)$. Od tod vidimo, da je $H = \mu\lambda(G \circ \mathcal{A}_\Phi \circ \mathcal{A}_\Psi)$. Tako iz $\mathcal{A}_\Phi \circ \mathcal{A}_\Psi = \mathcal{A}_{\Phi \circ \Psi}$ sledi $C \cong C''$, torej je projektivna ekvivalenca tudi tranzitivna. 
 \end{dokaz}
 
 Posebej bo za nas pomembno, da je projektivna ekvivalenca ekvivalenčna relacija na množici nesingularnih kubik, kot bomo videli v nadaljevanju. 
@@ -623,7 +625,7 @@ Za nas bodo posebej zanimive nesingularne projektivne kubike, saj bomo te lahko 
     \label{klasicna wnf}
     y^2z = x^3 + \alpha xz^2 + \beta z^3. 
 \end{equation}
-Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta $\alpha, \beta \in \C$ mora veljati posebna zveza, kar pove nasledja trditev.
+Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta $\alpha, \beta \in \C$ mora veljati posebna zveza, kar pove naslednja trditev.
 
 \begin{trditev}
     \label{kriterij za singularnost wnf}
@@ -662,7 +664,7 @@ Izkaže se, da ni vsaka kubika te oblike vedno tudi nesingularna. Za koeficienta
 \end{opomba}
 
 \begin{dokaz}
-    Naj bo $F(x,y,z) = y^2z - x^3 - \alpha xz^2 - \beta z^3$. Pokažimo, da obstaja singularna točka na $C$ natanko tedaj, ko je $4\alpha^3 + 27\beta^2 = 0$. To se bo zgodilo natanko tedaj ko bo sistem
+    Naj bo $F = y^2z - x^3 - \alpha xz^2 - \beta z^3$. Pokažimo, da obstaja singularna točka na $C$ natanko tedaj, ko je $4\alpha^3 + 27\beta^2 = 0$. To se bo zgodilo natanko tedaj, ko bo sistem
     \begin{align*}
         0 &= \pdv[F]{x}{}(x,y,z) = -3x^2 - \alpha z^2\\
         0 &= \pdv[F]{y}{}(x,y,z) = 2yz\\
@@ -713,13 +715,13 @@ Naslednji rezultat -- katerega dokaz sicer ni zahteven, a uporablja nekatere poj
     Vsaka nesingularna projektivna kubika je projektivno ekvivalentna neki nesingularni Weierstrassovi kubiki.  
 \end{trditev}
 
-Ob tej trditvi pa se porodi vprašanje, kako prosto izbiro imamo s koeficientoma $\alpha$ in $\beta \in \C$, ali je ta izbira lahko enolična? Za odgovor na to vprašanje najprej opazimo, da sta Weierstrassovi kubiki 
+Ob tej trditvi pa se porodi vprašanje, kako prosto izbiro imamo s koeficientoma $\alpha$ in $\beta$ iz $\C$, ali je ta izbira lahko enolična? Za odgovor na to vprašanje najprej opazimo, da sta Weierstrassovi kubiki 
 \[
     C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3 \quad \text{ in } \quad
     % C': \quad y'^2z' = x'^3 + \alpha' x'z'^2 + \beta' z'^3. 
     C': \quad Y^2Z = X^3 + \alpha' XZ^2 + \beta' Z^3. 
 \]
-projektivno ekvivalentni, če velja, denimo $u^4 \alpha' = \alpha$ in $u^6 \beta' = \beta$ za neki $u \in \CM$. Namreč takrat imamo projektivnost
+projektivno ekvivalentni, če velja, na primer $u^4 \alpha' = \alpha$ in $u^6 \beta' = \beta$ za neki $u \in \CM$. Takrat imamo namreč projektivnost
 \begin{align*}
     \Phi:C \to C', \quad
     \pcoor{x : y : z} \mapsto \pcoor{u^2x : u^3y : z},
@@ -733,7 +735,7 @@ ki identificira eno krivuljo z drugo. Ob tem se transformira tudi diskriminanta 
         
 \begin{lema}
     \label{projektivnosti wnf}
-    Naj bosta $C, C'$ projektivno ekvivalentni Weierstrassovi kubiki, kot zgoraj in $\Phi: C \to C'$ poljubna projektivnost med njima. Tedaj $\Phi$ fiksira točko $\pcoor{0 : 1 : 0}$ in je oblike
+    Naj bosta $C, C'$ projektivno ekvivalentni Weierstrassovi kubiki kot zgoraj in $\Phi: C \to C'$ poljubna projektivnost med njima. Tedaj $\Phi$ fiksira točko $\pcoor{0 : 1 : 0}$ in je oblike
     % Naj bo $\Phi$ projektivnost med dvema projektivno ekvivalentnima Weierstrassovima kubikama, $C, C'$ kot zgoraj. Tedaj $\Phi$ fiksira točko $\pcoor{0 : 1 : 0}$ in je oblike 
     \begin{equation}
         \label{eq:transformacija wnf}
@@ -753,7 +755,7 @@ ki identificira eno krivuljo z drugo. Ob tem se transformira tudi diskriminanta 
     
     Najprej pokažimo, da projektivnost $\Phi$ fiksira točko $\oio$. Za elemente v matriki $A = (a_{ij})$ moramo torej pokazati $a_{12} = a_{32} = 0$ in $a_{22} \neq 0$. 
     \begin{itemize}
-        \item Če je $a_{12} \neq 0$, potem v polinomu $F(\linphi(x,y,z))$ nastopa člen $x^2z$, ki ga na levi strani pri $G$ ni, 
+        \item Če je $a_{12} \neq 0$, v polinomu $F(\linphi(x,y,z))$ nastopa člen $x^2z$, ki ga na levi strani pri $G$ ni, 
         \item podobno, če je $a_{32} \neq 0$, imamo v polinomu $F(\linphi(x,y,z))$ člen $yz^2$, ki ga prav tako ni pri $G$. 
     \end{itemize}
     Ker sta $a_{12}$, $a_{32} = 0$, mora biti $a_{22} \neq 0$, sicer bi v $A$ imeli stolpec poln ničel, kar bi bilo v nasprotju z obrnljivostjo $A$. 
@@ -783,7 +785,7 @@ ki identificira eno krivuljo z drugo. Ob tem se transformira tudi diskriminanta 
     \[
         a_{11}^3 = a_{33}a_{22}^2 = \lambda\inv, \quad \alpha' = \lambda a_{11}a_{33}^2 \alpha, \quad \beta' = \lambda a_{33}^3 \beta.
     \]
-    Ker vsi neničelni skalarni večkratniki matrike $A$ določajo isto projektivnost, lahko brez izgube splošnosti privzamemo $a_{33} = 1$. Če vzamemo $t \in \CM$ poljuben, da velja $t^6 = \lambda\inv$, bo $a_{22}$ enak bodisi $t^3$, bodisi $-t^3$. Po potrebi lahko z menjavo $t \mapsto -t$ vedno dosežemo, da velja $a_{22} = t^3$. Iz zveze $a_{11}^3 = t^6$ pa sledi ena od naslenjih treh možnosti.
+    Ker vsi neničelni skalarni večkratniki matrike $A$ določajo isto projektivnost, lahko brez izgube splošnosti privzamemo $a_{33} = 1$. Če vzamemo $t \in \CM$ poljuben, da velja $t^6 = \lambda\inv$, bo $a_{22}$ enak bodisi $t^3$, bodisi $-t^3$. Po potrebi lahko z menjavo $t \mapsto -t$ vedno dosežemo, da velja $a_{22} = t^3$. Iz zveze $a_{11}^3 = t^6$ pa sledi ena od naslednjih treh možnosti.
     \begin{enumerate}[(i)]
         \item Če je $a_{11} = t^2$, vzamimo $u = t$ in takrat je $a_{11} = u^2$ in $a_{22} = u^3$.
         \item Če je $a_{11} = \rho t^2$, kjer je $\rho = e^{2\pi i/3}$ tretji primitivni koren enote, vzamemo $u = \rho^2 t$ in dobimo $a_{11} = u^2$ in $a_{22} = u^3$.
@@ -791,7 +793,7 @@ ki identificira eno krivuljo z drugo. Ob tem se transformira tudi diskriminanta 
     \end{enumerate}
     Vedno lahko torej izberemo tak $u \in \CM$, za katerega je $u^6 = \lambda\inv$, da velja
     \[
-        a_{11} = u^2, \quad a_{22} = u^3, \quad u^4\alpha' = \alpha, \quad u^6 \beta' = \beta \quad \text{in} \quad u^{12} \Delta' = \Delta
+        a_{11} = u^2, \quad a_{22} = u^3, \quad u^4\alpha' = \alpha, \quad u^6 \beta' = \beta \quad \text{in} \quad u^{12} \Delta' = \Delta.
     \]
     Projektivnost $\Phi$ je tedaj oblike
     \[
@@ -832,7 +834,7 @@ Pomembna ugotovitev, ki je med drugim posledica algebraične zaprtosti polja kom
     \[
         C: \quad y^2z = x^3 + \alpha xz^2 + \beta z^3 \quad \text{ in } \quad
         % C': \quad y'^2z' = x'^3 + \alpha' x'z'^2 + \beta' z'^3. 
-        C': \quad Y^2Z = X^3 + \alpha' XZ^2 + \beta' Z^3. 
+        C': \quad Y^2Z = X^3 + \alpha' XZ^2 + \beta' Z^3 
     \]
     enaki $j$-invarianti, torej, da velja
     \[
@@ -850,7 +852,7 @@ Pomembna ugotovitev, ki je med drugim posledica algebraične zaprtosti polja kom
 
     \begin{itemize}
         \item[(i)]
-        $\alpha = 0$. Tedaj mora biti $\beta \neq 0$, saj bi sicer $C$ bila singularna po trditvi \ref{kriterij za singularnost wnf}. Od tod iz enačbe \eqref{vez med koeficienti izmorfnih wnf} sledi, da je $\alpha' = 0$ in zato je tudi $\beta' \neq 0$, sicer bi bila $C'$ singularna. Zadošča vzeti $u \in \CM$ za katerega je $u^6 = \beta/\beta'$.
+        $\alpha = 0$. Tedaj mora biti $\beta \neq 0$, saj bi sicer $C$ bila singularna po trditvi \ref{kriterij za singularnost wnf}. Od tod iz enačbe \eqref{vez med koeficienti izmorfnih wnf} sledi, da je $\alpha' = 0$ in zato je tudi $\beta' \neq 0$, sicer bi bila $C'$ singularna. Zadošča vzeti $u \in \CM$, za katerega je $u^6 = \beta/\beta'$.
         \item[(ii)]
         $\beta = 0$. Tedaj iz podobnih razlogov kot pri (i) dobimo $\alpha \neq 0$, $\beta' = 0$ in $\alpha' \neq 0$. Za $u \in \CM$ zadošča vzeti rešitev enačbe $u^4 = \alpha/\alpha'$.
         \item[(iii)]
@@ -894,7 +896,7 @@ ima $j$-invarianto enako $j_0$. V robnih primerih imamo
     \]
 \end{itemize}
 
-Koncept $j$-invariante lahko razširimo tudi do poljubne nesingularne projektivne kubike. Pripišemo ji $j$-invarianto njej projektivno ekvivalentne Weierstrassove kubike, ki nam jo zagotovi trditev \ref{kubika izomorfna neki wnf}. Tako prostor vseh nesingularnih kubik razpade na izomorfnostne razrede (glede na izomorfnost projektivnih algebraičnih krivulj oz. projektivno ekvivalenco), kjer je favorizirani predstavnik vsakega razreda neka nesingularna Weierstrassova kubika. Glede na to razširitev $j$-invariante na vse nesingularne projektivne kubike, je jasno, da je $j$-invariantna kot funkcija nesingularnih projektivnih kubik, na izomorfnostnih razredih konstantna. V tem smislu vidimo $j$-invarianto kot funkcijo
+Koncept $j$-invariante lahko razširimo tudi do poljubne nesingularne projektivne kubike. Pripišemo ji $j$-invarianto njej projektivno ekvivalentne Weierstrassove kubike, ki nam jo zagotovi trditev \ref{kubika izomorfna neki wnf}. Tako prostor vseh nesingularnih kubik razpade na izomorfnostne razrede (glede na izomorfnost projektivnih algebraičnih krivulj oz. projektivno ekvivalenco), kjer je favorizirani predstavnik vsakega razreda neka nesingularna Weierstrassova kubika. Glede na to razširitev $j$-invariante na vse nesingularne projektivne kubike je jasno, da je $j$-invariantna kot funkcija nesingularnih projektivnih kubik na izomorfnostnih razredih konstantna. V tem smislu vidimo $j$-invarianto kot funkcijo
 \[
     j: \bigslant{\{\text{nesingularne projektivne kubike}\}}{\cong} \to \C,
 \]
@@ -914,7 +916,7 @@ naša definicija ekvivalenta standardni, le da za to potrebujemo Riemann--Rochov
         % \item
         (1) Ker nas bodo v nadaljevanju eliptične krivulje zanimale zgolj do projektivne ekvivalence natančno, bomo lahko brez škode za splošnost po trditvi \ref{kubika izomorfna neki wnf} zahtevali, da je eliptična krivulja podana z enačbo v Weierstrassovi obliki
         \[
-            E: \quad y^2z = x^3 + \alpha x z^2 + \beta z^3,  \quad \text{kjer $4\alpha^3 + 27\beta^2 \neq 0$.}
+            E: \quad y^2z = x^3 + \alpha x z^2 + \beta z^3,  \quad \text{kjer je} \quad 4\alpha^3 + 27\beta^2 \neq 0.
         \]  
      
         % \item 
@@ -1012,11 +1014,11 @@ Zaenkrat bomo $\C/\Lambda$ razumeli zgolj kot kvocientno množico, kasneje pa ga
     \[
         D_{\alpha} = \{\alpha + t_1 \om_1 + t_2 \om_2 \mid t_1, t_2 \in [0,1)\}.
     \]
-    Zaprtje fundamentalnega paralelograma $D_\alpha$ v $\C$ bomo označili z $\ols{D}_\alpha$. 
+    Zaprtje fundamentalnega paralelograma $D_\alpha$ v $\C$ bomo označili z $\olsi{D}_\alpha$. 
 \end{definicija}
 
 \begin{opomba}
-    Kadar bomo govorili o fundamentalnih paralelogramih pogosto izbira izhodišča $\alpha$ ne bo pomembna, zato ga bomo tedaj izpustili in pisali samo $D$. V tem primeru lahko privzamemo, da je s tem mišljen $D_0$. 
+    Kadar bomo govorili o fundamentalnih paralelogramih pogosto, izbira izhodišča $\alpha$ ne bo pomembna, zato ga bomo tedaj izpustili in pisali samo $D$. V tem primeru lahko privzamemo, da je s tem mišljen $D_0$. 
 \end{opomba}
 
 Naslednja lema pove, da je preslikava $D_\alpha \to \C/\Lambda$ bijekcija med možicama. 
@@ -1029,14 +1031,14 @@ Naslednja lema pove, da je preslikava $D_\alpha \to \C/\Lambda$ bijekcija med mo
 \begin{dokaz}
     Ker sta osnovni periodi $\omega_1, \omega_2$ $\R$-linearno neodvisni, tvorita bazo za $\C$ gledano kot realen vektorski prostor. Tako lahko zapišemo $z - \alpha = a_1 \om_1 + a_2 \om_2$, kjer sta $a_1, a_2 \in \R$. Tedaj za 
     \[
-        t_i = a_i - \lfloor a_i \rfloor \in [0,1) \quad \text{ za $i \in \{1,2\}$},
+        t_i = a_i - \lfloor a_i \rfloor \in [0,1),
     \] 
-    kjer $\lfloor x \rfloor$ označuje največje celo število, ki ni večje od $x$, velja $\alpha + t_1\om_1 + t_2 \om_2 = z - \lfloor a_1 \rfloor \om_1 - \lfloor a_2 \rfloor \om_2 \in D_\alpha \cap (z + \Lambda)$.
+    za $i \in \{1,2\}$, kjer $\lfloor x \rfloor$ označuje največje celo število, ki ni večje od $x$, velja $\alpha + t_1\om_1 + t_2 \om_2 = z - \lfloor a_1 \rfloor \om_1 - \lfloor a_2 \rfloor \om_2 \in D_\alpha \cap (z + \Lambda)$.
 \end{dokaz}
 
-Spomnimo se, da so \emph{holomorfne} funkcije na neki odprti domeni $D$ tiste, ki jih je mogoče odvajati v kompleksnem smislu povsod na $D$. Kolobar holomorfnih funkcij na $D$ označimo z $\hol{D}$. Če je funkcija holomorfna na celotnem $\C$, pravimo, da je \emph{cela holomorfna} funkcija. Množico teh označimo z $\hol{\C}$.
+Spomnimo se, da so \emph{holomorfne} funkcije na neki odprti domeni $\Omega \subseteq \C$ tiste, ki jih je mogoče odvajati v kompleksnem smislu povsod na $\Omega$. Kolobar holomorfnih funkcij na $\Omega$ označimo z $\hol{\Omega}$. Če je funkcija holomorfna na celotnem $\C$, pravimo, da je \emph{cela holomorfna} funkcija. Množico teh označimo z $\hol{\C}$.
 
-Če je $S \subseteq D$ diskretna množica brez stekališč v $D$, potem funkcijam, ki so holomorfne na $D \setminus S$, v točkah iz $S$ pa imajo pole, pravimo \emph{meromorfne} funkcije, točkam iz $S$ pa \emph{singularnosti}. Vsako meromorfno funkcijo $f$ na $D \subseteq \C$, lahko vidimo tudi kot preslikavo $D \to \RS$, kjer dodatno definiramo 
+Če je $S \subseteq \Omega$ diskretna podmnožica brez stekališč v $\Omega$, potem funkcijam, ki so holomorfne na $\Omega \setminus S$, v točkah iz $S$ pa imajo pole, pravimo \emph{meromorfne} funkcije, točkam iz $S$ pa \emph{singularnosti}. Vsako meromorfno funkcijo $f$ na $\Omega \subseteq \C$, lahko vidimo tudi kot preslikavo $\Omega \to \RS$, kjer dodatno definiramo 
 \[
     f(w) = \infty \quad \text{za vsak $w \in S$.} 
 \]
@@ -1090,13 +1092,13 @@ Sedaj si bomo pogledali nekaj izrekov, ki opisujejo naravo eliptičnih funkcij i
 \end{dokaz}
 
 % mogoče bi splošne domene ki jih označujem z D zamenjal z \Omega, in imel D rezerviran izključno za fundamentalni paralelogram. 
-Vpeljimo nekaj notacije, ki jo bomo potrebovali v naslednjih izrekih. Če je $f$ meromorfna funkcija na odprti domeni $D \subseteq \C$, pravimo, da ima $f$ \emph{red $m \in \Z$} v točki $z_0 \in D$, če obstaja okolica $U \subseteq D$ točke $z_0$ in holomorfna funkcija $g \in \hol{U}$, ki je neničelna povsod na $U$, da velja 
+Vpeljimo nekaj notacije, ki jo bomo potrebovali v naslednjih izrekih. Če je $f$ meromorfna funkcija na odprti domeni $\Omega \subseteq \C$, pravimo, da ima $f$ \emph{red $m \in \Z$} v točki $z_0 \in \Omega$, če obstaja okolica $U \subseteq \Omega$ točke $z_0$ in holomorfna funkcija $g \in \hol{U}$, ki je neničelna povsod na $U$, da velja 
 \[
     f(z) = (z - z_0)^m g(z) \quad \text{za vse $z \in U$.}  
 \]   
 Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$, ima $f$ v $z_0$ \emph{ničlo} reda $m$, če pa je $m < 0$, ima $f$ v $z_0$ \emph{pol} reda $-m$.
 
-\emph{Residuum} ali \emph{ostanek} funkcije $f$ pri točki $z_0 \in D$, je koeficient pred potenco $(z-z_0)\inv$ v Laurentovi vrsti za $f$ okrog $z_0$. Označimo ga z $\res{z_0}{f}$. 
+\emph{Residuum} ali \emph{ostanek} funkcije $f$ pri točki $z_0 \in \Omega$, je koeficient pred potenco $(z-z_0)\inv$ v Laurentovi vrsti za $f$ okrog $z_0$. Označimo ga z $\res{z_0}{f}$. 
 
 % \begin{komentar}
 %     Z $\sum_{w \in \torus}$ bomo označili vsoto po $w \in D$ poljubnem fundamentalnem paralelogramu, ki pripada merži $\Lambda$ in katerega rob ne vsebuje ničel ali polov funkcije $f$.   
@@ -1186,7 +1188,7 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$, ima $f$ v $z_0$ \emph{ničlo
     \[
         \sum_{w \in D} \ord{w}{f} = \frac{1}{2\pi i}\int_{\partial D} \frac{f'(z)}{f(z)}dz = 0, 
     \]
-    kjer smo v prvi enakosti uporabili princip argumenta \cite[Izrek 72]{Globevnik}, druga enakost pa je identiteta \eqref{eq: identiteta 1}, ki velja zaradi eliptičnosti kvocienta $f'/f$.
+    kjer smo v prvi enakosti uporabili princip argumenta \cite[izrek 72]{Globevnik}, druga enakost pa je identiteta \eqref{eq: identiteta 1}, ki velja zaradi eliptičnosti kvocienta $f'/f$.
 
     % mogoče bom povsod zamenjal $z_0$ z $w$...
     \eqref{eq: identiteta 3} Oglejmo si funkcijo $z \mapsto z \frac{f'(z)}{f(z)}$. Jasno je ta funkcija meromorfna na $\C$. Naj bo $z_0 \in \C$ poljuben. Tedaj obstaja $m \in \Z$, okolica $U \subseteq \C$ točke $z_0$ in holomorfna funkcija $g \in \hol{U}$, ki je neničelna na $U$, da velja
@@ -1224,11 +1226,11 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$, ima $f$ v $z_0$ \emph{ničlo
         \int_{\partial D} z \frac{f'(z)}{f(z)}dz = \omega_1 \int_{\sigma_4} \frac{f'(z)}{f(z)}dz + \omega_2 \int_{\sigma_3} \frac{f'(z)}{f(z)}dz.
     \]
 
-    Za poljubno sklenjeno in odsekoma gladko krivuljo $\gamma : [0,1] \to \C$, tj. $\gamma(0) = \gamma(1)$, ki ne poteka skozi izhodišče $0\in \C$, je
+    Za poljubno sklenjeno in odsekoma gladko krivuljo $\gamma : [0,1] \to \CM$, tj. $\gamma(0) = \gamma(1)$, ki ne poteka skozi izhodišče $0\in \C$, je
     \[
         \frac{1}{2 \pi i} \int_\gamma \frac{dz}{z} \in \Z
     \]
-    \emph{ovojno število} krivulje $\gamma$ okoli $0$ in nam pove, kolikokrat se krivulja $\gamma$ ovije okoli izhodišča. Podrobnosti o tem lahko bralec najde v \cite[4.2.1.]{Ahlfors}.
+    \emph{ovojno število} krivulje $\gamma$ okoli $0$ in nam pove, kolikokrat se krivulja $\gamma$ ovije okoli izhodišča. Podrobnosti o tem lahko bralec najde v \cite[4.2.1]{Ahlfors}.
 
     Osredotočimo se sedaj samo na prvi integral, premislek za drugega je analogen. Opazimo, da je zaradi eliptičnosti $f$ krivulja $f(\sigma_4)$ sklenjena, saj sta krajišči daljice $\sigma_4$ točki $\alpha$ in $\alpha + \omega_2$, v katerih ima $f$ enaki vrednosti. Pot $\gamma : [0,1] \to f(\sigma_4)$, ki predstavlja to sklenjeno krivuljo, je podana s predpisom $t \mapsto f(\alpha + t\omega_2)$. Opomnimo še, da to ni nujno parametrizacija krivulje v običajnem smislu, saj je lahko neinjektivna. 
     
@@ -1248,7 +1250,7 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$, ima $f$ v $z_0$ \emph{ničlo
     \[
         \sum_{w \in D} \ord{w}{f} \cdot w = 
         \frac{1}{2 \pi i} \int_{\partial D} z\frac{f'(z)}{f(z)}dz = 
-        k_1 \omega_1 + k_2 \omega_2\in \Lambda.  
+        k_1 \omega_1 + k_2 \omega_2\in \Lambda. \qedhere
     \]
 \end{dokaz}
 
@@ -1268,19 +1270,19 @@ Tedaj označimo $\ord{z_0}{f} = m$. Če je $m > 0$, ima $f$ v $z_0$ \emph{ničlo
     
     Podobno lahko hkrati sklepamo še za ničle funkcije $f$ in s pomočjo principa identičnosti pridemo v nasprotje z diskretnostjo množice ničel meromorfne funkcije $f$.
     
-    (3) Formula \eqref{eq: identiteta 2} pove, da ima eliptična funkcija na fundamentalnem paralelogramu enako število ničel in polov štetih z večkratnostjo. 
+    (3) Formula \eqref{eq: identiteta 2} pove, da ima eliptična funkcija na fundamentalnem paralelogramu enako število ničel in polov štetih z večkratnostmi. 
 
 \end{opomba}
 
 \begin{definicija}
-    \emph{Red} eliptične funkcije je število polov šteto z večkratnostjo v poljubnem fundamentalnem paralelogramu. 
+    \emph{Red} eliptične funkcije je število polov šteto z večkratnostjo v zaprtju fundamentalnega paralelograma. 
 \end{definicija}
 
-Tudi, če pol $z_0$ leži na robu $\partial D$ izbranega fundamentalnega paralelograma, lahko govorimo o redu tega pola v $D$. Takrat štejemo \emph{red pola $z_0$ v $D$} kot $\frac{1}{2}\ord{z_0}{f}$, če pol ni eno od štirih oglišč, oziroma, v primeru, ko je pol $z_0$ oglišče paralelograma, vzamemo za njegov red vrednost
+Tudi če pol $z_0$ leži na robu $\partial D$ izbranega fundamentalnega paralelograma, lahko govorimo o redu tega pola v $D$. Takrat štejemo \emph{red pola $z_0$ v $D$} kot $\frac{1}{2}\ord{z_0}{f}$, če pol ni eno od štirih oglišč, oziroma, v primeru, ko je pol $z_0$ oglišče paralelograma, vzamemo za njegov red vrednost
 \[
     \frac{\ell(\partial \Delta(z_0, r) \cap D)}{2 \pi r}\ord{z_0}{f}.
 \]
-Ob tem $\ell$ opisuje dolžino danega krožnega loka, $r > 0$ pa je dovolj majhen, da je $z_0$ edino oglišče fundamentalnega paralelograma, vsebovano v odprtem disku ${\Delta(z_0, r) =}$ ${\{z \in \C \mid \left\lvert z - z_0 \right\rvert < r\}}$. Z drugimi besedami je ta količina normaliziran notranji kot fundamentalnega paralelograma pri oglišču $z_0$ pomnožen, z $\ord{z_0}{f}$.  
+Ob tem $\ell$ opisuje dolžino danega krožnega loka, $r > 0$ pa je dovolj majhen, da je $z_0$ edino oglišče fundamentalnega paralelograma, vsebovano v odprtem disku ${\Delta(z_0, r) =}$ ${\{z \in \C \mid \left\lvert z - z_0 \right\rvert < r\}}$. Z drugimi besedami je ta količina normaliziran notranji kot fundamentalnega paralelograma pri oglišču $z_0$, pomnožen z $\ord{z_0}{f}$.  
 
 \begin{zgled*}
     Naj bo $\rho = e^{2\pi i /3}$ in $\Lambda = \Z + \rho\Z$. Fundamentalni paralelogram $D$ te mreže je torej romb v kompleksni ravnini z oglišči $0$, $1$, $\rho$ in $1 + \rho$. Naj bo $f$ eliptična funkcija s poli v mreži $\Lambda$. Tedaj bo red pola $0$ za $f$ v $D$ enak
@@ -1300,11 +1302,11 @@ Ob tem $\ell$ opisuje dolžino danega krožnega loka, $r > 0$ pa je dovolj majhe
 \end{posledica}
 
 \begin{dokaz}
-    Brez škode za splošnost denimo, da je $f \in \elf$ nekonstantna eliptična funkcija z enim (enostavnim) polom $\alpha$ na fundamentalni domeni $D$, saj po izreku \ref{cele el. funkcije} že vemo, da bi bila $f$ konstantna, če bi bila brez polov. 
+    Brez škode za splošnost denimo, da je $f \in \elf$ nekonstantna eliptična funkcija z enim (enostavnim) polom $z_0$ na fundamentalni domeni $D$, saj po izreku \ref{cele el. funkcije} že vemo, da bi bila $f$ konstantna, če bi bila brez polov. 
     % da bi bila konstantna, če ne bi imela nobenega pola po izreku \ref{cele el. funkcije}.
     Predpostavimo lahko tudi, da pol leži v notranjosti $D$. Z integracijo po robu $\partial D$ tako dobimo neničelni residuum
     \[
-        \frac{1}{2 \pi i} \int_{\partial D} f(z)dz = \res{\alpha}{f} \neq 0.  
+        \frac{1}{2 \pi i} \int_{\partial D} f(z)dz = \res{z_0}{f} \neq 0.  
     \]
     To pa je v nasprotju s formulo \eqref{eq: identiteta 1} iz izreka \ref{liouville}, ki pove, da je ta residuum -- kot edini člen v vsoti -- enak nič. 
 \end{dokaz}
@@ -1317,7 +1319,7 @@ Ob tem $\ell$ opisuje dolžino danega krožnega loka, $r > 0$ pa je dovolj majhe
 \begin{dokaz}
     Ker je $f \in \elf$ nekonstantna, ima po izreku \ref{cele el. funkcije} pol in lahko zato rečemo, da tam doseže točko $\infty$. Naj bo sedaj $w \in \C$ poljubna točka in pokažimo, da obstaja $z \in \C$, da velja $f(z) = w$.
     
-    Definirajmo $g(z) := f(z) - w$. Funkcija $g$ je prav tako eliptična in ima pol, saj je takšna $f$ in prištevanje konstante na ti dve lastnosti nima vpliva. Po opombi \ref{liouville opomba} (3) ima $g$ ničlo v $\C$, kar pokaže želeno.
+    Definirajmo $g(z) := f(z) - w$. Funkcija $g$ je prav tako eliptična in ima pol, saj je takšna že $f$ in prištevanje konstante na ti dve lastnosti nima vpliva. Po opombi \ref{liouville opomba} (3) ima $g$ ničlo v $\C$, kar pokaže želeno.
 \end{dokaz}
 
 
@@ -1332,7 +1334,7 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
 
 \begin{definicija}
     \label{eisensteinova vrsta}
-    Za celo število $k > 2$ je \emph{Eisensteinova vrsta reda $k$} podana kot
+    Za naravno število $k > 2$ je \emph{Eisensteinova vrsta reda $k$} podana kot
     \[
         G_k(\Lambda) = \sum_{\om \in \Lambda'} \frac{1}{\om^k}.  
     \]
@@ -1344,7 +1346,7 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
 
 \begin{lema}
     \label{lema o konvergenci eisensteinove vrste}
-    Za vsako celo število $k > 2$ je Eisensteinova vrsta reda $k$ absolutno konvergentna.
+    Za vsako naravno število $k > 2$ je Eisensteinova vrsta reda $k$ absolutno konvergentna.
 \end{lema}
 
 \begin{dokaz}
@@ -1354,7 +1356,7 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
     \]
     Induktivni sklep pokaže, da je moč posamezne od teh množic $C_n$ enaka $4n$.
     % Preprosto se je prepričati, da je moč posamezne od teh množic $\#C_n = 4n$. 
-    Vsak element $\om \in C_n$ pa lahko po absolutni vrednosti ocenimo $\left\lvert \om \right\rvert \geq \rho n$, kjer je $\rho > 0$ razdalija od izhodišča $0$, do roba paralelograma z oglišči v točkah $\pm \om_1, \pm \om_2$. Tedaj velja ocena
+    Vsak element $\om \in C_n$ pa lahko po absolutni vrednosti ocenimo $\left\lvert \om \right\rvert \geq \rho n$, kjer je $\rho > 0$ razdalja od izhodišča $0$ do roba paralelograma z oglišči v točkah $\pm \om_1, \pm \om_2$. Tedaj velja ocena
     \[
         \sum_{\om \in \Lambda'} \frac{1}{\left\lvert  \om^k \right\rvert} = 
         \sum_{n = 1}^\infty \sum_{\om \in C_n} \frac{1}{\left\lvert  \om \right\rvert^k} \leq
@@ -1367,7 +1369,7 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
 
 \begin{lema}
     \label{lema o absolutni in enakomerni konvergenci}
-    Za vsako celo število $k > 2$ vrsta 
+    Za vsako naravno število $k > 2$ vrsta 
     \[
         \sum_{\om \in \Lambda'} \frac{1}{(z - \om)^k}
     \]
@@ -1410,7 +1412,7 @@ Vseskozi naj bo $\Lambda$ mreža v $\C$ in naj velja oznaka $\Lambda' = \Lambda 
     ki velja povsod na $K$. Ker je zadnja vsota del (po lemi \ref{lema o konvergenci eisensteinove vrste}) absolutno konvergentne Eisensteinove vrste reda $k$, nam Weierstrassov M-test zagotovi želeni rezultat.
 \end{dokaz}
 
-V nadaljevanju bomo obravnavali različne funkcijske vrste holomorfnih (meromorfnih) funkcij, za katere bi se radi preričali, da se tudi seštejejo v holomorfne funkcije. Naslednji izrek, ki ga samo nevedemo, nam pove, da je zadosten pogoj za to zahtevo v bistvu samo njihova enakomerna konvergenca po komapktih. 
+V nadaljevanju bomo obravnavali različne funkcijske vrste holomorfnih (meromorfnih) funkcij, za katere bi se radi prepričali, da se tudi seštejejo v holomorfne funkcije. Naslednji izrek, ki ga samo navedemo, nam pove, da je zadosten pogoj za to zahtevo v bistvu samo njihova enakomerna konvergenca po kompaktih. 
 
 \begin{izrek}[\protect{\cite[izrek 64]{Globevnik}}]
     % \cite[\S 5, Theorem 1]{Ahlfors}
@@ -1422,7 +1424,7 @@ Oglejmo si sedaj funkcijo $f:\C\setminus\Lambda \to \C$, podano s predpisom
 \[
     f(z) = \sum_{\om \in \Lambda} \frac{1}{(z - \om)^k}, \quad k > 2.
 \]
-Zaradi absolutne konvergence te vrste jo lahko seštevamo v poljubenem vrstnem redu. Če to storimo postopoma po diskih $\disk{0}{n}$ za $n\in\N$, dobimo zaporedje delnih vsot, ki so holomorfne na $\C\setminus\Lambda$ in konvergirajo k $f$. Poleg tega zaradi leme \ref{lema o absolutni in enakomerni konvergenci} že vemo, da ta vrsta konvergira tudi enakomerno po kompaktih v $\C\setminus\Lambda$, torej na tej domeni $f$ določa holomorfno funkcijo po izreku \ref{izrek o konvergenci holomorfnih funkcij}. Dodatno ima $f$ v vsakem $\om_0 \in \Lambda$ pol reda $k$ in residuum $0$, o čemer se lahko prepričamo, ko na neki dovolj majhni prebodeni okolici točke $\om_0$ zapišemo
+Zaradi absolutne konvergence te vrste jo lahko seštevamo v poljubnem vrstnem redu. Če to storimo postopoma po diskih $\disk{0}{n}$ za $n\in\N$, dobimo zaporedje delnih vsot, ki so holomorfne na $\C\setminus\Lambda$ in konvergirajo k $f$. Poleg tega zaradi leme \ref{lema o absolutni in enakomerni konvergenci} že vemo, da ta vrsta konvergira tudi enakomerno po kompaktih v $\C\setminus\Lambda$, torej na tej domeni $f$ določa holomorfno funkcijo po izreku \ref{izrek o konvergenci holomorfnih funkcij}. Dodatno ima $f$ v vsakem $\om_0 \in \Lambda$ pol reda $k$ in residuum $0$, o čemer se lahko prepričamo, ko na neki dovolj majhni prebodeni okolici točke $\om_0$ zapišemo
 % po lemi \ref{lema o absolutni in enakomerni konvergenci} lahko predstavimo, da jo seštevamo postopoma po diskih $\disk{0}{n}$ za $n\in\N$ in tako dobimo zaporedje delnih vsot, ki so holomorfne na $\C\setminus\Lambda$ in konvergirajo k $f$. Po izreku \ref{izrek o konvergenci holomorfnih funkcij} je $f$ holomorfna na $\C \setminus \Lambda$, v vsakem $\om_0 \in \Lambda$ pa ima pol reda $k$ in residuujem $0$. O tem se prepričamo, saj lahko zapišemo
 \[
     f(z) = \frac{1}{(z-\om_0)^k} + \sum_{\om \in \Lambda \setminus \{\om_0\}} \frac{1}{(z - \om)^k}.
@@ -1447,7 +1449,7 @@ H glavnemu delu okrog $\om_0$ prispeva samo člen $(z - \om_0)^{-k}$, vrsta, ki 
     kjer smo v predzadnji enakosti upoštevali, da je translacija $\om \mapsto \om - \om_0$ zgolj permutacija mreže $\Lambda$, ki samo premeša vrstni red seštevanja v zadnji (absolutno konvergentni) vrsti. 
 \end{primer*}
 
-Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ pol stopnje $3$ oziroma na fundamentalnem paralelogramu ima natanko pol stopnje $3$, torej bi lahko rekli, da je eliptična funkcija reda $3$. Posledica \ref{poseldica o redu elipticne funkcije} nam zagotavlja, da je spodnja meja za red nekonstantne eliptične funkcije enaka $2$, zato se je naravno vprašati, ali je ta meja kdaj dosežena. Poskusili bi lahko z vrsto $\sum_{\om\in\Lambda}(z - \om)^{-2}$, toda ta žal ne konvergira absolutno. Vseeno pa jo lahko nekoliko popravimo, kar nas privede do naslednje definicije. 
+Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ pol stopnje $3$ oziroma na fundamentalnem paralelogramu ima natanko pol stopnje $3$, torej lahko rečemo, da je eliptična funkcija reda $3$. Posledica \ref{poseldica o redu elipticne funkcije} nam zagotavlja, da je spodnja meja za red nekonstantne eliptične funkcije enaka $2$, zato se je naravno vprašati, ali je ta meja kdaj dosežena. Poskusili bi lahko z vrsto $\sum_{\om\in\Lambda}(z - \om)^{-2}$, toda ta žal ne konvergira absolutno. Vseeno pa jo lahko nekoliko popravimo, kar nas privede do naslednje definicije. 
 
 \begin{definicija}
     \emph{Weierstrassova eliptična funkcija $\wp$} glede na mrežo $\Lambda$ je
@@ -1460,16 +1462,16 @@ Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ p
 \begin{trditev}
     \label{lastnosti wp}
     Za Weierstrassovo funkcijo $\wp$ glede na mrežo $\Lambda$ veljajo naslednje trditve.
-    \begin{itemize}
-        \item[(i)] Vrsta, ki predstavlja funkcijo $\wp$, konvergira absolutno in enakomerno po kompaktih v $\C\setminus\Lambda'$, zato je $\wp$ holomorfna funkcija na $\C \setminus \Lambda$.
-        \item[(ii)] $\wp$ je soda.
-        \item[(iii)] $\wp$ je $\Lambda$-periodična.
-        \item[(iv)] točke iz mreže $\Lambda$ so natanko poli Weierstrassove funkcije $\wp$. Vsi so stopnje $2$, residuumi v njih pa so vedno enaki $0$. 
-    \end{itemize}
+    \begin{enumerate}[(i)]
+        \item Vrsta, ki predstavlja funkcijo $\wp$, konvergira absolutno in enakomerno po kompaktih v $\C\setminus\Lambda'$, zato je $\wp$ holomorfna funkcija na $\C \setminus \Lambda$.
+        \item $\wp$ je soda.
+        \item $\wp$ je $\Lambda$-periodična.
+        \item točke iz mreže $\Lambda$ so natanko poli Weierstrassove funkcije $\wp$. Vsi so stopnje $2$, vsi residuumi v njih pa so enaki $0$. 
+    \end{enumerate}
 \end{trditev}
 
 \begin{dokaz}
-    (i) Naj bo $K \subseteq \C\setminus\Lambda$ kompakt in $r > 0$, da disk $\disk{0}{r}$ omejuje kompakt $K$. Podobno kot v dokazu leme \ref{lema o absolutni in enakomerni konvergenci} bomo obravnavo razdelili na periode $\om\in \Lambda$, ki ležijo znotraj diska $\disk{0}{2r}$, in na tiste, ki ležijo v njegovem komplementu. Na kompaktu $K$ že vemo, da lahko omejimo izraz
+    (\emph{i}) Naj bo $K \subseteq \C\setminus\Lambda$ kompakt in $r > 0$, da disk $\disk{0}{r}$ omejuje kompakt $K$. Podobno kot v dokazu leme \ref{lema o absolutni in enakomerni konvergenci} bomo obravnavo razdelili na periode $\om\in \Lambda$, ki ležijo znotraj diska $\disk{0}{2r}$, in na tiste, ki ležijo v njegovem komplementu. Na kompaktu $K$ že vemo, da lahko omejimo izraz
     \[
         \frac{1}{\abs{z^2}} + \sum_{\substack{\om\in\Lambda' \\ \abs{\om} < 2r}} \left\lvert\frac{1}{(z - \om)^2} - \frac{1}{\om^2}\right\rvert < M \quad \text{za vsak $z \in K$,}
     \]
@@ -1498,7 +1500,7 @@ Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ p
         \wp'(z) = \sum_{\om \in \Lambda}\frac{-2}{(z-\om)^3}. 
     \]
 
-    (ii) Z računom se prepričamo
+    (\emph{ii}) Z računom se prepričamo
     \begin{multline*}
         \wp(-z) =   
         \frac{1}{(-z)^2} + \sum_{\om\in\Lambda'}\left(\frac{1}{(-z-\om)^2} - \frac{1}{\om^2}\right) \\ = 
@@ -1508,9 +1510,9 @@ Funkcija iz primera \ref{primer odvod wp} ima v vsaki periodi $\om\in \Lambda$ p
     \end{multline*}
     kjer smo za predzadnji enačaj upoštevali, da transformacija $\omega \mapsto -\omega$ samo premeša vrstni red seštevanja v absolutno konvergentni vrsti.
 
-    (iii) Naj bo $\om\in \Lambda$ poljuben. Kot smo se prepričali v primeru \ref{primer odvod wp}, je $\wp'$ eliptična funkcija, zato je $\wp'(z + \om) - \wp'(z) = 0$, kar pomeni, da se funkciji $\wp(z + \om)$ in $\wp(z)$ razlikujeta zgolj za prišteto konstanto. Če v obe vstavimo $z = -\frac{\omega}{2}$ in upoštevamo sodost funkcije $\wp$, vidimo, da je ta konstanta enaka $0$, kar pokaže želeno.
+    (\emph{iii}) Naj bo $\om\in \Lambda$ poljuben. Kot smo se prepričali v primeru \ref{primer odvod wp}, je $\wp'$ eliptična funkcija, zato je $\wp'(z + \om) - \wp'(z) = 0$, kar pomeni, da se funkciji $\wp(z + \om)$ in $\wp(z)$ razlikujeta zgolj za prišteto konstanto. Če v obe vstavimo $z = -\frac{\omega}{2}$ in upoštevamo sodost funkcije $\wp$, vidimo, da je ta konstanta enaka $0$, kar pokaže želeno.
 
-    (iv) Zaradi $\Lambda$-periodičnosti funkcije $\wp$ po točki (iii) je dovolj situacijo obravnavati samo okoli točke $0\in\Lambda$. Podobno kot smo sklepali o polih funkcije $\sum_{\om\in\Lambda'}(z-\om)^{-k}$, tudi tukaj vidimo, da na neki prebodeni okolici točke $0$ h glavnemu delu Laurentove vrste za $\wp$ okoli $0$ prispeva le člen $z^{-2}$, ki nam da pol reda $2$ z residuujem $0$, preostanek vrste pa po dokazu točke (i) na tej prebodeni okolici definira holomorfno funkcijo, ki na glavni del nima vpliva.  
+    (\emph{iv}) Zaradi $\Lambda$-periodičnosti funkcije $\wp$ po trditvi (iii) je dovolj primer obravnavati samo okoli točke $0\in\Lambda$. Podobno kot smo sklepali o polih funkcije $\sum_{\om\in\Lambda'}(z-\om)^{-k}$, tudi tukaj vidimo, da na neki prebodeni okolici točke $0$ h glavnemu delu Laurentove vrste za $\wp$ okoli $0$ prispeva le člen $z^{-2}$. Ta nam da pol reda $2$ z residuujem $0$, preostanek vrste pa po dokazu trditve (i) na tej prebodeni okolici definira holomorfno funkcijo, ki na glavni del nima vpliva.  
 \end{dokaz}
 
 Naše zanimanje za Weierstrassovo eliptično funkcijo se skriva v dejstvu, da ta funkcija zadošča posebni diferencialni enačbi oblike $\wp'(z)^2 = f(\wp(z))$, kjer je $f \in \C[x]$ kubični polinom, ki je v tesni povezavi z Weierstrassovo enačbo eliptične krivulje. Da bo ta povezava jasneje razvidna, si poglejmo Laurentov razvoj $\wp$ okoli izhodišča $0$. 
@@ -1545,7 +1547,7 @@ Naše zanimanje za Weierstrassovo eliptično funkcijo se skriva v dejstvu, da ta
         &= \frac{1}{z^2} + \sum_{n = 1}^\infty (n + 1) G_{n + 2}(\Lambda) z^n \\
         &= \frac{1}{z^2} + \sum_{k = 1}^\infty (2k + 1) G_{2k + 2}(\Lambda) z^{2k}
     \end{align*}
-    za vse $\abs{z} < \min_{\om\in\Lambda'}\abs{\om}$. V drugem enačaju smo zamenjali vrstni red seštevanja, kar nam omogoča absolutna konvergenca obeh vrst, v zadnjem enačaju pa smo preindeksirali vsoto na sode $n\in \N$, saj so vse Eisensteinove vrste lihega reda enake $0$. 
+    za vse $\abs{z} < \min_{\om\in\Lambda'}\abs{\om}$. V tretjem enačaju smo zamenjali vrstni red seštevanja, kar nam omogoča absolutna konvergenca obeh vrst, v zadnjem enačaju pa smo preindeksirali vsoto na sode $n\in \N$, saj so vse Eisensteinove vrste lihega reda ničelne. 
 \end{dokaz}
 
 \begin{izrek}
@@ -1564,7 +1566,7 @@ Naše zanimanje za Weierstrassovo eliptično funkcijo se skriva v dejstvu, da ta
     \[
         \psi(z) = \wp'(z)^2 - 4\wp(z)^3 + g_2(\Lambda)\wp(z) + g_3(\Lambda).
     \]
-    Kot vsota samih meromorfnih $\Lambda$-periodičnih funkcij je $\psi$ meromorfna $\Lambda$-periodična funkcija na $\C$. Zato jo na neki prebodeni okolici $U \subseteq \C$ točke $0$ lahko razvijemo v konvergentno Laurentovo vrsto. Najprej izračunajmo prvih nekaj členov Laurentovih vrst naslednjih funkcij.
+    Kot vsota samih meromorfnih $\Lambda$-periodičnih funkcij je $\psi$ meromorfna $\Lambda$-periodična funkcija na $\C$. Zato jo lahko na neki prebodeni okolici $U \subseteq \C$ točke $0$ razvijemo v konvergentno Laurentovo vrsto. Najprej izračunajmo prvih nekaj členov Laurentovih vrst naslednjih funkcij.
     \begin{align*}
         \wp'(z)^2 &= \frac{4}{z^6} - 24G_4(\Lambda)\frac{1}{z^2} - 80G_6(\Lambda) + 36G_4(\Lambda)^2z^2 + \cdots \\
         -4\wp(z)^3 &= -\frac{4}{z^6} - 36G_4(\Lambda) \frac{1}{z^2} - 60G_6(\Lambda) - 84G_8(\Lambda)z^2 + \cdots \\
@@ -1575,7 +1577,7 @@ Naše zanimanje za Weierstrassovo eliptično funkcijo se skriva v dejstvu, da ta
         \label{razvoj identitete za wp}    
         \psi(z) = 0 \cdot \frac{1}{z^6} + 0 \cdot \frac{1}{z^2} + 0 + (216G_4(\Lambda)^2 - 84G_8(\Lambda))z^2 + \cdots.
     \end{equation}
-    Funkcija $\psi$ tako nima glavnega dela pri $0$ in je zato na okolici $U$ holomorfna. Zaradi $\Lambda$-periodičnosti je holomorfna tudi okolici poljubne periode $\om\in\Lambda$. Ker je $\psi$ meromorfna na $\C$ in brez polov, je v resnici cela eliptična funkcija, kot takšna pa je po izreku \ref{cele el. funkcije} konstantna. Preostane le še ugotoviti kateri konstanti je enaka. Iz razvoja \eqref{razvoj identitete za wp} takoj sledi, da je ta konstanta $0$, ko vanjo vstavimo vrednost $0$, to pa tudi zaključi dokaz izreka.
+    Funkcija $\psi$ tako nima glavnega dela pri $0$ in je zato na okolici $U$ holomorfna. Zaradi $\Lambda$-periodičnosti je holomorfna tudi na okolici poljubne periode $\om\in\Lambda$. Ker je $\psi$ meromorfna na $\C$ in brez polov, je v resnici cela eliptična funkcija, kot takšna pa je po izreku \ref{cele el. funkcije} konstantna. Preostane le še ugotoviti, kateri konstanti je enaka. Iz razvoja \eqref{razvoj identitete za wp} takoj sledi, da je ta konstanta $0$, ko vanjo vstavimo vrednost $0$, to pa tudi zaključi dokaz izreka.
 \end{dokaz}
 
 Izrek \ref{ode za wp} namiguje, da lahko s poljubno mrežo $\Lambda$ definiramo eliptično krivuljo
@@ -1598,7 +1600,7 @@ Izrek \ref{ode za wp} namiguje, da lahko s poljubno mrežo $\Lambda$ definiramo 
 \end{lema}
 
 \begin{dokaz}
-    Najprej se lotimo implikacije iz desne v levo. Ker je $\wp$ soda po trditvi \ref{lastnosti wp} (ii), vemo, da je njen odvod $\wp'$ liha funkcija. Tako lahko za $2z\in \Lambda$ z upoštevanjem $\Lambda$-periodičnosti $\wp'$ zapišemo
+    Najprej se lotimo implikacije iz desne v levo. Ker je $\wp$ soda po trditvi \ref{lastnosti wp} (ii), vemo, da je njen odvod $\wp'$ liha funkcija. Tako lahko za $2z\in \Lambda$ upoštevajoč $\Lambda$-periodičnost funkcije $\wp'$ zapišemo
     \[
         \wp'(z) = \wp'(z - 2z) = \wp'(-z) = -\wp'(z).
     \]
@@ -1617,10 +1619,10 @@ Izrek \ref{ode za wp} namiguje, da lahko s poljubno mrežo $\Lambda$ definiramo 
 \end{lema}
 
 \begin{dokaz}
-    Najprej se spomnimo, da je diskriminanta kubičnega polinoma $f(x) = 4x^3 - g_2 x - g_3$ enaka $16(g_2^3 - 27g_3^2)$ in da nam ta pove, kdaj ima polinom $f$ kakšno večkratno ničlo. Pokazali bomo, da ima za poljubno mrežo $\Lambda$ polinom $4x^3 - g_2(\Lambda) x - g_3(\Lambda)$ same različne ničle, saj je natanko takrat njegova diskriminanta neničelna.  
+    Najprej se spomnimo, da je diskriminanta kubičnega polinoma $f = 4x^3 - g_2 x - g_3$ enaka $16(g_2^3 - 27g_3^2)$ in da nam ta pove, kdaj ima polinom $f$ kakšno večkratno ničlo. Pokazali bomo, da ima za poljubno mrežo $\Lambda$ polinom $4x^3 - g_2(\Lambda) x - g_3(\Lambda)$ same različne ničle, saj je natanko takrat njegova diskriminanta neničelna.  
 
     Naj bosta $\om_1, \om_2 \in \Lambda$ osnovni periodi in označimo tri polperiode
-    $ r_1 = \frac{\om_1}{2}$, $r_2 = \frac{\om_2}{2}$, $r_3 = \frac{\om_1 + \om_2}{2}$. Vse tri so po lemi \ref{polperiode so nicle odvoda wp} ničle za $\wp'$. Poleg tega pa so vse tri vrednosti $\wp(r_i)$ za $i \in \{1,2,3\}$ ničle polinoma $4x^3 - g_2(\Lambda) x - g_3(\Lambda)$, kar je razvidno takoj, ko v identiteto \eqref{wp identiteta} vstavimo osnovne tri polperiode $r_1, r_2, r_3$.
+    $ r_1 = \frac{\om_1}{2}$, $r_2 = \frac{\om_2}{2}$, $r_3 = \frac{\om_1 + \om_2}{2}$. Vse tri so po lemi \ref{polperiode so nicle odvoda wp} ničle za $\wp'$. Poleg tega pa so vse tri vrednosti $\wp(r_i)$ za $i \in \{1,2,3\}$ ničle polinoma $4x^3 - g_2(\Lambda) x - g_3(\Lambda)$, kar je razvidno takoj, ko v identiteto \eqref{wp identiteta} vstavimo osnovne tri polperiode $r_1$, $r_2$ in $r_3$.
     
     Vemo tudi, da diskriminanto in produkt poljubnih dveh različnih ničel povezuje enakost 
     % enaka produktu razlik poljubnih dveh ničel
@@ -1642,15 +1644,15 @@ Poljubni mreži $\Lambda \subseteq \C$ lahko torej priredimo eliptično krivuljo
 
 % Dam rajši naslov: Kompleksna struktura in analitične preslikave
 \section{Kompleksna struktura in holomorfne preslikave} \label{riemannove ploskve}
-Pri kompleksni analizi smo spoznali načine kako definirati kompleksni logartiem in kompleksni koren dane funkcije, pri tem pa je bilo ključno predpostaviti, da delamo na zvezdastem območju (splošneje \emph{enostavno povezanim}\footnote{Enostavno povezana območja v ravnini si predstavljamo kot območja brez lukenj. Kolobar $\{z \in \C \mid r_1 < \abs{z} < r_2\}$ in prebodena ravnina $\CM = \C\setminus\{0\}$ nista enostavno povezana, enotski disk $\Delta$ pa je.}), na katerem funkcija nima ničel. Oglejmo si primer kvadratnega korena.
+Pri kompleksni analizi smo spoznali načine, kako definirati kompleksni logaritem in kompleksni koren dane funkcije, pri tem pa je bilo ključno predpostaviti, da delamo na zvezdastem območju (splošneje \emph{enostavno povezanem}\footnote{Enostavno povezana območja v ravnini si predstavljamo kot območja brez lukenj. Kolobar $\{z \in \C \mid r_1 < \abs{z} < r_2\}$ in prebodena ravnina $\CM = \C\setminus\{0\}$ nista enostavno povezana, enotski disk $\Delta$ pa je.}), na katerem funkcija nima ničel. Oglejmo si primer kvadratnega korena.
 
-Kvadratni koren kompleksnega števila $z$ vedno obstaja in sta običajno dva (razen, ko je $z = 0$). To sta ravno ničli polinoma $w^2 - z \in \C[w]$, ki se razlikujeta natanko za predznak, in vedno obstajata po osnovnem izreku algebre. Vsakemu $z \in \C$ lahko torej priredimo enega od teh korenov. Vprašanje, ki se porodi pa je: ali lahko to storimo zvezno? Izkaže se, da je lokalno to mogoče, globalno na celotnem $\C$, pa ni. Če bi namreč potovali vzdolž enotske krožnice v $\C$ bi po končanem obhodu ugotovili, da se vrednost v kateri smo končali od tiste v kateri smo začeli razlikuje natanko za predznak. Maksimalna domena v $\C$ s katero se lahko zadovoljimo z zvezno (holomorfno) definiranim kvadratnim korenom je torej $\C$ brez poltraka skozi izhodišče, kot je na primer $\C \setminus (-\infty, 0]$.
+Kvadratni koren kompleksnega števila $z$ vedno obstaja in sta običajno dva (razen, ko je $z = 0$). To sta ravno ničli polinoma $w^2 - z \in \C[w]$, ki se razlikujeta natanko za predznak, in vedno obstajata po osnovnem izreku algebre. Vsakemu $z \in \C$ lahko torej priredimo enega od teh korenov. Vprašanje, ki se porodi, pa je: ali lahko to storimo zvezno? Izkaže se, da je lokalno to mogoče globalno, na celotnem $\C$, pa ni. Če bi namreč potovali vzdolž enotske krožnice v $\C$, bi po končanem obhodu ugotovili, da se vrednost, v kateri smo končali, od tiste, v kateri smo začeli, razlikuje natanko za predznak. To je razvidno takoj, ko opazimo, da kvadratni koren številu na enotski krožnici razpolovi argument. Edina možna maksimalna domena v $\C$, na kateri obstaja zvezen (holomorfen) kvadratni koren, je tako $\C$ brez nekega poltraka skozi izhodišče, kot je na primer $\C \setminus (-\infty, 0]$.
 
-Popolnoma vzporedno bi lahko za kvadratni koren oklicali tudi za predznak pomnoženo prejšnjo funkcijo in tako dobili dve \ti \emph{veji} kvadratnega korena, ki sta popolnoma enakovredni in pogosto od nas zahtevata izbiro ene izmed njiju. 
+Popolnoma vzporedno bi lahko za kvadratni koren oklicali tudi z $-1$ pomnoženo prejšnjo funkcijo in tako dobili dve \ti \emph{veji} kvadratnega korena, ki sta popolnoma enakovredni in pogosto od nas zahtevata izbiro ene izmed njiju. 
 
-En način, kako bi se tej izbiri lahko izognili, je, da njuni domeni zamenjamo s krivuljo $X = \{(z,w) \in \C^2 \mid w^2 = z\}$, ki je v bistvu unija grafov obeh vej, kvadratni koren pa interpretiramo kot projekcijo iz $X$ na $w$-os, \tj $(z,w) \mapsto w$. Tako se izognemo tej nekanonični izbiri veje, a smo s tem zašli v nov problem. Izgubili smo poznano predstavo holomorfnih funkcij na tej domeni, ki sedaj ni več neka odprta množica v $\C$. Na srečo pa imamo še vedno upanje povrniti to informacijo, saj lahko množico $X$ lokalno sploščimo in identificiramo z neko odprto množico v $\C$. Če znamo takšne lokalne identifikacije najti na celotnem $X$ in to storimo na nekakšen usklajen način, bo nastala struktura dopuščala razviti definicijo, ki opredeljuje holomorfne funkcije na $X$, in nam omogoča adaptirati določene izreke o odprtih domenah v $\C$ na te abstraktne objekte, ki jih imenujemo \emph{Riemannove ploskve}.  
+En način, kako bi se tej izbiri lahko izognili, je, da njuni domeni zamenjamo s krivuljo $X = \{(z,w) \in \C^2 \mid w^2 = z\}$, ki je v bistvu unija grafov obeh vej, kvadratni koren pa interpretiramo kot projekcijo iz $X$ na $w$-os, \tj $(z,w) \mapsto w$. Tako se izognemo tej nekanonični izbiri veje, a smo s tem zašli v nov problem. Izgubili smo poznano predstavo holomorfnih funkcij na tej domeni, ki sedaj ni več neka odprta množica v $\C$. Na srečo pa imamo še vedno upanje povrniti to informacijo, saj lahko množico $X$ lokalno sploščimo in identificiramo z neko odprto množico v $\C$. Če znamo takšne lokalne identifikacije najti na celotnem $X$ in to storimo na nekakšen usklajen način, bo nastala struktura dopuščala razviti definicijo, ki opredeljuje holomorfne funkcije na $X$ in nam omogoča prilagoditi določene izreke o odprtih domenah v $\C$ na te abstraktne objekte, ki jih imenujemo \emph{Riemannove ploskve}.  
 
-Iz tega in podobnih principov se je razvila teorija Riemannovih ploskev. Osnovne ideje in rezultate povezane z njo si bomo s pogledom usmerjenim na eliptične krivulje in toruse ogledali v tem poglavju.
+Iz tega in podobnih principov se je razvila teorija Riemannovih ploskev. Osnovne ideje in rezultate povezane z njo si bomo s pogledom, usmerjenim na eliptične krivulje in toruse, ogledali v tem poglavju.
 
 % V nadaljevanju bomo pokazali, da se ti dve strukturi ujemata, ob primerni izbiri mreže $\Lambda$, \oz podajata izomorfni Rieamnnovi ploskvi. 
 
@@ -1673,20 +1675,20 @@ Iz tega in podobnih principov se je razvila teorija Riemannovih ploskev. Osnovne
 \end{definicija}
 
 \begin{opomba}
-    Za vsako lokalno karto $(U, \varphi)$ iz danega kompleksnega atlasa, bo zožitev $\varphi|_V$ na poljubno manjšo odprto podmnožico $V \subseteq U$ še vedno lokalna karta kompatibilna z vsemi drugimi iz danega kompleksnega atlasa. Zato lahko v nadaljevanju po potrebi izbiramo lokalne karte definirane na poljubno majhnih odprtih množicah v $X$. 
+    Za vsako lokalno karto $(U, \varphi)$ iz danega kompleksnega atlasa bo zožitev $\varphi|_V$ na poljubno manjšo odprto podmnožico $V \subseteq U$ še vedno lokalna karta, kompatibilna z vsemi drugimi iz danega kompleksnega atlasa. Zato lahko v nadaljevanju po potrebi izbiramo lokalne karte, definirane na poljubno majhnih odprtih množicah v $X$. 
 \end{opomba}
 
 \begin{primer*}
-    Kompleksna ravnina $\C$ je Riemannova ploskev podana z eno samo lokalno karto $(\C, \id_\C)$. 
+    Kompleksna ravnina $\C$ je Riemannova ploskev, podana z eno samo lokalno karto $(\C, \id_\C)$. 
 \end{primer*}
 
 \begin{primer*}
     
-    Poljubna odprta podmnožica $Y$ Riemannove ploskve $X$ je tudi Riemannova ploskev. Če je $((U_i, \varphi_i))_{i \in I}$ kompleksni atlas za $X$, potem vzamemo družino $((U_i \cap Y, \varphi_i|_{U_i \cap Y}))_{i \in I}$ za kompleksni atlas $Y\subseteq X$. Res, $(U_i \cap Y)_{i \in I}$ je odprto pokritje za $Y$, zožitve $\varphi_i|_{U_i \cap Y}$ so še vedno homeomorfizmi, morda nekoliko manjših okolic, vse zožitve prehodnih preslikav pa so tudi same holomorfne, spet morda na kakšnih manjših odprtih okolicah. 
+    Poljubna odprta podmnožica $Y$ Riemannove ploskve $X$ je tudi Riemannova ploskev. Če je $((U_i, \varphi_i))_{i \in I}$ kompleksni atlas za $X$, potem vzamemo družino $((U_i \cap Y, \varphi_i|_{U_i \cap Y}))_{i \in I}$ za kompleksni atlas na $Y\subseteq X$. Res, $(U_i \cap Y)_{i \in I}$ je odprto pokritje za $Y$, zožitve $\varphi_i|_{U_i \cap Y}$ so še vedno homeomorfizmi, morda nekoliko manjših okolic, vse zožitve prehodnih preslikav pa so tudi same holomorfne, spet morda na kakšnih manjših odprtih okolicah. 
 \end{primer*}
     
 \begin{primer*}
-    Prvi nekoliko bolj zanimiv primer Riemannove ploskve je Riemannova sfera $\RS = \C \cup \{\infty\}$. Topološko gledano, je $\RS$ kompaktifikacija z eno točko kompleksne ravnine $\C$, torej homeomorfna sferi $S^2$. Bazo odprtih okolic poljubne točke $z \in \C \subseteq \RS$ tvorijo odprti diski oblike $\disk{z}{r}$ za $r>0$, bazo odprtih okolic točke $\infty \in \RS$ pa sestavljajo komplementi zaprtih diskov s središčem v izhodišču $\RS \setminus \overline{\disk{0}{r}}$. Glede na to topologijo je preslikava
+    Prvi nekoliko bolj zanimiv primer Riemannove ploskve je Riemannova sfera $\RS = \C \cup \{\infty\}$. Topološko gledano je $\RS$ kompaktifikacija z eno točko kompleksne ravnine $\C$, torej homeomorfna sferi $S^2$. Bazo odprtih okolic poljubne točke $z \in \C \subseteq \RS$ tvorijo odprti diski oblike $\disk{z}{r}$ za $r>0$, bazo odprtih okolic točke $\infty \in \RS$ pa sestavljajo komplementi zaprtih diskov s središčem v izhodišču $\RS \setminus \overline{\disk{0}{r}}$. Glede na to topologijo je preslikava
     \[
         \varphi: \RS\setminus\{0\} \to \C, \quad z \mapsto \frac{1}{z}
     \]
@@ -1710,7 +1712,7 @@ Iz tega in podobnih principov se je razvila teorija Riemannovih ploskev. Osnovne
 
 \begin{definicija}
     \label{holomorfna preslikava}
-    Naj bosta $X$ in $Y$ Riemannovi ploskvi. Pravimo, da je zvezna preslikava $f:X \to Y$ \emph{holomorfna} ali \emph{analitična}, kadar za vsak $x \in X$ obstaja lokalna karta $(U, \varphi)$ iz kompleksnega atlasa $X$, da je $x \in U$, in lokalna karta $(V, \psi)$ iz kompleksnega atalasa $Y$, da je $f(x) \in V$, ter ob tem velja, da je preslikava  
+    Naj bosta $X$ in $Y$ Riemannovi ploskvi. Pravimo, da je zvezna preslikava $f:X \to Y$ \emph{holomorfna} ali \emph{analitična}, kadar za vsak $x \in X$ obstajata lokalna karta $(U, \varphi)$ iz kompleksnega atlasa $X$, da je $x \in U$, in lokalna karta $(V, \psi)$ iz kompleksnega atalasa $Y$, da je $f(x) \in V$, ter ob tem velja, da je preslikava  
     \[
         \psi \circ f \circ \varphi\inv : \varphi(U \cap f\inv(V)) \to \psi(V)
     \]
@@ -1718,7 +1720,7 @@ Iz tega in podobnih principov se je razvila teorija Riemannovih ploskev. Osnovne
 \end{definicija}
 
 \begin{trditev}
-    V posamezni točki $x \in X$, je definicija \ref{holomorfna preslikava} (oziroma holomorfnost preslikave $\psi \circ f \circ \varphi\inv$) neodvisna od izbire lokalnih kart $(U, \varphi)$ in $(V, \psi)$. 
+    V posamezni točki $x \in X$ je definicija \ref{holomorfna preslikava} (oziroma holomorfnost preslikave $\psi \circ f \circ \varphi\inv$) neodvisna od izbire lokalnih kart $(U, \varphi)$ in $(V, \psi)$. 
 \end{trditev}
 
 \begin{dokaz}
@@ -1745,19 +1747,19 @@ Iz tega in podobnih principov se je razvila teorija Riemannovih ploskev. Osnovne
     \]
     Polejmo si, zakaj bi $\olsi{f}$ bila tudi holomorfna. V ta namen si lokalno okoli poljubne točke iz $D$ oglejmo $\olsi{f}$ v kartah, ob tem pa ločimo dve možnosti.
     \begin{enumerate}[(i)]
-        \item Če je $z \in D\setminus S$, zaradi diskretnosti množice $S$, obstaja odprta okolica $U$ točke $z$, ki je diskjunktna z $S$. Tedaj je funkcija
+        \item Če je $z \in D\setminus S$, zaradi diskretnosti množice $S$ obstaja odprta okolica $U$ točke $z$, ki je disjunktna s $S$. Tedaj je funkcija
         \[
             \id_\C \circ \olsi{f} \circ \id_U\inv = f|_U  
         \]
         holomorfna na $U$, med lokalnima kartama $(U, \id_U)$ za $D$ ter $(\C, \id_\C)$ za $\RS$.
         
-        \item Če je $z \in S$, pa zaradi diskretnosti množice ničel holomorfne funkcije $f$ obstaja odprta okolica $U$ točke $z$, ki je z njo disjunktna. Tedaj je funkcija
+        \item Če je $z \in S$, pa zaradi diskretnosti množice ničel holomorfne funkcije $f$ obstaja odprta okolica $U$ točke $z$, ki množice ničel ne seka. Tedaj je funkcija
         \[
             \varphi \circ \olsi{f} \circ \id_U\inv = \frac{1}{f|_U}
         \]
         holomorfna po začetni opazki, saj se $\frac{1}{f}$ holomorfno razširi z vrednostjo $0$ v polu $z \in S$. Tukaj smo uporabili lokalni karti $(U, \id_U)$ za $D$ in $(\RS \setminus \{0\}, \varphi)$ za $\RS$.
     \end{enumerate}
-
+    Zaključimo lahko, da je tako definirana razširitev meromorfne funkcije $f$ holomorfna preslikava $D \to \RS$ med Riemannovima ploskvama.
 
     % Funkcijo $f$ lahko identificiramo s preslikavo $f : D \to \RS$, kjer dodatno definiramo $f(a) = \infty$ za vse $a \in S$. Za poljubno točko iz $D$, ki ni pol, obstaja odprta okolica $U$, ki ne vsebuje nobenega pol, zaradi diskretnosti množice $S$. Tedaj je pri izbiri kart $(\C, \id_\C)$ in $(U, \id_U)$ funkcija
     % \[
@@ -1805,7 +1807,7 @@ Zelo pomemba trditev, ki razčisti vprašanje o  holomorfnosti inverza holomorfn
         \psi(f(\varphi\inv(z))) - \psi(f(\varphi\inv(z_0))) = (z - z_0)^m g(z),
     \]
     kjer je $m \geq 2$ in $g \in \hol{W}$ brez ničle na $W$, % lahko definiramo $m$-ti koren funkcije $g$, tj. $h^m = g$
-    kar bi bilo v nasprotju z injektivnostjo $\psi \circ f \circ \varphi\inv$. Tako dobimo po izreku o inverzni funkciji \cite[Izrek 67]{Globevnik} holomorfen inverz, definiran na okolici točke $\psi(f(\varphi(z_0))) \in \psi(f(U) \cap V)$, katerega predpis se bo zaradi enoličnosti inverzov ujemal s $\varphi \circ f\inv \circ \psi\inv$ na ustrezni domeni. To lahko storimo za vsak $z_0 \in \varphi(U \cap f\inv(V))$, kar zagotovi holomorfnost preslikave $\varphi \circ f\inv \circ \psi\inv$ %na uniji okolic vseh točk iz $\psi(f(U) \cap V)$, kar pomeni holomorfnost 
+    kar bi bilo v nasprotju z injektivnostjo $\psi \circ f \circ \varphi\inv$. Tako dobimo po izreku o inverzni funkciji \cite[izrek 67]{Globevnik} holomorfen inverz, definiran na okolici točke $\psi(f(\varphi(z_0))) \in \psi(f(U) \cap V)$, katerega predpis se bo zaradi enoličnosti inverzov ujemal s $\varphi \circ f\inv \circ \psi\inv$ na ustrezni domeni. To lahko storimo za vsak $z_0 \in \varphi(U \cap f\inv(V))$, kar zagotovi holomorfnost preslikave $\varphi \circ f\inv \circ \psi\inv$ %na uniji okolic vseh točk iz $\psi(f(U) \cap V)$, kar pomeni holomorfnost 
     na celotnem $\psi(f(U) \cap V)$. 
     
     S tem smo pokazali holomorfnost preslikave $f\inv$ v vseh lokalnih kartah Riemannovih ploskev $X$ in $Y$, od koder sledi biholomorfnost preslikave $f$ in zaključi dokaz. 
@@ -1813,7 +1815,7 @@ Zelo pomemba trditev, ki razčisti vprašanje o  holomorfnosti inverza holomorfn
 
 \begin{izrek}[Izrek o implicitni preslikavi]
     \label{izrek o impliclitni preslikavi}
-    Naj bo $\Omega \subseteq \C^2$ odprto območje in naj bo $f : \Omega \to \C : (z, w) \mapsto f(z,w)$ funkcija, ki je holomorfna v obeh spremenljivkah posebej. Denimo, da je $(\alpha, \beta) \in \Omega$ ničla za $f$ in da velja $f_w(\alpha, \beta) \neq 0$, kjer $f_w$ označuje kompleksni odvod po drugi spremenljivki. Tedaj obstajata dovolj majhni okolici $U \subseteq \C$ točke $\alpha$ in $V \subseteq \C$ okolica točke $\beta$, za kateri je $U \times V \subseteq \Omega$, ter enolično določena holomorfna preslikava $\phi : U \to V$, ki izpolnjuje pogoj: 
+    Naj bo $\Omega \subseteq \C^2$ odprto območje in naj bo $f : \Omega \to \C$, $(z, w) \mapsto f(z,w)$ funkcija, ki je holomorfna v obeh spremenljivkah posebej. Denimo, da je $(\alpha, \beta) \in \Omega$ ničla za $f$ in da velja $f_w(\alpha, \beta) \neq 0$, kjer $f_w$ označuje kompleksni odvod po drugi spremenljivki. Tedaj obstajata dovolj majhni okolici $U \subseteq \C$ točke $\alpha$ in $V \subseteq \C$ točke $\beta$, za kateri je $U \times V \subseteq \Omega$, ter enolično določena holomorfna preslikava $\phi : U \to V$, ki izpolnjuje pogoj: 
     za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
     % Naj bo $\Omega \subseteq \C^2$ odprto območje in naj bo $f : \Omega \to \C : (z, w) \mapsto f(z,w)$ funkcija, ki je holomorfna v obeh spremenljivkah posebej. Denimo, da je $(z_0, w_0) \in \Omega$ ničla za $f$ in da velja $f_w(z_0, w_0) \neq 0$, kjer $f_w$ označuje kompleksni odvod po drugi spremenljivki. Tedaj obstajata dovolj majhni okolici $U \subseteq \C$ točke $z_0$ in $V \subseteq \C$ okolica točke $w_0$ ter enolično določena holomorfna preslikava $\phi : U \to V$, ki izpolnjuje pogoj: Za vse pare $(z, w) \in U \times V$ je $f(z,w) = 0$ natanko tedaj, ko je $w = \phi(z)$.
 
@@ -1829,7 +1831,7 @@ Zelo pomemba trditev, ki razčisti vprašanje o  holomorfnosti inverza holomorfn
 \end{komentar}
 
 \begin{dokaz}
-    Dokaz gladke verzije izreka bralec najde v \cite[Izrek 14]{Globevnik}, preostane nam le še obravnava holomorfnosti implicitne funkcije $\phi$.
+    Dokaz gladke verzije izreka bralec najde v \cite[izrek 14]{Globevnik}, preostane nam le še obravnava holomorfnosti implicitne funkcije $\phi$.
 
     Na zvezo $f(z, \phi(z)) = 0$, ki velja povsod na $z \in U \subseteq \C$, delujemo s Cauchy-Riemannovim operatorjem $\pdv{\bar{z}}$ in tako dobimo
     \[
@@ -1905,24 +1907,25 @@ Opazimo, da
 % Glede na to, da smo vsakega od parov $(U, \varphi)$ konstruirali okoli neke izbrane točke z $E$, bi ta družina formalno lahko bila indeksirana kar s točkami $E$, vendar te podrobnosti ne bomo izpostavljali in se držali bolj ustaljene notacije $\mathcal{E} = ((U_i, \varphi_i))_{i \in I}$.
 % zares ne bomo izpostavljali in   zato bomo za enostavnejš
 % Za družino $((U_i, \varphi_i))_{i \in I}$ pravkar konstruiranih lokalnih kart (indeksiramo jih kar s točkami iz $E$) velja: 
-$(U_i)_{i \in I}$ tvori odprto pokritje za $E$, saj njihova unija vsebuje vse točke iz $E$, preslikave $\varphi_i$ pa so homeomorfizmi. Preostane preveriti še kompatibilnostni pogoj -- da so vse prehodne preslikave
+$(U_i)_{i \in I}$ tvori odprto pokritje za $E$, saj njena unija vsebuje vse točke iz $E$, preslikave $\varphi_i$ pa so homeomorfizmi. Preostane preveriti še kompatibilnostni pogoj -- da so vse prehodne preslikave
 \[
     \varphi_i \circ \varphi_j\inv : \varphi_j(U_i \cap U_j) \to \varphi_i(U_i \cap U_j)  
 \]
 holomorfne. Vzemimo poljubni dve karti $(U_i, \varphi_i)$ in $(U_j, \varphi_j)$, označimo s $\phi_i : W_i \to \C$ holomorfno funkcijo, katere graf nad eno izmed spremenljivk je okolica $U_i$. Analogno definiramo tudi $\phi_j : W_j \to \C$ in $U_j$, ob tem pa ločimo dva primera. 
-\begin{enumerate}[(i)]
-    \item Okolici $U_i$, $U_j$ sta grafa funkcij nad istima spremenljivkama. Obravnavajmo samo primer, ko je ta spremenljivka $x$, drugi gre povsem analogno. Tedaj izračunamo
-    \[
-        (\varphi_i \circ \varphi_j\inv)(z) = \pr_1(z, \phi_j(z)) = z \quad \text{za vse $z \in \varphi_j(U_i \cap U_j)$,}
-    \] 
-    kar pomeni, da je prehodna preslikava $\varphi_i \circ \varphi_j\inv = \id_{\varphi_j(U_i \cap U_j)}$ enaka identiteti na množici $\varphi_j(U_i \cap U_j)$, ki je očitno holomorfna. 
+% \begin{enumerate}[(i)]
 
-    \item Okolici $U_i$, $U_j$ nista grafa funkcij nad istima spremenljivkama in recimo, da je $U_i$ graf funkcije $\phi_i$ nad spremenljivko $x$, množica $U_j$ pa naj bo graf funkcije $\phi_j$ nad spremenljivko $y$. Tedaj izračunamo
-    \[
-        (\varphi_i \circ \varphi_j\inv)(z) = \pr_1(\phi_j(z), z) = \phi_j(z) \quad \text{za vse $z \in \varphi_j(U_i \cap U_j)$.}   
-    \]
-    Funkcija $\phi_j$ je holomorfna na kvečjemu večji množici $W_j \supseteq \varphi_j(U_i \cap U_j)$, zato je prehodna preslikava $\varphi_i \circ \varphi_j\inv$ holomorfna na celotnem $\varphi_j(U_i \cap U_j)$. Do povsem enakega zaključka pridemo, če je $U_i$ graf funkcije nad spremenljivko $y$, $U_j$ pa nad spremenljivko $x$. 
-\end{enumerate} 
+(i) Okolici $U_i$, $U_j$ sta grafa funkcij nad istima spremenljivkama. Obravnavajmo samo primer, ko je ta spremenljivka $x$, drugi gre povsem analogno. Tedaj izračunamo
+\[
+    (\varphi_i \circ \varphi_j\inv)(z) = \pr_1(z, \phi_j(z)) = z \quad \text{za vse $z \in \varphi_j(U_i \cap U_j)$,}
+\] 
+kar pomeni, da je prehodna preslikava $\varphi_i \circ \varphi_j\inv = \id_{\varphi_j(U_i \cap U_j)}$ enaka identiteti na množici $\varphi_j(U_i \cap U_j)$, ki je očitno holomorfna. 
+
+(ii) Okolici $U_i$, $U_j$ nista grafa funkcij nad istima spremenljivkama in recimo, da je $U_i$ graf funkcije $\phi_i$ nad spremenljivko $x$, množica $U_j$ pa naj bo graf funkcije $\phi_j$ nad spremenljivko $y$. Tedaj izračunamo
+\[
+    (\varphi_i \circ \varphi_j\inv)(z) = \pr_1(\phi_j(z), z) = \phi_j(z) \quad \text{za vse $z \in \varphi_j(U_i \cap U_j)$.}   
+\]
+Funkcija $\phi_j$ je holomorfna na kvečjemu večji množici $W_j \supseteq \varphi_j(U_i \cap U_j)$, zato je prehodna preslikava $\varphi_i \circ \varphi_j\inv$ holomorfna na celotnem $\varphi_j(U_i \cap U_j)$. Do povsem enakega zaključka pridemo, če je $U_i$ graf funkcije nad spremenljivko $y$, $U_j$ pa nad spremenljivko $x$. 
+% \end{enumerate} 
 Tako vidimo, da je družina lokalnih kart $((U_i, \varphi_i))_{i \in I}$ res kompleksni atlas za $E$. 
 
 \subsubsection*{\textsc{2. del}} 
@@ -1933,7 +1936,7 @@ Tako vidimo, da je družina lokalnih kart $((U_i, \varphi_i))_{i \in I}$ res kom
 oziroma s homogenim polinomom $F = y^2z - 4x^3 + axz^2 + bz^3$, ki je homogenizacija polinoma $f$. S pomočjo kompleksnega atlasa za $E$ bomo sedaj konstruirali atlas za $\olsi{E}$. 
 
 \begin{komentar}
-    Ta del bo zahteval znanje iz uvoda v geometrijsko topologijo o kvocientnih topoloških prostorih, zato se bomo za podrobnosti sklicali na \cite[poglavje 3.2.]{MrcunTop}. Bralec ga lahko po potrebi tudi preskoči, saj ga obravnavamo zgolj za kompletnost celotne izpeljave. 
+    Ta del bo zahteval znanje iz uvoda v geometrijsko topologijo o kvocientnih topoloških prostorih, zato se bomo za podrobnosti sklicali na \cite[poglavje 3.2]{MrcunTop}. Bralec ga lahko po potrebi tudi preskoči, saj ga obravnavamo zgolj za kompletnost celotne izpeljave. 
     % in za nadaljevanje ne bo bistven, potrebovali bomo samo končni rezultat. 
     % , in ga lahko bralec po potrebi tudi preskoči, saj ga obravnavamo zgolj za kompletnost celotne izpeljava. 
 \end{komentar}
@@ -1950,9 +1953,9 @@ Točko $\pcoor{0 : 1 : 0}$ bomo imenovali \emph{točka v neskončnosti} eliptič
 
 Označimo $V_i = q(\iota(U_i))$. Kot prej naj bo $W_i \subseteq \C$ slika homeomorfizma $\varphi_i$. Pomožno preslikavo $\varphi'_i : \iota(U_i) \to W_i$ definiramo s predpisom 
 \[
-    \varphi'_i(x,y,z) = \varphi_i(x,y)
+    \varphi'_i(x,y,z) = \varphi_i(x,y),
 \]
-in tako bo $\varphi'_i \circ \iota = \varphi_i$.
+za katero velja $\varphi'_i \circ \iota = \varphi_i$.
 
 Preslikava $\pi: \iota(U_i) \to V_i \subseteq \PC$ je injekcija, saj se nobeni dve različni točki iz $\iota(U_i)$ ne razlikujeta za skalarni večkratnik iz $\CM$ in zaradi tega tvori samo trivialne identifikacije. Kot homeomorfizem je tudi $\varphi'_i$ injekcija, kar pomeni, da imata ti dve preslikavi enaka vlakna -- same enoelementne množice. Od tod sklepamo, da je inducirana preslikava $\olsi{\varphi}_i$ dobro definirana zvezna injekcija. Iz surjektivnosti $\varphi'_i$ sledi surjektivnost $\olsi{\varphi}_i$, ker pa je $\varphi'_i$ homeomorfizem (torej v posebnem kvocientna preslikava), je inducirana preslikava $\olsi{\varphi}_i : V_i \to W_i$ homeomorfizem, kot ponazarja komutativen diagram \eqref{projektivna karta diagram}. Ta premislek utemeljuje \cite[posledica 3.23]{MrcunTop}.
 %
@@ -1989,7 +1992,7 @@ Za poljubna $i,j \in I$ velja
     \varphi'_i \circ \iota \circ \varphi_j\inv = 
     \varphi_i \circ \varphi_j\inv,
 \]
-kar nas pripelje do prehodne preslikave med lokalnima kartama afine krivulje $E$, za katero smo se že v prvem delu prepričali, da je holomorfna. Kompatibilnostni pogoj torej velja tudi za karti $(V_i, \olsi{\varphi}_i)$, $(V_j, \olsi{\varphi}_j)$.
+kar nas pripelje do prehodne preslikave med lokalnima kartama afine krivulje $E$, za katero smo se že v prvem delu prepričali, da je holomorfna. Kompatibilnostni pogoj torej velja tudi za lokalni karti $(V_i, \olsi{\varphi}_i)$, $(V_j, \olsi{\varphi}_j)$.
 
 Skupek vseh na ta način konstruiranih parov $(V_i, \olsi{\varphi}_i)$ bo del kompleksnega atlasa za $\olsi{E}$, za celoto pa nam manjka že prej omenjena lokalna karta okrog točke v neskončnosti $\pcoor{0 : 1 : 0}$. Poglejmo si polinom $F(x, 1, z) = z - 4x^3 + axz^2 + bz^3$ okrog točke $(x,z) = (0,0)$. Njegov odvod po $z$ 
 \[
@@ -2012,7 +2015,7 @@ homeomorfizem, ki ima inverz podan s predpisom $x \mapsto (x,1,\phi_\infty(x))$.
     \label{projektivna karta v inf diagram}  
     \begin{tikzcd}
     % https://q.uiver.app/?q=WzAsMyxbMCwwLCJcXGlvdGEoVV9pKSJdLFsxLDAsIldfaSJdLFswLDEsIlZfaSJdLFswLDEsIlxcdmFycGhpJ19pIl0sWzAsMiwiXFxwaSIsMl0sWzIsMSwiXFx2YXJwaGlfaSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
-	{U_\infty)} & {W_\infty} \\
+	{U_\infty} & {W_\infty} \\
 	{V_i}
 	\arrow["{\varphi'_\infty}", from=1-1, to=1-2]
 	\arrow["\pi"', from=1-1, to=2-1]
@@ -2029,7 +2032,7 @@ holomorfni za poljuben $i \in I$. Najprej še dodatno predpostavimo, da je $U_i 
 
 Za holomorfnost omenjenih prehodnih preslikav moremo razumeti njuni domeni oz. še prej množico $V_\infty \cap V_i$. Zanimajo nas samo tisti $i \in I$, za katere je $V_\infty \cap V_i$ neprazna, zato bomo brez škode za splošnost to privzeli, saj je v nasprotnem primeru kompatibilnostni pogoj že na prazno izpolnjen. 
 
-Po eni strani, množica $V_\infty \cap V_i$ vsebuje vse točke oblike $\pcoor{z : 1 : \phi_\infty(z)}$ za neki $z \in W_\infty$, po drugi strani pa ima ta točka zaradi vsebovanosti v $V_i$ tudi obliko $\pcoor{w : \phi_i(w) : 1}$ za neki $w \in W_i$. Eno projektivno točko smo tako zapisali s pomočjo dveh različnih predstavnikov, ki se razlikujeta za multiplikativno konstanto iz $\CM$. Tako iz primerjave tretjih komponent (do multiplikativne konstante iz $\CM$ natančno) ugotovimo, da je $\phi_\infty(z) \neq 0$ in je tako posredno tudi $z \neq 0$. S primerjavo drugih komponent vidimo, da mora veljati $\phi_i(w) \neq 0$, primerjava prvih komponent pa iz pogoja $z \neq 0$ zagotovi še $w \neq 0$. Ker lahko homogene koordinate s temi neničelnimi vrednostmi delimo, je od tod razvidno $\pcoor{z : 1 : \phi_\infty(z)} = \pcoor{\tfrac{z}{\phi_\infty(z)} : \tfrac{1}{\phi_\infty(z)} : 1}$ ter $\pcoor{w : \phi_i(w) : 1} = \pcoor{\tfrac{w}{\phi_i(w)} : 1 : \tfrac{1}{\phi_i(w)}}$. 
+Po eni strani množica $V_\infty \cap V_i$ vsebuje vse točke oblike $\pcoor{z : 1 : \phi_\infty(z)}$ za neki $z \in W_\infty$, po drugi strani pa ima ta točka zaradi vsebovanosti v $V_i$ tudi obliko $\pcoor{w : \phi_i(w) : 1}$ za neki $w \in W_i$. Eno projektivno točko smo tako zapisali s pomočjo dveh različnih predstavnikov, ki se razlikujeta za multiplikativno konstanto iz $\CM$. Tako iz primerjave tretjih komponent (do multiplikativne konstante iz $\CM$ natančno) ugotovimo, da je $\phi_\infty(z) \neq 0$ in je tako posredno tudi $z \neq 0$. S primerjavo drugih komponent vidimo, da mora veljati $\phi_i(w) \neq 0$, primerjava prvih komponent pa iz pogoja $z \neq 0$ zagotovi še $w \neq 0$. Ker lahko homogene koordinate s temi neničelnimi vrednostmi delimo, je od tod razvidno $\pcoor{z : 1 : \phi_\infty(z)} = \pcoor{\tfrac{z}{\phi_\infty(z)} : \tfrac{1}{\phi_\infty(z)} : 1}$ ter $\pcoor{w : \phi_i(w) : 1} = \pcoor{\tfrac{w}{\phi_i(w)} : 1 : \tfrac{1}{\phi_i(w)}}$. 
 Če je $z \in \olsi{\varphi}_\infty(V_\infty \cap V_i)$ poljuben, potem izračunamo 
 \[
     \olsi{\varphi}_i (\olsi{\varphi}_\infty\inv (z)) = 
@@ -2067,22 +2070,22 @@ Tudi ti dve preslikavi sta torej holomorfni, kjer sta definirani, \tj na $\olsi{
 Ko slednji dodamo še karto $(V_\infty, \olsi{\varphi}_\infty)$ pri točki $\pcoor{0 : 1 : 0}$, bo tako celotna družina $((V_i,\olsi{\varphi}_i))_{i \in I \cup \{\infty\}}$ tvorila kompleksen atlas za $\olsi{E}$. Res, družina $(V_i)_{i \in I \cup \{\infty\}}$ tvori odprto pokritje za $\olsi{E}$, vse preslikave $\olsi{\varphi}_i$ so homeomorfizmi in vse lokalne karte so med sabo kompatibilne. 
 
 \begin{opomba}
-    Na začetku razdelka \ref{Kompleksna struktura na elipticni krivulji} smo omenili, da je eliptična krivulja kompaktna. To bomo sicer videli preko biholomorfizma (ki je v posebnem tudi homeomorfizem) s kompleksnim torusom, lahko pa to pokažemo tudi na sledeč način. Če $F \in \C[x,y,z]$ označuje minimalni polinom krivulje $E$, je množica $\{ (x,y,z) \in \C^3\setminus\{0\} \mid F(x,y,z) = 0\}$ zaprta v $\C^3\setminus\{0\}$, njen presek s kompleksno enotsko sfero $S(\C^3)$ pa je kompakten. Slika tega preseka s kvocientno projekcijo $S(\C^3) \to \PC$, je ravno $E\subseteq \PC$, kot zvezna slika kompakta pa je tudi sama kompaktna, torej je $E$ kompaktna. 
+    Na začetku razdelka \ref{Kompleksna struktura na elipticni krivulji} smo omenili, da je eliptična krivulja kompaktna. To bomo sicer videli preko biholomorfizma (ki je v posebnem tudi homeomorfizem) s kompleksnim torusom, lahko pa to pokažemo tudi na sledeč način. Če $F \in \C[x,y,z]$ označuje minimalni polinom krivulje $E$, je množica $\{ (x,y,z) \in \C^3\setminus\{0\} \mid F(x,y,z) = 0\}$ zaprta v $\C^3\setminus\{0\}$, njen presek s kompleksno enotsko sfero $S(\C^3)$ pa je kompakten. Slika tega preseka s kvocientno projekcijo $S(\C^3) \to \PC$ je ravno $E\subseteq \PC$, kot zvezna slika kompakta pa je tudi sama kompaktna, torej je $E$ kompaktna. 
     
     Tukaj lahko vlogo eliptične krivulje $E \subseteq \PC$ prevzame tudi poljubna projektivna algebraična krivulja in enak premislek nam pokaže, da je tudi ta kompaktna podmnožica v $\PC$.
 \end{opomba}
 
-S tem je zaključena konstrukcija kompleksnega atlasa na eliptični krivulji. Za konec tega razdelka si poglejmo še uporabo kompleksne strukture na primeru holomorfnih funkcij med eliptičnima kriuljama.  
+S tem je zaključena konstrukcija kompleksnega atlasa na eliptični krivulji. Za konec tega razdelka si poglejmo še uporabo kompleksne strukture na primeru holomorfnih funkcij med eliptičnima krivuljama.  
 
 \subsubsection{Holomorfne preslikave med eliptičnimi krivuljami}
     V \ref{algebraicne krivulje}.\ poglavju smo definirali pojem projektivne transformacije in nato v lemi \ref{projektivnosti wnf} opazili, da imajo vse projektivnosti med projektivno ekvivalentnima eliptičnima krivuljama točno določeno obliko. V tem zgledu bomo pokazali, da je vsaka takšna projektivnost tudi holomorfna preslikava. 
 
 \begin{trditev}
     \label{projektivnost je biholomorfizem}
-    Naj bosta $E_1, E_2 \subseteq \PC$ projektivno ekvivalentni eliptični krivulji podani z enačbama 
+    Naj bosta $E_1, E_2 \subseteq \PC$ projektivno ekvivalentni eliptični krivulji, podani z enačbama 
     \[
         E_1 : \quad y^2z = 4x^3 - a_1xz^2 - b_1z^3 \quad \text {in} \quad
-        E_2 : \quad y^2z = 4x^3 - a_2xz^2 - b_2z^3
+        E_2 : \quad y^2z = 4x^3 - a_2xz^2 - b_2z^3,
     \]
     in naj bo $u \in \CM$ tak, da je
     \[
@@ -2091,16 +2094,16 @@ S tem je zaključena konstrukcija kompleksnega atlasa na eliptični krivulji. Za
     projektivna ekvivalenca med njima. Tedaj je $g$ holomorfna preslikava.  
 \end{trditev}
 
-\begin{proof}
-    Po definiciji preverimo holomorfnost preslikave. Okoli poljubne točke $p \in E_1$ ter njene slike $g(p) \in E_2$ bomo poiskali par kart $\varphi$ in $\psi$ iz atlasov za $E_1$ in $E_2$ in se prepričali o holomorfnosti preslikave $\psi \circ g \circ \varphi\inv$. 
+\begin{dokaz}
+    Po definiciji preverimo holomorfnost preslikave $g$. Okoli poljubne točke $p \in E_1$ ter njene slike $g(p) \in E_2$ bomo poiskali par kart $\varphi$ in $\psi$ iz atlasov za $E_1$ in $E_2$ in se prepričali o holomorfnosti preslikave $\psi \circ g \circ \varphi\inv$. 
     
-    Označimo 
+    Označimo polinoma
     \[
         f_i = y^2 - 4x^3 + a_ix + b_i
     \]
     za $i \in \{1,2\}$.
     % in z $f_i^*$ homogenizacijo $f_i$ glede na spremenjivko $z$, kar je ravno minimalni polinom krivulje $E_i$. 
-    Ker sta $E_i$ eliptični, sta po definiciji nesingularni in imata neničelni diskriminanti, kar pomeni, da ima kubični polinom $4x^3 - a_1x - b_1$ tri različne (kompleksne) ničle $e_1$, $e_2$, $e_3$. Projektivnost $g$ poveže para keoficientov $(a_i, b_i)$, in sicer po \eqref{eq:transformacija koeficientov in diskriminante} velja $a_2 = u^4 a_1$, $b_2 = u^6 b_1$, torej so $u^2e_1$, $u^2e_2$, $u^2e_3$ tri različne ničle polinoma $4x^3 - a_2x - b_2$. To vidimo tudi direktno z uporabo projektivnosti $g$, ki je bijektivna in slika $\pcoor{e_i : 0 : 1} \mapsto \pcoor{u^2 e_i : 0 : 1}$. Hkrati pa so točke oblike $(e_i, 0)$ \oz $(u^2 e_i, 0)$ edine v katerih je $\pdv[f_1]{y} = 0$ \oz $\pdv[f_2]{y} = 0$ in, ki rešijo enačbo $f_1 = 0$ \oz $f_2 = 0$. Na afinem delu krivulje bo tako, razen v teh treh točkah, množno uporabiti lokalne karte, ki izhajajo iz dejstva, da je krivuljo mogoče predstaviti kot graf holomorfne funkcije nad spremenljivko $x$. Ločimo nekaj možnosti glede na izbrano točko $p \in E_1$.
+    Ker sta $E_i$ eliptični, sta po definiciji nesingularni in imata neničelni diskriminanti, kar pomeni, da ima kubični polinom $4x^3 - a_1x - b_1$ tri različne (kompleksne) ničle $e_1$, $e_2$, $e_3$. Projektivnost $g$ poveže para keoficientov $(a_i, b_i)$, in sicer po \eqref{eq:transformacija koeficientov in diskriminante} velja $a_2 = u^4 a_1$, $b_2 = u^6 b_1$, torej so $u^2e_1$, $u^2e_2$, $u^2e_3$ tri različne ničle polinoma $4x^3 - a_2x - b_2$. To vidimo tudi direktno z uporabo projektivnosti $g$, ki je bijektivna in slika $\pcoor{e_i : 0 : 1} \mapsto \pcoor{u^2 e_i : 0 : 1}$. Hkrati pa so točke oblike $(e_i, 0)$ \oz $(u^2 e_i, 0)$ edine, v katerih je $\pdv[f_1]{y} = 0$ \oz $\pdv[f_2]{y} = 0$ in ki rešijo enačbo $f_1 = 0$ \oz $f_2 = 0$. Na afinem delu krivulje bo tako, razen v teh treh točkah, množno uporabiti lokalne karte, ki izhajajo iz dejstva, da je krivuljo mogoče predstaviti kot graf holomorfne funkcije nad spremenljivko $x$. Ločimo nekaj možnosti glede na izbrano točko $p \in E_1$.
     % \begin{enumerate}
         % \item[(i)]
 
@@ -2124,28 +2127,28 @@ S tem je zaključena konstrukcija kompleksnega atlasa na eliptični krivulji. Za
         ki je jasno holomorfna na dovolj majhni odprti okolici točke $\varphi(p)$. 
         % \item[(ii)]
 
-        (ii) $p = \pcoor{0 : 1 : 0}$: Tudi za točko v neskončnosti imamo na obeh krivuljah lokalni karti $\varphi$ okrog $p$ in $\psi$ okrog $g(p) = \oio$ podani s predpisoma 
+        (ii) $p = \pcoor{0 : 1 : 0}$: Za točko v neskončnosti imamo na obeh krivuljah lokalni karti $\varphi$ okrog $p$ in $\psi$ okrog $g(p) = \oio$ podani s predpisoma 
         \[
             \varphi(\pcoor{x : 1 : z}) = x \quad \text{in} \quad
             \psi(\pcoor{x : 1 : z}) = x,  
         \] 
         njuna inverza pa z 
         \[
-            \varphi\inv(w) = \pcoor{\phi_1(w) : 1 : w} \quad \text{in} \quad
-            \psi\inv(w) = \pcoor{\phi_2(w) : 1 : w},
+            \varphi\inv(w) = \pcoor{w : 1 : \phi_1(w)} \quad \text{in} \quad
+            \psi\inv(w) = \pcoor{w : 1 : \phi_2(w)},
         \]
         za ustrezni holomorfni funkciji $\phi_1$ in $\phi_2$ na dovolj majhnih odprtih okolicah $\varphi(p)$ oziroma $\psi(g(p))$. Tedaj na tej majhni okolici $\varphi(p)$ velja 
         \begin{align*}
             \psi(g(\varphi\inv(w))) &= 
-            \psi(g(\pcoor{\phi_1(w) : 1 : w})) \\
-            &= \psi(\pcoor{u^2\phi_1(w) : u^3 : w}) =
-            \psi\left(\pcoor{\tfrac{\phi_1(w)}{u} : 1 : \tfrac{w}{u^3}}\right) = 
-            \frac{\phi_1(w)}{u}.
+            \psi(g(\pcoor{w : 1 : \phi_1(w)})) \\
+            &= \psi(\pcoor{u^2w : u^3 : \phi_1(w)}) =
+            \psi\left(\pcoor{\tfrac{w}{u} : 1 : \tfrac{\phi_1(w)}{u^3}}\right) = 
+            \frac{w}{u}.
         \end{align*}
         Slednji račun pokaže, da je $\psi \circ g \circ \varphi\inv$ na tej odprti okolici holomorfna.
         % \item[(iii)]
 
-        (iii) Nazadnje naj bo točka $p \in E_1$ poljubna, ki ni iz zgornjih dveh primerov. Tedaj imamo okoli $p$ in $g(p)$ lokani karti $\varphi$ in $\psi$, s predpisoma
+        (iii) Nazadnje naj bo točka $p \in E_1$ poljubna, ki ni iz zgornjih dveh primerov. Tedaj imamo okoli $p$ in $g(p)$ lokalni karti $\varphi$ in $\psi$ s predpisoma
         \[
             \varphi(\pcoor{x : y : 1}) = x \quad \text{in} \quad
             \psi(\pcoor{x : y : 1}) = x. 
@@ -2155,7 +2158,7 @@ S tem je zaključena konstrukcija kompleksnega atlasa na eliptični krivulji. Za
             \varphi\inv(w) = \pcoor{w : \phi_1(w) : 1} \quad \text{in} \quad
             \psi\inv(w) = \pcoor{w : \phi_2(w) : 1},
         \]
-        kjer sta $\phi_1$ in $\phi_2$ ustrezni holomorfni funkciji, katerih graf je lokalno afnini del krivulj $E_1$ \oz $E_2$ okoli točk $p$ \oz $g(p)$. Tedaj izračunamo
+        kjer sta $\phi_1$ in $\phi_2$ ustrezni holomorfni funkciji, katerih graf je lokalno afini del krivulj $E_1$ \oz $E_2$ okoli točk $p$ \oz $g(p)$. Tedaj izračunamo
         \[
             \psi(g(\varphi\inv(w))) =
             \psi(g(\pcoor{w : \phi_1(w) : 1})) =
@@ -2164,18 +2167,18 @@ S tem je zaključena konstrukcija kompleksnega atlasa na eliptični krivulji. Za
         \]
         kar je jasno predpis holomorfne funkcije na odprti okolici točke $\varphi(p)$. 
     % \end{enumerate}
-\end{proof}
+\end{dokaz}
 
 Poleg tega opazimo, da smo hkrati z istim premislekom pokazali tudi holomorfnost inverza dane projektivnosti, saj njen predpis po menjavi $u$ v $1/u$ še vedno ohranja obliko. Od tod sledi, da sta projektivno ekvivalentni eliptični krivulji tudi izomorfni kot Riemannovi ploskvi. Z drugimi besedami to pomeni, da smo algebraični izomorfizem (projektivnost med krivuljama) prevedli v analitičnega -- biholomorfizem Riemmanovih ploskev.
 % V zadnjem poglavju bomo pojasnili, še obrat te izjave, da vsak analitičen izomorfizem inducira tudi algebraičnega. 
 
-Neformalno opomnimo še, da je vsaka holomorfna funkcija $g: E_1 \to E_2$, v nekem smislu tudi ``algebraična'' -- njen prepis je podan s koorinatnimi funkcijami, ki so racionalne funkcije v spremenljivkah $x$, $y$, $z$. Glavni razlog za tem se skriva v trditvi, da lahko vsako eliptično funkcijo glede na neko mrežo $\Lambda$ zapišemo kot neko racionalno funkcijo v spremenljivkah $\wp$ in $\wp'$. Z drugimi besedami to pomeni, da je polje eliptičnih funkcij izomorfno razširitvi $\C$ s $\wp$ in $\wp'$, torej $\C(\wp, \wp')$, ki je kvadratična razširitev polja racionalnih funkcij s kompleksnimi koeficienti $\C(x)$, in velja
+Neformalno opomnimo še, da je vsaka holomorfna funkcija $g: E_1 \to E_2$ v nekem smislu tudi ``algebraična'' -- njen prepis je podan s koordinatnimi funkcijami, ki so racionalne funkcije v spremenljivkah $x$, $y$, $z$. Glavni razlog za to se skriva v trditvi, da lahko vsako eliptično funkcijo glede na neko mrežo $\Lambda$ zapišemo kot neko racionalno funkcijo v spremenljivkah $\wp$ in $\wp'$. Z drugimi besedami to pomeni, da je polje eliptičnih funkcij izomorfno razširitvi $\C$ s $\wp$ in $\wp'$, torej $\C(\wp, \wp')$. Ta pa je kvadratična razširitev polja racionalnih funkcij s kompleksnimi koeficienti $\C(x)$ in sicer velja
 \[
     \C(\wp, \wp') \iso 
     % \bigslant{\C(x)[y]}{(y^2 - 4x^3 + g_2x + g_3)}.
     \C(x)[y]/(y^2 - 4x^3 + g_2x + g_3).
 \]
-Ta izrek najdemo v \cite[\textbf{1}, \S2, izrek 4]{LangEllfunc}, bistvne ideje za tem fenomenom pa so opisane v \cite[\S 2 in \S 3]{Stevenhagen}.
+Ta izrek najdemo v \cite[\textbf{1}, \S2, theorem 4]{LangEllfunc}, bistvne ideje za tem fenomenom pa so opisane v \cite[\S 2 in \S 3]{Stevenhagen}.
 
 % \newpage
 
@@ -2183,23 +2186,23 @@ Ta izrek najdemo v \cite[\textbf{1}, \S2, izrek 4]{LangEllfunc}, bistvne ideje z
 %%%%% Komplkesna struktura na torusu %%%%%
 
 \subsection{Kompleksna struktura na torusu}
-Cilj tega razdelka bo najprej razumeti topologijo kvocienta $\C/\Lambda$, nato pa ga opremiti še s kompleksnim atlasom, da bomo lahko govorili o holomorfnih preslkavah med njim in eliptično krivuljo. 
+Cilj tega razdelka bo najprej razumeti topologijo kvocienta $\C/\Lambda$, nato pa ga opremiti še s kompleksnim atlasom, da bomo lahko govorili o holomorfnih preslikavah med njim in eliptično krivuljo. 
 
-Naj bo $\pi: \C \to \C/\Lambda$ kvocientna projekcija iz začetka poglavja \ref{elipticne funkcije} o eliptičnih funkcijah. Zaenkrat jo razumemo samo kot preslikavo množic, ki poljubni točki $z \in \C$ priredi njen ekvivalenčni razred $z + \Lambda$ vseh točk, ki se od $z$ razlikujejo za prišteto periodo iz $\Lambda$. Spomnimo se, da lahko tedaj $\C/\Lambda$ opremimo s kvocientno topologijo, tako da za odprte množice vzamemo natanko tiste $U \subseteq \C/\Lambda$, za katere je $\pi\inv (U)$ odprta v $\C$ in na ta način projekcija $\pi:\C \to \C/\Lambda$ postane zvezna preslikava. Poleg tega je $\pi$ tudi odprta, kar je v splošnem res za vse kvocientne projekcije v prostor orbit delovanja neke topološke grupe \cite[trditev 3.42]{MrcunTop}, prepričamo pa se lahko tudi z direktnim računom. Za poljubno odprto množico $U \subseteq \C$ je slika $\pi(U)$ odprta, saj je njeno \emph{nasičenje}
+Naj bo $\pi: \C \to \C/\Lambda$ kvocientna projekcija iz začetka poglavja \ref{elipticne funkcije} o eliptičnih funkcijah. Zaenkrat jo razumemo samo kot preslikavo množic, ki poljubni točki $z \in \C$ priredi njen ekvivalenčni razred $z + \Lambda$ vseh točk, ki se od $z$ razlikujejo za prišteto periodo iz $\Lambda$. Spomnimo se, da lahko tedaj $\C/\Lambda$ opremimo s kvocientno topologijo, tako da za odprte množice vzamemo natanko tiste $U \subseteq \C/\Lambda$, za katere je $\pi\inv (U)$ odprta v $\C$ in na ta način projekcija $\pi:\C \to \C/\Lambda$ postane zvezna preslikava. Poleg tega je $\pi$ tudi odprta, kar je v splošnem res za vse kvocientne projekcije v prostor orbit delovanja neke topološke grupe \cite[trditev 3.42]{MrcunTop}, o tem pa se lahko prepričamo tudi z direktnim računom. Za poljubno odprto množico $U \subseteq \C$ je njena slika $\pi(U)$ odprta, saj je njeno \emph{nasičenje}
 \[
     \pi\inv(\pi(U)) = U + \Lambda = \bigcup_{\om \in \Lambda} (U + \om)
 \]
-unija translatov odprte množice $U$ oblike $U + \om = \{z + \om \mid z \in U \}$, ti pa so vsi odprti. 
+unija translatov odprte množice $U$ oblike $U + \om = \{z + \om \mid z \in U \}$, ti pa so vsi odprti v $\C$. 
 
-Definicija topologije na kvocientu je dobra in precej temeljna, toda sama po sebi še morda nekoliko prikriva kateremu poznanemu prostoru je homeomorfen kvocient $\C/\Lambda$. Oglejmo si preslikavo 
+Definicija topologije na kvocientu je dobra in precej temeljna, toda sama po sebi še morda nekoliko prikriva, kateremu poznanemu prostoru je homeomorfen kvocient $\C/\Lambda$. Oglejmo si preslikavo 
 \[ 
     f: \C \to S^1 \times S^1, \quad t_1\om_1 + t_2\om_2 \mapsto (e^{2 \pi i t_1}, e^{2 \pi i t_2}),
 \]
-kjer sta $\om_1$ in $\om_2$ osnovni periodi mreže $\Lambda$ in $t_1, t_2 \in \R$. Preslikava je dobro definirana, saj $\om_1$ in $\om_2$ tvorita realno bazo za $\C$, in je tudi zvezna, saj koeficienta $t_1$ in $t_2$ dobimo s projeciranjem točke $t_1\om_1 + t_2\om_2$ na premici skozi izhodišče v smereh $\om_1$ oziroma $\om_2$. Slednje dosežemo z realno linearno preslikavo\footnote{To je linearni izomorfizem, zato je poleg zveznosti tudi odprta.} $\C \to \R^2$, podano s slikama baznih vektorjev $\om_1 \mapsto (1,0)$ in $\om_2 \mapsto (0,1)$. Ključno pa je, da se vrednost preslikave $f$ v dani točki $z \in \C$ ne spremeni, če ji prištejemo katerokoli periodo iz $\Lambda = \Z\om_1 + \Z\om_2$. To pomeni, da ostaja konstantna na poljubnem ekvivalenčnem razredu $z + \Lambda$. Še več, njena vlakna so množice oblike $\{t_1\om_1 + t_2\om_2 + \om \mid \om \in \Lambda\}$, kar so natanko ekvivalenčni razredi $\C/\Lambda$. Zato po \cite[trditev 3.22]{MrcunTop} $f$ inducira zvezno bijekcijo 
+kjer sta $\om_1$ in $\om_2$ osnovni periodi mreže $\Lambda$ in $t_1, t_2 \in \R$. Preslikava je dobro definirana, saj $\om_1$ in $\om_2$ tvorita realno bazo za $\C$, in je tudi zvezna, saj koeficienta $t_1$ in $t_2$ dobimo s projiciranjem točke $t_1\om_1 + t_2\om_2$ na premici skozi izhodišče v smereh $\om_1$ oziroma $\om_2$. Slednje dosežemo z realno linearno preslikavo\footnote{To je linearni izomorfizem, zato je poleg zveznosti tudi odprta.} $\C \to \R^2$, podano s slikama baznih vektorjev $\om_1 \mapsto (1,0)$ in $\om_2 \mapsto (0,1)$. Ključno pa je, da se vrednost preslikave $f$ v dani točki $z \in \C$ ne spremeni, če ji prištejemo katerokoli periodo iz $\Lambda = \Z\om_1 + \Z\om_2$. To pomeni, da ostaja konstantna na poljubnem ekvivalenčnem razredu $z + \Lambda$. Še več, njena vlakna so množice oblike $\{t_1\om_1 + t_2\om_2 + \om \mid \om \in \Lambda\}$, kar so natanko ekvivalenčni razredi $\C/\Lambda$. Zato po \cite[trditev 3.22]{MrcunTop} $f$ inducira zvezno bijekcijo 
 \[
     h: \C/\Lambda \to S^1 \times S^1, \quad t_1\om_1 + t_2\om_2 + \Lambda \mapsto (e^{2 \pi i t_1}, e^{2 \pi i t_2})
 \]
-za katero velja $h \circ \pi = f$. Preslikava $h$ je ob tem še odprta in zato homeomorfizem. Namreč za odprto množico $U\subseteq \C/\Lambda$, lahko njeno sliko s $h$ zapišemo kot $h(U) = h(\pi(\pi\inv(U))) = f(\pi\inv(U))$. Ta pa je odprta, zaradi odprtosti množice $\pi\inv(U)$ in odprtosti preslikave $f$, ki je kompozicija dveh odprtih preslikav -- realnega linearnega izomorfizma in odprte eksponentne preslikave $t \mapsto e^{2\pi i t}$. Tako vidimo, da (topološki) kvocient $\C/\Lambda$ predstavlja poznani topološki prostor $S^1 \times S^1$, \tj torus.
+za katero velja $h \circ \pi = f$. Preslikava $h$ je ob tem še odprta in zato homeomorfizem. Namreč za odprto množico $U\subseteq \C/\Lambda$, lahko njeno sliko s $h$ zapišemo kot $h(U) = h(\pi(\pi\inv(U))) = f(\pi\inv(U))$. Ta pa je odprta zaradi odprtosti množice $\pi\inv(U)$ in odprtosti preslikave $f$, ki je kompozicija dveh odprtih preslikav -- realnega linearnega izomorfizma in odprte eksponentne preslikave $t \mapsto e^{2\pi i t}$. Tako vidimo, da (topološki) kvocient $\C/\Lambda$ predstavlja poznani topološki prostor $S^1 \times S^1$, \tj torus.
 
 Lotimo se sedaj še kompleksne strukture na $\torus$. Tukaj bo bistvena kvocientna projekcija $\pi: \C \to \torus$, s katero bomo definirali lokalne karte. Izkoristili bomo naslednjo njeno lastnost. 
 
@@ -2207,20 +2210,20 @@ Lotimo se sedaj še kompleksne strukture na $\torus$. Tukaj bo bistvena kvocient
     \label{pi je krovna}
     Za vsako točko $z + \Lambda \in \torus$ obstaja takšna odprta okolica $U \subseteq \torus$, te točke, imenujemo jo \emph{fundamentalna okolica}, da je $\pi\inv(U)$ homeomorfna produktu $U \times \Lambda$, oziroma ekvivalentno 
     \[
-        \pi\inv(U) = \coprod_{\om \in \Lambda} \tilde{U}_\om, \quad \text{za neke homeomorfne \emph{kopije} $\tilde{U}_\om \subseteq \C$ okolice $U$. } 
+        \pi\inv(U) = \coprod_{\om \in \Lambda} \tilde{U}_\om \quad \text{za neke homeomorfne \emph{kopije} $\tilde{U}_\om \subseteq \C$ okolice $U$. } 
     \]
 %    za neke homeomorfne kopije $\tilde{U}_\om \subseteq \C$ okolice $U$. 
 \end{lema}
 
 \begin{dokaz}
-    Izberimo točko $z + \Lambda \in \torus$ in naj bo $z \in \C$ neki predstavnik tega ekvivalnčnega razreda. Ker je projekcija $\pi: \C \to \torus$ odprta, bomo za odprto okolico $z + \Lambda$ vzeli kar sliko diska radija $r>0$, $U = \pi(\disk{z}{r})$. Tedaj vidimo, da velja 
+    Izberimo točko $z + \Lambda \in \torus$ in naj bo $z \in \C$ neki predstavnik tega ekvivalenčnega razreda. Ker je projekcija $\pi: \C \to \torus$ odprta, bomo za odprto okolico $z + \Lambda$ vzeli kar sliko diska radija $r>0$, $U = \pi(\disk{z}{r})$. Tedaj vidimo, da velja 
     \[
         \pi\inv(\pi(\disk{z}{r})) = \bigcup_{\om \in \Lambda} \disk{z + \om}{r}.
     \] 
     % slika teh diskov v ravnini bi bla kul...
-    Ta unija ni nujno disjunktna, lahko pa to dosežemo s primerno izbiro radija $r>0$. Če namreč zahtevamo $0 < r < \frac12 \min_{\om \in \Lambda'} \abs{\om}$, je presek poljubnih dveh diskov tega radija, katerih središča sta v množici $z + \Lambda \subset \C$, prazen. 
+    Ta unija ni nujno disjunktna, lahko pa to dosežemo s primerno izbiro radija $r>0$. Če namreč zahtevamo $0 < r < \frac12 \min_{\om \in \Lambda'} \abs{\om}$, je presek poljubnih dveh diskov tega radija, katerih središči sta v množici $z + \Lambda \subset \C$, prazen. 
 
-    Prepričajmo se še, da je vsaka od kopij $\tilde{U}_\om = \disk{z + \om}{r}$ tudi homeomorfna $\pi(U)$. Zožitev $\pi|_{\tilde{U}_\om}$ je zvezna in odprta, je pa tudi bijektivna, saj zaradi disjunktnostni vseh kopij, projekcija $\pi$ ne naredi nobenih netrivialnih identifikacij na $\tilde{U}_\om$. Iskani homeomorfizem je tako $\pi|_{\tilde{U}_\om} : \tilde{U}_\om \to U$.
+    Prepričajmo se še, da je vsaka od kopij $\tilde{U}_\om = \disk{z + \om}{r}$ tudi homeomorfna $\pi(U)$. Zožitev $\pi|_{\tilde{U}_\om}$ je zvezna in odprta, je pa tudi bijektivna, saj zaradi disjunktnosti vseh kopij projekcija $\pi$ ne naredi nobenih netrivialnih identifikacij na $\tilde{U}_\om$. Iskani homeomorfizem je tako $\pi|_{\tilde{U}_\om} : \tilde{U}_\om \to U$.
 \end{dokaz}
 
 \begin{opomba}
@@ -2234,11 +2237,11 @@ Lotimo se sedaj še kompleksne strukture na $\torus$. Tukaj bo bistvena kvocient
 \begin{dokaz}
     Za poljubno točko $z + \Lambda \in \torus$ naj bo $U \subseteq \torus$ njena fundamentalna okolica in $V \subseteq \C$ poljubna njej homeomorfna kopija. Tedaj vemo, da je $\pi|_V : V \to U$ homeomorfizem, ki kompleksno strukturo okolice $V \subseteq \C$ prenese na torus. Tako bo njen inverz $(\pi|_V)\inv$ dober kandidat za lokalno karto. Pokažimo, da je res tako, \tj da družina vseh takšnih parov $(U, (\pi|_V)\inv)$ tvori kompleksen atlas za $\torus$. 
 
-    Po konstrukciji vse fundamentalne okolice pokrijejo bazni prostor $\torus$ in kot smo že omenili, so vse lokalne karte homeomorfizmi. Da bo omenjena družina kompleksen atlas, preostane preveriti še kompatibilnostni pogoj. Vzemimo poljubni dve lokalni karti sestavljeni iz okolic $U_1, U_2 \subseteq \torus$ in pripadajočih homeomorfizmov $(\pi|_{V_1})\inv : V_1 \to U_1$ ter $(\pi|_{V_2})\inv : V_2 \to U_2$, ki ju označimo s $\varphi_1$ in $\varphi_2$. Prepričajmo se, da je preslikava 
+    Po konstrukciji vse fundamentalne okolice pokrijejo bazni prostor $\torus$ in kot smo že omenili, so vse lokalne karte homeomorfizmi. Da bo omenjena družina kompleksen atlas, preostane preveriti še kompatibilnostni pogoj. Vzemimo poljubni dve lokalni karti, sestavljeni iz okolic $U_1, U_2 \subseteq \torus$ in pripadajočih homeomorfizmov $(\pi|_{V_1})\inv : V_1 \to U_1$ ter $(\pi|_{V_2})\inv : V_2 \to U_2$, ki ju označimo s $\varphi_1$ in $\varphi_2$. Prepričajmo se, da je preslikava 
     \[
-        \varphi_1 \circ \varphi_2\inv : \varphi_2(U_1 \cap U_2) \longrightarrow  \varphi_1(U_1 \cap U_2)
+        \varphi_1 \circ \varphi_2\inv : \varphi_2(U_1 \cap U_2) \to  \varphi_1(U_1 \cap U_2)
     \]
-    holomorfna na odprti množici $\varphi_2(U_1 \cap U_2) \subseteq \C$. Najlažje bo, če si ogledamo njen predpis. Za poljuben $z \in \varphi_2(U_1 \cap U_2)$ je $\varphi_1(\varphi_2\inv(z)) = z + \om_z$, za neki $\om_z \in \Lambda$, ki je odvisen od $z$. Zvezna preslikava $\varphi_1 \circ \varphi_2\inv - \id_\C$ bo tako slikala iz okolice $\varphi_2(U_1 \cap U_2)$ točke $z$ v mrežo $\Lambda$. Slednja je opremljena z diskretno topologijo, zato bo omenjena preslikava konstantna na vsaki povezani komponenti odprte množice $\varphi_2(U_1 \cap U_2)$. To pomeni, da ima na vsaki povezani komponenti prehodna prelikava predpis oblike 
+    holomorfna na odprti množici $\varphi_2(U_1 \cap U_2) \subseteq \C$. Najlažje bo, če si ogledamo njen predpis. Za poljuben $z \in \varphi_2(U_1 \cap U_2)$ je $\varphi_1(\varphi_2\inv(z)) = z + \om_z$ za neki $\om_z \in \Lambda$, ki je odvisen od $z$. Zvezna preslikava $\varphi_1 \circ \varphi_2\inv - \id_\C$ bo tako slikala iz okolice $\varphi_2(U_1 \cap U_2)$ točke $z$ v mrežo $\Lambda$. Slednja je opremljena z diskretno topologijo, zato bo omenjena preslikava konstantna na vsaki povezani komponenti odprte množice $\varphi_2(U_1 \cap U_2)$. To pomeni, da ima na vsaki povezani komponenti prehodna preslikava predpis oblike 
     \[
         \varphi_1(\varphi_2\inv(z)) = z + \om,
     \]
@@ -2255,17 +2258,17 @@ Lotimo se sedaj še kompleksne strukture na $\torus$. Tukaj bo bistvena kvocient
 \end{lema}
 
 \begin{dokaz}
-    Preverili bomo holomorfnost preslikave $\pi$ okoli vsake točke v $\C$, bistveno je opaziti, da je $\pi$ lokalni homeomorfizem. Naj bo $z_0 \in \C$ poljubna in $V \subseteq \C$ njena dovolj majhna odprta okolica, ki se s $\pi$ homeomorfno preslika na odprto množico $U \subseteq \torus$, tako, da je $(\pi|_{V})\inv : U \to V$ lokalna karta za $\torus$. 
+    Preverili bomo holomorfnost preslikave $\pi$ okoli vsake točke v $\C$. Bistveno je opaziti, da je $\pi$ lokalni homeomorfizem. Naj bo $z_0 \in \C$ poljubna in $V \subseteq \C$ njena dovolj majhna odprta okolica, ki se s $\pi$ homeomorfno preslika na odprto množico $U \subseteq \torus$, torej je $(\pi|_{V})\inv : U \to V$ lokalna karta za $\torus$. 
 
-    Za holomorfnost $\pi$, si to preslikavo oglejmo v kartah. Kompleksna struktura na $\C$ je podana že z eno samo karto, \tj $(\C, \id_\C)$, zato bomo preverili holomorfnost preslikave
+    Za dokaz holomorfnosti preslikave $\pi$, si jo oglejmo v kartah. Kompleksna struktura na $\C$ je podana že z eno samo karto, \tj $(\C, \id_\C)$, zato bomo preverili holomorfnost preslikave
     \[
-        ((\pi|_{V})\inv \circ \pi) : \pi\inv(U) \to \C.
+        ((\pi|_{V})\inv \circ \pi) : V \to \C.
     \]
     Ker nas zares zanima samo obnašanje te preslikave okoli točke $z_0$, lahko obravnavamo zgolj njeno zožitev na odprto okolico $V \subseteq \pi\inv(U) = \bigcup_{\om \in \Lambda} (V + \om)$. Od tod pa takoj sledi, da je $((\pi|_V)\inv \circ \pi)|_V = \id_V$ holomorfna funkcija na $V \subseteq \C$, kar dokaže želeno. 
 \end{dokaz}
 
 \begin{opomba}
-    Preko leme \ref{pi je krovna} vidimo, da je $\pi$ lokalni homeomorfizem. To pomeni, da ima vsaka točka v $\torus$ odprto okolico $U\subseteq \torus$ in odprto kopijo $\tilde{U} \subseteq \C$, za kateri je $\pi|_{\tilde{U}} : \tilde{U} \to U$ homeomorfizem. Ker pa je $\pi$ holomorfna, je takšna jasno tudi zožitev $\pi|_{\tilde{U}}$, ki je bijekcija in zato po trditvi \ref{holomorfna bijekcija je biholomorfizem} celo bihilomorfizem. Tedaj rečemo, da je $\pi$ \emph{lokalni biholomorfizem}.
+    Preko leme \ref{pi je krovna} vidimo, da je $\pi$ lokalni homeomorfizem. To pomeni, da ima vsaka točka v $\torus$ odprto okolico $U\subseteq \torus$ in odprto kopijo $\tilde{U} \subseteq \C$, za kateri je $\pi|_{\tilde{U}} : \tilde{U} \to U$ homeomorfizem. Ker pa je $\pi$ holomorfna, je takšna jasno tudi zožitev $\pi|_{\tilde{U}}$, ki je bijekcija in zato po trditvi \ref{holomorfna bijekcija je biholomorfizem} celo biholomorfizem. Tedaj rečemo, da je $\pi$ \emph{lokalni biholomorfizem}.
 \end{opomba}
 
 % Še ena uporabna lema, ki nam olajša preverjanje holomorfnosti funkcij definiranih na kopleksnem torusu in izkorišča lokalno biholomorfnost projekcije $\pi : \C \to \torus$, je sledeča.
@@ -2282,7 +2285,7 @@ Zadnja opomba in zgled \ref{meromorfne so holomorfne v R.sfero} nam omogočata e
 
 \subsubsection{Holomorfne preslikave med kompleksnimi torusi}
 
-Podobno kot smo obravnavali holomorfne preslikave med eliptičnima krivuljama, si bomo v tem podrazdelku pogledali holomorfne preslikave med kompleksnima torusoma. Začeli bomo s konstrukcijo ene takšne preslikave, ki izhaja iz linearne holomorfne funkcije, nato pa z manjšo pomočjo teorije krovnih prostorov pokazali, da v resinci vsaka holomorfna preslikava med kompleksnima torusoma izhaja iz takšne cele holomorfne funkcije. 
+Podobno kot smo obravnavali holomorfne preslikave med eliptičnima krivuljama, si bomo v tem podrazdelku pogledali holomorfne preslikave med kompleksnima torusoma. Začeli bomo s konstrukcijo ene takšne preslikave, ki izhaja iz linearne holomorfne funkcije, nato pa z manjšo pomočjo teorije krovnih prostorov pokazali, da v resnici vsaka holomorfna preslikava med kompleksnima torusoma izhaja iz takšne cele holomorfne funkcije. 
 
 \begin{zgled*}
     \label{afina transformacija C inducira holomorfno preslikavo torusov}
@@ -2294,7 +2297,7 @@ Podobno kot smo obravnavali holomorfne preslikave med eliptičnima krivuljama, s
 
     Zaradi pogoja $\alpha\Lambda_1 \subseteq \Lambda_2$, za poljubni točki $z, w \in \C$, za kateri je $\pi_1(z) = \pi_1(w)$ \oz $z + \Lambda_1 = w + \Lambda_1$, sledi tudi $\pi_2(f(z)) = \pi_2(f(w))$ \oz $\alpha z + \beta + \Lambda_2 = \alpha z + \beta + \Lambda_2$.
     % Za projekcijo $\pi_1$ in kompozicijo $\pi_2 \circ f : \C \to \C/\Lambda_2$ ter točki $z, w \in \C$ velja, če je $\pi_1(z) = \pi_1(w)$ \oz $z + \Lambda_1 = w + \Lambda_1$ potem je tudi $\pi_2(f(z)) = \pi_2(f(w))$ \oz $az + b + \Lambda_2 = az + b + \Lambda_2$, . 
-    Od tod se po izreku \cite[trditev 3.22]{MrcunTop} inducira zvezna preslikava $\olsi{f} : \C/\Lambda_1 \to \C/\Lambda_2$, da velja $\olsi{f} \circ \pi_1 = \pi_2 \circ f$ oziroma, da komutira naslednji diagram.
+    Od tod se po trditvi \cite[trditev 3.22]{MrcunTop} inducira zvezna preslikava $\olsi{f} : \C/\Lambda_1 \to \C/\Lambda_2$, da velja $\olsi{f} \circ \pi_1 = \pi_2 \circ f$, oziroma da komutira naslednji diagram.
     \[
         \begin{tikzcd}
             {\mathbb{C}} & {\mathbb{C}} \\
@@ -2306,7 +2309,7 @@ Podobno kot smo obravnavali holomorfne preslikave med eliptičnima krivuljama, s
             \arrow["{\olsi{f}}"', dashed, from=3-1, to=3-2]
         \end{tikzcd}
     \]
-    Poleg tega pa je $\olsi{f}$ tudi holomorfna. Ker je $\pi_1$ lokalni homeomorfizem ima vsaka točka na torusu $\C/\Lambda_1$ odprto okolico $U$ homeomorfno neki odprti množici $V \subseteq \C$, tako, da je $\pi_1|_V : V \to U$ homeomorfizem. Preslikava $\pi_1$ je po lemi \ref{holomorfnost projekcije} holomorfna, torej je takšna tudi njena zožitev $\pi_1|_V$, hkrati pa je ta zožitev tudi homeomorfizem, zato je po trditvi \ref{holomorfna bijekcija je biholomorfizem} njen inverz $(\pi_1|_V)\inv$ holomorfen. Tedaj vidimo, da lahko iz enačbe $\olsi{f} \circ \pi_1 = \pi_2 \circ f$ lokalno izrazimo $\olsi{f}$, od koder sledi, da je 
+    Poleg tega pa je $\olsi{f}$ tudi holomorfna. Ker je $\pi_1$ lokalni homeomorfizem, ima vsaka točka na torusu $\C/\Lambda_1$ odprto okolico $U$ homeomorfno neki odprti množici $V \subseteq \C$, tako da je $\pi_1|_V : V \to U$ homeomorfizem. Preslikava $\pi_1$ je po lemi \ref{holomorfnost projekcije} holomorfna, torej je takšna tudi njena zožitev $\pi_1|_V$, hkrati pa je ta zožitev tudi homeomorfizem, zato je po trditvi \ref{holomorfna bijekcija je biholomorfizem} njen inverz $(\pi_1|_V)\inv$ holomorfen. Tedaj vidimo, da lahko iz enačbe $\olsi{f} \circ \pi_1 = \pi_2 \circ f$ lokalno izrazimo $\olsi{f}$, od koder sledi, da je 
     \[
         \olsi{f}|_U = \pi_2 \circ f \circ (\pi_1|_V)\inv
     \]
@@ -2316,7 +2319,7 @@ Podobno kot smo obravnavali holomorfne preslikave med eliptičnima krivuljama, s
     \]
 \end{zgled*}
 
-V posebnem, kadar obstaja tako število $\alpha \in \CM$, da velja celo enakost $\alpha\Lambda_1 = \Lambda_2$, bo inducirana preliskava $\olsi{f} : \C/\Lambda_1 \to \C/\Lambda_2$, podana s predpisom $\olsi{f}(z + \Lambda_1) = \alpha z + \beta + \Lambda_2$, biholomorfizem. Njen inverz bo preslikava s predpisom $z + \Lambda_2 \mapsto \frac{z}{\alpha} - \frac{\beta}{\alpha} + \Lambda_1$, ki je tudi holomorfna, saj jo inducira inverz funkcije $f$, ki je tudi iste oblike kot $f$, s predpisom $f\inv(z) = \frac{z}{\alpha} - \frac{\beta}{\alpha}$.
+V posebnem, kadar obstaja tako število $\alpha \in \CM$, da velja celo enakost $\alpha\Lambda_1 = \Lambda_2$, bo inducirana preslikava $\olsi{f} : \C/\Lambda_1 \to \C/\Lambda_2$, podana s predpisom $\olsi{f}(z + \Lambda_1) = \alpha z + \beta + \Lambda_2$, biholomorfizem. Njen inverz bo preslikava s predpisom $z + \Lambda_2 \mapsto \frac{z}{\alpha} - \frac{\beta}{\alpha} + \Lambda_1$, ki je tudi holomorfna, saj jo inducira inverz funkcije $f$, ki je tudi iste oblike kot $f$, s predpisom $f\inv(z) = \frac{z}{\alpha} - \frac{\beta}{\alpha}$. Inverz $\C/\Lambda_2 \to \C/\Lambda_1$ se torej inducira ravno zaradi zveze $\alpha\inv\Lambda_2 \subseteq \Lambda_1$, ki jasno sledi iz enakosti $\alpha\Lambda_1 = \Lambda_2$.  
 % linearna cela  holomorfna funkcija podana s predpisom $z \mapsto \frac{z}{a} - \frac{b}{a}$.
 
 % Če sta obe mreži enaki in ju označimo samo z $\Lambda$, imamo biholomorfizme $\torus \to \torus$ s predpisom $z + \Lambda \mapsto z + b + \Lambda$ za nek $b \in C$, ki na kompleksnem torusu $\torus$ delujejo \emph{tranzitivno}, kar pomeni, da lahko za poljuben par točk na torusu najdemo tak biholomorfiem te oblike, ki preslika prvo točko v drugo. 
@@ -2356,18 +2359,18 @@ Izkaže se, da velja tudi neke vrste obrat te konstrukcije. Namreč vsaka zvezna
 \end{trditev}
 
 \begin{dokaz}
-    (i) Dokaz obstoja preslikave $f : \C \to \C$ se dotakne teorije krovnih prostorov, ki izkoristi enostavno povezanosti $\C$ ter lepo strukturo kvocientne projekcje $\pi_2$, in je ne bomo razvijali, zato se skličimo na \cite[Lema 3.1]{Stevenhagen}. Idejno si konstrukcijo te preslikave lahko predstavljamo kot nekakašen usklajen način združitve določenih lokalnih biholomorfizmov, ki izhajajo iz projekcije $\pi_2$, komponiranih z $\olsi{f}$.
+    (\emph{i}) Dokaz obstoja preslikave $f : \C \to \C$ se dotakne teorije krovnih prostorov, ki izkoristi enostavno povezanost $\C$ ter lepo strukturo kvocientne projekcje $\pi_2$, in je ne bomo razvijali, zato se skličimo na \cite[lemma 3.1]{Stevenhagen}. Idejno si konstrukcijo te preslikave lahko predstavljamo kot nekakšen usklajen način združitve določenih lokalnih biholomorfizmov, ki izhajajo iz projekcije $\pi_2$, komponiranih s $\olsi{f}$.
 
-    Pokažimo še njeno enoličnost. Če bi imeli dva dviga $f$ in $g$, ki zadoščata enačbi $\pi_2 \circ f = \olsi{f} \circ \pi_1 = \pi_2 \circ g$, bi njuna razlika $f - g : \C \to \Lambda_2$ slikala v mrežo $\Lambda_2$. Zvezna funkcija, ki slika v diskretno množico, kot je mreža $\Lambda_2$, pa je lahko samo konstantna, od koder dobimo $f = g + \om$, za neko periodo $\om \in \Lambda_2$.
+    Pokažimo še njeno enoličnost. Če bi imeli dva dviga $f$ in $g$, ki zadoščata enačbi $\pi_2 \circ f = \olsi{f} \circ \pi_1 = \pi_2 \circ g$, bi njuna razlika $f - g : \C \to \Lambda_2$ slikala v mrežo $\Lambda_2$. Zvezna funkcija, ki slika v diskretno množico, kot je mreža $\Lambda_2$, pa je lahko samo konstantna, od koder dobimo $f = g + \om$ za neko periodo $\om \in \Lambda_2$.
 
-    (ii) Podobno, kot smo v zgledu \ref{afina transformacija C inducira holomorfno preslikavo torusov} izkoristili lokalno biholomorfnost projekcije $\pi_1$, tokrat uporabimo lokalno biholomorfnost $\pi_2$, da lokalno izrazimo $f$, kot kompozicijo holomorfnih funkcij. Sledi, da je $f$ cela holomorfna funkcija. 
+    (\emph{ii}) Podobno kot smo v zgledu \ref{afina transformacija C inducira holomorfno preslikavo torusov} izkoristili lokalno biholomorfnost projekcije $\pi_1$, tokrat uporabimo lokalno biholomorfnost $\pi_2$, da lokalno izrazimo $f$ kot kompozicijo holomorfnih funkcij. Sledi, da je $f$ cela holomorfna funkcija. 
 
     Oglejmo si še obliko funkcije $f : \C \to \C$. Naj bo $\om \in \Lambda_1$ poljubna perioda in tvorimo celo holomorfno funkcijo s predpisom $g_\om(z) = f(z + \om) - f(z)$. Tedaj velja
     \[
         \pi_2(f(z + \om)) = \olsi{f}(\pi_1(z + \om)) = 
         \olsi{f}(\pi_1(z)) = \pi_2(f(z)),
     \] 
-    kar pomeni, da $g_\om$ slika v diskretno mrežo $\Lambda_2$ in je tako lahko le konstantna. Njen odvod je torej ničelen, torej za vse $z \in \C$ velja $f'(z + \om) = f'(z)$. Ker je bila perioda $\om \in \Lambda_1$ poljubna, sledi, da je $f'$ eliptična glede na $\Lambda_1$. Kot holomorfna eliptična funkcija, pa je ponovno lahko le konstanta po trditvi \ref{cele el. funkcije}. Tedaj je $f' \equiv \alpha$, za neki $\alpha \in \C$ in posledično za vse $z \in \C$ velja $f(z) = \alpha z + \beta$, za neki $\beta \in \C$, kar smo hoteli pokazati. 
+    kar pomeni, da $g_\om$ slika v diskretno mrežo $\Lambda_2$ in je tako lahko le konstantna. Njen odvod je torej ničeln, torej za vse $z \in \C$ velja $f'(z + \om) = f'(z)$. Ker je bila perioda $\om \in \Lambda_1$ poljubna, sledi, da je $f'$ eliptična glede na $\Lambda_1$. Kot holomorfna eliptična funkcija pa je ponovno lahko le konstanta po trditvi \ref{cele el. funkcije}. Tedaj je $f' \equiv \alpha$ za neki $\alpha \in \C$ in posledično za vse $z \in \C$ velja $f(z) = \alpha z + \beta$ za neki $\beta \in \C$, kar smo hoteli pokazati. 
 \end{dokaz}
 
 \begin{primer*}
@@ -2379,7 +2382,7 @@ Izkaže se, da velja tudi neke vrste obrat te konstrukcije. Namreč vsaka zvezna
     \[
         \C/\Lambda_1 \to \C/\Lambda_2, \quad z + \Lambda_1 \mapsto 2z + \Lambda_2.
     \]
-    Opazimo, da ta preslikava \emph{ni} biholomorfizem, saj $2\Lambda_1 \neq \Lambda_2$ (imamo točko $1 + 2i \in \Lambda_2 \setminus 2\Lambda_1$). Da inducirana preslikava ni biholomorfna, alternativno vidimo že iz njene neinjektivnosti -- dve različnih točk $0 + \Lambda_1$ in $\frac12 + \Lambda_1$ iz $\C/\Lambda_1$ se namreč preslikata preslikata v isto točko $0 + \Lambda_2 \in \C/\Lambda_2$.  
+    Opazimo, da ta preslikava \emph{ni} biholomorfizem, saj $2\Lambda_1 \neq \Lambda_2$ (obstaja točka $1 + 2i \in \Lambda_2 \setminus 2\Lambda_1$). Da inducirana preslikava ni biholomorfna, alternativno vidimo že iz njene neinjektivnosti -- dve različni točki $0 + \Lambda_1$ in $\frac12 + \Lambda_1$ iz $\C/\Lambda_1$ se namreč preslikata v isto točko $0 + \Lambda_2 \in \C/\Lambda_2$.  
     
     % Razmerje med stranicama 
 \end{primer*}
@@ -2418,15 +2421,14 @@ Zadnje poglavje o uniformizaciji povezuje vsa prejšnja. Na začetku
 % Začeli bomo s konstrukcijo preslikave, ki nam jo je namigoval izrek \ref{ode za wp}. Ta preslikava se bo preko kompleksnih struktur, ki smo ju za kompleksni torus in eliptično krivuljo konstruirali v prejšnjem poglavju, izkazala za bijekcijo in celo biholomorfizem. 
 %
 % Nadalje
-se bomo posvetili mrežam v kompleksni ravnini in si ogledali kako smemo dano mrežo transformirati, da še vedno ostanemo v istem izomorfnostnem razredu kompleksnih torusov, ki ju dani mreži porodita, po navdihu razprave o holomorfnih preslikavah iz zaključka prejšnjega poglavja. Ena od teh podob mreže bo prav posebne oblike, kar bomo izkoristili za nekoliko drugačno interpretacijo Eisensteinovih vrst $G_k(\Lambda)$ iz \ref{elipticne funkcije}.\ poglavja, in sicer kot holomorfnih funkcij na zgornji polravnivni
+se bomo posvetili mrežam v kompleksni ravnini in si ogledali, kako smemo dano mrežo transformirati, da še vedno ostanemo v istem izomorfnostnem razredu kompleksnih torusov, ki ju dani mreži porodita, po navdihu razprave o holomorfnih preslikavah iz zaključka prejšnjega poglavja. Ena od teh podob mreže bo prav posebne oblike, kar bomo izkoristili za nekoliko drugačno interpretacijo Eisensteinovih vrst $G_k(\Lambda)$ iz \ref{elipticne funkcije}.\ poglavja, in sicer kot holomorfnih funkcij na zgornji polravnivni
 \[
     \HH = \{z \in \C \mid \Im(z) > 0\}.
 \]
-To analogijo bomo nadaljevali še z $j$-invarianto, kjer se bomo dotaknili \emph{modularnih funkcij} z mnogo simetrije povezanih z grupo $\operatorname{SL}_2(\Z)$.
+To analogijo bomo nadaljevali še z $j$-invarianto, kjer se bomo dotaknili \emph{modularnih funkcij} z mnogo simetrije, povezanih z grupo $\operatorname{SL}_2(\Z)$.
 
 Nadaljevali bomo s konstrukcijo preslikave, ki nam jo je namigoval izrek \ref{ode za wp}. Ta preslikava se bo preko kompleksnih struktur, ki smo ju za kompleksni torus in eliptično krivuljo konstruirali v prejšnjem poglavju, izkazala za bijekcijo in celo biholomorfizem. 
-
-Interpretacija $j$-invariante kot modularne funkcije nam bo nazadnje omogočila vse skupaj povezati in združiti kompleksne toruse in eliptične krivulje nad $\C$ v uniformizacijskem izreku \ref{uniformizacija}. 
+Interpretacija $j$-invariante kot modularne funkcije nam bo nazadnje omogočila vse skupaj povezati in združiti kompleksne toruse in eliptične krivulje nad poljem $\C$ v uniformizacijskem izreku \ref{uniformizacija}. 
 % nazadnje pa bomo zaključili z uniformizacijskim izrekom. 
 
 \subsection{Mreže in modularnost}
@@ -2443,11 +2445,11 @@ Z drugimi besedami to pomeni, da obstaja kompozicija središčnega raztega in ro
 \end{definicija}
 
 \begin{opomba}
-    Biti homotetičen \emph{ni} isto kot biti podoben. Pomembno je, da homotetije dodatno ohranjajo tudi orientacijo in izhodišče, kar ni res za splošne toge transformacije ravnine, kot so zrcaljenja ali translacije. Opomnimo še, da je homotetičnost očitno ekvivalenčna relacija.
+    Dve podmnožici v evklidski ravnini imamo za \emph{podobni}, kadar obstaja kompozicija translacij, rotacij, središčnih raztegov in zrcaljenj, ki eno podmnožico preslika v drugo. Biti homotetičen torej \emph{ni} isto kot biti podoben. Pomembno je, da homotetije dodatno ohranjajo tudi orientacijo in izhodišče, kar na primer ni res za zrcaljenja in translacije. Opomnimo še, da je homotetičnost očitno ekvivalenčna relacija.
 \end{opomba}
 
 \begin{primer*}
-    Mreži $\langle 1, \frac{1}{3} + i \rangle$ in $\langle 1, -\frac{1}{3} + i \rangle$ sta si podobni, saj med njima prehajamo z zrcaljenjem preko imaginarne osi, nista pa homotetični, kot bo kmalu razvidno iz trditve \ref{ekvivalentne normalizirane mreze} in izreka \ref{predstavnik fundamentalne domene} v nedaljevanju. 
+    Mreži $\langle 1, \frac{1}{3} + i \rangle$ in $\langle 1, -\frac{1}{3} + i \rangle$ sta si podobni, saj med njima prehajamo z zrcaljenjem preko imaginarne osi, nista pa homotetični, kot bo kmalu razvidno iz trditve \ref{ekvivalentne normalizirane mreze} in izreka \ref{predstavnik fundamentalne domene} v nadaljevanju. 
 \end{primer*}
 % Tedaj rečemo, da sta mreži $\Lambda_1$ in $\Lambda_2$ \emph{homotetični}, kar označimo z
 % \[
@@ -2465,21 +2467,21 @@ Tudi tukaj lahko zahtevamo, da je ena od osnovnih period fiksirana na $1$. Natan
 kjer je $\tau = \frac{\om_2}{\om_1}$. Brez škode za splošnost lahko predpostavimo, da je $\Im\big(\frac{\om_2}{\om_1}\big) > 0$, saj v nasprotnem primeru, ko je $\Im\big(\frac{\om_2}{\om_1}\big) < 0$, z menjavo vlog osnovnih period $\om_1$ in $\om_2$ dosežemo želeno. Tako vidimo, da lahko poljubni mreži $\Lambda$ priredimo tak $\tau \in \HH$, da je $\Lambda \htp \langle 1, \tau \rangle$.
 
 \subsubsection{Modularna grupa}
-Naslednje sa porodi vprašanje o enoličnosti izbire predstavnika $\tau \in \HH$, prirejenega mreži $\Lambda$. Izkaže se, kot bomo tudi videli, da imamo na voljo precej veliko primernih $\tau \in \HH$, ki skupaj z $1$ generirajo mreže ekvivalentne $\Lambda$. 
+Naslednje se porodi vprašanje o enoličnosti izbire predstavnika $\tau \in \HH$, prirejenega neki določeni mreži $\Lambda$. Izkaže se, kot bomo tudi videli, da imamo na voljo precej veliko primernih $\tau \in \HH$, ki skupaj z $1$ generirajo mreže, ekvivalentne $\Lambda$. 
 
-Na prvi tak primer naletimo, ko pogledamo mrežo $\lattice{1}{\tau}$ po elementih.
+Na prvi tak primer naletimo, ko pogledamo mrežo $\lattice{1}{\tau} \htp \Lambda$ po elementih.
 % Na prvi primer, v katerem se odraža ta neenoličnost izbire $\tau \in \HH$, naletimo, ko pogledamo mrežo $\lattice{1}{\tau}$ po elementih. 
 Sestavljajo jo namreč vse $\Z$-linearne kombinacije generatorjev $1$ in $\tau$. Te so oblike $m + n\tau$, kjer sta $m$ in $n$ celi števili. Opazimo, da vsak tak element leži tudi v mreži $\lattice{1}{\tau + 1}$, saj ga lahko zapišemo kot
 \[
     m + n\tau = (m - n) + n(\tau + 1).
 \] 
-Ob enem pa je vsak element mreže $\lattice{1}{\tau + 1}$ jasno tudi del mreže $\lattice{1}{\tau}$, torej sta ti dve mreži v resnici enaki, predstavnika $\tau$ in $\tau + 1$ pa oba ležita v zgornji polravnini.
+Obenem pa je vsak element mreže $\lattice{1}{\tau + 1}$ jasno tudi del mreže $\lattice{1}{\tau}$, torej sta ti dve mreži v resnici enaki, predstavnika $\tau$ in $\tau + 1$ pa oba ležita v zgornji polravnini.
 
 Še en pomemben primer ekvivalentnih mrež sta $\lattice{1}{\tau}$ in $\lattice{1}{-\frac{1}{\tau}}$. Res sta ekvivalentni, saj imamo homotetijo
 \[
     (-\tau)\cdot\lattice{1}{-\tfrac1\tau} = \lattice{1}{\tau},
 \] 
-hkrati pa je tudi $-\frac{1}{\tau} \in \HH$, torej je veljaven predstavnik iz zgornje polravnine za mrežo $\Lambda$.
+hkrati pa je tudi $-\frac{1}{\tau} \in \HH$, torej je mreža $\lattice{1}{-\tfrac{1}{\tau}}$ ekvivalentna mreži $\Lambda$.
 
 Tako smo ugotovili, da transformaciji
 \[
@@ -2491,7 +2493,7 @@ preslikata zgornjo polravnino $\HH$ samo vase, še pomembneje pa ohranjata ekviv
 Poleg tega pa sta ti dve transformaciji v tesni zvezi z zelo posebno grupo in njenim delovanjem na zgornji polravnini.
 % ko na generatorija $1$ in $\tau$ pogledamo, kot neke vrste bazo. elemente mreže $\lattice{1}{\tau}$ pa kot $\Z$-linearne kombinacije oblike $m + n\tau$, kjer sta $m, n$ celi števili.
 % Pri raziskovanju do kolikšnje mere je ta izbira neenolična pa 
-Tu se vplete \ti \emph{specialna linearna grupa} $\operatorname{SL}_2(\Z)$, ki ji bomo rekli tudi \emph{modularna grupa}\footnote{V literaturi je bolj standardno modularna grupa nekoliko manjša kvocientna grupa $\operatorname{SL}_2(\Z)/\{\pm I\}$. Razlog za tem se skriva v dejstvu, da delovanje z elementoma $\gamma, -\gamma \in \operatorname{SL}_2(\Z)$ določa isti avtomorfizem zgornje polravnine, ima pa  tudi določene prednosti pri formulaciji nekaterih izrekov o njej. 
+Tu se vplete \ti \emph{specialna linearna grupa} $\operatorname{SL}_2(\Z)$, ki ji bomo rekli tudi \emph{modularna grupa}\footnote{Ponekod v literaturi je bolj standardno modularna grupa nekoliko manjša kvocientna grupa $\operatorname{SL}_2(\Z)/\{\pm I\}$. Razlog za to se skriva v dejstvu, da delovanje z elementoma $\gamma, -\gamma \in \operatorname{SL}_2(\Z)$ določa isti avtomorfizem zgornje polravnine, ima pa  tudi določene prednosti pri formulaciji nekaterih izrekov o njej. 
 % ki ima določene predosti pri formulaciji določenih izrekov, ki pa jih tukaj ne bomo obravnavali. Predstavimo jo lahko tudi kot diskretno podgrupo grupe avtomorfizmov $\HH$, saj delovanje z elementoma $\gamma$ in $-\gamma$ iz $\SL$, določa isti avtomorfizem.
 }
 \[
@@ -2499,20 +2501,30 @@ Tu se vplete \ti \emph{specialna linearna grupa} $\operatorname{SL}_2(\Z)$, ki j
 \]
 in je diskretna podgrupa splošne linearne grupe $\GL_2(\C)$. 
 
-Spomnimo se, da preko \emph{Möbiusovih transformacij} že poznamo delovanje grupe $\GL_2(\C)$ na Riemannovi sferi $\RS$ na sledeč način:
+Spomnimo se, da preko \emph{Möbiusovih transformacij} ali \emph{lomljenih linearnih preslikav} že poznamo delovanje grupe $\GL_2(\C)$ na Riemannovi sferi $\RS$ na sledeč način:
 \begin{equation}
     \label{eq: delovanje GL2C na CP1}
     \GL_2(\C) \to \Aut(\RS), \quad \pabcd \mapsto \left(z \mapsto \frac{az + b}{cz + d}\right),
 \end{equation}
-kjer racionalno funkcijo $z\mapsto\frac{az + b}{cz + d}$ interpretiramo kot $\infty$ v točki $z = -\frac{d}{c}$ ter $\frac{a}{c}$ v točki $z = \infty$, kadar je $c \neq 0$, in kot $\infty$ v točki $z = \infty$, kadar je $c = 0$. Delovanje elementa $\gamma = \abcd \in \GL_2(\C)$ na $z \in \RS$ označimo kot
+kjer vrednost racionalne funkcije $z\mapsto\frac{az + b}{cz + d}$ interpretiramo kot $\infty$ v točki $z = -\frac{d}{c}$ ter $\frac{a}{c}$ v točki $z = \infty$, kadar je $c \neq 0$, in kot $\infty$ v točki $z = \infty$, kadar je $c = 0$. Delovanje elementa $\gamma = \abcd \in \GL_2(\C)$ na $z \in \RS$ označimo kot
 \begin{equation}
     \label{eq: predpis delovanja GL2C}
     \gamma z =  \pabcd z = \frac{az + b}{cz + d}.
 \end{equation}
+
+\begin{opomba}
+    Opisano delovanje morda izgleda nekoliko komplicirano, a je vendarle zelo naravno. Izhaja namreč iz delovanja grupe $\GL_2(\C)$ na kompleksni projektivni premici $\PP^1_\C$, podanega s predpisom
+    \[
+        \pabcd \mapsto \bigl(\pcoor{x : y} \mapsto \pcoor{ax + by : cx + dy}\bigr).  
+    \]
+    Če $\C$ identificiramo s točkami oblike $\pcoor{z : 1}$ iz $\PP^1_\C$, točko v neskončnosti $\infty \in \RS$ pa s točko $\pcoor{1 : 0} \in \PP^1_\C$, dobimo ravno lomljeno linearno preslikavo od prej. 
+\end{opomba}
+
 \begin{komentar}
-    Odslej naj element $\gamma \in \SL$, če ne bo drugače rečeno, vedno predstavlja matirko $\abcd$.
+    Odslej naj matrika $\abcd$, če ne bo drugače rečeno, vedno predstavlja element $\gamma \in \SL$.
+    % Odslej naj element $\gamma \in \SL$, če ne bo drugače rečeno, vedno predstavlja matirko $\abcd$.
 \end{komentar}
-Ker je $\SL$ podgrupa v $\GL_2(\C)$, je z istim predpisom definirano tudi delovanje grupe $\SL$ na Riemannovi sferi. Zaradi posebne strukture grupe $\SL$, lahko pokažemo, da avtomorfizmi, porojeni z delovanjem te grupe, ohranjajo predznak imaginarnega dela. Natančneje imamo naslednjo trditev.
+Ker je $\SL$ podgrupa v $\GL_2(\C)$, je z istim predpisom definirano tudi delovanje grupe $\SL$ na Riemannovi sferi. Zaradi posebne strukture grupe $\SL$ lahko pokažemo, da avtomorfizmi, porojeni z delovanjem te grupe, ohranjajo predznak imaginarnega dela. Natančneje imamo naslednjo trditev.
 
 \begin{trditev}
     Za vse $z \in \C$ in $\gamma \in \SL$ velja 
@@ -2525,16 +2537,16 @@ Ker je $\SL$ podgrupa v $\GL_2(\C)$, je z istim predpisom definirano tudi delova
 \begin{dokaz}
 % O tem se prepričamo z računom 
 Zvezo preverimo z računom.
-\begin{multline*}
-    \Im(\gamma z) = 
+\begin{align*}
+    \Im(\gamma z) &= 
     \Im\left(\frac{az + b}{cz + d}\right) = 
     \Im\left(\frac{(az + b)(c\bar{z} + d)}{\abs{cz + d}^2}\right) = \\
-    = \Im\left(\frac{ac\abs{z}^2 + bd + adz + bc\bar{z}}{\abs{cz + d}^2}\right) = 
-    \frac{(ad - bc)\Im(z)}{\abs{cz + d}^2} = \frac{\Im(z)}{\abs{cz + d}^2}
-\end{multline*}
+    &= \Im\left(\frac{ac\abs{z}^2 + bd + adz + bc\bar{z}}{\abs{cz + d}^2}\right) = 
+    \frac{(ad - bc)\Im(z)}{\abs{cz + d}^2} = \frac{\Im(z)}{\abs{cz + d}^2} \qedhere
+\end{align*}
 \end{dokaz}
 \begin{opomba}
-    Tako vidimo, da zaradi zveze \eqref{eq: imginarni del delovanja}, predpis \eqref{eq: predpis delovanja GL2C} podaja dobro definirano delovanje grupe $\SL$ na zgornji polravnini.
+    Tako vidimo, da zaradi zveze \eqref{eq: imginarni del delovanja} predpis \eqref{eq: predpis delovanja GL2C} podaja dobro definirano delovanje grupe $\SL$ na zgornji polravnini $\HH$.
 \end{opomba}
 
 V smislu grupe $\SL$ lahko sedaj transformaciji $T$ in $S$ od prej predstavimo tudi kot elementa te grupe. Ustrezata jima istoimenovana grupna elementa
@@ -2542,7 +2554,7 @@ V smislu grupe $\SL$ lahko sedaj transformaciji $T$ in $S$ od prej predstavimo t
     T = \begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix} \quad \text{ in } \quad
     S = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix},
 \]
-saj zanju velja $Tz = z + 1$ in $Sz = -1/z$. Poleg tega $T$ in $S$ nista zanimiva le z vidika kako njunih delovanj na mrežah, ampak imata celo vlogo generatorjev v kvocientni grupi $\SL/\{\pm I\}$. Kot avtomorfizma Riemannove sfere, $T$ in $S$ generirata podgrupo v $\Aut(\RS)$, ki je slika zožitve homomorfizma \eqref{eq: delovanje GL2C na CP1} na podgrupo $\SL$. Več o tem najdemo v \cite[VII, \S 1.]{Serre}.
+saj zanju velja $Tz = z + 1$ in $Sz = -1/z$. Poleg tega $T$ in $S$ nista zanimiva le z vidika njunih delovanj na mrežah, ampak celo generirata modularno grupo $\SL = \operatorname{SL}_2(\Z)$. Njuni sliki v kvocientni grupi $\SL/\{\pm I\}$ imata namreč vlogo generatorjev, za kar se skličemo na izrek \cite[VII, \S 1, theorem 2]{Serre}, element $-I \in \SL$ pa lahko izrazimo s $S$ kot $S^2 = -I$. Skupaj to pomeni, da $S$ in $T$ geneirata celotno grupo $\SL = \operatorname{SL}_2(\Z)$. V smislu avtomorfizmov Riemannove sfere, $S$ in $T$ generirata podgrupo v $\Aut(\RS)$, ki je slika zožitve homomorfizma \eqref{eq: delovanje GL2C na CP1} na podgrupo $\SL$. Več o tem najdemo v \cite[VII, \S 1]{Serre}.
 
 \subsubsection*{Fundamentalna domena}
 
@@ -2555,7 +2567,7 @@ ki jo imenujemo \emph{fundamentalna domena}. Na sliki \ref{slika delovanja modul
 \begin{figure}
     \centering
     \includegraphics[scale=0.12]{ModularTiling_3.png}
-    \caption{Delovanje modularne grupe $\SL$ na $\HH$.}
+    \caption{Delovanje modularne grupe $\SL$ na $\HH$. Vir \cite{Cheritat}.}
     \label{slika delovanja modularne grupe}
 \end{figure}
 
@@ -2567,18 +2579,18 @@ Naslednja trditev pove, da vsaka orbita seka fundamentalno domeno vsaj v eni to�
 \end{trditev}
 
 \begin{dokaz}
-    Spomnimo se identitete \eqref{eq: imginarni del delovanja}, ki nam pove kako se transformira imaginarni del kompleksnega števila, ko na njem delujemo z grupo $\SL$. Izraz $\abs{cz + d}$ meri razdalijo elementa $cz + d$ iz mreže $\lattice{1}{z}$ do izhodišča. Za dano konstanto $M > 0$ tako že vemo, da obstaja zgolj končno mnogo parov $(c,d) \in \Z^2$, da je $\abs{cz + d} < M$. V posebnem imamo torej tudi končno mnogo parov $(c,d)$ za katere sta $c$ in $d$ tuji, ki zadoščata tej oceni. Kadar sta $c$ in $d$ tuji namreč ravno ustrezata nekemu elementu $\gamma' \in \SL$, saj tedaj obstajata še $a,b \in \Z$, da velja $ad - bc = 1$. Za neki tak par $(c,d)$ \oz element $\gamma' \in \SL$, je vrednost izraza $\abs{cz + d}$ minimalna. Posledično je zato $\Im(\gamma' z)$ maksimalna.
+    Spomnimo se identitete \eqref{eq: imginarni del delovanja}, ki nam pove, kako se transformira imaginarni del kompleksnega števila, ko na njem delujemo z grupo $\SL$. Izraz $\abs{cz + d}$ meri razdaljo elementa $cz + d$ iz mreže $\lattice{1}{z}$ do izhodišča. Za dano konstanto $M > 0$ tako že vemo, da obstaja zgolj končno mnogo parov $(c,d) \in \Z^2$, da je $\abs{cz + d} < M$. V posebnem imamo torej tudi končno mnogo parov $(c,d)$, kjer sta $c$ in $d$ tuji in zadoščata tej oceni. Kadar sta $c$ in $d$ tuji, namreč ravno ustrezata nekemu elementu $\gamma' \in \SL$, saj tedaj obstajata še $a,b \in \Z$, da velja $ad - bc = 1$. Za neki tak par $(c,d)$ \oz element $\gamma' \in \SL$ je vrednost izraza $\abs{cz + d}$ minimalna. Posledično je zato vrednost $\Im(\gamma' z)$ maksimalna.
     % lahko tudi več, je vrednost izraza $\abs{cz + d}$ minimalna in recimo, da je ta vrednost $\delta > 0$. Tedaj za vsak $\gamma \in \SL$ velja ocena
     % \[
     %     \Im(\gamma z) = \frac{\Im(z)}{\abs{cz + d}^2} \leq \frac{\Im(z)}{\delta^2}.  
     % \]
-    Vzemimo enega izmed teh $\gamma' \in \SL$ pri katerem je $\Im(\gamma'z)$ maksimalna, in s $T$ delujmo na $\gamma'z$ tolikokrat, da bo za $z' = T^n\gamma'z$ veljalo
+    Vzemimo enega izmed teh $\gamma' \in \SL$, pri katerem je $\Im(\gamma'z)$ maksimalna, in s $T$ delujmo na $\gamma'z$ tolikokrat, da bo za $z' = T^n\gamma'z$ veljalo
     \[
         -1/2 \leq \Re(z') \leq 1/2.
     \]
     To je vedno mogoče, saj delovanje z elementom $T$ predstavlja translacijo za eno enoto v pozitivni smeri realne osi. Ob tem še opomnimo, da takšne translacije s $T$ nimajo vpliva na imaginarni del, torej na koncu še vedno velja $\Im(z') = \Im(\gamma'z)$. 
 
-    Če je tedaj $\abs{z'} \geq 1$, smo končali in lahko vzamemo $\gamma = T^n\gamma'$ za katerega velja $\gamma z\in D$. V nasprotnem primeru, če je $\abs{z'} < 1$, pa ugotovimo, da velja $\Im(Sz') = \frac{\Im(z')}{\abs{z}^2} > \Im(z')$
+    Če je tedaj $\abs{z'} \geq 1$, smo končali in lahko vzamemo $\gamma = T^n\gamma'$, za katerega velja $\gamma z\in D$. V nasprotnem primeru, če je $\abs{z'} < 1$, pa ugotovimo, da velja $\Im(Sz') = \frac{\Im(z')}{\abs{z'}^2} > \Im(z')$,
     % \[
     %     \Im\left(\frac{-1}{z'}\right) = \frac{\Im(z')}{\abs{z'}^2} > \Im(z')  
     % \]
@@ -2587,12 +2599,12 @@ Naslednja trditev pove, da vsaka orbita seka fundamentalno domeno vsaj v eni to�
 
 
 \begin{komentar}
-    Z našo definicijo fundamentale domene $D$ zares ne dosežemo, da ta vsebuje \emph{enoličnega} predstavnika iz vsake orbite, saj nekatere točke na robu domene še vedno ležijo v isti orbiti. Imamo pa te vrste enoličnost v notranjosti domene $D$.
+    Z našo definicijo fundamentalne domene $D$ zares ne dosežemo, da ta vsebuje \emph{enoličnega} predstavnika iz vsake orbite, saj nekatere točke na robu domene še vedno ležijo v isti orbiti. Imamo pa te vrste enoličnost v notranjosti domene $D$.
     % \emph{ne} vsebuje, po natanko enega predstavnika iz vsake orbite, saj so nekatere točke na njenem robu še vedno ekvivalentne. 
-    Natančneje $z$ in $z'$ iz $D$ ležita v isti orbiti natanko tedaj, ko je $\abs{\Re(z)} = \frac12$ in $z = z' \pm 1$ ali pa je $\abs{z} = 1$ in je $z' = -1/z$. Dokaz najdemo v \cite[Izrek 1, VII, \S1]{Serre}.
+    Natančneje $z$ in $z'$ iz $D$ ležita v isti orbiti natanko tedaj, ko je $\abs{\Re(z)} = \frac12$ in $z = z' \pm 1$ ali pa je $\abs{z} = 1$ in je $z' = -1/z$. Dokaz tega najdemo v \cite[VII, \S1, theorem 1]{Serre}.
 \end{komentar}
 
-Vrnimo se sedaj nazaj k mrežam oblike $\langle 1, \tau \rangle$, kjer je $\tau \in \HH$. Omenjali smo že, da sta mreži $\lattice{1}{\tau_1}$ in $\lattice{1}{\tau_2}$ homotetični, če med $\tau_1$ in $\tau_2$ lahko prehajamo z nekim zaporedjem delovanj $S$ in $T$. Naslednja trditev nam poda karakterizacijo homotetičnosti mrež preko modularne grupe $\SL$.
+Vrnimo se sedaj nazaj k mrežam oblike $\langle 1, \tau \rangle$, kjer je $\tau \in \HH$. Omenili smo že, da sta mreži $\lattice{1}{\tau_1}$ in $\lattice{1}{\tau_2}$ homotetični, če med $\tau_1$ in $\tau_2$ lahko prehajamo z nekim zaporedjem delovanj $S$ in $T$. Naslednja trditev nam poda karakterizacijo homotetičnosti mrež preko modularne grupe $\SL$.
 
 % da imamo z grupo $\SL$ podano deobro definirano delovanje na zgornji polravnini $\HH$.
 
@@ -2614,22 +2626,24 @@ Vrnimo se sedaj nazaj k mrežam oblike $\langle 1, \tau \rangle$, kjer je $\tau 
     \[
         \alpha\tau_1 = a\tau_2 + b \quad \text{ in } \quad \alpha = c\tau_2 + d  
     \]
-    za neke $a, b, c, d \in \Z$. Z drugimi besedami to pomeni, da obstaja celoštevilska obrnljiva matrika $\gamma = \abcd \in \GL_2(\Z)$, ki bazo $(1,\tau_1)$ preslika v bazo $(\alpha, \alpha\tau_2)$. Determinanta celoštevilske obrnljive matrike je lahko samo $1$ ali $-1$, ker pa velja 
+    za neke $a, b, c, d \in \Z$. Z drugimi besedami to pomeni, da obstaja celoštevilska matrika $\gamma = \abcd$, ki bazo $(1,\tau_2)$ preslika v bazo $(\alpha, \alpha\tau_1)$. Ker je homotetičnost mrež ekvivalenčna relacija, po enakem razmisleku obstaja tudi celoštevilska matrika $\gamma'$, ki bazo $(1, \tau_1)$ preslika v bazo $(\alpha\inv, \alpha\inv\tau_2)$, od koder sledi, da sta $\gamma$ in $\gamma'$ obrnljivi. Determinanta celoštevilske obrnljive matrike je lahko samo $1$ ali $-1$, ker pa velja 
     \[
+        \Im(\tau_1) = 
+        % \Im\left(\frac{\alpha\tau_1}{\alpha}\right) =
         \Im\left(\frac{a\tau_2 + b}{c\tau_2 + d}\right) = 
-        \frac{\Im(\tau_2)}{\abs{c\tau_2 + d}^2}> 0,
+        \frac{(ad - bc)\Im(\tau_2)}{\abs{c\tau_2 + d}^2} > 0
     \]
-    mora biti $\det\gamma = 1$ \oz $\gamma \in \SL$ in $\tau_1 = \gamma\tau_2$.
+    in sta $\tau_1, \tau_2 \in \HH$, mora biti $\det\gamma = ad - bc = 1$ \oz $\gamma \in \SL$ in tako je $\tau_1 = \gamma\tau_2$.
     
     % s celoštevilskimi koeficienti, ki ohranja orientacijo in bazo $(\alpha, \alpha\tau_1)$ preslika na bazo $(1, \tau_2)$. Obrnljive matrike s celoštevilskimi koeficienti lahko imajo determinanto enako le $1$ ali $-1$, ker pa naša ohranja tudi orientacijo, mora biti njena determinanta enaka $1$. Od tod je $ad - bc = 1$ in $\tau_1 = \frac{a\tau_2 + b}{c\tau_2 + d} = \gamma.\tau_2$, za $\gamma = \abcd \in \SL$.
 
-    Obratno, če velja $\tau_1 = \gamma\tau_2$, za neki $\gamma = \abcd \in \SL$, imamo
+    Obratno, če velja $\tau_1 = \gamma\tau_2$ za neki $\gamma = \abcd \in \SL$, imamo
     \[
         \lattice{1}{\tau_1} = 
         \lattice{1}{\tfrac{a\tau_2 + b}{c\tau_2 + d}} \htp
         \lattice{c\tau_2 + d}{a\tau_2 + b},
     \]
-    preko homotetije, ki jo porodi množenje s številom $\alpha = c\tau_2 + d$. Ker je $\Im\tau_2 > 0$, je $\alpha$ res neničelen. Opazimo, da je mreža $\lattice{c\tau_2 + d}{a\tau_2 + b}$ kar enaka $\lattice{1}{\tau_2}$, saj lahko njeni osnovni periodi $1$ in $\tau_2$ izrazimo kot $\Z$-linearni kombinaciji osnovnih period $a\tau_2 + b$ in $c\tau_2 + d$:
+    preko homotetije, ki jo porodi množenje s številom $\alpha = c\tau_2 + d$. Ker je $\Im(\tau_2) > 0$, je $\alpha$ res neničeln. Opazimo, da je mreža $\lattice{c\tau_2 + d}{a\tau_2 + b}$ kar enaka $\lattice{1}{\tau_2}$, saj lahko njeni osnovni periodi $1$ in $\tau_2$ izrazimo kot $\Z$-linearni kombinaciji osnovnih period $a\tau_2 + b$ in $c\tau_2 + d$:
     \begin{gather*}
         a(c\tau_2 + d) - c(a\tau_2 + b) = ad - bc = 1, \\
         d(a\tau_2 + b) - b(c\tau_2 + d) = (ad - bc)\tau_2 = \tau_2.
@@ -2637,19 +2651,19 @@ Vrnimo se sedaj nazaj k mrežam oblike $\langle 1, \tau \rangle$, kjer je $\tau 
     Ker je $\gamma \in \SL$, smo upoštevali $ad - bc = 1$. Tako dobimo $\lattice{1}{\tau_1} \htp \lattice{1}{\tau_2}$.
 \end{dokaz}
 
-Zgornja diskusija o fundamentalni domeni $D$ in prejšnja trditev nam tako povesta, da lahko vsaki mreži $\Lambda \subseteq \C$ priredimo točko $\tau \in D$ iz fundamentalne domene, da je $\Lambda \htp \lattice{1}{\tau}$.
+Zgornja diskusija o fundamentalni domeni $D$ in prejšnja trditev nam tako povesta, da lahko vsaki mreži $\Lambda \subseteq \C$ priredimo točko $\tau \in D$ v fundamentalni domeni, da je $\Lambda \htp \lattice{1}{\tau}$.
 
 \subsubsection{Modularne funkcije}
 
 \begin{definicija}
-    Naj bo $k$ celo število. Meromorfna funkcija $f$ na zgornji polravnini $\HH$ je \emph{šibko modularna reda $2k$}, če zadošča \emph{modularnostnem pogoju}
+    Naj bo $k$ celo število. Meromorfna funkcija $f$ na zgornji polravnini $\HH$ je \emph{šibko modularna reda $2k$}, če zadošča \emph{modularnostnemu pogoju}
     % \ti \emph{modularnemu pogoju}: za vse $z \in \HH$ in $\gamma \in \SL$ velja
     \begin{equation}
         \label{eq: modularnostni pogoj}
         f(z) = (cz + d)^{-2k} f\left(\frac{az + b}{cz + d}\right) \quad \text{za vse } \pabcd \in \operatorname{SL}_2(\Z).
     \end{equation}
     % Zvezi \eqref{eq: modularnostni pogoj} pravimo \emph{modularnostni pogoj.} 
-    Če dodatno obstaja limita $f$ v neskončnosti (v posplošenem smilsu -- dovoljujemo tudi konvergenco proti $\infty$), pravimo, da je $f$ \emph{modularna funkcija reda $2k$}. 
+    Če dodatno obstaja limita $f$ v neskončnosti (v posplošenem smislu -- dovoljujemo tudi konvergenco proti $\infty$), pravimo, da je $f$ \emph{modularna funkcija reda $2k$}. 
 \end{definicija}
 
 \begin{opomba}
@@ -2662,7 +2676,7 @@ Zgornja diskusija o fundamentalni domeni $D$ in prejšnja trditev nam tako poves
 
 \begin{opomba}
     % V resnici smo definirali samo šibko modularne funkcije sodih redov. Izkaže se, da neničelnih šibko modularnih funkcij lihih redov spolh ni. Če bi $f$ bila takšna, za $\gamma = \big(\begin{smallmatrix} -1 & 0\\0 & -1 \end{smallmatrix}\big)}$ velja
-    Definicija namiguje, da šibko modularnih funkcij lihega reda reda sploh ni in izkaže se, da je to res, če ob tem izvzamemo ničelno funkcijo. Če bi namreč $f$ bila lihega reda, za $\gamma = -I \in \operatorname{SL}_2(\Z)$ velja
+    Definicija namiguje, da šibko modularnih funkcij lihega reda sploh ni in izkaže se, da je to res, če ob tem izvzamemo ničelno funkcijo. Če bi namreč $f$ bila lihega reda, za $\gamma = -I \in \operatorname{SL}_2(\Z)$ velja
     \[
         f(z) = (-1)^{2k+1}f(\gamma z) = -f(z) \quad \text{ za vse } z \in \HH,
     \]
@@ -2670,7 +2684,7 @@ Zgornja diskusija o fundamentalni domeni $D$ in prejšnja trditev nam tako poves
 \end{opomba}
 
 \subsubsection*{Eisensteinove vrste}
-Zanenkrat nimamo še nobenih konkretnih primerov (šibko) modularnih funkcij, razen konstant. Videli pa bomo, da bodo Eisensteinove vrste reda $2k$, kjer je $k > 1$, prirejene mreži $\Lambda$
+Zaenkrat nimamo še nobenih konkretnih primerov (šibko) modularnih funkcij, razen konstant. Videli pa bomo, da bodo Eisensteinove vrste reda $2k$, kjer je $k > 1$, prirejene mreži $\Lambda$
 \[
     G_{2k}(\Lambda) = \sum_{\om\in\Lambda'}\frac{1}{\om^{2k}},
 \]
@@ -2690,9 +2704,9 @@ služile kot dober vir za konstrukcijo prvih netrivialnih primerov modularnih fu
         G_{2k}(\alpha\Lambda) = \sum_{\om\in\Lambda'}\frac{1}{(\alpha\om)^{2k}} = \alpha^{-2k}\sum_{\om\in\Lambda'}\frac{1}{\om^{2k}} = \alpha^{-2k}G_{2k}(\Lambda). \qedhere
     \]
 \end{dokaz}
-Za poljuben $\tau \in \HH$ imamo mrežo $\lattice{1}{\tau}$ na kateri lahko izračunamo vrsto $G_{2k}$. Tako dobimo funkcijo, ki jo označimo enako, podano s predpisom
+Za poljuben $\tau \in \HH$ imamo mrežo $\lattice{1}{\tau}$, na kateri lahko izračunamo vrsto $G_{2k}$. Tako dobimo funkcijo z enako oznako, podano s predpisom
 \[
-    G_{2k} : \HH \to \C, \quad G_{2k}(\tau) = \sum_{(m,n) \in \Z^2\setminus\{0\}} \frac{1}{(m + n\tau)^{2k}}.
+    G_{2k} : \HH \to \C, \quad G_{2k}(\tau) = \sum_{(m,n) \in \Z^2\setminus\{(0,0)\}} \frac{1}{(m + n\tau)^{2k}}.
 \]
 Naj bo $\gamma \in \SL$ poljuben. Homotetični mreži $\lattice{1}{\tau}$ in $\lattice{1}{\gamma\tau}$, kot v dokazu trditve \ref{ekvivalentne normalizirane mreze}, povezuje $\alpha = c\tau + d$, da velja
 \[
@@ -2708,7 +2722,7 @@ nam pokaže še, da so funkcije $G_{2k} : \HH \to \C$ tudi holomorfne.
 
 \begin{trditev}
     \label{holomorfnost Gk}
-    Naj bo $k \in \N$. Eisensteinova vrsta reda $2k$ s predpisom $G_{2k}(\tau) = G_{2k}(\lattice{1}{\tau})$ podaja holomorfno funkcijo $\HH \to \C$ na zgornji polravnini.
+    Naj bo $k > 1$ naravno število. Eisensteinova vrsta reda $2k$ s predpisom $G_{2k}(\tau) = G_{2k}(\lattice{1}{\tau})$ podaja holomorfno funkcijo $\HH \to \C$ na zgornji polravnini.
     % $\Lambda_\tau = \langle 1, \tau \rangle$
     % \[
     %     G_k(\Lambda) = G_k(\langle 1, \tau \rangle) = 
@@ -2723,14 +2737,14 @@ nam pokaže še, da so funkcije $G_{2k} : \HH \to \C$ tudi holomorfne.
 \begin{dokaz}
     Zaradi Weierstrassovega M-testa in izreka \ref{izrek o konvergenci holomorfnih funkcij} zadošča vsak člen vrste $G_{2k}$ po kompaktih v $\HH$ majorizirati s členom neke konvergentne vrste. Če je $K \subseteq \HH$ poljuben kompakt, obstajata taka $a, \varepsilon > 0$, da je $K$ vsebovan v množici 
     \[
-        S_{a,\epsilon} = \{z \in \HH \mid \abs{\Re(z)} \leq a \text{, } \Im(z) \geq \varepsilon \}.
+        S_{a,\varepsilon} = \{z \in \HH \mid \abs{\Re(z)} \leq a \text{, } \Im(z) \geq \varepsilon \}.
     \]
     Izkaže se, da obstaja tak $\delta \in (0,1)$, za katerega je
     \begin{equation}
         \label{eq: ocena za holomorfnost eisensteinove vrste}
         \abs{m + n\tau} \geq \delta\abs{m + ni},  
     \end{equation}
-    za vse $(m, n) \in \Z^2\setminus\{0\}$ in vse $\tau \in S_{a,\varepsilon}$. To oceno uporabimo na kompaktu $K$ za majorizacijo vsakega od členov vrste $G_{2k}(\tau)$ na sledeč način
+    za vse $(m, n) \in \Z^2\setminus\{(0,0)\}$ in vse $\tau \in S_{a,\varepsilon}$. To oceno uporabimo na kompaktu $K$ za majorizacijo vsakega od členov vrste $G_{2k}(\tau)$ na sledeč način
     \[
         \frac{1}{\abs{m + n\tau}^{2k}} \leq \delta^{-2k}\frac{1}{\abs{m + ni}^{2k}}.
     \]
@@ -2747,7 +2761,7 @@ nam pokaže še, da so funkcije $G_{2k} : \HH \to \C$ tudi holomorfne.
     \[
         \abs{\frac{\tau + \tfrac{m}{n}}{i + \tfrac{m}{n}}} \geq \delta.
     \]
-    Definirajmo funkcijo $f: S_{a, \varepsilon} \times \R \to (0,\infty)$ s predpisom $f(\tau, x) = \abs{\tfrac{\tau - x}{i - x}}$. Za vsak fiksen $\tau$, velja $\lim_{x \to \pm\infty} f(\tau, x) = 1$, torej obstaja $R_\tau > 0$, da je $\abs{\tfrac{\tau - x}{i - x}} \geq \tfrac{1}{2}$ za vse $\abs{x} \geq R_\tau$. Hkrati pa zaradi zveznosti, funkcija $f$ na kompaktu $\{\tau\} \times [-R_\tau, R_\tau]$ doseže minimum $c_\tau > 0$. Tedaj zadošča vzeti $\delta_\tau = \min\{c_\tau, \tfrac{1}{2}\}$, za katerega je $f(\tau, x) \geq \delta_\tau$.
+    Definirajmo funkcijo $f: S_{a, \varepsilon} \times \R \to (0,\infty)$ s predpisom $f(\tau, x) = \abs{\tfrac{\tau - x}{i - x}}$. Za vsak fiksen $\tau$ velja $\lim_{x \to \pm\infty} f(\tau, x) = 1$, torej obstaja $R_\tau > 0$, da je $\abs{\tfrac{\tau - x}{i - x}} \geq \tfrac{1}{2}$ za vse $\abs{x} \geq R_\tau$. Hkrati pa zaradi zveznosti funkcija $f$ na kompaktu $\{\tau\} \times [-R_\tau, R_\tau]$ doseže minimum $c_\tau > 0$. Tedaj zadošča vzeti $\delta_\tau = \min\{c_\tau, \tfrac{1}{2}\}$, za katerega je $f(\tau, x) \geq \delta_\tau$ za vse $x \in \R$.
 
     To oceno izpeljimo še enakomerno glede na $\tau$. Za poljuben $\tau \in S_{a, \varepsilon}$ in $x > a$ velja 
     \[
@@ -2795,7 +2809,7 @@ nam pokaže še, da so funkcije $G_{2k} : \HH \to \C$ tudi holomorfne.
     \[
         \abs{\frac{\tau - x}{i - x}} \geq \delta, \quad \text{ za vse } \tau \in S_{a, \varepsilon} \text{ in vse } x \in \R,
     \]
-    kjer za $\delta$ vzamemo $\delta := \min\left\{\delta_{a + i\varepsilon}, \delta_{-a + i\varepsilon}, \frac{\varepsilon}{\abs{i - a}}\right\} \in (0,1)$, kar zaključi dokaz. \qedhere 
+    če za $\delta$ vzamemo $\delta := \min\left\{\delta_{a + i\varepsilon}, \delta_{-a + i\varepsilon}, \frac{\varepsilon}{\abs{i - a}}\right\} \in (0,1)$, kar zaključi dokaz. \qedhere 
     % $\abs{\frac{\tau - x}{i - x}} \geq \delta$ za vse $x \in \R$ ter $\tau \in S_{a,\varepsilon}$, kjer za $\delta$ vzamemo $\delta := \min\{\delta_{a + i\varepsilon}, \delta_{-a + i\varepsilon}, \frac{\varepsilon}{\abs{i - a}}\} \in (0,1)$.  
     
     % $x < \min\{-R_{-a + i\varepsilon}, -a\} = r_-$. 
@@ -2809,7 +2823,7 @@ nam pokaže še, da so funkcije $G_{2k} : \HH \to \C$ tudi holomorfne.
 
 % in tako nam ta družina funkcij podaja prvi netrivialen primer šibko modularnih funkcij reda $2k$. 
 
-Pomembna lastnost funkcij $G_{2k}$, ki bo tudi precej koristna, je njihovo obnašanje v neskončnosti. Naj $\zeta(s) = \sum_{n = 1}^\infty n^{-s}$ označuje \emph{Riemannovo $\zeta$-funkcijo}, kjer je $\Re(s) > 1$. Tedaj imamo trditev.
+Pomembna lastnost funkcij $G_{2k}$, ki bo tudi precej koristna, je njihovo obnašanje v neskončnosti. Naj $\zeta(s) = \sum_{n = 1}^\infty n^{-s}$ označuje \emph{Riemannovo $\zeta$-funkcijo}, kjer je $\Re(s) > 1$. Tedaj velja naslednja trditev.
 
 \begin{trditev}
     \label{G2k v neskoncnosti}
@@ -2820,21 +2834,22 @@ Pomembna lastnost funkcij $G_{2k}$, ki bo tudi precej koristna, je njihovo obna�
 \end{trditev}
 
 \begin{dokaz}
-    Izračunajmo limito preko zaporedji. Naj bo $(z_\ell)_{\ell\in\N}$ poljubno zaporedje v zgornji polravnini $\HH$, ki konvergira proti $\infty$\footnote{Zaporedje $(z_n)_{n \in \N}$ \emph{konvergira} proti $\infty$, kadar za vsak $M > 0$ obstaja $n_0 \in \N$, da za vse $n \in \N$, za katere je $n \geq n_0$, velja $\abs{z_n} > M$.}. Ker $G_{2k}$ zadošča modularnostnemu pogoju, je v posebnem invariantna na translacije s $T$, zato lahko brez škode za splošnost predpostavimo, da za vsak člen zaporedja velja $-\frac12 \leq \Re(z_\ell) \leq \frac12$. Poleg tega, zaradi konvergence proti $\infty$, obstaja $\varepsilon > 0$, da je $\Im(z_\ell) > \varepsilon$ za vse $\ell \in \N$.  Tako smemo predpostaviti, da zaporedje $(z_\ell)_{\ell \in\N}$ leži v množici $S_{1/2, \varepsilon}$. Iz dokaza trditve \ref{holomorfnost Gk} vemo, da $G_{2k}$ na množicah te oblike konverigra enakomerno, torej lahko zamenjamo limiti
+    Izračunajmo limito preko zaporedij. Naj bo $(z_\ell)_{\ell\in\N}$ poljubno zaporedje v zgornji polravnini $\HH$, ki konvergira proti $\infty$\footnote{Zaporedje $(z_n)_{n \in \N}$ \emph{konvergira} proti $\infty$, kadar za vsak $M > 0$ obstaja $n_0 \in \N$, da za vse $n \in \N$, za katere je $n \geq n_0$, velja $\abs{z_n} > M$.}. Ker $G_{2k}$ zadošča modularnostnemu pogoju, je v posebnem invariantna na translacije s $T$, zato lahko brez škode za splošnost predpostavimo, da za vsak člen zaporedja velja $-\frac12 \leq \Re(z_\ell) \leq \frac12$. Poleg tega, zaradi konvergence proti $\infty$, obstaja $\varepsilon > 0$, da je $\Im(z_\ell) > \varepsilon$ za vse $\ell \in \N$.  Tako smemo predpostaviti, da zaporedje $(z_\ell)_{\ell \in\N}$ leži v množici $S_{1/2, \varepsilon}$. Iz dokaza trditve \ref{holomorfnost Gk} vemo, da $G_{2k}$ na množicah te oblike konvergira enakomerno, torej lahko zamenjamo limiti
     \begin{gather*}
         \lim_{\ell \to \infty}G_{2k}(z_\ell) = 
         \sum_{(m,n) \in \Z^2\setminus\{0\}} \lim_{\ell \to \infty} \frac{1}{(m + nz_\ell)^{2k}} = 
+        \sum_{m \in \Z\setminus \{0\}} \frac{1}{m^{2k}} = 
         % \sum_{m \in \Z\setminus\{0\}} \frac{1}{m^4} = 
         2 \cdot \sum_{m = 1}^\infty \frac{1}{m^{2k}} = 2\zeta(2k),
     \end{gather*}
-    kar da želeni rezultat.
+    kar da želeni rezultat. Omenimo še, da v vsoti limit (po menjavi vrstnega reda limite in seštevanja) neničelni prispevek primorejo samo členi pri indeksih oblike $(m, 0)$, za $m \in \Z\setminus \{0\}$, kar pojasni drugi enačaj.
 \end{dokaz}
 
-Tako družina funkcij $G_{2k}$ podaja prvi netrivialen primer modularnih funkcij redov $2k$, za vsa naravna števila $k$.
+Tako družina funkcij $G_{2k}$ podaja prvi netrivialen primer modularnih funkcij redov $2k$, za vsa naravna števila $k > 1$.
 
 
 \subsubsection*{Modularna diskriminanta}
-Iz definicije je razvidno, da je množica šibko modularnih funkcij danega reda $2k$ zaprta za $\C$-linearne kombinacije, torej tvori kompleksen vektorski prostor. Na ta način lahko iz starih šibko modularnih funkcij reda $2k$ dobimo nove, ki so spet reda $2k$. Pomembna konstrukcija, ki nam omogoča prehajanje med različnimi redi, pa je produkt. Če sta $f_1$ in $f_2$ šibko modularni redov $2k_1$ in $2k_2$, je njun produkt $f_1f_2$ šibko modularna funkcija reda $2k_1 + 2k_2$. To sledi iz modularnostenga pogoja, ki mu zadošča $f_1f_2$. Za vsak $\gamma \in \operatorname{SL}_2(\Z)$ namreč velja
+Iz definicije je razvidno, da je množica šibko modularnih funkcij danega reda $2k$ zaprta za $\C$-linearne kombinacije, torej tvori kompleksen vektorski prostor. Na ta način lahko iz danih šibko modularnih funkcij reda $2k$ dobimo nove, ki so spet reda $2k$. Pomembna konstrukcija, ki nam omogoča prehajanje med različnimi redi, pa je produkt. Če sta $f_1$ in $f_2$ šibko modularni redov $2k_1$ in $2k_2$, je njun produkt $f_1f_2$ šibko modularna funkcija reda $2k_1 + 2k_2$. To sledi iz modularnostnega pogoja, ki mu zadošča $f_1f_2$. Za vsak $\gamma \in \operatorname{SL}_2(\Z)$ namreč velja
 \begin{align*}
     f_1(z)f_2(z) &= 
     (cz + d)^{-2k_1} f_1\left(\gamma z\right)(cz + d)^{-2k_2} f_2\left(\gamma z\right) \\
@@ -2855,17 +2870,18 @@ ki je šibko modularna funkcija reda $12$. Poleg tega $\Delta$ nima ničle na zg
 \[
     \lim_{\tau \to \infty} \Delta(\tau) = 0.
 \]
-Pri tem smo uporabili poznani vrednosti $\zeta(4) = \frac{\pi^4}{2\cdot3^3\cdot5}$ in $\zeta(6) = \frac{\pi^6}{3^3\cdot5\cdot7}$, ki ju lahko izračunamo s pomočjo Fourierovih vrst in Parsevalove enakosti, ali pa se skličemo na \cite[VII, \S4.1]{Serre}, za izračun limit
+Za izračun te limite smo uporaili limiti 
 \begin{align*}
     &\lim_{\tau \to \infty} g_2(\tau) = 60\cdot2 \zeta(4) = \frac{4\pi^4}{3},\\
     &\lim_{\tau \to \infty} g_3(\tau) = 140\cdot2 \zeta(6) = \frac{8\pi^6}{27}.
 \end{align*}
+Za izračun slednjih, pa smo uporabili poznani vrednosti $\zeta(4) = \frac{\pi^4}{2\cdot3^3\cdot5}$ in $\zeta(6) = \frac{\pi^6}{3^3\cdot5\cdot7}$, ki ju lahko izpeljemo s pomočjo Fourierovih vrst in Parsevalove enakosti, ali pa se skličemo na \cite[VII, \S4.1]{Serre}.
 
-\subsubsection*{Modularna $j$-invraianta} Celotna razprava o modularnih funkcijah nas na koncu privede še do \emph{modularne $j$-invariante}. V osnovi je $j$-invarianta število 
+\subsubsection*{Modularna $j$-invarianta} Celotna razprava o modularnih funkcijah nas na koncu privede še do \emph{modularne $j$-invariante}. V osnovi je $j$-invarianta število 
 \[
-    j = 1728\frac{a^3}{a^3 - 27b^2}
+    j = 1728\frac{a^3}{a^3 - 27b^2},
 \]
-prirejeno eliptični krivulji z enačbo $y^2z = 4x^3 - axz^2 - bz^3$, kjer je $a^3 - 27b^2 \neq 0$. Nad poljem kompleksnih števil nam je $j$-invarianta omogočila karakterizirati vse projektivne kubike do projektivne ekvivalence natančno. Na podoben način tedaj vpeljemo \emph{modularno $j$-invarianto}, podano s predisom
+prirejeno eliptični krivulji z enačbo $y^2z = 4x^3 - axz^2 - bz^3$, kjer je $a^3 - 27b^2 \neq 0$. Nad poljem kompleksnih števil nam je $j$-invarianta omogočila karakterizirati vse projektivne kubike do projektivne ekvivalence natančno. Na podoben način tedaj vpeljemo \emph{modularno $j$-invarianto}, podano s predpisom
 \[
     j(\tau) = 1728\frac{g_2(\tau)^3}{\Delta(\tau)}
     = 1728\frac{g_2(\tau)^3}{g_2(\tau)^3 - 27g_3(\tau)^2}.
@@ -2881,11 +2897,12 @@ kar je razvidno iz obnašanja funkcij $g_2$ in $\Delta$ v neskončnosti. Vse sku
 \end{trditev}
 
 \begin{komentar}
-    Kot vsaka modularna funkcija, tudi $j$ zadošča zvezi $j(\tau) = j(\tau + 1)$, torej je periodična. Ker je tudi holomorfna, jo lahko razvijemo v nekakšno Fourierovo vrsto. Če pišemo $q = e^{2\pi i \tau}$, se izkaže, da velja
+    Kot vsaka modularna funkcija, tudi $j$ zadošča zvezi $j(\tau) = j(\tau + 1)$, torej je periodična. Ker je tudi holomorfna, jo lahko razvijemo v nekakšno Fourierovo vrsto. Če pišemo $q = e^{2\pi i \tau}$, nam konec razdelka \cite[VII, \S3]{Serre}, kjer lahko izvemo še več o $j$-invarianti, zagotovi ravoj
     \[
         j(\tau) = \frac{1}{q} + 744 + 196884q + 21493760q^2 + \cdots.
     \]
-    Vrsto te oblike imenujemo tudi \emph{$q$-razvoj}. Število $1728$ v predpisu za $j$ je tradicionalno in je najmanjše pozitivno število, ki zagotovi celoštevilskost koeficientov $q$-razvoja $j$-invariante. O tem lahko več izvemo v \cite[VII, \S3]{Serre}.
+    Vrsto te oblike imenujemo tudi \emph{$q$-razvoj}. Število $1728$ v predpisu za $j$ je tradicionalno in je najmanjše pozitivno število, ki zagotovi celoštevilskost koeficientov $q$-razvoja $j$-invariante. 
+    % O tem lahko več izvemo v \cite[VII, \S3]{Serre}.
 \end{komentar}
 
 % Če se osredotočimo na fundamentalna paralelograma obeh mrež, bosta ta dva homotetična natanko tedaj, ko bosta pripadajoči mreži homotetični. Še ena interpretacija te ekvivalence pa vpleta razmerji dolžin njunih stranic. Središčni raztegi in rotacije ravno ohranjajo to razmerje, torej bosta dve mreži homotetični natanko tedaj, ko bosta imala enaki razmerji dolžin njunih stranic. 
@@ -2906,32 +2923,34 @@ V tem razdelku podamo izomorfizem Riemannovih ploskev -- kompleksnega torusa $\t
 \[
     E_\Lambda: \quad y^2z = 4x^3 - g_2(\Lambda)xz^2 - g_3(\Lambda)z^3.
 \]
-Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opisuje, kako poljubni eliptični krivulji nad $\C$ priredimo mrežo $\Lambda$ in posledično njej izomorfen kompleksni torus $\torus$.
+Nazadnje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opisuje, kako poljubni eliptični krivulji nad $\C$ priredimo mrežo $\Lambda$ in posledično njej izomorfen kompleksni torus $\torus$.
 
 \begin{izrek}
     \label{izomorfizem torusa in krivulje}
-    Naj bo $\Lambda \subseteq \C$ mreža, $\wp$ Weierstrassova eliptična funkcija glede na to mrežo $\Lambda$ in naj bo $E(\C)\subseteq \PC$ eliptična krivulja podana z enačbo
+    Naj bo $\Lambda \subseteq \C$ mreža, $\wp$ Weierstrassova eliptična funkcija glede na mrežo $\Lambda$ in naj bo $E(\C)\subseteq \PC$ eliptična krivulja, podana z enačbo
     \[
         E: \quad y^2z = 4x^3 - g_2(\Lambda)xz^2 - g_3(\Lambda)z^3.  
     \]
-    Tedaj je preslikava $\phi : \torus \to E(\C)$ podana s predpisom
+    Tedaj je preslikava $\phi : \torus \to E(\C)$, podana s predpisom
     \[
         z + \Lambda \mapsto 
         \begin{cases}
             \pcoor{\wp(z) : \wp'(z) : 1}; \quad &z \not\in \Lambda \\
             \oio; \quad &z \in \Lambda
-        \end{cases}  
+        \end{cases},
     \]
     dobro definiran biholomorfizem Riemannovih ploskev.
 \end{izrek}
 
 \begin{dokaz}
     Razdelimo dokaz trditve na naslednje štiri dele: dobro definiranost, zveznost, bijektivnost in holomorfnost preslikave $\phi$.
-    \subsubsection*{Dobra definiranost}
-    % Najprej se lotimo dobre definiranosti preslikeve $\phi$. 
+    % \subsubsection*{Dobra definiranost}
+    % Najprej se lotimo dobre definiranosti preslikeve $\phi$.
+
+    \emph{Dobra definiranost.} 
     Po izreku \ref{ode za wp} za poljuben $z \in \C\setminus\Lambda$ velja $\pcoor{\wp(z) : \wp'(z) : 1} \in E(\C)$ in posebej je tudi $\oio \in E(\C)$, torej bo slika preslikave $\phi$ res vsebovana v eliptični kriulji $E(\C)$. 
     
-    Predpis za $\phi$ je podan na kvocientu $\torus$, torej se moramo prepričati še o neodivisnosti le tega od izbire predstavnikov ekvivalenčnih razredov. Če sta $z,w \in \C$ predstavnika istega ekvivalenčnega razreda, velja $z - w \in \Lambda$ \oz $w = z + \om$, za neki $\om \in \Lambda$. V primeru, ko je $z \not\in \Lambda$, je tudi $w \not\in \Lambda$, in tedaj zaradi $\Lambda$-periodičnosti funkcije $\wp$ velja
+    Predpis za $\phi$ je podan na kvocientu $\torus$, torej se moramo prepričati še o neodvisnosti le tega od izbire predstavnikov ekvivalenčnih razredov. Če sta $z,w \in \C$ predstavnika istega ekvivalenčnega razreda, velja $z - w \in \Lambda$ \oz $w = z + \om$ za neki $\om \in \Lambda$. V primeru, ko velja $z \not\in \Lambda$, velja tudi $w \not\in \Lambda$, in tedaj zaradi $\Lambda$-periodičnosti funkcije $\wp$ sledi
     \[
         \pcoor{\wp(w) : \wp'(w) : 1} = 
         \pcoor{\wp(z + \om) : \wp'(z  + \om) : 1} =
@@ -2939,14 +2958,15 @@ Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opi
     \]
     Kadar pa sta $z, w \in \Lambda$, je že sam predpis $\phi$ neodvisen od izbire predstavnika, torej je celoten predpis $\phi$ res dobro definiran na točkah kvocienta $\torus$. 
 
-    \subsubsection*{Zveznost}
+    % \subsubsection*{Zveznost}
     % Naslednje se bomo prepričali, da je preslikava $\phi: \torus \to E(\C)$ zvezna. 
+    \emph{Zveznost.}
     Za nadaljevanje bo koristno poznati limiti
     \[
         \lim_{z \to 0} \frac{\wp(z)}{\wp'(z)} = 0 \quad \text{in} \quad 
         \lim_{z \to 0} \frac{1}{\wp'(z)} = 0,
     \] 
-    zato ju izračunajmo. Spomnimo se obnašanja $\wp$ \oz $\wp'$ okoli svojih polov. Po trditvi \ref{lastnosti wp} ima $\wp$ v točki $0$ pol druge stopnje, zato obstajata takšni holomorfni funkciji $g,h \in \hol{U}$, definiranih na neki dovolj majhni odprti okolici $U\subseteq\C$ točke $0$, ki sta na $U$ neničelni, da velja $\wp(z) = \frac{g(z)}{z^2}$ in $\wp'(z) = \frac{h(z)}{z^3}$ za vse $z \in U$. Tedaj izračunamo
+    zato ju izračunajmo. Spomnimo se obnašanja $\wp$ \oz $\wp'$ okoli svojih polov. Po trditvi \ref{lastnosti wp} ima $\wp$ v točki $0$ pol druge stopnje, zato obstajata takšni holomorfni funkciji $g,h \in \hol{U}$, definirani na neki dovolj majhni odprti okolici $U\subseteq\C$ točke $0$, ki sta na $U$ neničelni, da velja $\wp(z) = \frac{g(z)}{z^2}$ in $\wp'(z) = \frac{h(z)}{z^3}$ za vse $z \in U$. Tedaj izračunamo
     \[
         \lim_{z \to 0} \frac{\wp(z)}{\wp'(z)} = \lim_{z \to 0} \frac{g(z)z^3}{h(z)z^2} = 
         \frac{g(0)}{h(0)} \cdot \lim_{z \to 0}\frac{z^3}{z^2} = 0
@@ -2956,15 +2976,15 @@ Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opi
         \lim_{z \to 0} \frac{1}{\wp'(z)} = \lim_{z \to 0} \frac{z^3}{h(z)} = 
         \frac{1}{h(0)} \cdot \lim_{z \to 0}z^3 = 0.
     \]
-    Zaradi $\Lambda$-periodičnosti, dobimo tudi $\lim_{z \to \om} \frac{\wp(z)}{\wp'(z)} = 0$ in $\lim_{z \to \om} \frac{1}{\wp'(z)} = 0$ za vsak $\om \in \Lambda$. Vidimo torej, da imata funkciji $\frac{\wp}{\wp'}$ in $\frac{1}{\wp'}$ zgolj odpravljivi singularnosti v točkah iz $\Lambda$, kar pomeni, da ju lahko z vrednostjo $0$ v teh točkah holomorfno razširimo. Z manjšo zlorabo oznak bomo ti dve razšitivi spet označili kar s $\frac{\wp}{\wp'}$ oziroma $\frac{1}{\wp'}$ in razumeli $\frac{\wp(\om)}{\wp'(\om)} = 0$ ter $\frac{1}{\wp'(\om)} = 0$ za $\om \in \Lambda$.
+    Zaradi $\Lambda$-periodičnosti dobimo tudi $\lim_{z \to \om} \frac{\wp(z)}{\wp'(z)} = 0$ in $\lim_{z \to \om} \frac{1}{\wp'(z)} = 0$ za vsak $\om \in \Lambda$. Vidimo torej, da imata funkciji $\frac{\wp}{\wp'}$ in $\frac{1}{\wp'}$ zgolj odpravljivi singularnosti v točkah iz $\Lambda$, kar pomeni, da ju lahko z vrednostjo $0$ v teh točkah holomorfno razširimo. Z manjšo zlorabo oznak bomo ti dve razšitivi spet označili kar s $\frac{\wp}{\wp'}$ oziroma $\frac{1}{\wp'}$ in razumeli $\frac{\wp(\om)}{\wp'(\om)} = 0$ ter $\frac{1}{\wp'(\om)} = 0$ za $\om \in \Lambda$.
 
     Po lemi \ref{polperiode so nicle odvoda wp} vemo, da ima $\wp'$ po tri enostavne ničle na fundamentalnem paralelogramu v polperiodah mreže $\Lambda$, \tj v množici $\frac{1}{2}\Lambda = \{\frac{\om}{2} \in \C \mid \om \in \Lambda\}$. 
     % Natančneje je množica ničel funkcije $\wp'$ natanko $\frac12\Lambda \setminus \Lambda$, v vsaki periodi iz mreže $\Lambda$ ima $\wp'$ namreč pole tretje stopnje. 
     Natančneje je množica ničel funkcije $\wp'$ natanko $\frac12\Lambda \setminus \Lambda$. Polperiode iz mreže $\Lambda$ smo izvzeli, saj ima v vsaki izmed njih $\wp'$ pol tretje stopnje. 
-    Funkciji $\frac{\wp}{\wp'}$ in $\frac{1}{\wp'}$ lahko torej vidimo, kot dobro definirani holomorfni $\Lambda$-periodični funkciji na odprti domeni $\C \setminus (\frac12\Lambda \setminus \Lambda)$. 
+    Funkciji $\frac{\wp}{\wp'}$ in $\frac{1}{\wp'}$ lahko torej vidimo kot dobro definirani holomorfni $\Lambda$-periodični funkciji na odprti domeni $\C \setminus (\frac12\Lambda \setminus \Lambda)$. 
 
     
-    Naj $\pi : \C \to \torus$ označuje kvocientno projekcijo. Opazimo, da je $\phi$ natanko preslikava, ki se faktorizira skozi preslikavo
+    Naj $\pi : \C \to \torus$ označuje kvocientno projekcijo. Opazimo, da je $\phi$ natanko preslikava, ki skupaj s $\pi$ faktorizira  preslikavo
     \[
         \Phi: \C \to E(\C), \quad z \mapsto
         \begin{cases}
@@ -3026,34 +3046,40 @@ Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opi
 %     \] 
 %     zaradi $\wp'(z) \in \CM$ za vse $z \in \C \setminus \tfrac{1}{2}\Lambda$. Tako vidimo, da je $\phi$ zvezna preslikava.
 
-    \subsubsection*{Bijektivnost}
+    % \subsubsection*{Bijektivnost}
     % Dalje pokažimo še, da je $\phi$ bijekcija. 
+    \emph{Bijektivnost.}
     Začnimo s surjektivnostjo. Očitno je $\phi(0 + \Lambda) = \oio$, zato izberimo poljubno točko oblike $\pcoor{x_0 : y_0 : 1} \in E(\C) \setminus \{\oio\}$. Ker je po trditvi \ref{elipticna funkcija je surjektivna} eliptična funkcija $\wp$ surjektivna, obstaja $z \in \C \setminus \Lambda$, da je $\wp(z) = x_0$. Iz identitete \eqref{wp identiteta} sledi $\wp'(z)^2 = y_0^2$, torej sta $\wp'(z)$ in $y_0$ enaka do predznaka natančno. Ker pa je $\wp$ soda in $\wp'$ liha, lahko po potrebi zamenjamo $-z$ in $z$, da dobimo $\wp(z) = x_0$ in $\wp'(z) = y_0$ oziroma $\phi(z + \Lambda) = \pcoor{x_0 : y_0 : 1}$.
 
-    Pokažimo še injektivnost $\phi$. Omejili se bomo samo na injektivnost zožitve $\phi|_{\pi(\C\setminus\Lambda)}$, saj je $0 + \Lambda$ edina točka, ki se preslika v neskončnost, slike vseh ostalih točk imajo namreč tretjo projektivno koordinato neničelno. Naj bosta $z_1 + \Lambda, z_2 + \Lambda \in \pi(\C \setminus \Lambda)$ poljubni in denimo, da velja $\phi(z_1 + \Lambda) = \phi(z_2 + \Lambda)$. Zaradi redukcije na območje $\pi(\C \setminus \Lambda)$, imamo opravka samo z afinim delom krivulje $E$ in se zato zgronji pogoj prevede v ekvivalentnega 
+    Pokažimo še injektivnost $\phi$. Omejili se bomo samo na injektivnost zožitve $\phi|_{\pi(\C\setminus\Lambda)}$, saj je $0 + \Lambda$ edina točka, ki se preslika v neskončnost, slike vseh ostalih točk imajo namreč tretjo projektivno koordinato neničelno. Naj bosta $z_1 + \Lambda, z_2 + \Lambda \in \pi(\C \setminus \Lambda)$ poljubni in denimo, da velja $\phi(z_1 + \Lambda) = \phi(z_2 + \Lambda)$. Zaradi omejitve na območje $\pi(\C \setminus \Lambda)$, imamo opravka samo z afinim delom krivulje $E$ in se zato zgornji pogoj prevede v ekvivalentnega 
     \begin{equation}
-        \label{afini pogoj za injektivnost}
+        \label{eq: afini pogoj za injektivnost}
         (\wp(z_1), \wp'(z_1)) = (\wp(z_2), \wp'(z_2)). 
     \end{equation}  
     Ločimo dve možnosti:
     \begin{itemize}
         \item
-        Če je $2z_1 \in \Lambda$, potem je predstavnik točke $z_1 + \Lambda$ do prištete periode iz $\Lambda$ natanko ena od polperiod
+        Če je $2z_1 \in \Lambda$, je $z_1$ polperioda, torej je $\wp'(z_1) = 0$ po lemi \ref{polperiode so nicle odvoda wp}. Posledično iz predpostavke \eqref{eq: afini pogoj za injektivnost} sledi $\wp'(z_2) = 0$, zato je tudi $z_2$ polperioda. Predstavnik točke $z_1 + \Lambda$ je tako do prištete periode iz $\Lambda$ natanko ena od polperiod
         \[
             \frac{\om_1}{2}\text{, } \quad \frac{\om_2}{2}\text{, } \quad \frac{\om_1 + \om_2}{2}.
         \]
         Iz dokaza leme \ref{nenicelna diskriminanta} vemo, da $\wp$ v vsaki od teh treh polperiod zavzame drugačno vrednost, torej iz $\wp(z_1) = \wp(z_2)$ sledi $z_1 + \Lambda = z_2 + \Lambda$.
 
         \item 
-        Če je $2z_1 \not\in \Lambda$, potem $z_1$ ni ena od polperiod in je $\wp'(z_1) \neq 0$. Ker je $\wp$ soda in reda $2$, iz $\wp(z_1) = \wp(z_2)$ sledi
+        Če je $2z_1 \not\in \Lambda$, potem $z_1$ ni ena od polperiod in je $\wp'(z_1) \neq 0$. Ker je $\wp$ reda $2$, je takšna tudi $\wp - \wp(z_1)$, zato ima slednja natanko dve ničli na fundamentalnem paralelogramu \oz na $\torus$, šteti z večkratnostmi. Ena je gotovo $z_1 + \Lambda$, druga pa je $-z_1 + \Lambda$, saj je $\wp$ soda. Ker $z_1$ ni polperioda, sta ti dve točki iz $\torus$ res tudi različni. Tako iz $\wp(z_1) = \wp(z_2)$ sledi
         \[
-            z_1  \equiv \pm z_2 \mod{\Lambda}. 
+            z_2 + \Lambda = \pm z_1 + \Lambda.
         \]
-        Zaradi lihosti $\wp'$ in, ker velja $\wp'(z_1) \neq 0$, se lahko zgodi le $z_1 + \Lambda = z_2 + \Lambda$, kajti v nasprotnem primeru bi imeli $\wp'(z_2) = \wp'(-z_1) = -\wp'(z_1) \neq \wp'(z_1)$, kar je v nasprotju s pogojem \ref{afini pogoj za injektivnost}.
+        % Ker je $\wp$ soda in reda $2$, iz $\wp(z_1) = \wp(z_2)$ sledi
+        % \[
+        %     z_1  \equiv \pm z_2 \mod{\Lambda}. 
+        % \]
+        Zaradi lihosti $\wp'$ in ker velja $\wp'(z_1) \neq 0$, se lahko zgodi le $z_1 + \Lambda = z_2 + \Lambda$, kajti v nasprotnem primeru bi imeli $\wp'(z_2) = \wp'(-z_1) = -\wp'(z_1) \neq \wp'(z_1)$, kar je v nasprotju s pogojem \eqref{eq: afini pogoj za injektivnost}.
     \end{itemize}
     Skupaj je tako $\phi$ res bijektivna. 
 
-    \subsubsection*{Holomorfnost}
+    % \subsubsection*{Holomorfnost}
+    \emph{Holomorfnost.}
     Nazadnje si poglejmo, zakaj je $\phi$ holomorfna. Ker je $\pi$ lokalni biholomorfizem, bo zadoščalo pokazati le holomorfnost kompozicije 
     \[\begin{tikzcd}
         % https://q.uiver.app/?q=WzAsMyxbMCwwLCJcXG1hdGhiYntDfSJdLFsxLDAsIm0iXSxbMiwwLCJFIl0sWzAsMSwiXFxwaSJdLFsxLDIsIlxccGhpIl1d
@@ -3073,7 +3099,7 @@ Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opi
             \psi(\phi(\pi(z))) = \psi(\pcoor{\wp(z) : \wp'(z) : 1}) = 
             \psi\left(\pcoor{\tfrac{\wp(z)}{\wp'(z)} : 1 : \tfrac{1}{\wp'(z)}}\right) = \tfrac{\wp(z)}{\wp'(z)}.
         \]
-        To je predpis holomorfne funkcije, zaradi odpravljive singularnosti $\frac{\wp}{\wp'}$ pri $z_0 \in \Lambda$.
+        To je predpis holomorfne funkcije, saj ima funkcija $\frac{\wp}{\wp'}$ odpravljivo singularnost pri $z_0 \in \Lambda$.
 
         \item
         Če je $z_0 \in \tfrac{1}{2}\Lambda\setminus\Lambda$, je $\phi(\pi(z_0)) = \pcoor{\wp(z_0) : 0 : 1}$. Na odprti okolici te točke imamo lokalno karto $\psi$, s predpisom $\psi(\pcoor{x : y : 1}) = y$. Na dovolj majhni odprti okolici točke $z_0$ bo torej veljalo
@@ -3083,7 +3109,7 @@ Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opi
         ki je očitno predpis holomorfne funkcije na tej odprti okolici.
 
         \item
-        Če je $z_0 \in \C\setminus\tfrac{1}{2}\Lambda$, pa imamo na okolici točke $\phi(\pi(z_0))$ lokalno karto $\phi$, ki je oblike $\psi(\pcoor{x : y : 1}) = x$ in na dovolj majhni odprti okolici $z_0$ velja
+        Če je $z_0 \in \C\setminus\tfrac{1}{2}\Lambda$, pa imamo na okolici točke $\phi(\pi(z_0))$ lokalno karto $\psi$, ki je oblike $\psi(\pcoor{x : y : 1}) = x$ in na dovolj majhni odprti okolici $z_0$ velja
         \[
             \psi(\phi(\pi(z))) = \psi(\pcoor{\wp(z) : \wp'(z) : 1}) = \wp(z),  
         \]
@@ -3115,16 +3141,16 @@ Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opi
 
 \begin{izrek}
     \label{bijektivnost j-invariante}
-    $j$-invarianta inducira bijekcijo $j : \HH/\SL \to \C $.
+    $j$-invarianta $j : \HH \to \C$ inducira bijektivno preslikavo $\HH/\SL \to \C $.
 \end{izrek}
     
 \begin{dokaz}
-    Vemo že, da je $j$-invarianta modularna funkcija reda $0$, torej je invariantna na delovanje $\SL$ in tako podaja dobro definirano funkcijo na prostoru orbit $\HH/\SL$. 
+    Vemo že, da je $j$-invarianta modularna funkcija reda $0$, torej je invariantna na delovanje $\SL$ in tako inducira dobro definirano funkcijo na prostoru orbit $\HH/\SL$. 
     % \textbf{injektivnost še}
     
     Nadalje, če za $\tau_1, \tau_2 \in \HH$ velja $j(\tau_1) = j(\tau_2)$, imata mreži $\lattice{1}{\tau_1}$ in $\lattice{1}{\tau_2}$ isti $j$-invarianti, od koder po trditvi \ref{ekvivalentni mrezi -- isti j} iz dodatka sledi, da sta homotetični. Za homotetični mreži takšne oblike pa nam trditev \ref{ekvivalentne normalizirane mreze} zagotavlja obstoj elementa $\gamma \in \SL$, da velja $\tau_1 = \gamma \tau_2$. To pomeni, da sta $\tau_1$ in $\tau_2$ del iste orbite in zato $j$ inducira injektivno preslikavo na kvocientu $\HH/\SL$.
 
-    Oglejmo si še, zakaj je $j$ surejktivna. Od tod bo namreč sledila surjektivnost in posledično bijektivnost inducirane preslikave na prostoru orbit. Ker je $j$ nekonstantna holomorfna funkcija, je $j(\HH)$ odprta množica v $\C$. Kompleksna ravnina $\C$ je povezana, zato bo zadoščalo preveriti, da je $j(\HH)$ tudi zaprta v $\C$, od koder bo sledilo $j(\HH) = \C$ in pokazlo surjektivnost $j$. 
+    Oglejmo si še, zakaj je $j$ surjektivna. Od tod bo namreč sledila surjektivnost in posledično bijektivnost inducirane preslikave na prostoru orbit. Ker je $j$ nekonstantna holomorfna funkcija, je $j(\HH)$ odprta množica v $\C$. Kompleksna ravnina $\C$ je povezana, zato bo zadoščalo preveriti, da je $j(\HH)$ tudi zaprta v $\C$, od koder bo sledilo $j(\HH) = \C$ in pokazlo surjektivnost $j$. 
 
     Vemo, da je podmnožica v $\C$ zaprta natanko tedaj, ko vsebuje vsa svoja stekališča. Naj bo $j_0 \in \C$ poljubno stekališče slike $j(\HH)$. Tedaj obstaja zaporedje $(z_n)_{n\in \N}$ v $\HH$, katerega slike z $j$ konvergirajo k $j_0$ \tj 
     \begin{equation}
@@ -3139,9 +3165,9 @@ Nazanje s pomočjo modularne $j$-invariante dokažemo še uniformizacijo, ki opi
     % brez škode za splošnost za vsak člen zaporedja privzamemo $z_n \in D$. 
     Ravno zaradi tega, lahko predpostavimo, da so realni deli zaporedja $(z_n)_{n\in \N}$ omejeni. Sedaj ločimo dve možnosti.
 
-    Če je zaporedje imaginarnih delov $(\Im(z_n))_{n \in \N}$ omejeno, je zaporedje $(z_n)_{n\in \N}$ omejeno in ima zato stekališče $z \in \HH$. Ker je $j$ zvezna, velja
+    Če je zaporedje imaginarnih delov $(\Im(z_n))_{n \in \N}$ omejeno, je zaporedje $(z_n)_{n\in \N}$ omejeno in ima zato stekališče $z \in \HH$. Izberemo si lahko podzaporedje $(z_{n_k})_{k\in\N}$, ki konvergira k $z$, od koder zaradi zveznosti $j$, velja
     \[
-        j_0 = \lim_{n \to \infty}j(z_n) = j(z) \in j(\HH).  
+        j_0 = \lim_{k \to \infty}j(z_{n_k}) = j(z) \in j(\HH).  
     \] 
 
     Če pa je zaporedje $(\Im(z_n))_{n \in \N}$ neomejeno, ima to zaporedje konvergentno podzaporedje $(z_{n_k})_{k \in \N}$, ki konvergira proti $\infty$. 
@@ -3174,23 +3200,23 @@ Izrek \ref{izomorfizem torusa in krivulje} je pokazal, kako lahko vsak kompleksn
     \[
         E: \quad y^2z = 4x^3 - axz^2 - bz^3, \quad \text{kjer je} \quad a^3 - 27b^2 \neq 0,  
     \]
-    obstaja mreža $\Lambda \subseteq \C$, da je $a = g_2(\Lambda)$ in $b = g_3(\Lambda)$. Posledično je $\torus \cong E(\C)$ izomorfizem Riemannovih ploskev. 
+    obstaja mreža $\Lambda \subseteq \C$, da je $a = g_2(\Lambda)$ in $b = g_3(\Lambda)$. Posledično sta kompleksni torus $\torus$ in eliptična krivulja $E(\C)$ izomorfna v smislu Riemannovih ploskev, preko izomorfizma podanega v izreku \ref{izomorfizem torusa in krivulje}. 
 \end{izrek}
 
 \begin{dokaz}
     Naj bo $j_E = 1728\frac{a^3}{a^3 - 27b^2}$ $j$-invarianta eliptične krivulje $E$. Tedaj po izreku \ref{bijektivnost j-invariante} obstaja tak $\tau \in \HH$, da je $j(\tau) = j_E$. Mreža $\Lambda_0 = \langle 1, \tau \rangle$ ima tedaj $j$-invarianto enako
     \[
-        j(\Lambda_0) = 1728\frac{g_2(\Lambda_0)^3}{g_2(\Lambda_0)^3 - 27g_3(\Lambda_0)^2} = 1728\frac{a^3}{a^3 - 27b^2}.  
+        j(\Lambda_0) = 1728\frac{g_2(\Lambda_0)^3}{g_2(\Lambda_0)^3 - 27g_3(\Lambda_0)^2} = 1728\frac{a^3}{a^3 - 27b^2} = j_E.  
     \]
-    Eliptična krivulja $E_0$, podana z enačbo
+    Eliptična krivulja $E_0$, ki izhaja iz mreže $\Lambda_0$, podana z enačbo
     \[
         E_0: \quad y^2z = 4x^3 - g_2(\Lambda_0)xz^2 - g_3(\Lambda_0)z^3, 
     \]
-    je zato projektivno ekvivalentna $E(\C)$, Lema \ref{projektivnosti wnf} nam tedaj pove, da obstaja tak $\alpha \in \CM$, da velja $a = \alpha^{-2}g_2(\Lambda_0)$ in $b = \alpha^{-3}g_3(\Lambda_0)$. Če upoštevamo še \eqref{eq: transformacija G_k vrst}, zadošča vzeti $\Lambda = \alpha\Lambda_0$, od koder dobimo želeno zvezo
+    ima $j$-invarianto enako ravno $j(\Lambda_0)$, zato je po trditvi \ref{proj ekviv iff j enaki} projektivno ekvivalentna krivulji $E(\C)$. Lema \ref{projektivnosti wnf} nam tedaj pove, da obstaja tak $\alpha \in \CM$, da velja $a = \alpha^{-2}g_2(\Lambda_0)$ in $b = \alpha^{-3}g_3(\Lambda_0)$. Če upoštevamo še enakost \eqref{eq: transformacija G_k vrst}, zadošča vzeti $\Lambda = \alpha\Lambda_0$, od koder dobimo želeno zvezo
     \[
         a = g_2(\Lambda) \quad \text{in} \quad b = g_3(\Lambda).  
     \]
-    Trditev \ref{izomorfizem torusa in krivulje} nazadnje zagotovi še izomorfizem Riemannovih ploskev $\torus \iso E(\C)$.
+    Izrek \ref{izomorfizem torusa in krivulje} nazadnje zagotovi še izomorfizem Riemannovih ploskev $\torus \to E(\C)$.
 \end{dokaz}
 
 \begin{posledica}
@@ -3207,6 +3233,16 @@ Izrek \ref{izomorfizem torusa in krivulje} je pokazal, kako lahko vsak kompleksn
 % $\mathscr{L}/\CM$
 
 \section{Dodatek}
+
+V dokazu izreka \ref{bijektivnost j-invariante} omenjamo $j$-invarianto mreže $\Lambda$, ki jo definiramo kot $j$-invarianto eliptične krivulje, podane z enačbo
+\[
+    E_\Lambda: \quad y^2z = 4x^3 - g_2(\Lambda)xz^2 - g_3(\Lambda)z^3,  
+\]
+torej s formulo
+\[
+    j(\Lambda) = 1728\frac{g_2(\Lambda)^3}{g_2(\Lambda)^3 - 27g_3(\Lambda)^2}.
+\]
+
 
 \begin{trditev}
     \label{ekvivalentni mrezi -- isti j}
@@ -3256,7 +3292,7 @@ Izrek \ref{izomorfizem torusa in krivulje} je pokazal, kako lahko vsak kompleksn
     \[
         a_{k+1} = \frac{6}{(2k + 2)(2k + 1) - 12}\sum_{j = 1}^{k-1}a_j a_{k-j},
     \]
-    ki je popolnoma določena s poznanima začetnima členoma $a_1 = g_2(\Lambda)/20$ in $a_2 = g_3(\Lambda)/28$, ki ju preberemo iz Laurentovega razvoja \eqref{eq: Laurentov razvoj wp} funkcije $\wp$. Koeficienti Laurentovega razvoja $\wp$ okoli izhodišča so torej popolnoma določeni že z vrednostima $g_2(\Lambda)$ in $g_3(\Lambda)$, zato velja $\wp_{\Lambda_2}(z) = \wp_{\alpha\Lambda_1}(z)$ za vse $z \in \C$. V posebnem to pomeni, da se $\wp_{\Lambda_2}$ in $\wp_{\alpha\Lambda_1}$ ujemata tudi v množici njunih polov, od koder sledi želeni rezultat $\Lambda_2 = \alpha\Lambda_1$.
+    ki je popolnoma določena s poznanima začetnima členoma $a_1 = g_2(\Lambda)/20$ in $a_2 = g_3(\Lambda)/28$, ki ju preberemo iz Laurentovega razvoja \eqref{eq: Laurentov razvoj wp} funkcije $\wp$. Koeficienti Laurentovega razvoja $\wp$ okoli izhodišča so torej popolnoma določeni že z vrednostima $g_2(\Lambda)$ in $g_3(\Lambda)$, zato velja $\wp_{\Lambda_2}(z) = \wp_{\alpha\Lambda_1}(z)$ za vse $z \in \C$. V posebnem to pomeni, da se $\wp_{\Lambda_2}$ in $\wp_{\alpha\Lambda_1}$ ujemata tudi v množici njunih polov, od koder sledi želeni rezultat $\Lambda_2 = \alpha\Lambda_1$, ki pove, da sta mreži $\Lambda_1$ in $\Lambda_2$ homotetični.
     % $g_2(\Lambda_2) = \alpha^{-2}g_2(\Lambda_1)$ in $g_3(\Lambda_2) = \alpha^{-3}g_3(\Lambda_1)$. Zaradi lastnosti Eisensteinovih vrst, je $g_2(\Lambda_2) = g_2(\alpha\Lambda_1)$ in $g_3(\Lambda_2) = g_3(\alpha\Lambda_1)$. 
     % \textbf{tole  še ni končano.}
 \end{dokaz}
@@ -3289,11 +3325,17 @@ Izrek \ref{izomorfizem torusa in krivulje} je pokazal, kako lahko vsak kompleksn
     \bibitem{Ahlfors}
         L.~V.~Ahlfors, \emph{Complex analysis}, third edition, McGraw-Hill, Inc., New York, 1979.
 
+    \bibitem{Diskriminanta}
+        A.~E.~Brouwer, \emph{Resultant and discriminant}, [ogled 29.~5.~2022], dostopno na \url{www.win.tue.nl/~aeb/2WF02/resultant.pdf}
+
+    \bibitem{Cheritat}
+        A.~Chéritat, \emph{Galerie III: Geometry}, [ogled 6.~6.~2022], dostopnno na \url{www.math.univ-toulouse.fr/~cheritat/GalIII/galery.html}
+
     \bibitem{Gibson}
         C.~G.~Gibson, \emph{Elementary geometry of algebraic curves: An undergraduate introduction}, Cambridge University Press, Cambridge, 1998.
 
     \bibitem{Globevnik}
-        J.~Globevnik in M.~Brojan, \emph{Analiza II}, verzija 10.~8.~2010, [ogled 28.~7.~2021], dostopno na \url{https://www.fmf.uni-lj.si/~globevnik/skriptaII.pdf}.
+        J.~Globevnik in M.~Brojan, \emph{Analiza II}, verzija 10.~8.~2010, [ogled 28.~7.~2021], dostopno na \url{www.fmf.uni-lj.si/~globevnik/skriptaII.pdf}.
     
     \bibitem{LangEllfunc}
         S.~Lang, \emph{Elliptic functions}, Graduate Texts in Mathematics \textbf{112}, Springer-Verlag, New York, 1973.
@@ -3308,10 +3350,9 @@ Izrek \ref{izomorfizem torusa in krivulje} je pokazal, kako lahko vsak kompleksn
         J.~H.~Silverman, \emph{The arithmetic of elliptic curves}, Graduate Texts in Mathematics \textbf{106}, Springer-Verlag, New York, 1986.
 
     \bibitem{Stevenhagen}    
-        P.~Stevenhagen, \emph{Complex elliptic curves}, verzija 1.~10.~2013, [ogled 9.~2.~2021], dostopno na \url{http://www.julianlyczak.nl/teaching/EC2015-files/ec.pdf}.
+        P.~Stevenhagen, \emph{Complex elliptic curves}, verzija 1.~10.~2013, [ogled 9.~2.~2021], dostopno na \url{www.julianlyczak.nl/teaching/EC2015-files/ec.pdf}.
 
-    \bibitem{Diskriminanta}
-        \emph{Resultant and discriminant}, [ogled 29.~5.~2022] dostopno na \url{https://www.win.tue.nl/~aeb/2WF02/resultant.pdf}
+    
     
 \end{thebibliography}
 
